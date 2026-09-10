@@ -1,0 +1,17 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest ruff mypy
+      - run: ruff check src tools tests
+      - run: mypy src
+      - run: PYTHONPATH=src:tools python3 -m pytest -q
+      # The retrieval eval is deterministic and needs no API key, so it runs on
+      # every push. If the numbers in the README stop reproducing, CI fails.
+      - run: PYTHONPATH=src:tools python3 tools/run_retrieval_eval.py --check
