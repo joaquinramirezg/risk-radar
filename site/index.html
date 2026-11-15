@@ -1,0 +1,306 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risk Radar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="What 20 large US companies added, removed and rewrote in their 10-K risk factors, filing over filing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a filing desk. A single reading column; the year-over-year comparison is drawn
+   as a lawyer's blackline: insertions in blue with an underline, deletions in red struck through. */
+:root {
+  --paper: #f7f8fa;
+  --sheet: #ffffff;
+  --ink: #18202c;
+  --ink-2: #4a5566;
+  --rule: #d9dee6;
+  --ins: #1d4ed8;
+  --ins-bg: #e6edff;
+  --del: #b42318;
+  --del-bg: #fdecea;
+  --rew: #a15c07;
+  --rew-bg: #fdf1dc;
+  --edit: #5b6b82;
+  --edit-bg: #eef1f5;
+  --focus: #1d4ed8;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-doc: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f141b; --sheet: #161d27; --ink: #e6ebf2; --ink-2: #9aa7b8; --rule: #2a3442;
+    --ins: #8fb0ff; --ins-bg: #1b2a4d; --del: #ff8f85; --del-bg: #3d1d1c;
+    --rew: #f0b45e; --rew-bg: #3a2a12; --edit: #a3b1c4; --edit-bg: #222b37; --focus: #8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f141b; --sheet: #161d27; --ink: #e6ebf2; --ink-2: #9aa7b8; --rule: #2a3442;
+  --ins: #8fb0ff; --ins-bg: #1b2a4d; --del: #ff8f85; --del-bg: #3d1d1c;
+  --rew: #f0b45e; --rew-bg: #3a2a12; --edit: #a3b1c4; --edit-bg: #222b37; --focus: #8fb0ff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font: 400 15px/1.55 var(--f-ui);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+}
+.wrap { max-width: 980px; margin: 0 auto; display: grid; gap: 40px; }
+a { color: var(--ins); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+.eyebrow { font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* masthead */
+header.mast { display: grid; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+header.mast h1 { font-size: clamp(34px, 6vw, 52px); font-weight: 700; line-height: 1; }
+header.mast h1 .ins { color: var(--ins); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+header.mast h1 .del { color: var(--del); text-decoration: line-through; text-decoration-thickness: 3px; }
+header.mast p { margin: 0; max-width: 62ch; color: var(--ink-2); font-size: 16px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* status pills */
+.pill { display: inline-flex; align-items: center; gap: 4px; font: 500 12px/1 var(--f-mono); padding: 4px 7px; border-radius: 4px; white-space: nowrap; border: 0; }
+.st-new { color: var(--ins); background: var(--ins-bg); }
+.st-removed { color: var(--del); background: var(--del-bg); }
+.st-rewritten { color: var(--rew); background: var(--rew-bg); }
+.st-edited { color: var(--edit); background: var(--edit-bg); }
+.st-unchanged { color: var(--ink-2); background: transparent; border: 1px solid var(--rule); }
+
+/* themes chart */
+section.themes { display: grid; gap: 16px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.section-head h2 { font-size: 24px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 13px/1 var(--f-ui); padding: 8px 11px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chart { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.chart-note { font-size: 13px; color: var(--ink-2); margin: 0; }
+
+/* company list */
+.companies { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.co { display: grid; gap: 10px; align-content: start; text-align: left; background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; color: var(--ink); text-decoration: none; min-width: 0; }
+.co:hover { border-color: var(--ink-2); }
+.co-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.co-tk { font: 700 20px/1 var(--f-display); }
+.co-name { font-size: 12px; color: var(--ink-2); text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.co ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.co li { font: 400 13.5px/1.4 var(--f-doc); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.co li.n { color: var(--ins); }
+.co li.r { color: var(--del); text-decoration: line-through; }
+.co .quiet { font-size: 13px; color: var(--ink-2); margin: 0; }
+
+/* company view */
+.back { font: 500 14px var(--f-ui); background: none; border: 0; padding: 0; color: var(--ins); cursor: pointer; justify-self: start; }
+.co-head { display: grid; gap: 10px; border-bottom: 2px solid var(--ink); padding-bottom: 18px; }
+.co-head h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; }
+.filings { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); }
+.bar { display: flex; height: 10px; border-radius: 3px; overflow: hidden; background: var(--rule); }
+.bar span { display: block; height: 100%; }
+.bar .b-new { background: var(--ins); } .bar .b-removed { background: var(--del); }
+.bar .b-rewritten { background: var(--rew); } .bar .b-edited { background: var(--edit); }
+.bar .b-unchanged { background: var(--rule); }
+.cat { display: grid; gap: 10px; }
+.cat h3 { font: 600 12px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); padding-top: 8px; }
+details.risk { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+details.risk[data-st="new"] { border-left: 3px solid var(--ins); }
+details.risk[data-st="removed"] { border-left: 3px solid var(--del); }
+details.risk[data-st="rewritten"] { border-left: 3px solid var(--rew); }
+details.risk summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+details.risk summary::-webkit-details-marker { display: none; }
+details.risk summary .t { font: 600 15.5px/1.4 var(--f-doc); min-width: 0; }
+details.risk[data-st="removed"] summary .t { text-decoration: line-through; text-decoration-color: var(--del); }
+.doc { font: 400 15.5px/1.7 var(--f-doc); padding: 0 16px 16px; max-width: 72ch; white-space: pre-wrap; overflow-wrap: anywhere; }
+.doc ins { color: var(--ins); background: var(--ins-bg); text-decoration: underline; text-underline-offset: 2px; }
+.doc del { color: var(--del); background: var(--del-bg); }
+.doc .old-title { font: 400 13px/1.4 var(--f-ui); color: var(--ink-2); margin-bottom: 8px; white-space: normal; }
+.meta { font: 400 12px var(--f-mono); color: var(--ink-2); padding: 0 16px 12px; }
+.empty { color: var(--ink-2); font-size: 14px; margin: 0; }
+
+/* method */
+footer.method { border-top: 1px solid var(--rule); padding-top: 20px; display: grid; gap: 12px; font-size: 14px; color: var(--ink-2); }
+footer.method h2 { font-size: 18px; color: var(--ink); }
+footer.method p { margin: 0; max-width: 72ch; }
+.status { display: inline-block; font: 500 12px var(--f-mono); padding: 3px 7px; border-radius: 4px; background: var(--rew-bg); color: var(--rew); }
+@media (prefers-reduced-motion: no-preference) { .co, .chip { transition: border-color .15s, background .15s; } }
+</style>
+</head><body>
+<div class="wrap" id="app">
+  <header class="mast">
+    <span class="eyebrow">SEC 10-K · Item 1A · filing over filing</span>
+    <h1>Risk Radar</h1>
+    <p id="lede">What 20 of the largest US companies <span style="color:var(--ins)">added</span>, <span style="color:var(--del)">removed</span> and rewrote in the risk factors of their annual report, compared with the year before.</p>
+    <div class="legend" aria-label="Legend">
+      <span><b class="pill st-new">new</b> no counterpart last year</span>
+      <span><b class="pill st-removed">removed</b> dropped this year</span>
+      <span><b class="pill st-rewritten">rewritten</b> same risk, mostly new text</span>
+      <span><b class="pill st-edited">edited</b> same risk, some edits</span>
+    </div>
+  </header>
+  <main id="view" aria-live="polite"><p class="empty">Loading filings…</p></main>
+  <footer class="method">
+    <h2>How it works</h2>
+    <p>For each company the two most recent 10-K filings are downloaded from SEC EDGAR. Item 1A is split into individual risk factors using the filing's own formatting: a risk factor's title is set in bold or italic. Each risk this year is matched to last year's with a small open embedding model (bge-small-en-v1.5) on its title and opening paragraph, one-to-one, at a similarity of 0.80 or more. Matched risks are then compared word by word: 98% or more the same is unchanged, 75% or more is edited, anything lower is rewritten.</p>
+    <p>Theme counts are plain phrase matches over the risk-factor text, so they can be checked with Find in the filing itself. A company that writes more pages will mention most things more often.</p>
+    <p><span class="status">Accuracy not yet measured</span> The splitter and the matcher are being checked against a hand-labelled sample. Until that is published, treat every label here as the system's call, and open the filing before relying on it.</p>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const view = document.getElementById("view");
+  const ORDER = ["new", "removed", "rewritten", "edited", "unchanged"];
+  const LABEL = { new: "new", removed: "removed", rewritten: "rewritten", edited: "edited", unchanged: "unchanged" };
+  let INDEX = null, theme = null;
+  const cache = {};
+
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const yr = d => d.slice(0, 4);
+  const pill = (st, n) => `<span class="pill st-${st}">${n != null ? `<span class="num">${n}</span> ` : ""}${LABEL[st]}</span>`;
+
+  async function getJSON(path) {
+    if (!cache[path]) {
+      cache[path] = fetch(path).then(r => { if (!r.ok) throw new Error(path + " " + r.status); return r.json(); });
+    }
+    return cache[path];
+  }
+
+  function themeChart() {
+    const cos = INDEX.companies.map(c => ({ t: c.ticker, a: c.themes.previous[theme], b: c.themes.current[theme] }))
+      .sort((x, y) => (y.b - y.a) - (x.b - x.a) || y.b - x.b);
+    const max = Math.max(1, ...cos.flatMap(c => [c.a, c.b]));
+    const W = 760, row = 22, top = 26, left = 64, right = 70, H = top + cos.length * row + 8;
+    const x = v => left + (W - left - right) * v / max;
+    const ticks = [0, Math.round(max / 2), max];
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mentions of ${esc(theme)} per company, last filing and this filing">`;
+    ticks.forEach(t => {
+      s += `<line x1="${x(t)}" x2="${x(t)}" y1="${top - 6}" y2="${H - 4}" stroke="var(--rule)" stroke-width="1"/>`;
+      s += `<text x="${x(t)}" y="${top - 12}" fill="var(--ink-2)" font-size="11" font-family="var(--f-mono)" text-anchor="middle">${t}</text>`;
+    });
+    cos.forEach((c, i) => {
+      const y = top + i * row + row / 2, up = c.b > c.a, down = c.b < c.a;
+      const col = up ? "var(--ins)" : down ? "var(--del)" : "var(--ink-2)";
+      s += `<text x="${left - 10}" y="${y + 4}" fill="var(--ink)" font-size="12" font-weight="600" font-family="var(--f-mono)" text-anchor="end">${esc(c.t)}</text>`;
+      s += `<line x1="${x(c.a)}" x2="${x(c.b)}" y1="${y}" y2="${y}" stroke="${col}" stroke-width="2"/>`;
+      s += `<circle cx="${x(c.a)}" cy="${y}" r="4" fill="var(--sheet)" stroke="var(--ink-2)" stroke-width="1.5"/>`;
+      s += `<circle cx="${x(c.b)}" cy="${y}" r="4.5" fill="${col}"/>`;
+      s += `<text x="${x(Math.max(c.a, c.b)) + 10}" y="${y + 4}" fill="${col}" font-size="11.5" font-family="var(--f-mono)">${c.a} → ${c.b}</text>`;
+    });
+    return s + "</svg>";
+  }
+
+  function renderHome() {
+    document.title = "Risk Radar";
+    const up = INDEX.companies.filter(c => c.themes.current[theme] > c.themes.previous[theme]).length;
+    const cards = INDEX.companies.slice().sort((a, b) =>
+      (b.counts.new + b.counts.removed) - (a.counts.new + a.counts.removed) || b.counts.rewritten - a.counts.rewritten
+    ).map(c => {
+      const items = c.new_titles.map(t => `<li class="n">${esc(t)}</li>`).concat(c.removed_titles.map(t => `<li class="r">${esc(t)}</li>`));
+      return `<a class="co" href="#${esc(c.ticker)}">
+        <div class="co-top"><span class="co-tk">${esc(c.ticker)}</span><span class="co-name">${esc(c.company)}</span></div>
+        <div class="co-pills">${["new", "removed", "rewritten", "edited"].filter(k => c.counts[k]).map(k => pill(k, c.counts[k])).join("")}</div>
+        ${items.length ? `<ul>${items.slice(0, 4).join("")}</ul>` : `<p class="quiet">No risks added or removed. ${c.counts.unchanged} of ${c.current.risks} unchanged word for word.</p>`}
+      </a>`;
+    }).join("");
+    view.innerHTML = `
+      <div style="display:grid;gap:40px">
+      <section class="themes" aria-labelledby="th">
+        <div class="section-head"><h2 id="th">How often each company mentions a theme</h2>
+          <div class="chips" role="group" aria-label="Theme">${INDEX.themes.map(t => `<button class="chip" type="button" aria-pressed="${t === theme}" data-theme-name="${esc(t)}">${esc(t)}</button>`).join("")}</div>
+        </div>
+        <div class="chart">${themeChart()}</div>
+        <p class="chart-note"><span class="num">${up}</span> of ${INDEX.companies.length} companies mention ${esc(theme.toLowerCase())} more often in their latest risk factors. Hollow dot: previous filing. Solid dot: latest.</p>
+      </section>
+      <section aria-labelledby="co"><div class="section-head" style="margin-bottom:14px"><h2 id="co">Companies, most changed first</h2></div>
+        <div class="companies">${cards}</div>
+      </section></div>`;
+    view.querySelectorAll("[data-theme-name]").forEach(b => b.addEventListener("click", () => {
+      theme = b.dataset.themeName;
+      try { localStorage.setItem("rr-theme", theme); } catch (e) {}
+      renderHome();
+    }));
+  }
+
+  function riskBody(r) {
+    if (r.diff) {
+      const html = r.diff.map(([op, t]) => op === "+" ? `<ins>${esc(t)}</ins>` : op === "-" ? `<del>${esc(t)}</del>` : esc(t)).join("");
+      const ot = r.old_title && r.old_title !== r.title ? `<div class="old-title">Last year's title: ${esc(r.old_title)}</div>` : "";
+      return `<div class="doc">${ot}${html}</div>`;
+    }
+    const txt = r.status === "new" ? `<ins>${esc(r.body)}</ins>` : r.status === "removed" ? `<del>${esc(r.body)}</del>` : esc(r.body);
+    return `<div class="doc">${txt}</div>`;
+  }
+
+  async function renderCompany(tk) {
+    const meta = INDEX.companies.find(c => c.ticker === tk);
+    if (!meta) { location.hash = ""; return; }
+    view.innerHTML = `<p class="empty">Loading ${esc(tk)}…</p>`;
+    const d = await getJSON(`data/${tk}.json`);
+    document.title = `${tk} · Risk Radar`;
+    let show = new Set(["new", "removed", "rewritten"]);
+    const total = d.risks.length;
+    const draw = () => {
+      const firstNew = d.risks.find(r => r.status === "new");
+      const byCat = new Map();
+      d.risks.filter(r => show.has(r.status)).forEach(r => {
+        const k = r.category || "Uncategorized";
+        if (!byCat.has(k)) byCat.set(k, []);
+        byCat.get(k).push(r);
+      });
+      const list = [...byCat].map(([cat, rs]) => `<section class="cat"><h3>${esc(cat)}</h3>${rs.map(r =>
+        `<details class="risk" data-st="${r.status}"${r === firstNew ? " open" : ""}>
+          <summary>${pill(r.status)}<span class="t">${esc(r.title)}</span></summary>
+          ${riskBody(r)}
+          ${r.status !== "new" && r.status !== "removed" ? `<div class="meta num">match ${r.match.toFixed(2)} · ${Math.round(r.ratio * 100)}% of the words unchanged</div>` : ""}
+        </details>`).join("")}</section>`).join("");
+      view.querySelector("#risks").innerHTML = list || `<p class="empty">Nothing in this view. Pick another status above.</p>`;
+      view.querySelectorAll("[data-st-filter]").forEach(b => b.setAttribute("aria-pressed", show.has(b.dataset.stFilter)));
+    };
+    view.innerHTML = `
+      <div style="display:grid;gap:22px">
+      <button class="back" type="button" id="back">← All companies</button>
+      <div class="co-head">
+        <span class="eyebrow">${esc(d.company)}</span>
+        <h1>${esc(d.ticker)}: ${d.counts.new} new, ${d.counts.removed} removed, ${d.counts.rewritten} rewritten</h1>
+        <div class="filings num">
+          <span>Latest: fiscal ${yr(d.current.period_end)} · ${d.current.risks} risks · <a href="${esc(d.current.url)}" target="_blank" rel="noopener">filing on EDGAR</a></span>
+          <span>Previous: fiscal ${yr(d.previous.period_end)} · ${d.previous.risks} risks · <a href="${esc(d.previous.url)}" target="_blank" rel="noopener">filing on EDGAR</a></span>
+        </div>
+        <div class="bar" role="img" aria-label="Share of risks by status">${ORDER.map(k => d.counts[k] ? `<span class="b-${k}" style="width:${100 * d.counts[k] / total}%"></span>` : "").join("")}</div>
+      </div>
+      <div class="chips" role="group" aria-label="Show risks that are">${ORDER.map(k => `<button class="chip" type="button" data-st-filter="${k}" aria-pressed="false">${LABEL[k]} <span class="num">${d.counts[k]}</span></button>`).join("")}</div>
+      <div id="risks" style="display:grid;gap:18px"></div></div>`;
+    view.querySelector("#back").addEventListener("click", () => { location.hash = ""; });
+    view.querySelectorAll("[data-st-filter]").forEach(b => b.addEventListener("click", () => {
+      const k = b.dataset.stFilter; show.has(k) ? show.delete(k) : show.add(k); draw();
+    }));
+    draw();
+    window.scrollTo(0, 0);
+  }
+
+  function route() {
+    const tk = decodeURIComponent(location.hash.slice(1));
+    (tk ? renderCompany(tk) : Promise.resolve(renderHome())).catch(err => {
+      view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;
+    });
+  }
+
+  getJSON("data/index.json").then(ix => {
+    INDEX = ix;
+    let saved = null;
+    try { saved = localStorage.getItem("rr-theme"); } catch (e) {}
+    theme = ix.themes.includes(saved) ? saved : ix.themes[0];
+    window.addEventListener("hashchange", route);
+    route();
+  }).catch(err => { view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}).</p>`; });
+})();
+</script>
+</body></html>
