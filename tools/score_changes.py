@@ -3,9 +3,14 @@
 
   python3 tools/score_changes.py
 
-Compares each reports/change_types.<prompt>.jsonl with labels/change_labels.json
-and writes reports/change_eval.json: accuracy and Cohen's kappa with a bootstrap
-95% interval, the confusion matrix, cost at list price, and latency percentiles.
+Compares each reports/change_types.<prompt>[.<model>].jsonl with two label sets
+and writes reports/change_eval.json: "original" (labels/change_labels.json) and
+"adjudicated" (labels/change_labels_adjudicated.json, the 17 items where the
+models agreed against the original label re-read once). The first is a lower
+bound and the second an upper bound on accuracy. It also reports pairwise kappa
+between every run and both label sets. For each run it gives accuracy and
+Cohen's kappa with a bootstrap 95% interval, the confusion matrix, cost at list
+price, and latency percentiles.
 
 The labelled sample is split in two by key: "dev" (even) is the half that was
 read to revise the prompt, "test" (odd) was not looked at, so only test scores
@@ -21,7 +26,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LABELS = ["new_exposure", "escalated", "de_escalated", "boilerplate"]
-PRICE_PER_MTOK = {"claude-haiku-5-5": (0.10, 0.50)}  # input, output in USD
+PRICE_PER_MTOK = {  # input, output in USD, list price
+    "claude-haiku-5-5": (0.10, 0.50),
+    "claude-sonnet-5-5": (2.00, 10.00),
+    "claude-opus-5-5": (4.00, 20.00),
+}
 
 
 def kappa(a: list[str], b: list[str]) -> float:
@@ -62,13 +71,15 @@ def score_run(path: Path, gold: dict) -> dict:
     g = [gold[k]["label"] for k in keys]
     p = [pred[k] or "none" for k in keys]
     model = rows[0]["model"]
+    sample = [r for r in rows if r["key"] in gold]
     pin, pout = PRICE_PER_MTOK[model]
-    tin = sum(r["input_tokens"] for r in rows)
-    tout = sum(r["output_tokens"] for r in rows)
-    secs = sorted(r["seconds"] for r in rows)
+    tin = sum(r["input_tokens"] for r in sample)
+    tout = sum(r["output_tokens"] for r in sample)
+    secs = sorted(r["seconds"] for r in sample)
     return {
         "model": model,
         "prompt": rows[0]["prompt"],
+        "effort": rows[0].get("effort", "low"),
         "calls": len(rows),
         "all": agreement(gold, pred, keys),
         "dev": agreement(gold, pred, [k for k in keys if split(k) == "dev"]),
@@ -76,22 +87,43 @@ def score_run(path: Path, gold: dict) -> dict:
         "confusion": {gl: {pl: sum(1 for x, y in zip(g, p, strict=True) if x == gl and y == pl)
                            for pl in LABELS} for gl in LABELS},
         "predicted_all": dict(Counter(r["label"] for r in rows)),
-        "tokens": {"input": tin, "output": tout},
-        "cost_usd": round(tin / 1e6 * pin + tout / 1e6 * pout, 4),
+        "tokens_on_sample": {"input": tin, "output": tout},
+        "cost_usd_on_sample": round(tin / 1e6 * pin + tout / 1e6 * pout, 4),
+        "cost_usd_per_1000": round((tin * pin + tout * pout) / 1e6 / len(sample) * 1000, 2),
         "latency_s": {"p50": statistics.median(secs), "p95": secs[int(0.95 * (len(secs) - 1))]},
         "disagreements": [{"key": k, "ticker": gold[k]["ticker"], "gold": x, "model": y}
                           for k, x, y in zip(keys, g, p, strict=True) if x != y],
     }
 
 
+def pairwise(sets: dict[str, dict[str, str]], keys: list[str]) -> dict[str, dict[str, float]]:
+    return {a: {b: round(kappa([sets[a][k] or "none" for k in keys],
+                               [sets[b][k] or "none" for k in keys]), 3) for b in sets}
+            for a in sets}
+
+
 def main() -> int:
-    gold = json.loads((ROOT / "labels" / "change_labels.json").read_text())["labels"]
+    golds = {name: json.loads((ROOT / "labels" / f).read_text())["labels"]
+             for name, f in (("original", "change_labels.json"),
+                             ("adjudicated", "change_labels_adjudicated.json"))}
     runs = sorted((ROOT / "reports").glob("change_types.*.jsonl"))
-    report = {r.stem.split(".")[1]: score_run(r, gold) for r in runs}
+    report: dict[str, object] = {
+        name: {r.stem.split(".", 1)[1]: score_run(r, gold) for r in runs}
+        for name, gold in golds.items()
+    }
+    keys = list(golds["original"])
+    sets = {f"labels:{n}": {k: g[k]["label"] for k in keys} for n, g in golds.items()}
+    for r in runs:
+        rows = [json.loads(x) for x in r.read_text().splitlines() if x]
+        sets[r.stem.split(".", 1)[1]] = {x["key"]: x["label"] for x in rows}
+    report["kappa_matrix"] = pairwise(sets, keys)
     (ROOT / "reports" / "change_eval.json").write_text(json.dumps(report, indent=1) + "\n")
-    for name, r in report.items():
-        print(name, {k: r[k] for k in ("all", "dev", "test", "predicted_all", "cost_usd",
-                                       "latency_s")})
+    for gname in golds:
+        for name, r in report[gname].items():
+            t = r["test"]
+            print(f"{gname:11} {name:14} test acc {t['accuracy']} kappa {t['kappa']} "
+                  f"{t['kappa_ci95']} | all acc {r['all']['accuracy']} kappa {r['all']['kappa']}"
+                  f" | ${r['cost_usd_per_1000']}/1k | p50 {r['latency_s']['p50']}s")
     return 0
 
 

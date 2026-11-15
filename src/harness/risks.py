@@ -10,6 +10,20 @@ emphasized. Inside Item 1A an emphasized block is either:
   - a risk TITLE: a sentence ("We may be unable to ..."). Its body is every
     plain block until the next emphasized block.
 
+Two layouts need more than that:
+
+  - SUBHEADINGS. Microsoft and Alphabet put short headings ("Competition among
+    platform-based ecosystems", "Content moderation:") inside one risk. A short
+    heading that comes straight after a standalone sentence title, or after an
+    earlier subheading of the same risk, belongs to that risk's body. So does a
+    lead ending in a colon.
+  - CATEGORY INTROS. Exxon opens each category ("Supply and Demand") with a
+    paragraph before its run-in titled risks. A heading-only "risk" that is
+    followed by titled risks in the same category was that intro, and is dropped.
+
+A plain (not emphasized) line in capitals is also a category: Microsoft sets
+"STRATEGIC AND COMPETITIVE RISKS" in regular weight.
+
 Stdlib only, like the rest of the deterministic half.
 """
 from __future__ import annotations
@@ -166,6 +180,11 @@ def _item1a_span(blocks: list[Block]) -> tuple[int, int]:
     return best
 
 
+def _caps(text: str) -> bool:
+    letters = [c for c in text if c.isalpha()]
+    return len(letters) >= 8 and sum(c.isupper() for c in letters) / len(letters) > 0.8
+
+
 def is_category(text: str) -> bool:
     letters = [c for c in text if c.isalpha()]
     caps = bool(letters) and sum(c.isupper() for c in letters) / len(letters) > 0.8
@@ -201,12 +220,36 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
         )
 
     out: list[RiskFactor] = []
+    intros: set[int] = set()            # ids of heading-only risks that were intros
     category = ""
     current: RiskFactor | None = None   # the risk the next body block belongs to
+    standalone = False                  # current has its own sentence-title block
+    has_sub = False                     # current already holds a subheading
     prev_was_title = False
     in_summary = False
+
+    def start_run_in(r: RiskFactor) -> None:
+        # A run-in titled risk right after a heading-only one in the same
+        # category shows that heading's paragraph was the category's intro.
+        if out and out[-1].title == out[-1].category == r.category:
+            intros.add(id(out[-1]))
+        out.append(r)
+
     for b in blocks[lo:hi]:
         if furniture(b):
+            continue
+        if (not b.emphasized and _caps(b.text) and len(b.text) < 90
+                and not _PREAMBLE.match(b.text) and not _SUMMARY.match(b.text)):
+            category, current, prev_was_title, standalone = b.text, None, False, False
+            continue
+        heading = (b.emphasized and len(b.text) < 90 and not _caps(b.text)
+                   and not _SUMMARY.match(b.text) and not _PREAMBLE.match(b.text)
+                   and not _CATEGORY_HINT.match(b.text))
+        if (current is not None and standalone and heading
+                and (b.text.rstrip().endswith(":") or not b.text.rstrip().endswith("."))
+                and (not current.body or has_sub)):
+            current.body.append(b.text)  # a subheading inside this risk
+            has_sub, prev_was_title = True, False
             continue
         if b.emphasized and len(b.text) >= 3:
             if _SUMMARY.match(b.text) or (_PREAMBLE.match(b.text) and is_category(b.text)):
@@ -215,7 +258,7 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
                 continue
             in_summary = False
             if is_category(b.text):
-                category, current, prev_was_title = b.text, None, False
+                category, current, prev_was_title, standalone = b.text, None, False, False
             elif _PREAMBLE.match(b.text):
                 current, prev_was_title = None, False
             elif prev_was_title and current is not None and not current.body:
@@ -223,15 +266,19 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
             else:
                 current = RiskFactor(category, b.text)
                 out.append(current)
-                prev_was_title = True
+                prev_was_title, standalone, has_sub = True, True, False
             continue
         prev_was_title = False
         if in_summary:
             continue
         run_in = _run_in(b)
+        if run_in and run_in[0].endswith(":") and current is not None:
+            current.body.append(b.text)  # "Content moderation: ..." inside a risk
+            continue
         if run_in and not _PREAMBLE.match(run_in[0]):
             current = RiskFactor(category, run_in[0], [run_in[1]])
-            out.append(current)
+            start_run_in(current)
+            standalone = False
             continue
         if current is None:
             # Body directly under a heading with no sentence title: the heading
@@ -241,6 +288,7 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
                 continue
             current = RiskFactor(category, category)
             out.append(current)
+            standalone = False
         current.body.append(b.text)
     # A "title" with almost no body is a stray emphasis, not a risk.
-    return [r for r in out if sum(len(x) for x in r.body) >= 150]
+    return [r for r in out if id(r) not in intros and sum(len(x) for x in r.body) >= 150]

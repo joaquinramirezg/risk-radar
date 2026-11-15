@@ -144,6 +144,20 @@
      "cand0"
     ]
    }
+  },
+  "fragments": {
+   "resolved": {
+    "k": 13,
+    "n": 14,
+    "rate": 0.9286,
+    "ci95": [
+     0.6853,
+     0.9873
+    ]
+   },
+   "still_split": [
+    "i097"
+   ]
   }
  },
  "model2_labels": {
@@ -292,6 +306,15 @@
      "cand0"
     ]
    }
+  },
+  "fragments": {
+   "resolved": {
+    "k": 0,
+    "n": 0,
+    "rate": null,
+    "ci95": null
+   },
+   "still_split": []
   }
  },
  "agreement": {

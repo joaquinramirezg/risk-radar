@@ -1,602 +1,3034 @@
 {
- "v1": {
-  "model": "claude-haiku-5-5",
-  "prompt": "v1",
-  "calls": 324,
-  "all": {
-   "n": 80,
-   "accuracy": 0.487,
-   "accuracy_ci95": [
-    0.388,
-    0.6
-   ],
-   "kappa": 0.309,
-   "kappa_ci95": [
-    0.192,
-    0.432
-   ]
-  },
-  "dev": {
-   "n": 38,
-   "accuracy": 0.553,
-   "accuracy_ci95": [
-    0.395,
-    0.711
-   ],
-   "kappa": 0.398,
-   "kappa_ci95": [
-    0.208,
-    0.583
-   ]
-  },
-  "test": {
-   "n": 42,
-   "accuracy": 0.429,
-   "accuracy_ci95": [
-    0.286,
-    0.595
-   ],
-   "kappa": 0.223,
-   "kappa_ci95": [
-    0.086,
-    0.386
-   ]
-  },
-  "confusion": {
-   "new_exposure": {
-    "new_exposure": 25,
-    "escalated": 1,
-    "de_escalated": 1,
-    "boilerplate": 0
+ "original": {
+  "v1": {
+   "model": "claude-haiku-5-5",
+   "prompt": "v1",
+   "effort": "low",
+   "calls": 324,
+   "all": {
+    "n": 80,
+    "accuracy": 0.487,
+    "accuracy_ci95": [
+     0.388,
+     0.6
+    ],
+    "kappa": 0.309,
+    "kappa_ci95": [
+     0.192,
+     0.432
+    ]
    },
-   "escalated": {
-    "new_exposure": 8,
-    "escalated": 5,
-    "de_escalated": 1,
-    "boilerplate": 0
+   "dev": {
+    "n": 38,
+    "accuracy": 0.553,
+    "accuracy_ci95": [
+     0.395,
+     0.711
+    ],
+    "kappa": 0.398,
+    "kappa_ci95": [
+     0.208,
+     0.583
+    ]
    },
-   "de_escalated": {
-    "new_exposure": 2,
-    "escalated": 1,
+   "test": {
+    "n": 42,
+    "accuracy": 0.429,
+    "accuracy_ci95": [
+     0.286,
+     0.595
+    ],
+    "kappa": 0.223,
+    "kappa_ci95": [
+     0.086,
+     0.386
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 25,
+     "escalated": 1,
+     "de_escalated": 1,
+     "boilerplate": 0
+    },
+    "escalated": {
+     "new_exposure": 8,
+     "escalated": 5,
+     "de_escalated": 1,
+     "boilerplate": 0
+    },
+    "de_escalated": {
+     "new_exposure": 2,
+     "escalated": 1,
+     "de_escalated": 6,
+     "boilerplate": 1
+    },
+    "boilerplate": {
+     "new_exposure": 8,
+     "escalated": 4,
+     "de_escalated": 14,
+     "boilerplate": 3
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 40,
+    "new_exposure": 182,
+    "escalated": 41,
+    "de_escalated": 61
+   },
+   "tokens_on_sample": {
+    "input": 187042,
+    "output": 21381
+   },
+   "cost_usd_on_sample": 0.0294,
+   "cost_usd_per_1000": 0.37,
+   "latency_s": {
+    "p50": 1.755,
+    "p95": 3.26
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "51694c53dc0b",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "7146fdb79f7c",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a85f565138eb",
+     "ticker": "NVDA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "0549567a0aca",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "27e48b8dcdbc",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "new_exposure",
+     "model": "de_escalated"
+    },
+    {
+     "key": "fe6ad3e530e5",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "de9dce7dd6ad",
+     "ticker": "BA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "8163ba8af3b2",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "95dec194db55",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "f15ab630a40a",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6b4cd57cb1d9",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "cacc0b402e31",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "721a9708a025",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "8b5186abec9f",
+     "ticker": "MSFT",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "e2a9d79def46",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "fd98861e9ef1",
+     "ticker": "WMT",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "559cb9ceb171",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "ad8bb79d926b",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "405edcb8fd77",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "5337c31544e5",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "cd7695851c36",
+     "ticker": "META",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "34b451e57cf6",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "66421bca5197",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "70ba8d472e88",
+     "ticker": "BA",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "444ef9382610",
+     "ticker": "WMT",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "de85e5ce7033",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "7d2ee24e10d1",
+     "ticker": "AAPL",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6786bfae6300",
+     "ticker": "AAPL",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    }
+   ]
+  },
+  "v2.haiku-high": {
+   "model": "claude-haiku-5-5",
+   "prompt": "v2",
+   "effort": "high",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.6,
+    "accuracy_ci95": [
+     0.487,
+     0.713
+    ],
+    "kappa": 0.434,
+    "kappa_ci95": [
+     0.274,
+     0.585
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.684,
+    "accuracy_ci95": [
+     0.526,
+     0.816
+    ],
+    "kappa": 0.571,
+    "kappa_ci95": [
+     0.352,
+     0.753
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.524,
+    "accuracy_ci95": [
+     0.381,
+     0.667
+    ],
+    "kappa": 0.283,
+    "kappa_ci95": [
+     0.061,
+     0.499
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 18,
+     "escalated": 3,
+     "de_escalated": 0,
+     "boilerplate": 6
+    },
+    "escalated": {
+     "new_exposure": 5,
+     "escalated": 7,
+     "de_escalated": 1,
+     "boilerplate": 1
+    },
+    "de_escalated": {
+     "new_exposure": 1,
+     "escalated": 1,
+     "de_escalated": 5,
+     "boilerplate": 3
+    },
+    "boilerplate": {
+     "new_exposure": 4,
+     "escalated": 7,
+     "de_escalated": 0,
+     "boilerplate": 18
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 28,
+    "new_exposure": 28,
     "de_escalated": 6,
-    "boilerplate": 1
+    "escalated": 18
    },
-   "boilerplate": {
-    "new_exposure": 8,
-    "escalated": 4,
-    "de_escalated": 14,
-    "boilerplate": 3
-   }
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 59779
+   },
+   "cost_usd_on_sample": 0.0505,
+   "cost_usd_per_1000": 0.63,
+   "latency_s": {
+    "p50": 3.775,
+    "p95": 6.84
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "6ac11d45b6bd",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "7146fdb79f7c",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a85f565138eb",
+     "ticker": "NVDA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "0549567a0aca",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e31e9ea800ee",
+     "ticker": "GOOGL",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "f15ab630a40a",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6b4cd57cb1d9",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "cacc0b402e31",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "8b5186abec9f",
+     "ticker": "MSFT",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "761461b83ef8",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "559cb9ceb171",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "455c246e8595",
+     "ticker": "AAPL",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "53ad007f9c23",
+     "ticker": "KO",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "405edcb8fd77",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "66421bca5197",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "f08f3b145899",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bc551ceb6102",
+     "ticker": "WMT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "70ba8d472e88",
+     "ticker": "BA",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "de85e5ce7033",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "33cd22c26451",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    }
+   ]
   },
-  "predicted_all": {
-   "boilerplate": 40,
-   "new_exposure": 182,
-   "escalated": 41,
-   "de_escalated": 61
+  "v2": {
+   "model": "claude-haiku-5-5",
+   "prompt": "v2",
+   "effort": "low",
+   "calls": 329,
+   "all": {
+    "n": 80,
+    "accuracy": 0.625,
+    "accuracy_ci95": [
+     0.512,
+     0.725
+    ],
+    "kappa": 0.468,
+    "kappa_ci95": [
+     0.309,
+     0.609
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.632,
+    "accuracy_ci95": [
+     0.474,
+     0.789
+    ],
+    "kappa": 0.497,
+    "kappa_ci95": [
+     0.266,
+     0.692
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.619,
+    "accuracy_ci95": [
+     0.476,
+     0.762
+    ],
+    "kappa": 0.428,
+    "kappa_ci95": [
+     0.216,
+     0.63
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 21,
+     "escalated": 1,
+     "de_escalated": 1,
+     "boilerplate": 4
+    },
+    "escalated": {
+     "new_exposure": 5,
+     "escalated": 7,
+     "de_escalated": 1,
+     "boilerplate": 1
+    },
+    "de_escalated": {
+     "new_exposure": 2,
+     "escalated": 1,
+     "de_escalated": 4,
+     "boilerplate": 3
+    },
+    "boilerplate": {
+     "new_exposure": 4,
+     "escalated": 4,
+     "de_escalated": 3,
+     "boilerplate": 18
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 109,
+    "new_exposure": 122,
+    "escalated": 67,
+    "de_escalated": 31
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 26580
+   },
+   "cost_usd_on_sample": 0.0339,
+   "cost_usd_per_1000": 0.42,
+   "latency_s": {
+    "p50": 1.74,
+    "p95": 4.18
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "6ac11d45b6bd",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "7146fdb79f7c",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a85f565138eb",
+     "ticker": "NVDA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "0549567a0aca",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "new_exposure",
+     "model": "de_escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "f15ab630a40a",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6b4cd57cb1d9",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "cacc0b402e31",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "1a02a5af976c",
+     "ticker": "GS",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "8b5186abec9f",
+     "ticker": "MSFT",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "e2a9d79def46",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "5cac6fe0339a",
+     "ticker": "JNJ",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "559cb9ceb171",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "53ad007f9c23",
+     "ticker": "KO",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "405edcb8fd77",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "66421bca5197",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bc551ceb6102",
+     "ticker": "WMT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "70ba8d472e88",
+     "ticker": "BA",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "444ef9382610",
+     "ticker": "WMT",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "685f409c4211",
+     "ticker": "GS",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    }
+   ]
   },
-  "tokens": {
-   "input": 798433,
-   "output": 82288
+  "v2.opus-high": {
+   "model": "claude-opus-5-5",
+   "prompt": "v2",
+   "effort": "high",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.613,
+    "accuracy_ci95": [
+     0.5,
+     0.713
+    ],
+    "kappa": 0.449,
+    "kappa_ci95": [
+     0.294,
+     0.592
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.684,
+    "accuracy_ci95": [
+     0.526,
+     0.816
+    ],
+    "kappa": 0.567,
+    "kappa_ci95": [
+     0.354,
+     0.751
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.548,
+    "accuracy_ci95": [
+     0.405,
+     0.69
+    ],
+    "kappa": 0.325,
+    "kappa_ci95": [
+     0.106,
+     0.532
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 17,
+     "escalated": 3,
+     "de_escalated": 0,
+     "boilerplate": 7
+    },
+    "escalated": {
+     "new_exposure": 2,
+     "escalated": 9,
+     "de_escalated": 1,
+     "boilerplate": 2
+    },
+    "de_escalated": {
+     "new_exposure": 1,
+     "escalated": 1,
+     "de_escalated": 3,
+     "boilerplate": 5
+    },
+    "boilerplate": {
+     "new_exposure": 2,
+     "escalated": 6,
+     "de_escalated": 1,
+     "boilerplate": 20
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 34,
+    "escalated": 19,
+    "new_exposure": 22,
+    "de_escalated": 5
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 24548
+   },
+   "cost_usd_on_sample": 1.3172,
+   "cost_usd_per_1000": 16.47,
+   "latency_s": {
+    "p50": 3.71,
+    "p95": 7.16
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "81b9a52e415f",
+     "ticker": "AAPL",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "6ac11d45b6bd",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "7146fdb79f7c",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e31e9ea800ee",
+     "ticker": "GOOGL",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "f15ab630a40a",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6b4cd57cb1d9",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "cacc0b402e31",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "1a02a5af976c",
+     "ticker": "GS",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "8b5186abec9f",
+     "ticker": "MSFT",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "5cac6fe0339a",
+     "ticker": "JNJ",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "d0d58d38508a",
+     "ticker": "PFE",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "53ad007f9c23",
+     "ticker": "KO",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "405edcb8fd77",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bc3badfeee03",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "66421bca5197",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "f08f3b145899",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "685f409c4211",
+     "ticker": "GS",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "3ffd4a9b8708",
+     "ticker": "TSLA",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "33cd22c26451",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    }
+   ]
   },
-  "cost_usd": 0.121,
-  "latency_s": {
-   "p50": 1.6749999999999998,
-   "p95": 3.22
+  "v2.opus": {
+   "model": "claude-opus-5-5",
+   "prompt": "v2",
+   "effort": "low",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.65,
+    "accuracy_ci95": [
+     0.55,
+     0.75
+    ],
+    "kappa": 0.491,
+    "kappa_ci95": [
+     0.337,
+     0.634
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.684,
+    "accuracy_ci95": [
+     0.526,
+     0.816
+    ],
+    "kappa": 0.559,
+    "kappa_ci95": [
+     0.345,
+     0.747
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.619,
+    "accuracy_ci95": [
+     0.476,
+     0.762
+    ],
+    "kappa": 0.422,
+    "kappa_ci95": [
+     0.195,
+     0.629
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 21,
+     "escalated": 1,
+     "de_escalated": 0,
+     "boilerplate": 5
+    },
+    "escalated": {
+     "new_exposure": 3,
+     "escalated": 9,
+     "de_escalated": 0,
+     "boilerplate": 2
+    },
+    "de_escalated": {
+     "new_exposure": 1,
+     "escalated": 0,
+     "de_escalated": 2,
+     "boilerplate": 7
+    },
+    "boilerplate": {
+     "new_exposure": 4,
+     "escalated": 4,
+     "de_escalated": 1,
+     "boilerplate": 20
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 34,
+    "new_exposure": 29,
+    "escalated": 14,
+    "de_escalated": 3
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 9512
+   },
+   "cost_usd_on_sample": 1.0165,
+   "cost_usd_per_1000": 12.71,
+   "latency_s": {
+    "p50": 2.23,
+    "p95": 5.41
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "6ac11d45b6bd",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "7146fdb79f7c",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "765a9cf6685c",
+     "ticker": "MSFT",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e31e9ea800ee",
+     "ticker": "GOOGL",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "f15ab630a40a",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "6b4cd57cb1d9",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "cacc0b402e31",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1a02a5af976c",
+     "ticker": "GS",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "8b5186abec9f",
+     "ticker": "MSFT",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "d0d58d38508a",
+     "ticker": "PFE",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "53ad007f9c23",
+     "ticker": "KO",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "405edcb8fd77",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "66421bca5197",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "685f409c4211",
+     "ticker": "GS",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "3ffd4a9b8708",
+     "ticker": "TSLA",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "33cd22c26451",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    }
+   ]
   },
-  "disagreements": [
-   {
-    "key": "6c0f82beaa9c",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "new_exposure"
+  "v2.sonnet": {
+   "model": "claude-sonnet-5-5",
+   "prompt": "v2",
+   "effort": "low",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.662,
+    "accuracy_ci95": [
+     0.562,
+     0.762
+    ],
+    "kappa": 0.522,
+    "kappa_ci95": [
+     0.371,
+     0.663
+    ]
    },
-   {
-    "key": "51694c53dc0b",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
+   "dev": {
+    "n": 38,
+    "accuracy": 0.711,
+    "accuracy_ci95": [
+     0.553,
+     0.842
+    ],
+    "kappa": 0.601,
+    "kappa_ci95": [
+     0.383,
+     0.788
+    ]
    },
-   {
-    "key": "7146fdb79f7c",
-    "ticker": "BA",
-    "gold": "boilerplate",
-    "model": "new_exposure"
+   "test": {
+    "n": 42,
+    "accuracy": 0.619,
+    "accuracy_ci95": [
+     0.476,
+     0.762
+    ],
+    "kappa": 0.443,
+    "kappa_ci95": [
+     0.225,
+     0.648
+    ]
    },
-   {
-    "key": "9f1a230c1080",
-    "ticker": "V",
-    "gold": "boilerplate",
-    "model": "new_exposure"
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 21,
+     "escalated": 3,
+     "de_escalated": 0,
+     "boilerplate": 3
+    },
+    "escalated": {
+     "new_exposure": 5,
+     "escalated": 8,
+     "de_escalated": 0,
+     "boilerplate": 1
+    },
+    "de_escalated": {
+     "new_exposure": 1,
+     "escalated": 0,
+     "de_escalated": 6,
+     "boilerplate": 3
+    },
+    "boilerplate": {
+     "new_exposure": 5,
+     "escalated": 5,
+     "de_escalated": 1,
+     "boilerplate": 18
+    }
    },
-   {
-    "key": "a85f565138eb",
-    "ticker": "NVDA",
-    "gold": "escalated",
-    "model": "new_exposure"
+   "predicted_all": {
+    "boilerplate": 25,
+    "new_exposure": 32,
+    "de_escalated": 7,
+    "escalated": 16
    },
-   {
-    "key": "0549567a0aca",
-    "ticker": "TSLA",
-    "gold": "escalated",
-    "model": "new_exposure"
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 9428
    },
-   {
-    "key": "27e48b8dcdbc",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
+   "cost_usd_on_sample": 0.5074,
+   "cost_usd_per_1000": 6.34,
+   "latency_s": {
+    "p50": 2.385,
+    "p95": 5.18
    },
-   {
-    "key": "ac2636c4489d",
-    "ticker": "JPM",
-    "gold": "new_exposure",
-    "model": "de_escalated"
-   },
-   {
-    "key": "fe6ad3e530e5",
-    "ticker": "DIS",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "de9dce7dd6ad",
-    "ticker": "BA",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "8163ba8af3b2",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "a887d78c9590",
-    "ticker": "MSFT",
-    "gold": "new_exposure",
-    "model": "escalated"
-   },
-   {
-    "key": "95dec194db55",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "3d0b7b40bc27",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "e40f0541f6e3",
-    "ticker": "BA",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "f15ab630a40a",
-    "ticker": "JPM",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "bd55e6f19dec",
-    "ticker": "V",
-    "gold": "escalated",
-    "model": "de_escalated"
-   },
-   {
-    "key": "6b4cd57cb1d9",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "boilerplate"
-   },
-   {
-    "key": "cacc0b402e31",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "1dc25fb0cd13",
-    "ticker": "V",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "721a9708a025",
-    "ticker": "V",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "8b5186abec9f",
-    "ticker": "MSFT",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "e2a9d79def46",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "fd98861e9ef1",
-    "ticker": "WMT",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "12f24c8cd62d",
-    "ticker": "TSLA",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "559cb9ceb171",
-    "ticker": "GOOGL",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "ad8bb79d926b",
-    "ticker": "BA",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "405edcb8fd77",
-    "ticker": "NKE",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "5d01a3948495",
-    "ticker": "META",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "5337c31544e5",
-    "ticker": "NKE",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "cd7695851c36",
-    "ticker": "META",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "34b451e57cf6",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "66421bca5197",
-    "ticker": "XOM",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "a26406d5f290",
-    "ticker": "DIS",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "70ba8d472e88",
-    "ticker": "BA",
-    "gold": "de_escalated",
-    "model": "escalated"
-   },
-   {
-    "key": "444ef9382610",
-    "ticker": "WMT",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "de85e5ce7033",
-    "ticker": "NKE",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "7d2ee24e10d1",
-    "ticker": "AAPL",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "6786bfae6300",
-    "ticker": "AAPL",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "e46639f0e6a4",
-    "ticker": "GOOGL",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "c9e89b6d0a01",
-    "ticker": "DIS",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   }
-  ]
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "51694c53dc0b",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "7146fdb79f7c",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "de9dce7dd6ad",
+     "ticker": "BA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "e31e9ea800ee",
+     "ticker": "GOOGL",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "951bd7030743",
+     "ticker": "BA",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "f15ab630a40a",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "cacc0b402e31",
+     "ticker": "JPM",
+     "gold": "de_escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "8b5186abec9f",
+     "ticker": "MSFT",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "dfa82920bd96",
+     "ticker": "PFE",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "d0d58d38508a",
+     "ticker": "PFE",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "405edcb8fd77",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "66421bca5197",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "685f409c4211",
+     "ticker": "GS",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "3ffd4a9b8708",
+     "ticker": "TSLA",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "33cd22c26451",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    }
+   ]
+  }
  },
- "v2": {
-  "model": "claude-haiku-5-5",
-  "prompt": "v2",
-  "calls": 324,
-  "all": {
-   "n": 80,
-   "accuracy": 0.625,
-   "accuracy_ci95": [
-    0.512,
-    0.725
-   ],
-   "kappa": 0.468,
-   "kappa_ci95": [
-    0.309,
-    0.609
+ "adjudicated": {
+  "v1": {
+   "model": "claude-haiku-5-5",
+   "prompt": "v1",
+   "effort": "low",
+   "calls": 324,
+   "all": {
+    "n": 80,
+    "accuracy": 0.512,
+    "accuracy_ci95": [
+     0.4,
+     0.625
+    ],
+    "kappa": 0.357,
+    "kappa_ci95": [
+     0.237,
+     0.469
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.579,
+    "accuracy_ci95": [
+     0.421,
+     0.737
+    ],
+    "kappa": 0.43,
+    "kappa_ci95": [
+     0.243,
+     0.616
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.452,
+    "accuracy_ci95": [
+     0.31,
+     0.595
+    ],
+    "kappa": 0.291,
+    "kappa_ci95": [
+     0.158,
+     0.436
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 25,
+     "escalated": 1,
+     "de_escalated": 0,
+     "boilerplate": 0
+    },
+    "escalated": {
+     "new_exposure": 6,
+     "escalated": 7,
+     "de_escalated": 2,
+     "boilerplate": 0
+    },
+    "de_escalated": {
+     "new_exposure": 0,
+     "escalated": 1,
+     "de_escalated": 5,
+     "boilerplate": 0
+    },
+    "boilerplate": {
+     "new_exposure": 12,
+     "escalated": 2,
+     "de_escalated": 15,
+     "boilerplate": 4
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 40,
+    "new_exposure": 182,
+    "escalated": 41,
+    "de_escalated": 61
+   },
+   "tokens_on_sample": {
+    "input": 187042,
+    "output": 21381
+   },
+   "cost_usd_on_sample": 0.0294,
+   "cost_usd_per_1000": 0.37,
+   "latency_s": {
+    "p50": 1.755,
+    "p95": 3.26
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "51694c53dc0b",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6ac11d45b6bd",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a85f565138eb",
+     "ticker": "NVDA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "0549567a0aca",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "27e48b8dcdbc",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "fe6ad3e530e5",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "de9dce7dd6ad",
+     "ticker": "BA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "e31e9ea800ee",
+     "ticker": "GOOGL",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "8163ba8af3b2",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "95dec194db55",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "721a9708a025",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "e2a9d79def46",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "fd98861e9ef1",
+     "ticker": "WMT",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "559cb9ceb171",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "ad8bb79d926b",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "53ad007f9c23",
+     "ticker": "KO",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "5337c31544e5",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "cd7695851c36",
+     "ticker": "META",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "34b451e57cf6",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "70ba8d472e88",
+     "ticker": "BA",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "444ef9382610",
+     "ticker": "WMT",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "685f409c4211",
+     "ticker": "GS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "de85e5ce7033",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "33cd22c26451",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "7d2ee24e10d1",
+     "ticker": "AAPL",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6786bfae6300",
+     "ticker": "AAPL",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    }
    ]
   },
-  "dev": {
-   "n": 38,
-   "accuracy": 0.632,
-   "accuracy_ci95": [
-    0.474,
-    0.789
-   ],
-   "kappa": 0.497,
-   "kappa_ci95": [
-    0.266,
-    0.692
+  "v2.haiku-high": {
+   "model": "claude-haiku-5-5",
+   "prompt": "v2",
+   "effort": "high",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.775,
+    "accuracy_ci95": [
+     0.675,
+     0.863
+    ],
+    "kappa": 0.676,
+    "kappa_ci95": [
+     0.531,
+     0.799
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.789,
+    "accuracy_ci95": [
+     0.658,
+     0.895
+    ],
+    "kappa": 0.712,
+    "kappa_ci95": [
+     0.519,
+     0.858
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.762,
+    "accuracy_ci95": [
+     0.619,
+     0.881
+    ],
+    "kappa": 0.627,
+    "kappa_ci95": [
+     0.413,
+     0.814
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 21,
+     "escalated": 2,
+     "de_escalated": 0,
+     "boilerplate": 3
+    },
+    "escalated": {
+     "new_exposure": 3,
+     "escalated": 11,
+     "de_escalated": 1,
+     "boilerplate": 0
+    },
+    "de_escalated": {
+     "new_exposure": 0,
+     "escalated": 1,
+     "de_escalated": 5,
+     "boilerplate": 0
+    },
+    "boilerplate": {
+     "new_exposure": 4,
+     "escalated": 4,
+     "de_escalated": 0,
+     "boilerplate": 25
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 28,
+    "new_exposure": 28,
+    "de_escalated": 6,
+    "escalated": 18
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 59779
+   },
+   "cost_usd_on_sample": 0.0505,
+   "cost_usd_per_1000": 0.63,
+   "latency_s": {
+    "p50": 3.775,
+    "p95": 6.84
+   },
+   "disagreements": [
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a85f565138eb",
+     "ticker": "NVDA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "0549567a0aca",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "761461b83ef8",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "559cb9ceb171",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "455c246e8595",
+     "ticker": "AAPL",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "f08f3b145899",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bc551ceb6102",
+     "ticker": "WMT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "70ba8d472e88",
+     "ticker": "BA",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "685f409c4211",
+     "ticker": "GS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "de85e5ce7033",
+     "ticker": "NKE",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    }
    ]
   },
-  "test": {
-   "n": 42,
-   "accuracy": 0.619,
-   "accuracy_ci95": [
-    0.476,
-    0.762
-   ],
-   "kappa": 0.428,
-   "kappa_ci95": [
-    0.216,
-    0.63
+  "v2": {
+   "model": "claude-haiku-5-5",
+   "prompt": "v2",
+   "effort": "low",
+   "calls": 329,
+   "all": {
+    "n": 80,
+    "accuracy": 0.713,
+    "accuracy_ci95": [
+     0.6,
+     0.812
+    ],
+    "kappa": 0.588,
+    "kappa_ci95": [
+     0.437,
+     0.724
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.658,
+    "accuracy_ci95": [
+     0.5,
+     0.789
+    ],
+    "kappa": 0.53,
+    "kappa_ci95": [
+     0.305,
+     0.714
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.762,
+    "accuracy_ci95": [
+     0.643,
+     0.881
+    ],
+    "kappa": 0.634,
+    "kappa_ci95": [
+     0.441,
+     0.816
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 23,
+     "escalated": 1,
+     "de_escalated": 0,
+     "boilerplate": 2
+    },
+    "escalated": {
+     "new_exposure": 3,
+     "escalated": 9,
+     "de_escalated": 1,
+     "boilerplate": 2
+    },
+    "de_escalated": {
+     "new_exposure": 0,
+     "escalated": 1,
+     "de_escalated": 4,
+     "boilerplate": 1
+    },
+    "boilerplate": {
+     "new_exposure": 6,
+     "escalated": 2,
+     "de_escalated": 4,
+     "boilerplate": 21
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 109,
+    "new_exposure": 122,
+    "escalated": 67,
+    "de_escalated": 31
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 26580
+   },
+   "cost_usd_on_sample": 0.0339,
+   "cost_usd_per_1000": 0.42,
+   "latency_s": {
+    "p50": 1.74,
+    "p95": 4.18
+   },
+   "disagreements": [
+    {
+     "key": "6c0f82beaa9c",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a85f565138eb",
+     "ticker": "NVDA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "0549567a0aca",
+     "ticker": "TSLA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "ac2636c4489d",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "e31e9ea800ee",
+     "ticker": "GOOGL",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "3d0b7b40bc27",
+     "ticker": "JPM",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "1a02a5af976c",
+     "ticker": "GS",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e2a9d79def46",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "12f24c8cd62d",
+     "ticker": "TSLA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "5cac6fe0339a",
+     "ticker": "JNJ",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "559cb9ceb171",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bc551ceb6102",
+     "ticker": "WMT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "70ba8d472e88",
+     "ticker": "BA",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "444ef9382610",
+     "ticker": "WMT",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "33cd22c26451",
+     "ticker": "XOM",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    }
    ]
   },
-  "confusion": {
-   "new_exposure": {
-    "new_exposure": 21,
-    "escalated": 1,
-    "de_escalated": 1,
-    "boilerplate": 4
+  "v2.opus-high": {
+   "model": "claude-opus-5-5",
+   "prompt": "v2",
+   "effort": "high",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.812,
+    "accuracy_ci95": [
+     0.725,
+     0.887
+    ],
+    "kappa": 0.727,
+    "kappa_ci95": [
+     0.598,
+     0.84
+    ]
    },
-   "escalated": {
-    "new_exposure": 5,
-    "escalated": 7,
-    "de_escalated": 1,
-    "boilerplate": 1
+   "dev": {
+    "n": 38,
+    "accuracy": 0.789,
+    "accuracy_ci95": [
+     0.658,
+     0.895
+    ],
+    "kappa": 0.71,
+    "kappa_ci95": [
+     0.517,
+     0.858
+    ]
    },
-   "de_escalated": {
-    "new_exposure": 2,
-    "escalated": 1,
-    "de_escalated": 4,
-    "boilerplate": 3
+   "test": {
+    "n": 42,
+    "accuracy": 0.833,
+    "accuracy_ci95": [
+     0.714,
+     0.952
+    ],
+    "kappa": 0.736,
+    "kappa_ci95": [
+     0.548,
+     0.911
+    ]
    },
-   "boilerplate": {
-    "new_exposure": 4,
-    "escalated": 4,
-    "de_escalated": 3,
-    "boilerplate": 18
-   }
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 21,
+     "escalated": 2,
+     "de_escalated": 0,
+     "boilerplate": 3
+    },
+    "escalated": {
+     "new_exposure": 0,
+     "escalated": 13,
+     "de_escalated": 1,
+     "boilerplate": 1
+    },
+    "de_escalated": {
+     "new_exposure": 0,
+     "escalated": 1,
+     "de_escalated": 3,
+     "boilerplate": 2
+    },
+    "boilerplate": {
+     "new_exposure": 1,
+     "escalated": 3,
+     "de_escalated": 1,
+     "boilerplate": 28
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 34,
+    "escalated": 19,
+    "new_exposure": 22,
+    "de_escalated": 5
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 24548
+   },
+   "cost_usd_on_sample": 1.3172,
+   "cost_usd_per_1000": 16.47,
+   "latency_s": {
+    "p50": 3.71,
+    "p95": 7.16
+   },
+   "disagreements": [
+    {
+     "key": "81b9a52e415f",
+     "ticker": "AAPL",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "de_escalated"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "1a02a5af976c",
+     "ticker": "GS",
+     "gold": "de_escalated",
+     "model": "escalated"
+    },
+    {
+     "key": "5cac6fe0339a",
+     "ticker": "JNJ",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "d0d58d38508a",
+     "ticker": "PFE",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "bc3badfeee03",
+     "ticker": "XOM",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "f08f3b145899",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "3ffd4a9b8708",
+     "ticker": "TSLA",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    }
+   ]
   },
-  "predicted_all": {
-   "boilerplate": 109,
-   "new_exposure": 117,
-   "escalated": 67,
-   "de_escalated": 31
+  "v2.opus": {
+   "model": "claude-opus-5-5",
+   "prompt": "v2",
+   "effort": "low",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.85,
+    "accuracy_ci95": [
+     0.762,
+     0.925
+    ],
+    "kappa": 0.777,
+    "kappa_ci95": [
+     0.653,
+     0.885
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.789,
+    "accuracy_ci95": [
+     0.658,
+     0.921
+    ],
+    "kappa": 0.703,
+    "kappa_ci95": [
+     0.51,
+     0.88
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.905,
+    "accuracy_ci95": [
+     0.81,
+     0.976
+    ],
+    "kappa": 0.849,
+    "kappa_ci95": [
+     0.699,
+     0.963
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 25,
+     "escalated": 0,
+     "de_escalated": 0,
+     "boilerplate": 1
+    },
+    "escalated": {
+     "new_exposure": 1,
+     "escalated": 13,
+     "de_escalated": 0,
+     "boilerplate": 1
+    },
+    "de_escalated": {
+     "new_exposure": 0,
+     "escalated": 0,
+     "de_escalated": 2,
+     "boilerplate": 4
+    },
+    "boilerplate": {
+     "new_exposure": 3,
+     "escalated": 1,
+     "de_escalated": 1,
+     "boilerplate": 28
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 34,
+    "new_exposure": 29,
+    "escalated": 14,
+    "de_escalated": 3
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 9512
+   },
+   "cost_usd_on_sample": 1.0165,
+   "cost_usd_per_1000": 12.71,
+   "latency_s": {
+    "p50": 2.23,
+    "p95": 5.41
+   },
+   "disagreements": [
+    {
+     "key": "765a9cf6685c",
+     "ticker": "MSFT",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "a887d78c9590",
+     "ticker": "MSFT",
+     "gold": "new_exposure",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "1a02a5af976c",
+     "ticker": "GS",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "d0d58d38508a",
+     "ticker": "PFE",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "3ffd4a9b8708",
+     "ticker": "TSLA",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    }
+   ]
   },
-  "tokens": {
-   "input": 877489,
-   "output": 102734
+  "v2.sonnet": {
+   "model": "claude-sonnet-5-5",
+   "prompt": "v2",
+   "effort": "low",
+   "calls": 80,
+   "all": {
+    "n": 80,
+    "accuracy": 0.787,
+    "accuracy_ci95": [
+     0.7,
+     0.875
+    ],
+    "kappa": 0.695,
+    "kappa_ci95": [
+     0.566,
+     0.817
+    ]
+   },
+   "dev": {
+    "n": 38,
+    "accuracy": 0.816,
+    "accuracy_ci95": [
+     0.684,
+     0.947
+    ],
+    "kappa": 0.743,
+    "kappa_ci95": [
+     0.556,
+     0.917
+    ]
+   },
+   "test": {
+    "n": 42,
+    "accuracy": 0.762,
+    "accuracy_ci95": [
+     0.619,
+     0.881
+    ],
+    "kappa": 0.646,
+    "kappa_ci95": [
+     0.453,
+     0.823
+    ]
+   },
+   "confusion": {
+    "new_exposure": {
+     "new_exposure": 24,
+     "escalated": 2,
+     "de_escalated": 0,
+     "boilerplate": 0
+    },
+    "escalated": {
+     "new_exposure": 3,
+     "escalated": 12,
+     "de_escalated": 0,
+     "boilerplate": 0
+    },
+    "de_escalated": {
+     "new_exposure": 0,
+     "escalated": 0,
+     "de_escalated": 4,
+     "boilerplate": 2
+    },
+    "boilerplate": {
+     "new_exposure": 5,
+     "escalated": 2,
+     "de_escalated": 3,
+     "boilerplate": 23
+    }
+   },
+   "predicted_all": {
+    "boilerplate": 25,
+    "new_exposure": 32,
+    "de_escalated": 7,
+    "escalated": 16
+   },
+   "tokens_on_sample": {
+    "input": 206562,
+    "output": 9428
+   },
+   "cost_usd_on_sample": 0.5074,
+   "cost_usd_per_1000": 6.34,
+   "latency_s": {
+    "p50": 2.385,
+    "p95": 5.18
+   },
+   "disagreements": [
+    {
+     "key": "51694c53dc0b",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "6ac11d45b6bd",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "9f1a230c1080",
+     "ticker": "V",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "de9dce7dd6ad",
+     "ticker": "BA",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "951bd7030743",
+     "ticker": "BA",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "e40f0541f6e3",
+     "ticker": "BA",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "bd55e6f19dec",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "6b4cd57cb1d9",
+     "ticker": "JPM",
+     "gold": "boilerplate",
+     "model": "de_escalated"
+    },
+    {
+     "key": "1dc25fb0cd13",
+     "ticker": "V",
+     "gold": "escalated",
+     "model": "new_exposure"
+    },
+    {
+     "key": "dfa82920bd96",
+     "ticker": "PFE",
+     "gold": "new_exposure",
+     "model": "escalated"
+    },
+    {
+     "key": "d0d58d38508a",
+     "ticker": "PFE",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "53ad007f9c23",
+     "ticker": "KO",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "5d01a3948495",
+     "ticker": "META",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "a26406d5f290",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    },
+    {
+     "key": "3ffd4a9b8708",
+     "ticker": "TSLA",
+     "gold": "de_escalated",
+     "model": "boilerplate"
+    },
+    {
+     "key": "e46639f0e6a4",
+     "ticker": "GOOGL",
+     "gold": "boilerplate",
+     "model": "new_exposure"
+    },
+    {
+     "key": "c9e89b6d0a01",
+     "ticker": "DIS",
+     "gold": "boilerplate",
+     "model": "escalated"
+    }
+   ]
+  }
+ },
+ "kappa_matrix": {
+  "labels:original": {
+   "labels:original": 1.0,
+   "labels:adjudicated": 0.714,
+   "v1": 0.309,
+   "v2.haiku-high": 0.434,
+   "v2": 0.468,
+   "v2.opus-high": 0.449,
+   "v2.opus": 0.491,
+   "v2.sonnet": 0.522
   },
-  "cost_usd": 0.1391,
-  "latency_s": {
-   "p50": 1.795,
-   "p95": 4.16
+  "labels:adjudicated": {
+   "labels:original": 0.714,
+   "labels:adjudicated": 1.0,
+   "v1": 0.357,
+   "v2.haiku-high": 0.676,
+   "v2": 0.588,
+   "v2.opus-high": 0.727,
+   "v2.opus": 0.777,
+   "v2.sonnet": 0.695
   },
-  "disagreements": [
-   {
-    "key": "6c0f82beaa9c",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "6ac11d45b6bd",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "boilerplate"
-   },
-   {
-    "key": "7146fdb79f7c",
-    "ticker": "BA",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "9f1a230c1080",
-    "ticker": "V",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "a85f565138eb",
-    "ticker": "NVDA",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "0549567a0aca",
-    "ticker": "TSLA",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "ac2636c4489d",
-    "ticker": "JPM",
-    "gold": "new_exposure",
-    "model": "de_escalated"
-   },
-   {
-    "key": "a887d78c9590",
-    "ticker": "MSFT",
-    "gold": "new_exposure",
-    "model": "escalated"
-   },
-   {
-    "key": "e40f0541f6e3",
-    "ticker": "BA",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "f15ab630a40a",
-    "ticker": "JPM",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "bd55e6f19dec",
-    "ticker": "V",
-    "gold": "escalated",
-    "model": "de_escalated"
-   },
-   {
-    "key": "6b4cd57cb1d9",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "boilerplate"
-   },
-   {
-    "key": "cacc0b402e31",
-    "ticker": "JPM",
-    "gold": "de_escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "1dc25fb0cd13",
-    "ticker": "V",
-    "gold": "escalated",
-    "model": "boilerplate"
-   },
-   {
-    "key": "1a02a5af976c",
-    "ticker": "GS",
-    "gold": "de_escalated",
-    "model": "boilerplate"
-   },
-   {
-    "key": "8b5186abec9f",
-    "ticker": "MSFT",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "e2a9d79def46",
-    "ticker": "JPM",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "12f24c8cd62d",
-    "ticker": "TSLA",
-    "gold": "escalated",
-    "model": "new_exposure"
-   },
-   {
-    "key": "5cac6fe0339a",
-    "ticker": "JNJ",
-    "gold": "new_exposure",
-    "model": "boilerplate"
-   },
-   {
-    "key": "559cb9ceb171",
-    "ticker": "GOOGL",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "53ad007f9c23",
-    "ticker": "KO",
-    "gold": "new_exposure",
-    "model": "boilerplate"
-   },
-   {
-    "key": "405edcb8fd77",
-    "ticker": "NKE",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "5d01a3948495",
-    "ticker": "META",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   },
-   {
-    "key": "66421bca5197",
-    "ticker": "XOM",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "a26406d5f290",
-    "ticker": "DIS",
-    "gold": "boilerplate",
-    "model": "escalated"
-   },
-   {
-    "key": "bc551ceb6102",
-    "ticker": "WMT",
-    "gold": "new_exposure",
-    "model": "boilerplate"
-   },
-   {
-    "key": "70ba8d472e88",
-    "ticker": "BA",
-    "gold": "de_escalated",
-    "model": "escalated"
-   },
-   {
-    "key": "444ef9382610",
-    "ticker": "WMT",
-    "gold": "boilerplate",
-    "model": "de_escalated"
-   },
-   {
-    "key": "685f409c4211",
-    "ticker": "GS",
-    "gold": "new_exposure",
-    "model": "boilerplate"
-   },
-   {
-    "key": "c9e89b6d0a01",
-    "ticker": "DIS",
-    "gold": "boilerplate",
-    "model": "new_exposure"
-   }
-  ]
+  "v1": {
+   "labels:original": 0.309,
+   "labels:adjudicated": 0.357,
+   "v1": 1.0,
+   "v2.haiku-high": 0.462,
+   "v2": 0.546,
+   "v2.opus-high": 0.296,
+   "v2.opus": 0.35,
+   "v2.sonnet": 0.391
+  },
+  "v2.haiku-high": {
+   "labels:original": 0.434,
+   "labels:adjudicated": 0.676,
+   "v1": 0.462,
+   "v2.haiku-high": 1.0,
+   "v2": 0.661,
+   "v2.opus-high": 0.605,
+   "v2.opus": 0.615,
+   "v2.sonnet": 0.607
+  },
+  "v2": {
+   "labels:original": 0.468,
+   "labels:adjudicated": 0.588,
+   "v1": 0.546,
+   "v2.haiku-high": 0.661,
+   "v2": 1.0,
+   "v2.opus-high": 0.558,
+   "v2.opus": 0.562,
+   "v2.sonnet": 0.461
+  },
+  "v2.opus-high": {
+   "labels:original": 0.449,
+   "labels:adjudicated": 0.727,
+   "v1": 0.296,
+   "v2.haiku-high": 0.605,
+   "v2": 0.558,
+   "v2.opus-high": 1.0,
+   "v2.opus": 0.815,
+   "v2.sonnet": 0.663
+  },
+  "v2.opus": {
+   "labels:original": 0.491,
+   "labels:adjudicated": 0.777,
+   "v1": 0.35,
+   "v2.haiku-high": 0.615,
+   "v2": 0.562,
+   "v2.opus-high": 0.815,
+   "v2.opus": 1.0,
+   "v2.sonnet": 0.726
+  },
+  "v2.sonnet": {
+   "labels:original": 0.522,
+   "labels:adjudicated": 0.695,
+   "v1": 0.391,
+   "v2.haiku-high": 0.607,
+   "v2": 0.461,
+   "v2.opus-high": 0.663,
+   "v2.opus": 0.726,
+   "v2.sonnet": 1.0
+  }
  }
 }

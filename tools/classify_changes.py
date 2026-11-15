@@ -3,6 +3,8 @@
 
   ANTHROPIC_API_KEY=... python3 tools/classify_changes.py        # all companies
   python3 tools/classify_changes.py --only JPM MSFT --limit 20   # a slice
+  python3 tools/classify_changes.py --sample --model opus --effort high
+                                    # the 80 labelled risks only, another model
 
 A word diff says *that* a risk changed; this says *how*. Every matched risk
 whose text moved is sent to a small model with both versions and must come
@@ -14,7 +16,8 @@ back as exactly one of:
   boilerplate    rewording, reordering, renamed entities, updated dates only
 
 The answer is schema-constrained (structured outputs), so a reply always
-parses. Results are appended to reports/change_types.<prompt>.jsonl; a rerun skips
+parses. Results are appended to reports/change_types.<prompt>[.<model>].jsonl
+(the model suffix is left off for the production Haiku run); a rerun skips
 risks already done, so an interrupted run resumes for free. Token usage and
 latency are recorded per call; tools/score_changes.py turns them into cost
 and agreement figures.
@@ -35,7 +38,8 @@ from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "site" / "data"
-MODEL = "claude-haiku-5-5"
+MODELS = {"haiku": "claude-haiku-5-5", "sonnet": "claude-sonnet-5-5", "opus": "claude-opus-5-5"}
+SAMPLE = ROOT / "labels" / "change_sample.json"
 
 SYSTEM_V1 = """You compare two versions of one risk factor from a company's annual report \
 (SEC Form 10-K, Item 1A): last year's and this year's. Decide what kind of change the \
@@ -97,21 +101,25 @@ def units(only: list[str] | None) -> list[dict]:
     return out
 
 
-def classify(client: anthropic.Anthropic, u: dict, version: str) -> dict:
+def classify(client: anthropic.Anthropic, u: dict, version: str, model: str,
+             effort: str) -> dict:
     user = (f"LAST YEAR\nTitle: {u['old_title']}\n\n{u['old']}\n\n"
             f"THIS YEAR\nTitle: {u['title']}\n\n{u['new']}")
     t0 = time.perf_counter()
+    extra = {} if effort == "low" else {"thinking": {"type": "adaptive"}}
     resp = client.messages.parse(
-        model=MODEL,
-        max_tokens=1024,
+        model=model,
+        max_tokens=1024 if effort == "low" else 16000,
         system=PROMPTS[version],
-        output_config={"effort": "low"},
+        output_config={"effort": effort},
         messages=[{"role": "user", "content": user}],
         output_format=Verdict,
+        **extra,
     )
     secs = time.perf_counter() - t0
     row = {k: u[k] for k in ("key", "ticker", "status", "title", "ratio")}
-    row.update(model=MODEL, prompt=version, seconds=round(secs, 2),
+    row.update(model=model, served_by=resp.model, prompt=version, effort=effort,
+               seconds=round(secs, 2),
                input_tokens=resp.usage.input_tokens, output_tokens=resp.usage.output_tokens,
                stop_reason=resp.stop_reason)
     if resp.stop_reason == "refusal" or resp.parsed_output is None:
@@ -127,18 +135,27 @@ def main() -> int:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--prompt", choices=sorted(PROMPTS), default="v2")
+    ap.add_argument("--model", choices=sorted(MODELS), default="haiku")
+    ap.add_argument("--effort", choices=["low", "medium", "high"], default="low")
+    ap.add_argument("--sample", action="store_true", help="only the labelled sample")
     args = ap.parse_args()
-    out = ROOT / "reports" / f"change_types.{args.prompt}.jsonl"
+    model = MODELS[args.model]
+    tag = "" if (args.model, args.effort) == ("haiku", "low") else f".{args.model}"
+    tag += "" if args.effort == "low" else f"-{args.effort}"
+    out = ROOT / "reports" / f"change_types.{args.prompt}{tag}.jsonl"
 
     done = set()
     if out.exists():
         done = {json.loads(line)["key"] for line in out.read_text().splitlines() if line}
-    todo = [u for u in units(args.only) if u["key"] not in done][: args.limit]
-    print(f"{len(done)} done, {len(todo)} to classify with {MODEL}", file=sys.stderr)
+    pool_ = json.loads(SAMPLE.read_text()) if args.sample else units(args.only)
+    todo = [u for u in pool_ if u["key"] not in done][: args.limit]
+    print(f"{len(done)} done, {len(todo)} to classify with {model}", file=sys.stderr)
     client = anthropic.Anthropic(max_retries=4)
     out.parent.mkdir(parents=True, exist_ok=True)
     with ThreadPoolExecutor(args.workers) as pool, out.open("a") as f:
-        for row in pool.map(lambda u: classify(client, u, args.prompt), todo):
+        for row in pool.map(
+            lambda u: classify(client, u, args.prompt, model, args.effort), todo
+        ):
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
             f.flush()
             print(f"{row['ticker']:5} {row['label']!s:13} {row['title'][:70]}", file=sys.stderr)

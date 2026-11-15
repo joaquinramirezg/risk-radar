@@ -8,6 +8,9 @@ The sample was drawn before the split/merge step existed, so "before" scores
 the statuses frozen in items.json. "after" looks each new/removed item up in the
 current site/data and scores it again: an item now called split or merged is
 right when the labeller picked the same predecessor among the candidates.
+"fragments" checks each item a labeller called a fragment: it counts as
+resolved when its heading is no longer a risk of its own in site/data (the
+splitter folded it into the risk it belongs to).
 """
 
 from __future__ import annotations
@@ -32,13 +35,10 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
 
 
 def rate(k: int, n: int) -> dict[str, object]:
+    if n == 0:
+        return {"k": 0, "n": 0, "rate": None, "ci95": None}
     lo, hi = wilson(k, n)
-    return {
-        "k": k,
-        "n": n,
-        "rate": round(k / n, 4) if n else None,
-        "ci95": [round(lo, 4), round(hi, 4)],
-    }
+    return {"k": k, "n": n, "rate": round(k / n, 4), "ci95": [round(lo, 4), round(hi, 4)]}
 
 
 def kappa(a: list[str], b: list[str]) -> float:
@@ -94,6 +94,17 @@ def after_split(items: list[dict], labels: dict[str, dict]) -> dict[str, object]
     }
 
 
+def fragments(items: list[dict], labels: dict[str, dict]) -> dict[str, object]:
+    left = []
+    flagged = [i for i in items if i["id"] in labels and labels[i["id"]]["q2"] != "complete"]
+    for it in flagged:
+        doc = json.loads((ROOT / "site" / "data" / f"{it['ticker']}.json").read_text())
+        title = (it.get("new") or it["old"])["title"]
+        if any(title in (r["title"], r.get("old_title")) for r in doc["risks"]):
+            left.append(it["id"])
+    return {"resolved": rate(len(flagged) - len(left), len(flagged)), "still_split": left}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("labels", nargs="+", type=Path)
@@ -103,7 +114,11 @@ def main() -> None:
     sets = {p.stem: json.loads(p.read_text())["labels"] for p in args.labels}
     report: dict[str, object] = {}
     for name, lab in sets.items():
-        report[name] = {"before": score(items, lab), "after": after_split(items, lab)}
+        report[name] = {
+            "before": score(items, lab),
+            "after": after_split(items, lab),
+            "fragments": fragments(items, lab),
+        }
     names = list(sets)
     agree = {}
     for x in range(len(names)):
