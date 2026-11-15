@@ -39,6 +39,7 @@ EMPH_SHARE = 0.9  # share of a block's letters that must be bold/italic to count
 _BOLD = re.compile(r"font-weight\s*:\s*(bold|[6-9]00)", re.I)
 _ITALIC = re.compile(r"font-style\s*:\s*italic", re.I)
 _UNDERLINE = re.compile(r"text-decoration\s*:[^;]*underline", re.I)
+_SIZE = re.compile(r"font-size\s*:\s*([\d.]+)\s*(pt|px)", re.I)
 _START = re.compile(r"^\s*item\s*1a\.?\s*[-–—:|]?\s*risk\s*factors\s*[.:]?\s*$", re.I)
 _START_A = re.compile(r"^\s*item\s*1a\.?\s*$", re.I)
 _START_B = re.compile(r"^\s*risk\s*factors\.?\s*$", re.I)
@@ -64,6 +65,9 @@ _NEXT_SECTION = re.compile(
     r"properties|legal proceedings|management['’]s discussion and analysis\b.*|"
     r"quantitative and qualitative disclosures? about market risks?|selected financial data|"
     r"sustainability|human capital( resources)?\b.*|"
+    r"controls and procedures|managing committee|board of directors|"
+    r"(recent|current) accounting (developments|pronouncements)|"
+    r"report of independent registered public accounting firm|"
     r"information about our executive officers|executive officers of the registrant|"
     r"forward[- ]looking statements|managing global risk|"
     r"market for (the )?registrant['’]s common equity.*)\s*[.:]?\s*$", re.I)
@@ -94,6 +98,7 @@ class Block:
     letters: int
     lead: str = ""  # the emphasized run-in prefix, when the block opens with one
     italic: int = 0  # letters set in italic, bold or not
+    size: float = 0.0  # font size in points that most of the block's letters use
 
     @property
     def emphasized(self) -> bool:
@@ -112,11 +117,13 @@ class RiskFactor:
 
 
 class _Blocks(HTMLParser):
-    def __init__(self, italic_is_emphasis: bool = True) -> None:
+    def __init__(self, italic_is_emphasis: bool = True, title_size: float = 0.0) -> None:
         super().__init__(convert_charrefs=True)
         self.italic_is_emphasis = italic_is_emphasis
+        self.title_size = title_size  # when set, text this large or larger is emphasis
         self.blocks: list[Block] = []
-        self._style: list[tuple[str, bool, bool]] = []  # (tag, bold, italic)
+        self._style: list[tuple[str, bool, bool, float]] = []  # (tag, bold, italic, size)
+        self._sizes: dict[float, int] = {}
         self._skip = 0
         self._buf: list[str] = []
         self._emph = 0
@@ -128,9 +135,11 @@ class _Blocks(HTMLParser):
     def _flush(self) -> None:
         text = _norm("".join(self._buf))
         if text:
+            size = max(self._sizes, key=self._sizes.__getitem__) if self._sizes else 0.0
             self.blocks.append(Block(text, self._emph, self._letters,
-                                     _norm("".join(self._lead)), self._italic))
+                                     _norm("".join(self._lead)), self._italic, size))
         self._buf, self._emph, self._letters, self._italic = [], 0, 0, 0
+        self._sizes = {}
         self._lead, self._lead_open = [], True
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -148,8 +157,11 @@ class _Blocks(HTMLParser):
             bold = tag in ("b", "strong")  # an explicit normal weight resets bold
         # Texas Instruments underlines its titles; underline counts like bold.
         bold = bold or tag == "u" or bool(_UNDERLINE.search(style))
+        m = _SIZE.search(style)
+        size = (float(m.group(1)) * (0.75 if m.group(2).lower() == "px" else 1.0) if m
+                else self._style[-1][3] if self._style else 0.0)
         if tag != "br":
-            self._style.append((tag, bold, italic))
+            self._style.append((tag, bold, italic, size))
 
     def handle_endtag(self, tag: str) -> None:
         if tag in SKIP_TAGS:
@@ -170,7 +182,12 @@ class _Blocks(HTMLParser):
         self._letters += n
         italic = bool(self._style and self._style[-1][2])
         self._italic += n if italic else 0
-        emph = bool(self._style and (self._style[-1][1] or italic and self.italic_is_emphasis))
+        size = self._style[-1][3] if self._style else 0.0
+        if n:
+            self._sizes[size] = self._sizes.get(size, 0) + n
+        big = bool(self.title_size) and size >= self.title_size
+        emph = bool(self._style and (self._style[-1][1] or italic and self.italic_is_emphasis
+                                     or big))
         if emph:
             self._emph += n
         if self._lead_open:
@@ -188,8 +205,9 @@ def _norm(s: str) -> str:
     return re.sub(r"[\s\xa0\u200b\u202f]+", " ", s).strip()
 
 
-def html_blocks(raw_html: str, italic_is_emphasis: bool = True) -> list[Block]:
-    p = _Blocks(italic_is_emphasis)
+def html_blocks(raw_html: str, italic_is_emphasis: bool = True,
+                title_size: float = 0.0) -> list[Block]:
+    p = _Blocks(italic_is_emphasis, title_size)
     p.feed(raw_html)
     p.close()
     return p.blocks
@@ -209,6 +227,7 @@ def _item1a_span(blocks: list[Block]) -> tuple[int, int]:
     best = _labelled_span(blocks)
     if _span_len(blocks, best) >= 5000:
         return best
+    spans: list[tuple[bool, tuple[int, int]]] = []
     for i, b in enumerate(blocks):
         # GE runs the heading into the paragraph: "RISK FACTORS. The following..."
         if not (_START_B.match(b.text) or _START_B.match(b.lead)):
@@ -217,9 +236,16 @@ def _item1a_span(blocks: list[Block]) -> tuple[int, int]:
             nxt = blocks[j]
             if (len(nxt.text) < 120 and (_END.match(nxt.text) or _NEXT_SECTION.match(nxt.text))
                     or _NEXT_SECTION.match(nxt.lead) and _caps(nxt.lead)):
-                if j - i > 1 and _span_len(blocks, (i + 1, j)) > _span_len(blocks, best):
-                    best = (i + 1, j)
+                if j - i > 1:
+                    spans.append((b.emphasized or bool(b.lead), (i + 1, j)))
                 break
+    # A table-of-contents entry is plain text; the section's own heading is
+    # set off (Wells Fargo). Prefer emphasized headings when one leads to a
+    # real section.
+    strong = [sp for e, sp in spans if e and _span_len(blocks, sp) >= 5000]
+    for sp in strong or [sp for _, sp in spans]:
+        if _span_len(blocks, sp) > _span_len(blocks, best):
+            best = sp
     return best
 
 
@@ -277,14 +303,34 @@ def _run_in(b: Block) -> tuple[str, str] | None:
 
 
 def split_risk_factors(raw_html: str) -> list[RiskFactor]:
+    out = _split(raw_html)
+    if len(out) >= 8:
+        return out
+    # Intel marks its titles only with a larger font (12pt over 9pt body text).
+    # When emphasis finds almost no risks, a font clearly larger than the
+    # section's body text marks a title instead.
     blocks = html_blocks(raw_html)
+    lo, hi = _item1a_span(blocks)
+    hist: dict[float, int] = {}
+    for b in blocks[lo:hi]:
+        hist[b.size] = hist.get(b.size, 0) + b.letters
+    body = max(hist, key=hist.__getitem__) if hist else 0.0
+    if body:
+        bigger = _split(raw_html, title_size=body * 1.2)
+        if len(bigger) > len(out):
+            return bigger
+    return out
+
+
+def _split(raw_html: str, title_size: float = 0.0) -> list[RiskFactor]:
+    blocks = html_blocks(raw_html, title_size=title_size)
     lo, hi = _item1a_span(blocks)
     if hi <= lo:
         raise ValueError("no Item 1A section found")
     # Bristol-Myers sets the whole section in italic and its titles in bold
     # italic. When most of the text is italic, only bold marks a title.
     if sum(b.italic for b in blocks[lo:hi]) > 0.5 * sum(b.letters for b in blocks[lo:hi]):
-        blocks = html_blocks(raw_html, italic_is_emphasis=False)
+        blocks = html_blocks(raw_html, italic_is_emphasis=False, title_size=title_size)
     # Page headers and footers ("Pfizer Inc.", "Apple Inc. | 2026 Form 10-K | 19")
     # are short lines that repeat across pages. They are not content.
     seen: dict[str, int] = {}
@@ -328,7 +374,7 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
                    and not _CATEGORY_HINT.match(b.text))
         if (current is not None and standalone and heading
                 and (b.text.rstrip().endswith(":") or not b.text.rstrip().endswith("."))
-                and (not current.body or has_sub)):
+                and (not current.body or has_sub or b.text.rstrip().endswith(":"))):
             current.body.append(b.text)  # a subheading inside this risk
             has_sub, prev_was_title = True, False
             continue

@@ -32,7 +32,10 @@ from .risks import RiskFactor
 MATCH_MIN = 0.80      # cosine on title+opening; below this a pair is not the same risk
 UNCHANGED_MIN = 0.98  # body text ratio at or above: unchanged
 EDITED_MIN = 0.75     # body text ratio at or above: edited; below: rewritten
-SPLIT_MIN = 0.10      # share of 5-grams reused from one risk: split / merged
+# share of 5-grams reused from one risk: split / merged. Set to 0.10 on the
+# first labelled sample; raised to 0.13 after the out-of-sample audit found
+# three wrong links at 0.10-0.125 that rested on shared boilerplate.
+SPLIT_MIN = 0.13
 SHINGLE = 5
 
 Similarity = Callable[[Sequence[str], Sequence[str]], list[list[float]]]

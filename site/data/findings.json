@@ -1,50 +1,29 @@
 {
- "companies": 98,
- "skipped": [
-  {
-   "ticker": "BK",
-   "company": "Bank of New York Mellon Corp",
-   "reason": "risk factors are incorporated by reference from the annual report exhibit"
-  },
-  {
-   "ticker": "INTC",
-   "company": "INTEL CORP",
-   "reason": "risk titles are marked only by colour and font size, which the splitter ignores"
-  },
-  {
-   "ticker": "USB",
-   "company": "US BANCORP \\DE\\",
-   "reason": "risk factors are incorporated by reference from the annual report exhibit"
-  },
-  {
-   "ticker": "WFC",
-   "company": "WELLS FARGO & COMPANY/MN",
-   "reason": "risk factors are incorporated by reference from the annual report exhibit"
-  }
- ],
- "risks_current": 2862,
+ "companies": 102,
+ "skipped": [],
+ "risks_current": 2985,
  "statuses": {
-  "edited": 1262,
-  "rewritten": 265,
-  "unchanged": 1243,
-  "new": 68,
+  "edited": 1421,
+  "rewritten": 285,
+  "unchanged": 1177,
+  "new": 78,
+  "removed": 48,
   "merged": 20,
-  "removed": 38,
   "split": 24
  },
  "change_labels": {
   "boilerplate": 526,
-  "new_exposure": 547,
+  "new_exposure": 546,
   "escalated": 297,
   "de_escalated": 156
  },
  "themes": [
   {
    "theme": "Artificial intelligence",
-   "companies_up": 79,
-   "risks_up": 268,
-   "companies_down": 10,
-   "risks_down": 10,
+   "companies_up": 80,
+   "risks_up": 269,
+   "companies_down": 11,
+   "risks_down": 12,
    "tickers_up": [
     "AAPL",
     "ABT",
@@ -121,6 +100,7 @@
     "UBER",
     "UNH",
     "UPS",
+    "USB",
     "V",
     "VZ",
     "WMT",
@@ -129,7 +109,7 @@
    "examples": [
     {
      "ticker": "AMD",
-     "company": "ADVANCED MICRO DEVICES INC",
+     "company": "Advanced Micro Devices",
      "id": "1e078adf7517",
      "title": "Government actions and regulations such as export regulations, import tariffs, and trade protection measures may limit our ability to export our products to certain customers.",
      "status": "rewritten",
@@ -139,7 +119,7 @@
     },
     {
      "ticker": "NVDA",
-     "company": "NVIDIA CORP",
+     "company": "Nvidia",
      "id": "a85f565138eb",
      "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
      "status": "rewritten",
@@ -149,7 +129,7 @@
     },
     {
      "ticker": "COF",
-     "company": "CAPITAL ONE FINANCIAL CORP",
+     "company": "Capital One",
      "id": "df03c6b117bf",
      "title": "A change in market preference towards other operators of payment networks and alternative payment providers could result in reduced transaction volume, limited merchant acceptance of our cards and limited issuance of cards on our networks by third parties, and in turn may impact our revenue margins.",
      "status": "new",
@@ -159,7 +139,7 @@
     },
     {
      "ticker": "BLK",
-     "company": "BlackRock, Inc.",
+     "company": "BlackRock",
      "id": "fc97ace56bd3",
      "title": "Enhanced Regulatory Scrutiny of Technology Service Providers to Financial Services Firms:",
      "status": "rewritten",
@@ -169,7 +149,7 @@
     },
     {
      "ticker": "ORCL",
-     "company": "ORACLE CORP",
+     "company": "Oracle",
      "id": "72d3f77d7692",
      "title": "If we are unable to secure data center capacity at affordable rates or do not accurately plan for and manage our infrastructure capacity requirements, our profitability may decline.",
      "status": "rewritten",
@@ -179,7 +159,7 @@
     },
     {
      "ticker": "AMT",
-     "company": "AMERICAN TOWER CORP /MA/",
+     "company": "American Tower",
      "id": "33c4629322fe",
      "title": "Our data center segment contains certain operational differences from our tower leasing operations, resulting in different operational risks. If we do not successfully operate our data center segment or identify or manage the related operational risks, such operations may produce results that are lower than anticipated.",
      "status": "new",
@@ -189,7 +169,7 @@
     },
     {
      "ticker": "AAPL",
-     "company": "Apple Inc.",
+     "company": "Apple",
      "id": "a1e856ed053e",
      "title": "Issues related to artificial intelligence may result in reputational, competitive and financial harm to the Company, regulatory action, legal liability, and other adverse effects to the Company’s business.",
      "status": "new",
@@ -199,7 +179,7 @@
     },
     {
      "ticker": "MSFT",
-     "company": "MICROSOFT CORP",
+     "company": "Microsoft",
      "id": "56f905906470",
      "title": "Our cloud and AI strategy requires substantial investments and depends on evolving customer demand, technological developments, competitive dynamics, and regulatory conditions, any of which could adversely affect our business, financial condition, and results of operations.",
      "status": "new",
@@ -315,7 +295,7 @@
    "examples": [
     {
      "ticker": "AMD",
-     "company": "ADVANCED MICRO DEVICES INC",
+     "company": "Advanced Micro Devices",
      "id": "1e078adf7517",
      "title": "Government actions and regulations such as export regulations, import tariffs, and trade protection measures may limit our ability to export our products to certain customers.",
      "status": "rewritten",
@@ -325,7 +305,7 @@
     },
     {
      "ticker": "NVDA",
-     "company": "NVIDIA CORP",
+     "company": "Nvidia",
      "id": "a85f565138eb",
      "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
      "status": "rewritten",
@@ -335,7 +315,7 @@
     },
     {
      "ticker": "GILD",
-     "company": "GILEAD SCIENCES, INC.",
+     "company": "Gilead Sciences",
      "id": "d3762e60ce28",
      "title": "Our existing products are subject to pricing and reimbursement pressures from government agencies and other third parties, including required discounts and rebates.",
      "status": "rewritten",
@@ -345,7 +325,7 @@
     },
     {
      "ticker": "BMY",
-     "company": "BRISTOL MYERS SQUIBB CO",
+     "company": "Bristol Myers Squibb",
      "id": "099825e126f0",
      "title": "Increased pricing pressure and other restrictions in the U.S. and abroad continue to negatively affect our revenues and profit margins.",
      "status": "rewritten",
@@ -355,7 +335,7 @@
     },
     {
      "ticker": "F",
-     "company": "FORD MOTOR CO",
+     "company": "Ford Motor",
      "id": "33c4b2cdca32",
      "title": "With a global footprint and supply chain, Ford’s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
      "status": "rewritten",
@@ -365,7 +345,7 @@
     },
     {
      "ticker": "LMT",
-     "company": "LOCKHEED MARTIN CORP",
+     "company": "Lockheed Martin",
      "id": "34c44ce0d385",
      "title": "Geopolitical, macroeconomic and public health events and conditions could adversely affect our business, financial condition and operating results.",
      "status": "rewritten",
@@ -375,7 +355,7 @@
     },
     {
      "ticker": "DHR",
-     "company": "DANAHER CORP /DE/",
+     "company": "Danaher",
      "id": "9669560a539d",
      "title": "Significant developments or changes in national laws or policies to protect or promote domestic interests and/or address foreign competition can have an adverse effect on our business and financial statements.",
      "status": "rewritten",
@@ -385,7 +365,7 @@
     },
     {
      "ticker": "AMGN",
-     "company": "AMGEN INC",
+     "company": "Amgen",
      "id": "2cd46f59f189",
      "title": "Global economic conditions may negatively affect us and may magnify certain risks that affect our business.",
      "status": "rewritten",
@@ -431,8 +411,8 @@
   },
   {
    "theme": "Cybersecurity",
-   "companies_up": 55,
-   "risks_up": 89,
+   "companies_up": 56,
+   "risks_up": 90,
    "companies_down": 8,
    "risks_down": 9,
    "tickers_up": [
@@ -488,6 +468,7 @@
     "TMUS",
     "TSLA",
     "UPS",
+    "USB",
     "V",
     "VZ",
     "WMT"
@@ -495,7 +476,7 @@
    "examples": [
     {
      "ticker": "BLK",
-     "company": "BlackRock, Inc.",
+     "company": "BlackRock",
      "id": "fc97ace56bd3",
      "title": "Enhanced Regulatory Scrutiny of Technology Service Providers to Financial Services Firms:",
      "status": "rewritten",
@@ -505,7 +486,7 @@
     },
     {
      "ticker": "AAPL",
-     "company": "Apple Inc.",
+     "company": "Apple",
      "id": "a1e856ed053e",
      "title": "Issues related to artificial intelligence may result in reputational, competitive and financial harm to the Company, regulatory action, legal liability, and other adverse effects to the Company’s business.",
      "status": "new",
@@ -515,7 +496,7 @@
     },
     {
      "ticker": "V",
-     "company": "VISA INC.",
+     "company": "Visa",
      "id": "c89248c371b7",
      "title": "Laws and regulations regarding the handling of personal data, including laws and regulations related to privacy, cybersecurity and AI, may impede our services or result in increased costs, legal claims or fines against us.",
      "status": "rewritten",
@@ -525,7 +506,7 @@
     },
     {
      "ticker": "C",
-     "company": "CITIGROUP INC",
+     "company": "Citigroup",
      "id": "bb6d253d4931",
      "title": "The Development and Use of AI by Citi and Others Present Risks to Citi’s Businesses.",
      "status": "split",
@@ -535,7 +516,7 @@
     },
     {
      "ticker": "FDX",
-     "company": "FEDEX CORP",
+     "company": "FedEx",
      "id": "bd2c267d0814",
      "title": "A significant data breach or other disruption to our technology infrastructure could disrupt our operations and result in the loss of critical sensitive or confidential information, adversely affecting our reputation, business, or results of operations.",
      "status": "edited",
@@ -545,7 +526,7 @@
     },
     {
      "ticker": "CRM",
-     "company": "Salesforce, Inc.",
+     "company": "Salesforce",
      "id": "7a013301aa24",
      "title": "Privacy concerns and laws as well as evolving regulation of cloud computing, AI services, cross-border data transfers and other domestic or foreign regulations may limit the use and adoption of our services and adversely affect our business.",
      "status": "rewritten",
@@ -555,7 +536,7 @@
     },
     {
      "ticker": "PLTR",
-     "company": "Palantir Technologies Inc.",
+     "company": "Palantir",
      "id": "38ada0e29b53",
      "title": "Our business is subject to complex and evolving U.S. and non-U.S. laws and regulations regarding privacy, data protection and security, technology protection, and other matters. Many of these laws and regulations are subject to change and uncertain interpretation, and could result in claims, changes to our business practices, monetary penalties, increased cost of operations, or otherwise harm our business.",
      "status": "edited",
@@ -565,7 +546,7 @@
     },
     {
      "ticker": "MSFT",
-     "company": "MICROSOFT CORP",
+     "company": "Microsoft",
      "id": "eaed5e599b41",
      "title": "Cyberattacks and security vulnerabilities could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position.",
      "status": "edited",
@@ -595,7 +576,7 @@
      "ticker": "CVS",
      "id": "fe9a73ba8ce9",
      "title": "If our suppliers or service providers fail to meet their contractual obligations to us or to comply with applicable laws or regulations, we may be exposed to brand and reputational harm, litigation and/or regulatory action.",
-     "status": "merged",
+     "status": "removed",
      "label": null,
      "sentence": "Any failure of these third parties’ prevention, detection or control systems related to regulatory compliance, compliance with our internal policies, data security and/or cybersecurity or any incident involving the theft, misappropriation, loss or other unauthorized disclosure of, or access to, members’, customers’…"
     },
@@ -652,7 +633,7 @@
    "examples": [
     {
      "ticker": "AMD",
-     "company": "ADVANCED MICRO DEVICES INC",
+     "company": "Advanced Micro Devices",
      "id": "1e078adf7517",
      "title": "Government actions and regulations such as export regulations, import tariffs, and trade protection measures may limit our ability to export our products to certain customers.",
      "status": "rewritten",
@@ -662,7 +643,7 @@
     },
     {
      "ticker": "NVDA",
-     "company": "NVIDIA CORP",
+     "company": "Nvidia",
      "id": "a85f565138eb",
      "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
      "status": "rewritten",
@@ -672,7 +653,7 @@
     },
     {
      "ticker": "BLK",
-     "company": "BlackRock, Inc.",
+     "company": "BlackRock",
      "id": "fc97ace56bd3",
      "title": "Enhanced Regulatory Scrutiny of Technology Service Providers to Financial Services Firms:",
      "status": "rewritten",
@@ -682,7 +663,7 @@
     },
     {
      "ticker": "F",
-     "company": "FORD MOTOR CO",
+     "company": "Ford Motor",
      "id": "33c4b2cdca32",
      "title": "With a global footprint and supply chain, Ford’s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
      "status": "rewritten",
@@ -692,7 +673,7 @@
     },
     {
      "ticker": "LMT",
-     "company": "LOCKHEED MARTIN CORP",
+     "company": "Lockheed Martin",
      "id": "34c44ce0d385",
      "title": "Geopolitical, macroeconomic and public health events and conditions could adversely affect our business, financial condition and operating results.",
      "status": "rewritten",
@@ -702,7 +683,7 @@
     },
     {
      "ticker": "AMGN",
-     "company": "AMGEN INC",
+     "company": "Amgen",
      "id": "2cd46f59f189",
      "title": "Global economic conditions may negatively affect us and may magnify certain risks that affect our business.",
      "status": "rewritten",
@@ -712,7 +693,7 @@
     },
     {
      "ticker": "LLY",
-     "company": "ELI LILLY & Co",
+     "company": "Eli Lilly",
      "id": "f69046258b1b",
      "title": "Our global operations subject us to risks, including as related to uneven economic growth or downturns, international trade, and other global disruptions, geopolitical tensions, or disputes.",
      "status": "rewritten",
@@ -722,7 +703,7 @@
     },
     {
      "ticker": "ISRG",
-     "company": "INTUITIVE SURGICAL INC",
+     "company": "Intuitive Surgical",
      "id": "c06c468b1c21",
      "title": "WE ARE SUBJECT TO A VARIETY OF RISKS DUE TO OUR OPERATIONS OUTSIDE OF THE U.S.",
      "status": "rewritten",
@@ -797,7 +778,7 @@
    "examples": [
     {
      "ticker": "AMD",
-     "company": "ADVANCED MICRO DEVICES INC",
+     "company": "Advanced Micro Devices",
      "id": "1e078adf7517",
      "title": "Government actions and regulations such as export regulations, import tariffs, and trade protection measures may limit our ability to export our products to certain customers.",
      "status": "rewritten",
@@ -807,7 +788,7 @@
     },
     {
      "ticker": "NVDA",
-     "company": "NVIDIA CORP",
+     "company": "Nvidia",
      "id": "a85f565138eb",
      "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
      "status": "rewritten",
@@ -817,7 +798,7 @@
     },
     {
      "ticker": "AAPL",
-     "company": "Apple Inc.",
+     "company": "Apple",
      "id": "a1e856ed053e",
      "title": "Issues related to artificial intelligence may result in reputational, competitive and financial harm to the Company, regulatory action, legal liability, and other adverse effects to the Company’s business.",
      "status": "new",
@@ -827,7 +808,7 @@
     },
     {
      "ticker": "F",
-     "company": "FORD MOTOR CO",
+     "company": "Ford Motor",
      "id": "33c4b2cdca32",
      "title": "With a global footprint and supply chain, Ford’s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
      "status": "rewritten",
@@ -837,7 +818,7 @@
     },
     {
      "ticker": "LMT",
-     "company": "LOCKHEED MARTIN CORP",
+     "company": "Lockheed Martin",
      "id": "34c44ce0d385",
      "title": "Geopolitical, macroeconomic and public health events and conditions could adversely affect our business, financial condition and operating results.",
      "status": "rewritten",
@@ -847,7 +828,7 @@
     },
     {
      "ticker": "DE",
-     "company": "DEERE & CO",
+     "company": "Deere & Company",
      "id": "f65951d1f1b4",
      "title": "We face risks associated with international, national, and regional trade laws, regulations, and policies that could materially impair our profitability.",
      "status": "rewritten",
@@ -857,7 +838,7 @@
     },
     {
      "ticker": "META",
-     "company": "Meta Platforms, Inc.",
+     "company": "Meta Platforms",
      "id": "9218faa54724",
      "title": "Our business is subject to complex and evolving U.S. and foreign laws and regulations regarding privacy, data use, data combination, data protection, content, AI, competition, youth, safety, consumer protection, advertising, e-commerce, and other matters. Many of these laws and regulations are subject to change and uncertain interpretation, and could result in claims, changes to our products and business practices, monetary penalties, increased cost of operations, or declines in user growth or engagement, or otherwise harm our business.",
      "status": "edited",
@@ -867,7 +848,7 @@
     },
     {
      "ticker": "MDT",
-     "company": "Medtronic plc",
+     "company": "Medtronic",
      "id": "86cf38e13789",
      "title": "We are subject to a variety of risks associated with global operations that could adversely affect our profitability and operating results.",
      "status": "rewritten",
@@ -882,8 +863,8 @@
    "theme": "Climate",
    "companies_up": 16,
    "risks_up": 21,
-   "companies_down": 16,
-   "risks_down": 21,
+   "companies_down": 17,
+   "risks_down": 22,
    "tickers_up": [
     "ABT",
     "ADBE",
@@ -905,7 +886,7 @@
    "examples": [
     {
      "ticker": "AMT",
-     "company": "AMERICAN TOWER CORP /MA/",
+     "company": "American Tower",
      "id": "33c4629322fe",
      "title": "Our data center segment contains certain operational differences from our tower leasing operations, resulting in different operational risks. If we do not successfully operate our data center segment or identify or manage the related operational risks, such operations may produce results that are lower than anticipated.",
      "status": "new",
@@ -915,7 +896,7 @@
     },
     {
      "ticker": "LLY",
-     "company": "ELI LILLY & Co",
+     "company": "Eli Lilly",
      "id": "57014c73efd8",
      "title": "Manufacturing, quality, or supply chain difficulties, disruptions, or shortages could lead to product supply problems or other negative outcomes.",
      "status": "rewritten",
@@ -925,7 +906,7 @@
     },
     {
      "ticker": "QCOM",
-     "company": "QUALCOMM INC/DE",
+     "company": "Qualcomm",
      "id": "43d04f13b0bd",
      "title": "Our growth depends in part on the continued expansion of our business in industries and applications beyond mobile handsets, including in automotive, the internet of things (IoT) and data center. Our research, development and other investments in these areas, and related technologies and products, may not generate operating income or contribute to future results of operations that meet our expectations.",
      "status": "edited",
@@ -935,7 +916,7 @@
     },
     {
      "ticker": "PYPL",
-     "company": "PayPal Holdings, Inc.",
+     "company": "PayPal",
      "id": "3dde4f447905",
      "title": "Evolving laws, regulations and stakeholder expectations with respect to environmental, social and governance matters could harm our reputation and adversely affect our business.",
      "status": "rewritten",
@@ -945,7 +926,7 @@
     },
     {
      "ticker": "COP",
-     "company": "CONOCOPHILLIPS",
+     "company": "ConocoPhillips",
      "id": "233fe632bf03",
      "title": "Existing and future laws, regulations and internal initiatives relating to global climate change, such as limitations on GHG emissions or provisions aimed at reducing such emissions, may impact or limit our business plans, result in significant expenditures, promote alternative uses of energy or reduce demand for our products.",
      "status": "edited",
@@ -955,7 +936,7 @@
     },
     {
      "ticker": "CRM",
-     "company": "Salesforce, Inc.",
+     "company": "Salesforce",
      "id": "1e313e2aeb3e",
      "title": "Any interruptions or delays in services from third parties, including data center hosting facilities, cloud computing platform providers and other hardware and software vendors, as well as Internet infrastructure, or from our inability to adequately plan for and manage service interruptions or infrastructure capacity requirements, could impair the delivery of our services and harm our business.",
      "status": "edited",
@@ -965,7 +946,7 @@
     },
     {
      "ticker": "WMT",
-     "company": "Walmart Inc.",
+     "company": "Walmart",
      "id": "0171fcb25923",
      "title": "Natural disasters, climate change, geopolitical events, catastrophic and other events could materially adversely affect our financial performance.",
      "status": "rewritten",
@@ -975,7 +956,7 @@
     },
     {
      "ticker": "AIG",
-     "company": "AMERICAN INTERNATIONAL GROUP, INC.",
+     "company": "American International Group",
      "id": "b90453b1d821",
      "title": "Climate change may adversely affect our business and financial condition.",
      "status": "edited",
@@ -1023,61 +1004,61 @@
  "movers": [
   {
    "ticker": "AVGO",
-   "company": "Broadcom Inc.",
+   "company": "Broadcom",
    "up": 24,
    "risks": 41
   },
   {
    "ticker": "COF",
-   "company": "CAPITAL ONE FINANCIAL CORP",
+   "company": "Capital One",
    "up": 24,
    "risks": 35
   },
   {
    "ticker": "AXP",
-   "company": "AMERICAN EXPRESS CO",
+   "company": "American Express",
    "up": 22,
    "risks": 34
   },
   {
    "ticker": "DE",
-   "company": "DEERE & CO",
+   "company": "Deere & Company",
    "up": 22,
    "risks": 28
   },
   {
    "ticker": "ORCL",
-   "company": "ORACLE CORP",
+   "company": "Oracle",
    "up": 20,
    "risks": 34
   },
   {
    "ticker": "FDX",
-   "company": "FEDEX CORP",
+   "company": "FedEx",
    "up": 19,
    "risks": 31
   },
   {
    "ticker": "JPM",
-   "company": "JPMORGAN CHASE & CO",
+   "company": "JPMorgan Chase",
    "up": 19,
    "risks": 43
   },
   {
    "ticker": "AAPL",
-   "company": "Apple Inc.",
+   "company": "Apple",
    "up": 17,
    "risks": 28
   },
   {
    "ticker": "CRM",
-   "company": "Salesforce, Inc.",
+   "company": "Salesforce",
    "up": 17,
    "risks": 36
   },
   {
    "ticker": "F",
-   "company": "FORD MOTOR CO",
+   "company": "Ford Motor",
    "up": 16,
    "risks": 26
   }

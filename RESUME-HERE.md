@@ -1,6 +1,17 @@
 # RESUME HERE
 
-## Nov 15 state (read this first; the parked notes below are history)
+## Nov 15 evening state (read this first)
+
+Launch-ready: all 102 companies, in-page search over every risk factor
+(site/app.js, data/search.json from tools/search_index.py), consistency
+check tools/check_site.py run in CI, Cloudflare Pages files (site/_headers,
+docs/DEPLOY.md), link preview from tools/og/. Rebuild with `make radar`.
+Left for Joaquin: README + DECISIONS from the drafts in
+Employment/portfolio/risk-radar-drafts/, rename to risk-radar, push, deploy.
+181 edits have no change-type label (needs API credit, then
+classify_changes.py and build_radar.py --relabel).
+
+## Nov 15 state (earlier; the parked notes below are history)
 
 The project is now Risk Radar: a static site (site/) showing what 98 of the
 S&P 100 added, removed, split, merged and rewrote in their 10-K risk factors,

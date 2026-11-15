@@ -12,6 +12,15 @@ jobs:
       - run: ruff check src tools tests
       - run: mypy src
       - run: PYTHONPATH=src:tools python3 -m pytest -q
+      # The published site data must hang together: every front-page link
+      # resolves, every quoted sentence is in the filing text, counts add up.
+      - run: python3 tools/check_site.py
       # The retrieval eval is deterministic and needs no API key, so it runs on
-      # every push. If the numbers in the README stop reproducing, CI fails.
-      - run: PYTHONPATH=src:tools python3 tools/run_retrieval_eval.py --check
+      # every push once a golden set exists. If the committed numbers stop
+      # reproducing, CI fails.
+      - run: |
+          if [ -s data/golden/golden.jsonl ]; then
+            PYTHONPATH=src:tools python3 tools/run_retrieval_eval.py --check
+          else
+            echo "No golden set yet; retrieval check skipped."
+          fi

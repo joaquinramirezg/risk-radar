@@ -58,6 +58,12 @@
    "ORCL new",
    "ORCL split"
   ],
+  "status_changed_by_threshold": [
+   "ABT merged->removed (judged wrong_link)",
+   "CVS merged->removed (judged wrong_link)",
+   "DUK split->new (judged correct)",
+   "PM merged->removed (judged wrong_link)"
+  ],
   "new_correct": {
    "k": 50,
    "n": 55,
@@ -77,12 +83,12 @@
    ]
   },
   "split_merge_correct": {
-   "k": 19,
-   "n": 30,
-   "rate": 0.6333,
+   "k": 18,
+   "n": 26,
+   "rate": 0.6923,
    "ci95": [
-    0.4551,
-    0.7813
+    0.5001,
+    0.835
    ]
   }
  },

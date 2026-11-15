@@ -64,6 +64,21 @@ def last_two_10k(cik: int, ua: str) -> tuple[str, list[dict[str, str]]]:
     return d["name"], [{k: r[k][i] for k in FIELDS} for i in idx]
 
 
+def companion(cik: int, acc: str, primary: str, dest: Path, ua: str) -> None:
+    """Some banks (BNY, U.S. Bancorp, Wells Fargo) file the annual report,
+    which holds the risk factors, as a second main document of the 10-K.
+    Save any such document next to the primary one as <name>.annual.html."""
+    base = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc.replace('-', '')}"
+    out = dest.with_suffix(".annual.html")
+    if out.exists():
+        return
+    items = json.loads(get(f"{base}/index.json", ua))["directory"]["item"]
+    docs = [i["name"] for i in items if i["name"].endswith(".htm") and i["name"] != primary
+            and not i["name"].startswith("R") and "ex" not in i["name"].lower()]
+    if docs:
+        out.write_bytes(get(f"{base}/{docs[0]}", ua))
+
+
 def main() -> int:
     ua = os.environ.get("SEC_USER_AGENT", "")
     if "@" not in ua:
@@ -81,6 +96,7 @@ def main() -> int:
             dest.parent.mkdir(parents=True, exist_ok=True)
             if not dest.exists():
                 dest.write_bytes(get(url, ua))
+            companion(cik, acc, f["primaryDocument"], dest, ua)
             rows[folder].append([ticker, name, str(cik), acc, f["filingDate"],
                                  f["reportDate"], fn, url])
         print(f"ok   {ticker}")

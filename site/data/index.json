@@ -10,7 +10,7 @@
  "companies": [
   {
    "ticker": "AAPL",
-   "company": "Apple Inc.",
+   "company": "Apple",
    "current": {
     "period_end": "2026-09-26",
     "filed": "2026-11-03",
@@ -31,8 +31,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 5,
-    "edited": 15,
-    "unchanged": 7
+    "edited": 16,
+    "unchanged": 6
    },
    "themes": {
     "current": {
@@ -59,7 +59,7 @@
   },
   {
    "ticker": "ABBV",
-   "company": "AbbVie Inc.",
+   "company": "AbbVie",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-20",
@@ -109,7 +109,7 @@
   },
   {
    "ticker": "ABT",
-   "company": "ABBOTT LABORATORIES",
+   "company": "Abbott Laboratories",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-20",
@@ -127,11 +127,11 @@
    "counts": {
     "new": 0,
     "split": 0,
-    "removed": 0,
-    "merged": 1,
+    "removed": 1,
+    "merged": 0,
     "rewritten": 2,
-    "edited": 5,
-    "unchanged": 12
+    "edited": 6,
+    "unchanged": 11
    },
    "themes": {
     "current": {
@@ -152,11 +152,13 @@
     }
    },
    "new_titles": [],
-   "removed_titles": []
+   "removed_titles": [
+    "Abbott is subject to risks related to public health crises, such as widespread outbreaks of infectious diseases, which could have a material effect on Abbott’s business, financial condition and results of operations."
+   ]
   },
   {
    "ticker": "ACN",
-   "company": "Accenture plc",
+   "company": "Accenture",
    "current": {
     "period_end": "2026-08-31",
     "filed": "2026-10-16",
@@ -203,7 +205,7 @@
   },
   {
    "ticker": "ADBE",
-   "company": "ADOBE INC.",
+   "company": "Adobe",
    "current": {
     "period_end": "2025-11-28",
     "filed": "2026-01-15",
@@ -250,7 +252,7 @@
   },
   {
    "ticker": "AIG",
-   "company": "AMERICAN INTERNATIONAL GROUP, INC.",
+   "company": "American International Group",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-12",
@@ -271,8 +273,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 2,
-    "edited": 22,
-    "unchanged": 11
+    "edited": 25,
+    "unchanged": 8
    },
    "themes": {
     "current": {
@@ -301,7 +303,7 @@
   },
   {
    "ticker": "AMD",
-   "company": "ADVANCED MICRO DEVICES INC",
+   "company": "Advanced Micro Devices",
    "current": {
     "period_end": "2025-12-27",
     "filed": "2026-02-04",
@@ -353,7 +355,7 @@
   },
   {
    "ticker": "AMGN",
-   "company": "AMGEN INC",
+   "company": "Amgen",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-13",
@@ -400,7 +402,7 @@
   },
   {
    "ticker": "AMT",
-   "company": "AMERICAN TOWER CORP /MA/",
+   "company": "American Tower",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -421,8 +423,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 7,
-    "edited": 5,
-    "unchanged": 9
+    "edited": 6,
+    "unchanged": 8
    },
    "themes": {
     "current": {
@@ -450,7 +452,7 @@
   },
   {
    "ticker": "AMZN",
-   "company": "AMAZON COM INC",
+   "company": "Amazon",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-06",
@@ -497,7 +499,7 @@
   },
   {
    "ticker": "AVGO",
-   "company": "Broadcom Inc.",
+   "company": "Broadcom",
    "current": {
     "period_end": "2025-11-02",
     "filed": "2025-12-18",
@@ -518,8 +520,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 7,
-    "edited": 24,
-    "unchanged": 9
+    "edited": 25,
+    "unchanged": 8
    },
    "themes": {
     "current": {
@@ -548,7 +550,7 @@
   },
   {
    "ticker": "AXP",
-   "company": "AMERICAN EXPRESS CO",
+   "company": "American Express",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-06",
@@ -569,8 +571,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 2,
-    "edited": 28,
-    "unchanged": 3
+    "edited": 29,
+    "unchanged": 2
    },
    "themes": {
     "current": {
@@ -597,7 +599,7 @@
   },
   {
    "ticker": "BAC",
-   "company": "BANK OF AMERICA CORP /DE/",
+   "company": "Bank of America",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -618,8 +620,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 5,
-    "edited": 17,
-    "unchanged": 7
+    "edited": 19,
+    "unchanged": 5
    },
    "themes": {
     "current": {
@@ -644,7 +646,7 @@
   },
   {
    "ticker": "BA",
-   "company": "BOEING CO",
+   "company": "Boeing",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-30",
@@ -693,7 +695,7 @@
   },
   {
    "ticker": "BKNG",
-   "company": "Booking Holdings Inc.",
+   "company": "Booking Holdings",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-18",
@@ -739,8 +741,55 @@
    "removed_titles": []
   },
   {
+   "ticker": "BK",
+   "company": "BNY",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000033/bk-20251231.htm",
+    "risks": 32,
+    "words": 22617
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-27",
+    "url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077725000046/bk-20241231.htm",
+    "risks": 32,
+    "words": 24010
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 6,
+    "edited": 19,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 33,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 37,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 24,
+     "Tariffs and trade": 7,
+     "Cybersecurity": 44,
+     "China": 4,
+     "Climate": 26,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
    "ticker": "BLK",
-   "company": "BlackRock, Inc.",
+   "company": "BlackRock",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -761,8 +810,8 @@
     "removed": 0,
     "merged": 2,
     "rewritten": 7,
-    "edited": 19,
-    "unchanged": 23
+    "edited": 22,
+    "unchanged": 20
    },
    "themes": {
     "current": {
@@ -787,7 +836,7 @@
   },
   {
    "ticker": "BMY",
-   "company": "BRISTOL MYERS SQUIBB CO",
+   "company": "Bristol Myers Squibb",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-11",
@@ -834,7 +883,7 @@
   },
   {
    "ticker": "BRK-B",
-   "company": "BERKSHIRE HATHAWAY INC",
+   "company": "Berkshire Hathaway",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-03-02",
@@ -881,7 +930,7 @@
   },
   {
    "ticker": "CAT",
-   "company": "CATERPILLAR INC",
+   "company": "Caterpillar",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-13",
@@ -928,7 +977,7 @@
   },
   {
    "ticker": "CHTR",
-   "company": "CHARTER COMMUNICATIONS, INC. /MO/",
+   "company": "Charter Communications",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-30",
@@ -949,8 +998,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 13,
-    "unchanged": 11
+    "edited": 14,
+    "unchanged": 10
    },
    "themes": {
     "current": {
@@ -979,7 +1028,7 @@
   },
   {
    "ticker": "CL",
-   "company": "COLGATE PALMOLIVE CO",
+   "company": "Colgate-Palmolive",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-23",
@@ -1028,7 +1077,7 @@
   },
   {
    "ticker": "CMCSA",
-   "company": "COMCAST CORP",
+   "company": "Comcast",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-03",
@@ -1049,8 +1098,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 6,
-    "unchanged": 12
+    "edited": 7,
+    "unchanged": 11
    },
    "themes": {
     "current": {
@@ -1077,7 +1126,7 @@
   },
   {
    "ticker": "COF",
-   "company": "CAPITAL ONE FINANCIAL CORP",
+   "company": "Capital One",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-19",
@@ -1132,7 +1181,7 @@
   },
   {
    "ticker": "COP",
-   "company": "CONOCOPHILLIPS",
+   "company": "ConocoPhillips",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-17",
@@ -1182,7 +1231,7 @@
   },
   {
    "ticker": "COST",
-   "company": "COSTCO WHOLESALE CORP /NEW",
+   "company": "Costco",
    "current": {
     "period_end": "2026-08-30",
     "filed": "2026-10-07",
@@ -1203,8 +1252,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 10,
-    "unchanged": 16
+    "edited": 11,
+    "unchanged": 15
    },
    "themes": {
     "current": {
@@ -1229,7 +1278,7 @@
   },
   {
    "ticker": "CRM",
-   "company": "Salesforce, Inc.",
+   "company": "Salesforce",
    "current": {
     "period_end": "2026-01-31",
     "filed": "2026-03-02",
@@ -1250,8 +1299,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 8,
-    "edited": 21,
-    "unchanged": 7
+    "edited": 23,
+    "unchanged": 5
    },
    "themes": {
     "current": {
@@ -1276,7 +1325,7 @@
   },
   {
    "ticker": "CSCO",
-   "company": "CISCO SYSTEMS, INC.",
+   "company": "Cisco",
    "current": {
     "period_end": "2026-07-25",
     "filed": "2026-09-02",
@@ -1297,8 +1346,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 16,
-    "edited": 20,
-    "unchanged": 2
+    "edited": 21,
+    "unchanged": 1
    },
    "themes": {
     "current": {
@@ -1323,7 +1372,7 @@
   },
   {
    "ticker": "CVS",
-   "company": "CVS HEALTH Corp",
+   "company": "CVS Health",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-10",
@@ -1341,11 +1390,11 @@
    "counts": {
     "new": 0,
     "split": 1,
-    "removed": 2,
-    "merged": 6,
+    "removed": 3,
+    "merged": 5,
     "rewritten": 5,
-    "edited": 18,
-    "unchanged": 16
+    "edited": 19,
+    "unchanged": 15
    },
    "themes": {
     "current": {
@@ -1368,12 +1417,13 @@
    "new_titles": [],
    "removed_titles": [
     "We can provide no assurance that we will be able to compete successfully on Public Exchanges or that our pricing or other actions will result in the profitability of our Public Exchange products.",
+    "If our suppliers or service providers fail to meet their contractual obligations to us or to comply with applicable laws or regulations, we may be exposed to brand and reputational harm, litigation and/or regulatory action.",
     "We may experience increased medical and other benefit costs, litigation risk and customer and member dissatisfaction when providers that do not have contracts with us render services to our Health Care Benefits members."
    ]
   },
   {
    "ticker": "CVX",
-   "company": "CHEVRON CORP",
+   "company": "Chevron",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -1425,7 +1475,7 @@
   },
   {
    "ticker": "C",
-   "company": "CITIGROUP INC",
+   "company": "Citigroup",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-20",
@@ -1476,7 +1526,7 @@
   },
   {
    "ticker": "DE",
-   "company": "DEERE & CO",
+   "company": "Deere & Company",
    "current": {
     "period_end": "2025-11-02",
     "filed": "2025-12-18",
@@ -1527,7 +1577,7 @@
   },
   {
    "ticker": "DHR",
-   "company": "DANAHER CORP /DE/",
+   "company": "Danaher",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -1548,8 +1598,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 2,
-    "edited": 19,
-    "unchanged": 21
+    "edited": 20,
+    "unchanged": 20
    },
    "themes": {
     "current": {
@@ -1576,7 +1626,7 @@
   },
   {
    "ticker": "DIS",
-   "company": "Walt Disney Co",
+   "company": "Walt Disney",
    "current": {
     "period_end": "2025-09-27",
     "filed": "2025-11-13",
@@ -1627,7 +1677,7 @@
   },
   {
    "ticker": "DUK",
-   "company": "Duke Energy CORP",
+   "company": "Duke Energy",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-26",
@@ -1643,8 +1693,8 @@
     "words": 9612
    },
    "counts": {
-    "new": 2,
-    "split": 1,
+    "new": 3,
+    "split": 0,
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
@@ -1670,6 +1720,7 @@
     }
    },
    "new_titles": [
+    "The Duke Energy Registrants are exposed to financial and operational risks associated with growth including volatility in sales, supply and demand forecasts, and customer usage changes which could negatively impact the Duke Energy Registrants' results of operations.",
     "Risks Related to Supply Chain Disruptions, Inflation, Tariffs and Foreign Export Restrictions",
     "Failure to complete strategic transactions could adversely affect the Duke Energy Registrants’ financial condition, credit profile and ability to execute their business strategy."
    ],
@@ -1677,7 +1728,7 @@
   },
   {
    "ticker": "EMR",
-   "company": "EMERSON ELECTRIC CO",
+   "company": "Emerson Electric",
    "current": {
     "period_end": "2026-09-30",
     "filed": "2026-11-09",
@@ -1698,8 +1749,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 4,
-    "unchanged": 13
+    "edited": 5,
+    "unchanged": 12
    },
    "themes": {
     "current": {
@@ -1724,7 +1775,7 @@
   },
   {
    "ticker": "FDX",
-   "company": "FEDEX CORP",
+   "company": "FedEx",
    "current": {
     "period_end": "2026-05-31",
     "filed": "2026-07-20",
@@ -1777,7 +1828,7 @@
   },
   {
    "ticker": "F",
-   "company": "FORD MOTOR CO",
+   "company": "Ford Motor",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-11",
@@ -1824,7 +1875,7 @@
   },
   {
    "ticker": "GD",
-   "company": "GENERAL DYNAMICS CORP",
+   "company": "General Dynamics",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-30",
@@ -1871,7 +1922,7 @@
   },
   {
    "ticker": "GE",
-   "company": "GENERAL ELECTRIC CO",
+   "company": "GE Aerospace",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-29",
@@ -1918,7 +1969,7 @@
   },
   {
    "ticker": "GILD",
-   "company": "GILEAD SCIENCES, INC.",
+   "company": "Gilead Sciences",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -1969,7 +2020,7 @@
   },
   {
    "ticker": "GM",
-   "company": "General Motors Co",
+   "company": "General Motors",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-27",
@@ -1990,8 +2041,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 2,
-    "edited": 17,
-    "unchanged": 8
+    "edited": 20,
+    "unchanged": 5
    },
    "themes": {
     "current": {
@@ -2018,7 +2069,7 @@
   },
   {
    "ticker": "GOOGL",
-   "company": "Alphabet Inc.",
+   "company": "Alphabet",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-05",
@@ -2069,7 +2120,7 @@
   },
   {
    "ticker": "GS",
-   "company": "GOLDMAN SACHS GROUP INC",
+   "company": "Goldman Sachs",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -2090,8 +2141,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 13,
-    "unchanged": 23
+    "edited": 15,
+    "unchanged": 21
    },
    "themes": {
     "current": {
@@ -2116,7 +2167,7 @@
   },
   {
    "ticker": "HD",
-   "company": "HOME DEPOT, INC.",
+   "company": "Home Depot",
    "current": {
     "period_end": "2026-02-01",
     "filed": "2026-03-18",
@@ -2163,7 +2214,7 @@
   },
   {
    "ticker": "HON",
-   "company": "HONEYWELL INTERNATIONAL INC",
+   "company": "Honeywell",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-17",
@@ -2184,8 +2235,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 4,
-    "edited": 12,
-    "unchanged": 6
+    "edited": 13,
+    "unchanged": 5
    },
    "themes": {
     "current": {
@@ -2210,7 +2261,7 @@
   },
   {
    "ticker": "IBM",
-   "company": "INTERNATIONAL BUSINESS MACHINES CORP",
+   "company": "IBM",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -2256,8 +2307,70 @@
    "removed_titles": []
   },
   {
+   "ticker": "INTC",
+   "company": "Intel",
+   "current": {
+    "period_end": "2025-12-27",
+    "filed": "2026-01-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm",
+    "risks": 27,
+    "words": 14011
+   },
+   "previous": {
+    "period_end": "2024-12-28",
+    "filed": "2025-01-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000009/intc-20241228.htm",
+    "risks": 29,
+    "words": 15652
+   },
+   "counts": {
+    "new": 6,
+    "split": 0,
+    "removed": 7,
+    "merged": 1,
+    "rewritten": 6,
+    "edited": 13,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 32,
+     "Tariffs and trade": 15,
+     "Cybersecurity": 10,
+     "China": 13,
+     "Climate": 2,
+     "Export controls": 3
+    },
+    "previous": {
+     "Artificial intelligence": 31,
+     "Tariffs and trade": 14,
+     "Cybersecurity": 13,
+     "China": 12,
+     "Climate": 8,
+     "Export controls": 3
+    }
+   },
+   "new_titles": [
+    "There are a number of risks and uncertainties associated with the U.S. government’s acquisition of significant equity interests in us.",
+    "The legislative, judicial or executive branches of the U.S. government could determine in the future that all or a portion of the transactions were unauthorized, void or voidable.",
+    "The transactions eliminate our contractual rights to receive future funds under the commercial CHIPS Act agreement and Secure Enclave agreement in the form of grants and may limit our ability to secure grants from government entities in the future.",
+    "The transactions are dilutive to existing stockholders.",
+    "The U.S. government’s equity position reduces the voting and other governance rights of our other stockholders and may limit potential future transactions that may be beneficial to such stockholders.",
+    "Our non-U.S. business may be adversely impacted by the U.S. government being a significant stockholder."
+   ],
+   "removed_titles": [
+    "We have ceased to return capital to stockholders.",
+    "Our initiatives and new legal requirements with respect to corporate responsibility matters present various risks.",
+    "Customers",
+    "Sales Arrangements",
+    "Distribution",
+    "Seasonal Trends",
+    "Marketing"
+   ]
+  },
+  {
    "ticker": "INTU",
-   "company": "INTUIT INC.",
+   "company": "Intuit",
    "current": {
     "period_end": "2026-07-31",
     "filed": "2026-09-09",
@@ -2304,7 +2417,7 @@
   },
   {
    "ticker": "ISRG",
-   "company": "INTUITIVE SURGICAL INC",
+   "company": "Intuitive Surgical",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-03",
@@ -2325,8 +2438,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 6,
-    "edited": 19,
-    "unchanged": 21
+    "edited": 22,
+    "unchanged": 18
    },
    "themes": {
     "current": {
@@ -2353,7 +2466,7 @@
   },
   {
    "ticker": "JNJ",
-   "company": "JOHNSON & JOHNSON",
+   "company": "Johnson & Johnson",
    "current": {
     "period_end": "2025-12-28",
     "filed": "2026-02-11",
@@ -2374,8 +2487,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 2,
-    "unchanged": 18
+    "edited": 3,
+    "unchanged": 17
    },
    "themes": {
     "current": {
@@ -2404,7 +2517,7 @@
   },
   {
    "ticker": "JPM",
-   "company": "JPMORGAN CHASE & CO",
+   "company": "JPMorgan Chase",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-13",
@@ -2453,7 +2566,7 @@
   },
   {
    "ticker": "KO",
-   "company": "COCA COLA CO",
+   "company": "Coca-Cola",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-20",
@@ -2474,8 +2587,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 9,
-    "unchanged": 33
+    "edited": 11,
+    "unchanged": 31
    },
    "themes": {
     "current": {
@@ -2500,7 +2613,7 @@
   },
   {
    "ticker": "LIN",
-   "company": "LINDE PLC",
+   "company": "Linde",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -2547,7 +2660,7 @@
   },
   {
    "ticker": "LLY",
-   "company": "ELI LILLY & Co",
+   "company": "Eli Lilly",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-12",
@@ -2594,7 +2707,7 @@
   },
   {
    "ticker": "LMT",
-   "company": "LOCKHEED MARTIN CORP",
+   "company": "Lockheed Martin",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-29",
@@ -2615,8 +2728,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 2,
-    "edited": 11,
-    "unchanged": 13
+    "edited": 13,
+    "unchanged": 11
    },
    "themes": {
     "current": {
@@ -2643,7 +2756,7 @@
   },
   {
    "ticker": "LOW",
-   "company": "LOWES COMPANIES INC",
+   "company": "Lowe's",
    "current": {
     "period_end": "2026-01-30",
     "filed": "2026-03-23",
@@ -2664,8 +2777,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 7,
-    "unchanged": 19
+    "edited": 9,
+    "unchanged": 17
    },
    "themes": {
     "current": {
@@ -2690,7 +2803,7 @@
   },
   {
    "ticker": "MA",
-   "company": "Mastercard Inc",
+   "company": "Mastercard",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-11",
@@ -2737,7 +2850,7 @@
   },
   {
    "ticker": "MCD",
-   "company": "MCDONALDS CORP",
+   "company": "McDonald's",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -2784,7 +2897,7 @@
   },
   {
    "ticker": "MDLZ",
-   "company": "Mondelez International, Inc.",
+   "company": "Mondelez International",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-04",
@@ -2831,7 +2944,7 @@
   },
   {
    "ticker": "MDT",
-   "company": "Medtronic plc",
+   "company": "Medtronic",
    "current": {
     "period_end": "2026-04-24",
     "filed": "2026-06-18",
@@ -2852,8 +2965,8 @@
     "removed": 2,
     "merged": 0,
     "rewritten": 3,
-    "edited": 17,
-    "unchanged": 12
+    "edited": 18,
+    "unchanged": 11
    },
    "themes": {
     "current": {
@@ -2884,7 +2997,7 @@
   },
   {
    "ticker": "META",
-   "company": "Meta Platforms, Inc.",
+   "company": "Meta Platforms",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-29",
@@ -2905,8 +3018,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 19,
-    "unchanged": 28
+    "edited": 20,
+    "unchanged": 27
    },
    "themes": {
     "current": {
@@ -2931,7 +3044,7 @@
   },
   {
    "ticker": "MET",
-   "company": "METLIFE INC",
+   "company": "MetLife",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-19",
@@ -2952,8 +3065,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 2,
-    "edited": 15,
-    "unchanged": 29
+    "edited": 17,
+    "unchanged": 27
    },
    "themes": {
     "current": {
@@ -2978,7 +3091,7 @@
   },
   {
    "ticker": "MMM",
-   "company": "3M CO",
+   "company": "3M",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-03",
@@ -2999,8 +3112,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 7,
-    "unchanged": 7
+    "edited": 8,
+    "unchanged": 6
    },
    "themes": {
     "current": {
@@ -3025,7 +3138,7 @@
   },
   {
    "ticker": "MO",
-   "company": "ALTRIA GROUP, INC.",
+   "company": "Altria",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -3072,7 +3185,7 @@
   },
   {
    "ticker": "MRK",
-   "company": "Merck & Co., Inc.",
+   "company": "Merck",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-24",
@@ -3093,8 +3206,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 15,
-    "unchanged": 14
+    "edited": 17,
+    "unchanged": 12
    },
    "themes": {
     "current": {
@@ -3119,7 +3232,7 @@
   },
   {
    "ticker": "MSFT",
-   "company": "MICROSOFT CORP",
+   "company": "Microsoft",
    "current": {
     "period_end": "2026-06-30",
     "filed": "2026-07-29",
@@ -3168,7 +3281,7 @@
   },
   {
    "ticker": "MS",
-   "company": "MORGAN STANLEY",
+   "company": "Morgan Stanley",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-19",
@@ -3189,8 +3302,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 0,
-    "edited": 6,
-    "unchanged": 20
+    "edited": 8,
+    "unchanged": 18
    },
    "themes": {
     "current": {
@@ -3217,7 +3330,7 @@
   },
   {
    "ticker": "NEE",
-   "company": "NEXTERA ENERGY INC",
+   "company": "NextEra Energy",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-13",
@@ -3238,8 +3351,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 0,
-    "edited": 12,
-    "unchanged": 39
+    "edited": 17,
+    "unchanged": 34
    },
    "themes": {
     "current": {
@@ -3268,7 +3381,7 @@
   },
   {
    "ticker": "NFLX",
-   "company": "NETFLIX INC",
+   "company": "Netflix",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-23",
@@ -3318,7 +3431,7 @@
   },
   {
    "ticker": "NKE",
-   "company": "NIKE, Inc.",
+   "company": "Nike",
    "current": {
     "period_end": "2026-05-31",
     "filed": "2026-07-15",
@@ -3339,8 +3452,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 23,
-    "unchanged": 15
+    "edited": 24,
+    "unchanged": 14
    },
    "themes": {
     "current": {
@@ -3365,7 +3478,7 @@
   },
   {
    "ticker": "NOW",
-   "company": "ServiceNow, Inc.",
+   "company": "ServiceNow",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-29",
@@ -3386,8 +3499,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 15,
-    "unchanged": 11
+    "edited": 19,
+    "unchanged": 7
    },
    "themes": {
     "current": {
@@ -3412,7 +3525,7 @@
   },
   {
    "ticker": "NVDA",
-   "company": "NVIDIA CORP",
+   "company": "Nvidia",
    "current": {
     "period_end": "2026-01-25",
     "filed": "2026-02-25",
@@ -3433,8 +3546,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 6,
-    "unchanged": 16
+    "edited": 7,
+    "unchanged": 15
    },
    "themes": {
     "current": {
@@ -3461,7 +3574,7 @@
   },
   {
    "ticker": "ORCL",
-   "company": "ORACLE CORP",
+   "company": "Oracle",
    "current": {
     "period_end": "2026-05-31",
     "filed": "2026-06-22",
@@ -3482,8 +3595,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 6,
-    "edited": 12,
-    "unchanged": 12
+    "edited": 14,
+    "unchanged": 10
    },
    "themes": {
     "current": {
@@ -3513,7 +3626,7 @@
   },
   {
    "ticker": "PEP",
-   "company": "PEPSICO INC",
+   "company": "PepsiCo",
    "current": {
     "period_end": "2025-12-27",
     "filed": "2026-02-03",
@@ -3560,7 +3673,7 @@
   },
   {
    "ticker": "PFE",
-   "company": "PFIZER INC",
+   "company": "Pfizer",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-26",
@@ -3607,7 +3720,7 @@
   },
   {
    "ticker": "PG",
-   "company": "PROCTER & GAMBLE Co",
+   "company": "Procter & Gamble",
    "current": {
     "period_end": "2026-06-30",
     "filed": "2026-08-04",
@@ -3656,7 +3769,7 @@
   },
   {
    "ticker": "PLTR",
-   "company": "Palantir Technologies Inc.",
+   "company": "Palantir",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-17",
@@ -3705,7 +3818,7 @@
   },
   {
    "ticker": "PM",
-   "company": "Philip Morris International Inc.",
+   "company": "Philip Morris International",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-06",
@@ -3723,11 +3836,11 @@
    "counts": {
     "new": 1,
     "split": 1,
-    "removed": 1,
-    "merged": 1,
+    "removed": 2,
+    "merged": 0,
     "rewritten": 8,
-    "edited": 12,
-    "unchanged": 11
+    "edited": 13,
+    "unchanged": 10
    },
    "themes": {
     "current": {
@@ -3751,12 +3864,13 @@
     "We increasingly use artificial intelligence-based solutions in our business, which could result in reputational harm, legal liability, and adversely affect our operating results."
    ],
    "removed_titles": [
-    "We may be unable to expand our brand portfolio through acquisitions or the development of strategic business relationships, and the intended benefits from our investments may not materialize."
+    "We may be unable to expand our brand portfolio through acquisitions or the development of strategic business relationships, and the intended benefits from our investments may not materialize.",
+    "Accounting adjustments related to acquisitions could adversely affect our financial results."
    ]
   },
   {
    "ticker": "PYPL",
-   "company": "PayPal Holdings, Inc.",
+   "company": "PayPal",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-03",
@@ -3805,7 +3919,7 @@
   },
   {
    "ticker": "QCOM",
-   "company": "QUALCOMM INC/DE",
+   "company": "Qualcomm",
    "current": {
     "period_end": "2026-09-27",
     "filed": "2026-11-04",
@@ -3854,7 +3968,7 @@
   },
   {
    "ticker": "RTX",
-   "company": "RTX Corp",
+   "company": "RTX",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-06",
@@ -3904,7 +4018,7 @@
   },
   {
    "ticker": "SBUX",
-   "company": "STARBUCKS CORP",
+   "company": "Starbucks",
    "current": {
     "period_end": "2026-09-27",
     "filed": "2026-11-12",
@@ -3951,7 +4065,7 @@
   },
   {
    "ticker": "SCHW",
-   "company": "SCHWAB CHARLES CORP",
+   "company": "Charles Schwab",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -3972,8 +4086,8 @@
     "removed": 0,
     "merged": 1,
     "rewritten": 2,
-    "edited": 7,
-    "unchanged": 8
+    "edited": 8,
+    "unchanged": 7
    },
    "themes": {
     "current": {
@@ -4000,7 +4114,7 @@
   },
   {
    "ticker": "SO",
-   "company": "SOUTHERN CO",
+   "company": "Southern Company",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-19",
@@ -4021,8 +4135,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 16,
-    "unchanged": 13
+    "edited": 17,
+    "unchanged": 12
    },
    "themes": {
     "current": {
@@ -4047,7 +4161,7 @@
   },
   {
    "ticker": "SPG",
-   "company": "SIMON PROPERTY GROUP INC.",
+   "company": "Simon Property Group",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-25",
@@ -4068,8 +4182,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 6,
-    "unchanged": 29
+    "edited": 9,
+    "unchanged": 26
    },
    "themes": {
     "current": {
@@ -4094,7 +4208,7 @@
   },
   {
    "ticker": "TGT",
-   "company": "TARGET CORP",
+   "company": "Target",
    "current": {
     "period_end": "2026-01-31",
     "filed": "2026-03-11",
@@ -4115,8 +4229,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 2,
-    "edited": 10,
-    "unchanged": 8
+    "edited": 11,
+    "unchanged": 7
    },
    "themes": {
     "current": {
@@ -4145,7 +4259,7 @@
   },
   {
    "ticker": "TMO",
-   "company": "THERMO FISHER SCIENTIFIC INC.",
+   "company": "Thermo Fisher Scientific",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-26",
@@ -4166,8 +4280,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 9,
-    "unchanged": 17
+    "edited": 10,
+    "unchanged": 16
    },
    "themes": {
     "current": {
@@ -4192,7 +4306,7 @@
   },
   {
    "ticker": "TMUS",
-   "company": "T-Mobile US, Inc.",
+   "company": "T-Mobile US",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-11",
@@ -4213,8 +4327,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 1,
-    "edited": 16,
-    "unchanged": 9
+    "edited": 18,
+    "unchanged": 7
    },
    "themes": {
     "current": {
@@ -4241,7 +4355,7 @@
   },
   {
    "ticker": "TSLA",
-   "company": "Tesla, Inc.",
+   "company": "Tesla",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-01-29",
@@ -4294,7 +4408,7 @@
   },
   {
    "ticker": "TXN",
-   "company": "TEXAS INSTRUMENTS INC",
+   "company": "Texas Instruments",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-06",
@@ -4341,7 +4455,7 @@
   },
   {
    "ticker": "T",
-   "company": "AT&T INC.",
+   "company": "AT&T",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-09",
@@ -4362,8 +4476,8 @@
     "removed": 1,
     "merged": 0,
     "rewritten": 0,
-    "edited": 8,
-    "unchanged": 13
+    "edited": 9,
+    "unchanged": 12
    },
    "themes": {
     "current": {
@@ -4390,7 +4504,7 @@
   },
   {
    "ticker": "UBER",
-   "company": "Uber Technologies, Inc",
+   "company": "Uber",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-13",
@@ -4437,7 +4551,7 @@
   },
   {
    "ticker": "UNH",
-   "company": "UNITEDHEALTH GROUP INC",
+   "company": "UnitedHealth Group",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-03-02",
@@ -4458,8 +4572,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 8,
-    "unchanged": 12
+    "edited": 9,
+    "unchanged": 11
    },
    "themes": {
     "current": {
@@ -4484,7 +4598,7 @@
   },
   {
    "ticker": "UNP",
-   "company": "UNION PACIFIC CORP",
+   "company": "Union Pacific",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-06",
@@ -4505,8 +4619,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 2,
-    "unchanged": 17
+    "edited": 19,
+    "unchanged": 0
    },
    "themes": {
     "current": {
@@ -4544,7 +4658,7 @@
   },
   {
    "ticker": "UPS",
-   "company": "UNITED PARCEL SERVICE INC",
+   "company": "UPS",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-17",
@@ -4565,8 +4679,8 @@
     "removed": 0,
     "merged": 0,
     "rewritten": 0,
-    "edited": 18,
-    "unchanged": 4
+    "edited": 19,
+    "unchanged": 3
    },
    "themes": {
     "current": {
@@ -4590,8 +4704,59 @@
    "removed_titles": []
   },
   {
+   "ticker": "USB",
+   "company": "U.S. Bancorp",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000011/usb-20251231.htm",
+    "risks": 39,
+    "words": 14150
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000016/usb-20241231.htm",
+    "risks": 36,
+    "words": 14118
+   },
+   "counts": {
+    "new": 3,
+    "split": 1,
+    "removed": 0,
+    "merged": 1,
+    "rewritten": 7,
+    "edited": 26,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 19,
+     "Tariffs and trade": 17,
+     "Cybersecurity": 16,
+     "China": 0,
+     "Climate": 12,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 16,
+     "Tariffs and trade": 17,
+     "Cybersecurity": 13,
+     "China": 1,
+     "Climate": 12,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "The Company’s businesses may be adversely affected if the models it uses perform poorly, provide inadequate information, or are used improperly",
+    "Failure to properly manage data may adversely affect the Company’s ability to manage risk and business needs, and result in errors in its operations, reporting and decision-making, and non-compliance with legal requirements",
+    "The Company may not close its acquisition of BTIG, may not realize the benefits of the acquisition and may be subject to additional risks due to the cross border nature of the acquisition"
+   ],
+   "removed_titles": []
+  },
+  {
    "ticker": "VZ",
-   "company": "VERIZON COMMUNICATIONS INC",
+   "company": "Verizon",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-17",
@@ -4643,7 +4808,7 @@
   },
   {
    "ticker": "V",
-   "company": "VISA INC.",
+   "company": "Visa",
    "current": {
     "period_end": "2026-09-30",
     "filed": "2026-11-05",
@@ -4689,8 +4854,55 @@
    "removed_titles": []
   },
   {
+   "ticker": "WFC",
+   "company": "Wells Fargo",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000133/wfc-20251231_d2.htm",
+    "risks": 25,
+    "words": 14747
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/72971/000007297125000066/wfc-20241231.htm",
+    "risks": 26,
+    "words": 15065
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 1,
+    "rewritten": 1,
+    "edited": 11,
+    "unchanged": 13
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 9,
+     "China": 0,
+     "Climate": 6,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 8,
+     "China": 0,
+     "Climate": 8,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
    "ticker": "WMT",
-   "company": "Walmart Inc.",
+   "company": "Walmart",
    "current": {
     "period_end": "2026-01-31",
     "filed": "2026-03-13",
@@ -4737,7 +4949,7 @@
   },
   {
    "ticker": "XOM",
-   "company": "EXXON MOBIL CORP",
+   "company": "Exxon Mobil",
    "current": {
     "period_end": "2025-12-31",
     "filed": "2026-02-18",
@@ -4783,26 +4995,5 @@
    "removed_titles": []
   }
  ],
- "skipped": [
-  {
-   "ticker": "BK",
-   "company": "Bank of New York Mellon Corp",
-   "reason": "risk factors are incorporated by reference from the annual report exhibit"
-  },
-  {
-   "ticker": "INTC",
-   "company": "INTEL CORP",
-   "reason": "risk titles are marked only by colour and font size, which the splitter ignores"
-  },
-  {
-   "ticker": "USB",
-   "company": "US BANCORP \\DE\\",
-   "reason": "risk factors are incorporated by reference from the annual report exhibit"
-  },
-  {
-   "ticker": "WFC",
-   "company": "WELLS FARGO & COMPANY/MN",
-   "reason": "risk factors are incorporated by reference from the annual report exhibit"
-  }
- ]
+ "skipped": []
 }

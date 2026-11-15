@@ -86,7 +86,7 @@ class Verdict(BaseModel):
 def units(only: list[str] | None) -> list[dict]:
     out = []
     for f in sorted(DATA.glob("*.json")):
-        if f.name == "index.json" or (only and f.stem not in only):
+        if f.stem in ("index", "findings", "search") or (only and f.stem not in only):
             continue
         doc = json.loads(f.read_text())
         for r in doc["risks"]:

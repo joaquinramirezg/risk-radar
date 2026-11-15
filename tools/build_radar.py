@@ -41,12 +41,60 @@ MIN_RISKS = 8  # fewer than this in either year means the splitter misread the l
 
 # Companies whose 10-K does not carry the risk factors itself, or whose layout
 # the splitter cannot read. They are listed on the site rather than shown wrong.
-EXCLUDED = {
-    "BK": "risk factors are incorporated by reference from the annual report exhibit",
-    "USB": "risk factors are incorporated by reference from the annual report exhibit",
-    "WFC": "risk factors are incorporated by reference from the annual report exhibit",
-    "INTC": "risk titles are marked only by colour and font size, which the splitter ignores",
+EXCLUDED: dict[str, str] = {}
+
+
+# Display names. EDGAR's conformed names are upper case with state suffixes
+# ("COCA COLA CO", "BANK OF AMERICA CORP /DE/"); the site shows these.
+NAMES = {
+    "AAPL": "Apple", "ABBV": "AbbVie", "ABT": "Abbott Laboratories", "ACN": "Accenture",
+    "ADBE": "Adobe", "AIG": "American International Group", "AMD": "Advanced Micro Devices",
+    "AMGN": "Amgen", "AMT": "American Tower", "AMZN": "Amazon", "AVGO": "Broadcom",
+    "AXP": "American Express", "BA": "Boeing", "BAC": "Bank of America", "BK": "BNY",
+    "BKNG": "Booking Holdings", "BLK": "BlackRock", "BMY": "Bristol Myers Squibb",
+    "BRK-B": "Berkshire Hathaway", "C": "Citigroup", "CAT": "Caterpillar",
+    "CHTR": "Charter Communications", "CL": "Colgate-Palmolive", "CMCSA": "Comcast",
+    "COF": "Capital One", "COP": "ConocoPhillips", "COST": "Costco", "CRM": "Salesforce",
+    "CSCO": "Cisco", "CVS": "CVS Health", "CVX": "Chevron", "DE": "Deere & Company",
+    "DHR": "Danaher", "DIS": "Walt Disney", "DUK": "Duke Energy", "EMR": "Emerson Electric",
+    "F": "Ford Motor", "FDX": "FedEx", "GD": "General Dynamics", "GE": "GE Aerospace",
+    "GILD": "Gilead Sciences", "GM": "General Motors", "GOOGL": "Alphabet", "GS": "Goldman Sachs",
+    "HD": "Home Depot", "HON": "Honeywell", "IBM": "IBM", "INTC": "Intel", "INTU": "Intuit",
+    "ISRG": "Intuitive Surgical", "JNJ": "Johnson & Johnson", "JPM": "JPMorgan Chase",
+    "KO": "Coca-Cola", "LIN": "Linde", "LLY": "Eli Lilly", "LMT": "Lockheed Martin",
+    "LOW": "Lowe's", "MA": "Mastercard", "MCD": "McDonald's", "MDLZ": "Mondelez International",
+    "MDT": "Medtronic", "MET": "MetLife", "META": "Meta Platforms", "MMM": "3M", "MO": "Altria",
+    "MRK": "Merck", "MS": "Morgan Stanley", "MSFT": "Microsoft", "NEE": "NextEra Energy",
+    "NFLX": "Netflix", "NKE": "Nike", "NOW": "ServiceNow", "NVDA": "Nvidia", "ORCL": "Oracle",
+    "PEP": "PepsiCo", "PFE": "Pfizer", "PG": "Procter & Gamble", "PLTR": "Palantir",
+    "PM": "Philip Morris International", "PYPL": "PayPal", "QCOM": "Qualcomm", "RTX": "RTX",
+    "SBUX": "Starbucks", "SCHW": "Charles Schwab", "SO": "Southern Company",
+    "SPG": "Simon Property Group", "T": "AT&T", "TGT": "Target",
+    "TMO": "Thermo Fisher Scientific", "TMUS": "T-Mobile US", "TSLA": "Tesla",
+    "TXN": "Texas Instruments", "UBER": "Uber", "UNH": "UnitedHealth Group",
+    "UNP": "Union Pacific", "UPS": "UPS", "USB": "U.S. Bancorp", "V": "Visa", "VZ": "Verizon",
+    "WFC": "Wells Fargo", "WMT": "Walmart", "XOM": "Exxon Mobil",
 }
+
+
+def read_risks(path: Path) -> list:
+    """Risk factors of one filing. When the 10-K itself refers to the annual
+    report filed with it (BNY, U.S. Bancorp, Wells Fargo), read that instead."""
+    annual = path.with_suffix(".annual.html")
+    try:
+        risks = split_risk_factors(path.read_text(errors="replace"))
+    except ValueError:
+        risks = []
+    if len(risks) < MIN_RISKS and annual.exists():
+        try:
+            other = split_risk_factors(annual.read_text(errors="replace"))
+        except ValueError:
+            other = []
+        if len(other) > len(risks):
+            return other
+    if not risks:
+        raise ValueError("no Item 1A section found")
+    return risks
 
 
 def change_types() -> dict[str, dict[str, str]]:
@@ -72,7 +120,7 @@ def relabel() -> int:
     without splitting or matching again."""
     verdicts = change_types()
     for f in sorted(OUT.glob("*.json")):
-        if f.name in ("index.json", "findings.json"):
+        if f.name in ("index.json", "findings.json", "search.json"):
             continue
         doc = json.loads(f.read_text())
         for r in doc["risks"]:
@@ -107,7 +155,9 @@ def main() -> int:
         old_files = sorted(PREV.glob(f"{ticker}_*.htm"))
         cm = cur_m[new_file.name]
 
-        def skip(reason: str, ticker: str = ticker, company: str = cm["company"]) -> None:
+        name = NAMES.get(ticker, cm["company"])
+
+        def skip(reason: str, ticker: str = ticker, company: str = name) -> None:
             skipped.append({"ticker": ticker, "company": company, "reason": reason})
             print(f"SKIP {ticker}: {reason}")
             (OUT / f"{ticker}.json").unlink(missing_ok=True)
@@ -120,8 +170,8 @@ def main() -> int:
             continue
         pm = prev_m[old_files[0].name]
         try:
-            new = split_risk_factors(new_file.read_text(errors="replace"))
-            old = split_risk_factors(old_files[0].read_text(errors="replace"))
+            new = read_risks(new_file)
+            old = read_risks(old_files[0])
         except ValueError as e:
             skip(str(e))
             continue
@@ -134,6 +184,10 @@ def main() -> int:
         for c in changes:
             r = c.old if c.status == "merged" else (c.new or c.old)
             assert r is not None
+            if c.status == "unchanged" and c.old and c.new and c.old.title != c.new.title:
+                # Same body, new title ("The combination" became "The Liberty
+                # Broadband Combination"). A reader should see that, so it is an edit.
+                c.status = "edited"
             key = hashlib.sha1(f"{ticker}|{r.title}".encode()).hexdigest()[:12]
             item: dict[str, object] = {
                 "id": key, "status": c.status, "category": r.category, "title": r.title,
@@ -158,7 +212,7 @@ def main() -> int:
         new_text = "\n".join(f"{r.title}\n{r.text}" for r in new)
         old_text = "\n".join(f"{r.title}\n{r.text}" for r in old)
         doc = {
-            "ticker": ticker, "company": cm["company"],
+            "ticker": ticker, "company": name,
             "current": {"period_end": cm["period_end"], "filed": cm["filing_date"],
                         "url": cm["url"], "risks": len(new), "words": len(new_text.split())},
             "previous": {"period_end": pm["period_end"], "filed": pm["filing_date"],

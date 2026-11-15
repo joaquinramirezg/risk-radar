@@ -59,7 +59,7 @@ def sample() -> list[dict]:
     rng = random.Random(SEED)
     docs = []
     for f in sorted(DATA.glob("*.json")):
-        if f.stem in ("index", "findings") or f.stem in FIRST_20:
+        if f.stem in ("index", "findings", "search") or f.stem in FIRST_20:
             continue
         docs.append(json.loads(f.read_text()))
     items: list[dict] = []
@@ -183,13 +183,18 @@ def score() -> int:
     # (summary lists read as risks) are scored again against the rebuilt data.
     now: dict[tuple[str, str], str] = {}
     for f in DATA.glob("*.json"):
-        if f.stem not in ("index", "findings"):
+        if f.stem not in ("index", "findings", "search"):
             for r in json.loads(f.read_text())["risks"]:
                 now[(f.stem, r["id"])] = r["status"]
     gone = [r for r in rows if r["q"] == "unpaired" and (r["ticker"], r["id"]) not in now]
+    # Raising the split/merge threshold (0.10 to 0.13) after the audit turned
+    # some audited split/merge calls into new/removed. Their verdict was about
+    # the old call, so they are counted out rather than re-scored unjudged.
+    moved = [r for r in rows if r["q"] == "unpaired" and r not in gone
+             and now[(r["ticker"], r["id"])] != r["status"]]
     by = {q: [r for r in rows if r["q"] == q] for q in ("pair", "unpaired", "boundary")}
     un = by["unpaired"]
-    fixed = [r for r in un if r not in gone]
+    fixed = [r for r in un if r not in gone and r not in moved]
     report = {
         "judge": MODEL,
         "companies": len({r["ticker"] for r in rows}),
@@ -205,6 +210,9 @@ def score() -> int:
         "after_fix": {
             "resolved_by_summary_fix": len(gone),
             "resolved": sorted({f"{r['ticker']} {r['status']}" for r in gone}),
+            "status_changed_by_threshold": [
+                f"{r['ticker']} {r['status']}->{now[(r['ticker'], r['id'])]} "
+                f"(judged {r['answer']['verdict']})" for r in moved],
             "new_correct": rate([r for r in fixed if r["status"] == "new"],
                                 lambda a: a["verdict"] == "correct"),
             "removed_correct": rate([r for r in fixed if r["status"] == "removed"],
@@ -224,6 +232,7 @@ def score() -> int:
         if isinstance(v, dict) and "k" in v:
             print(f"{k:32} {v['k']}/{v['n']} {v['ci95']}")
     print("excluded", report["excluded"], "resolved", report["after_fix"]["resolved"])
+    print("threshold moved", report["after_fix"]["status_changed_by_threshold"])
     print("misses", len(report["misses"]), "cost", report["cost_usd"])
     return 0
 

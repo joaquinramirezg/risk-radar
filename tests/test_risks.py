@@ -163,3 +163,25 @@ def test_a_summary_list_under_a_heading_is_not_a_risk():
     risks = "".join(f"<div><span {B}>{t}</span></div><div>{BODY}</div>" for t in titles)
     rs = split_risk_factors(_doc(f"<div><span {B}>Operational Risks</span></div>{summary}{risks}"))
     assert [r.title for r in rs] == titles
+
+
+WORDS = "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima".split()
+
+
+def test_a_larger_font_marks_titles_when_nothing_is_emphasized():
+    # Intel's layout: titles in 12pt, body in 9pt, no bold, italic or underline.
+    big, small = 'style="font-size:12pt"', 'style="font-size:9pt"'
+    rs = split_risk_factors(_doc("".join(
+        f'<div><span {big}>Our {w} results could suffer.</span></div>'
+        f'<div><span {small}>{w} {BODY}</span></div>' for w in WORDS[:9])))
+    assert [r.title for r in rs] == [f"Our {w} results could suffer." for w in WORDS[:9]]
+
+
+def test_a_colon_heading_on_its_own_line_stays_in_the_risk_above():
+    rs = split_risk_factors(_doc(f"""
+      <div><span {B}>We face competition.</span></div><div>{BODY}</div>
+      <div><span {B}>Industry-Wide Factors:</span></div><div>{WORDS[0]} {BODY}</div>
+      <div><span {B}>We may lose staff.</span></div><div>{WORDS[1]} {BODY}</div>
+    """))
+    assert [r.title for r in rs] == ["We face competition.", "We may lose staff."]
+    assert "Industry-Wide Factors:" in rs[0].text
