@@ -1,30 +1,28 @@
 # Deploying the site
 
-The site is the `site/` folder, as is: no build step. Cloudflare Pages
-serves it; `site/_headers` sets the security and cache headers.
+The site is the `site/` folder, as is: no build step. Vercel serves it;
+`vercel.json` at the repo root sets the output directory and the security
+and cache headers.
 
-## Option A: connect the GitHub repo (redeploys on every push)
+## Option A: import the GitHub repo (redeploys on every push to master)
 
-Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git →
-pick the repo, then:
+vercel.com → Add New Project → import `joaquinramirezg/risk-radar`. The
+settings come from `vercel.json`; leave Framework as Other and the build
+command empty.
 
-- Framework preset: None
-- Build command: leave empty
-- Build output directory: `site`
+## Option B: deploy from your machine
 
-## Option B: upload from your machine
-
-    npx wrangler pages deploy site --project-name risk-radar
+    npx vercel --prod
 
 ## After the first deploy
 
-- The link-preview tags in `site/index.html` (`og:image`, `og:url`) point at
-  `https://risk-radar.pages.dev`. If Cloudflare gave the project another
-  name, or you add a custom domain, change those two lines.
+- The link-preview tags in `site/index.html` (`og:image`, `og:url`) must
+  point at the production URL. If Vercel gives the project another name, or
+  you add a custom domain, change those two lines.
 - Check the preview: paste the URL into https://www.opengraph.xyz or a
   LinkedIn post draft.
-- `site/data/search.json` is about 10 MB (2.7 MB compressed); Pages allows
-  25 MB per file and compresses it on the fly.
+- `site/data/search.json` is about 10 MB (2.7 MB compressed); Vercel
+  serves it compressed.
 
 ## Refreshing the data
 

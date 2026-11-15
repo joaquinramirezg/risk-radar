@@ -4,10 +4,11 @@
 
 Launch-ready: all 102 companies, in-page search over every risk factor
 (site/app.js, data/search.json from tools/search_index.py), consistency
-check tools/check_site.py run in CI, Cloudflare Pages files (site/_headers,
+check tools/check_site.py run in CI, Vercel config (vercel.json,
 docs/DEPLOY.md), link preview from tools/og/. Rebuild with `make radar`.
 Left for Joaquin: README + DECISIONS from the drafts in
-Employment/portfolio/risk-radar-drafts/, rename to risk-radar, push, deploy.
+Employment/portfolio/risk-radar-drafts/, deploy on Vercel. Pushed to the
+private repo joaquinramirezg/risk-radar on Nov 15.
 181 edits have no change-type label (needs API credit, then
 classify_changes.py and build_radar.py --relabel).
 
@@ -25,8 +26,8 @@ Rebuild: `PYTHONPATH=src python3 tools/build_radar.py` (needs data/raw and
 data/raw_prev, fetched by tools/fetch_filings.py). Scores:
 tools/score_labels.py, tools/ablate_matcher.py, tools/score_changes.py.
 Labels were made by AI labellers, by the owner's decision; say so wherever
-numbers are quoted. Remaining: README and ADRs written by hand, Cloudflare
-Pages deploy, rename to risk-radar, push.
+numbers are quoted. Remaining: README and ADRs written by hand, Vercel deploy
+(Nov 15 ruling: Vercel, or Render if a backend is needed; never Cloudflare).
 
 Parked 2026-09-10. Written so this project can restart cold, with no memory of
 the conversation that produced it.
