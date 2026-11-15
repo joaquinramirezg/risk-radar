@@ -3,10 +3,13 @@
 
   python3 tools/score_changes.py
 
-Compares reports/change_types.jsonl with labels/change_labels.json on the
-labelled sample and writes reports/change_eval.json: accuracy and Cohen's kappa
-with a bootstrap 95% interval, the confusion matrix, cost at list price, and
-latency percentiles over every call.
+Compares each reports/change_types.<prompt>.jsonl with labels/change_labels.json
+and writes reports/change_eval.json: accuracy and Cohen's kappa with a bootstrap
+95% interval, the confusion matrix, cost at list price, and latency percentiles.
+
+The labelled sample is split in two by key: "dev" (even) is the half that was
+read to revise the prompt, "test" (odd) was not looked at, so only test scores
+say how a prompt revision generalises.
 """
 from __future__ import annotations
 
@@ -41,10 +44,19 @@ def acc(a, b) -> float:
     return sum(x == y for x, y in zip(a, b, strict=True)) / len(a)
 
 
-def main() -> int:
-    lines = (ROOT / "reports" / "change_types.jsonl").read_text().splitlines()
-    rows = [json.loads(x) for x in lines if x]
-    gold = json.loads((ROOT / "labels" / "change_labels.json").read_text())["labels"]
+def split(key: str) -> str:
+    return "dev" if int(key, 16) % 2 == 0 else "test"
+
+
+def agreement(gold: dict, pred: dict, keys: list[str]) -> dict:
+    g = [gold[k]["label"] for k in keys]
+    p = [pred[k] or "none" for k in keys]
+    return {"n": len(keys), "accuracy": round(acc(g, p), 3), "accuracy_ci95": bootstrap(g, p, acc),
+            "kappa": round(kappa(g, p), 3), "kappa_ci95": bootstrap(g, p, kappa)}
+
+
+def score_run(path: Path, gold: dict) -> dict:
+    rows = [json.loads(x) for x in path.read_text().splitlines() if x]
     pred = {r["key"]: r["label"] for r in rows}
     keys = [k for k in gold if k in pred]
     g = [gold[k]["label"] for k in keys]
@@ -54,12 +66,13 @@ def main() -> int:
     tin = sum(r["input_tokens"] for r in rows)
     tout = sum(r["output_tokens"] for r in rows)
     secs = sorted(r["seconds"] for r in rows)
-    report = {
+    return {
         "model": model,
+        "prompt": rows[0]["prompt"],
         "calls": len(rows),
-        "labelled": len(keys),
-        "accuracy": round(acc(g, p), 3), "accuracy_ci95": bootstrap(g, p, acc),
-        "kappa": round(kappa(g, p), 3), "kappa_ci95": bootstrap(g, p, kappa),
+        "all": agreement(gold, pred, keys),
+        "dev": agreement(gold, pred, [k for k in keys if split(k) == "dev"]),
+        "test": agreement(gold, pred, [k for k in keys if split(k) == "test"]),
         "confusion": {gl: {pl: sum(1 for x, y in zip(g, p, strict=True) if x == gl and y == pl)
                            for pl in LABELS} for gl in LABELS},
         "predicted_all": dict(Counter(r["label"] for r in rows)),
@@ -69,8 +82,16 @@ def main() -> int:
         "disagreements": [{"key": k, "ticker": gold[k]["ticker"], "gold": x, "model": y}
                           for k, x, y in zip(keys, g, p, strict=True) if x != y],
     }
+
+
+def main() -> int:
+    gold = json.loads((ROOT / "labels" / "change_labels.json").read_text())["labels"]
+    runs = sorted((ROOT / "reports").glob("change_types.*.jsonl"))
+    report = {r.stem.split(".")[1]: score_run(r, gold) for r in runs}
     (ROOT / "reports" / "change_eval.json").write_text(json.dumps(report, indent=1) + "\n")
-    print(json.dumps({k: v for k, v in report.items() if k != "disagreements"}, indent=1))
+    for name, r in report.items():
+        print(name, {k: r[k] for k in ("all", "dev", "test", "predicted_all", "cost_usd",
+                                       "latency_s")})
     return 0
 
 
