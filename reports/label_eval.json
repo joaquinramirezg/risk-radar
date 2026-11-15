@@ -1,0 +1,111 @@
+{
+ "ai_labels": {
+  "items": 257,
+  "match_precision": {
+   "k": 242,
+   "n": 242,
+   "rate": 1.0,
+   "ci95": [
+    0.9844,
+    1.0
+   ]
+  },
+  "new_precision": {
+   "k": 9,
+   "n": 12,
+   "rate": 0.75,
+   "ci95": [
+    0.4677,
+    0.9111
+   ]
+  },
+  "removed_precision": {
+   "k": 2,
+   "n": 3,
+   "rate": 0.6667,
+   "ci95": [
+    0.2077,
+    0.9385
+   ]
+  },
+  "missed_links": [
+   "i025",
+   "i052",
+   "i133",
+   "i253"
+  ],
+  "clean_boundary": {
+   "k": 243,
+   "n": 257,
+   "rate": 0.9455,
+   "ci95": [
+    0.9107,
+    0.9673
+   ]
+  }
+ },
+ "model2_labels": {
+  "items": 60,
+  "match_precision": {
+   "k": 45,
+   "n": 45,
+   "rate": 1.0,
+   "ci95": [
+    0.9213,
+    1.0
+   ]
+  },
+  "new_precision": {
+   "k": 8,
+   "n": 12,
+   "rate": 0.6667,
+   "ci95": [
+    0.3906,
+    0.8619
+   ]
+  },
+  "removed_precision": {
+   "k": 2,
+   "n": 3,
+   "rate": 0.6667,
+   "ci95": [
+    0.2077,
+    0.9385
+   ]
+  },
+  "missed_links": [
+   "i025",
+   "i052",
+   "i133",
+   "i215",
+   "i253"
+  ],
+  "clean_boundary": {
+   "k": 60,
+   "n": 60,
+   "rate": 1.0,
+   "ci95": [
+    0.9398,
+    1.0
+   ]
+  }
+ },
+ "agreement": {
+  "ai_labels~model2_labels:q1": {
+   "n": 60,
+   "agreement": 0.9833,
+   "kappa": 0.96,
+   "disagree": [
+    "i215"
+   ]
+  },
+  "ai_labels~model2_labels:q2": {
+   "n": 60,
+   "agreement": 0.9833,
+   "kappa": 0.0,
+   "disagree": [
+    "i074"
+   ]
+  }
+ }
+}

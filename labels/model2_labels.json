@@ -1,0 +1,370 @@
+{
+ "meta": {
+  "labeller": "second model, separate session (supplied by the project owner as a .docx review)",
+  "date": "2026-11-14",
+  "saw": "titles + ~600-char openings only",
+  "scope": "core 60"
+ },
+ "labels": {
+  "i003": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i011": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i012": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i013": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i014": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "L",
+   "conf_q2": "L"
+  },
+  "i022": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i023": {
+   "q1": "truly_removed",
+   "q2": "complete",
+   "conf_q1": "M",
+   "conf_q2": "L"
+  },
+  "i025": {
+   "q1": "cand1",
+   "q2": "complete",
+   "conf_q1": "L",
+   "conf_q2": "L"
+  },
+  "i028": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i031": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i033": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i039": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i044": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i045": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i048": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i052": {
+   "q1": "cand0",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i054": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i065": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i068": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i074": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i079": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i085": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i092": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i093": {
+   "q1": "truly_removed",
+   "q2": "complete",
+   "conf_q1": "M",
+   "conf_q2": "L"
+  },
+  "i107": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i113": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i121": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "H"
+  },
+  "i128": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i132": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i133": {
+   "q1": "cand1",
+   "q2": "complete",
+   "conf_q1": "L",
+   "conf_q2": "L"
+  },
+  "i141": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i152": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i154": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i157": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i158": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "H"
+  },
+  "i161": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i163": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i164": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i170": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i171": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i174": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i181": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i183": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i196": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i213": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i214": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i215": {
+   "q1": "cand0",
+   "q2": "complete",
+   "conf_q1": "M",
+   "conf_q2": "L"
+  },
+  "i218": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i223": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "M",
+   "conf_q2": "L"
+  },
+  "i227": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "M",
+   "conf_q2": "L"
+  },
+  "i231": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i233": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i234": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i240": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i242": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i243": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i252": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "conf_q1": "M",
+   "conf_q2": "L"
+  },
+  "i253": {
+   "q1": "cand0",
+   "q2": "complete",
+   "conf_q1": "L",
+   "conf_q2": "L"
+  },
+  "i254": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  },
+  "i257": {
+   "q1": "same",
+   "q2": "complete",
+   "conf_q1": "H",
+   "conf_q2": "L"
+  }
+ }
+}
