@@ -51,17 +51,17 @@ def test_a_document_without_item_1a_raises():
         split_risk_factors("<html><body><div>Item 2. Properties</div></body></html>")
 
 
-I = 'style="font-style:italic;font-weight:700"'
+IT = 'style="font-style:italic;font-weight:700"'
 
 
 def test_short_headings_under_a_sentence_title_stay_inside_that_risk():
     # Microsoft: one titled risk, then italic subheadings, each with prose.
     rs = split_risk_factors(_doc(f"""
       <div>STRATEGIC AND COMPETITIVE RISKS</div>
-      <div><span {I}>We face intense competition across all markets.</span></div>
-      <div><span {I}>Competition in the technology sector</span></div><div>{BODY}</div>
-      <div><span {I}>Business model competition</span></div><div>{BODY}</div>
-      <div><span {I}>Our AI strategy requires large investments.</span></div><div>{BODY}</div>
+      <div><span {IT}>We face intense competition across all markets.</span></div>
+      <div><span {IT}>Competition in the technology sector</span></div><div>{BODY}</div>
+      <div><span {IT}>Business model competition</span></div><div>{BODY}</div>
+      <div><span {IT}>Our AI strategy requires large investments.</span></div><div>{BODY}</div>
     """))
     assert [r.title for r in rs] == [
         "We face intense competition across all markets.",
@@ -98,3 +98,68 @@ def test_a_topic_heading_with_only_prose_is_still_a_risk():
       <div><span {B}>PATENT PROTECTION</span></div><div>{BODY}</div>
     """))
     assert [r.title for r in rs] == ["MANAGED CARE TRENDS", "PATENT PROTECTION"]
+
+
+IT = 'style="font-style:italic"'
+
+
+def test_dash_and_unpunctuated_run_in_titles():
+    rs = split_risk_factors(_doc(f"""
+      <p><b>We transport hazardous materials</b> – {BODY}</p>
+      <p><b>Chevron is exposed to changing prices</b> {BODY}</p>
+      <p><b>Note</b> that {BODY}</p>
+    """))
+    assert [r.title for r in rs] == [
+        "We transport hazardous materials", "Chevron is exposed to changing prices"]
+    assert rs[0].text.startswith("This could hurt")
+
+
+def test_italic_body_section_uses_bold_for_titles():
+    rs = split_risk_factors(_doc(f"""
+      <div><span {B};font-style:italic">Pricing pressure hurts revenue.</span></div>
+      <div><span {IT}>{BODY}</span></div>
+      <div><span {B};font-style:italic">We may lose exclusivity early.</span></div>
+      <div><span {IT}>{BODY}</span></div>
+    """.replace(f'{B};', 'style="font-weight:700;')))
+    assert [r.title for r in rs] == [
+        "Pricing pressure hurts revenue.", "We may lose exclusivity early."]
+
+
+def test_underlined_titles_count_as_emphasis():
+    u = 'style="font-weight:400;text-decoration:underline"'
+    rs = split_risk_factors(_doc(f"<div><span {u}>Our margins vary.</span></div><div>{BODY}</div>"))
+    assert rs[0].title == "Our margins vary."
+
+
+def test_cross_references_and_notices_are_not_titles():
+    rs = split_risk_factors(_doc(f"""
+      <div><span {B}>Reserves may prove inadequate.</span></div><div>{BODY}</div>
+      <div><span {IT}>For additional information, see Item 7.</span></div>
+      <div><span {B}>Reinsurance may be unavailable.</span></div><div>{BODY}</div>
+      <div><span {B}>Cautionary Factors that May Affect Future Results</span></div><div>{BODY}</div>
+    """))
+    assert [r.title for r in rs] == [
+        "Reserves may prove inadequate.", "Reinsurance may be unavailable."]
+    assert rs[0].text.endswith("see Item 7.")
+
+
+def test_section_without_item_label_ends_at_next_section():
+    body = "".join(f"<p><b>Risk number {i} could hurt us.</b> {BODY * 4}</p>" for i in range(5))
+    html = f"""<html><body><p>Risk Factors</p><p>24</p>
+      <p><b>RISK FACTORS.</b> The following discussion covers material risks. {BODY}</p>
+      <p><b>STRATEGIC RISKS.</b> Strategic risk relates to our plans. {BODY}</p>
+      {body}
+      <p><b>LEGAL PROCEEDINGS.</b> Refer to Note 24 for {BODY}</p></body></html>"""
+    rs = split_risk_factors(html)
+    assert len(rs) == 5
+    assert {r.category for r in rs} == {"STRATEGIC RISKS"}
+
+
+def test_a_summary_list_under_a_heading_is_not_a_risk():
+    titles = ["Our suppliers may fail to deliver parts on time and at the agreed price.",
+              "Rising interest rates could raise our borrowing costs and cut demand.",
+              "A cyberattack on our systems could disrupt operations and expose data."]
+    summary = "".join(f"<div>• {t}</div>" for t in titles)
+    risks = "".join(f"<div><span {B}>{t}</span></div><div>{BODY}</div>" for t in titles)
+    rs = split_risk_factors(_doc(f"<div><span {B}>Operational Risks</span></div>{summary}{risks}"))
+    assert [r.title for r in rs] == titles

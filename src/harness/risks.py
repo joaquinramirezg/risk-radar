@@ -38,7 +38,8 @@ EMPH_SHARE = 0.9  # share of a block's letters that must be bold/italic to count
 
 _BOLD = re.compile(r"font-weight\s*:\s*(bold|[6-9]00)", re.I)
 _ITALIC = re.compile(r"font-style\s*:\s*italic", re.I)
-_START = re.compile(r"^\s*item\s*1a\.?\s*[-–—:]?\s*risk\s*factors\.?\s*$", re.I)
+_UNDERLINE = re.compile(r"text-decoration\s*:[^;]*underline", re.I)
+_START = re.compile(r"^\s*item\s*1a\.?\s*[-–—:|]?\s*risk\s*factors\s*[.:]?\s*$", re.I)
 _START_A = re.compile(r"^\s*item\s*1a\.?\s*$", re.I)
 _START_B = re.compile(r"^\s*risk\s*factors\.?\s*$", re.I)
 _PREAMBLE = re.compile(
@@ -56,6 +57,32 @@ _END = re.compile(
     r"|2\.?\s*[-–—:]?\s*propert)",
     re.I,
 )
+# Filings laid out as an annual report (GE, Honeywell, Intel, Citigroup) have a
+# "Risk Factors" section with no "Item 1A" label; it ends at the next section.
+_NEXT_SECTION = re.compile(
+    r"^\s*(item\s*\d+[a-c]?\.?\s*[-–—:|]?\s*)?(unresolved staff comments|cybersecurity|"
+    r"properties|legal proceedings|management['’]s discussion and analysis\b.*|"
+    r"quantitative and qualitative disclosures? about market risks?|selected financial data|"
+    r"sustainability|human capital( resources)?\b.*|"
+    r"information about our executive officers|executive officers of the registrant|"
+    r"forward[- ]looking statements|managing global risk|"
+    r"market for (the )?registrant['’]s common equity.*)\s*[.:]?\s*$", re.I)
+# Emphasized cross-references ("For additional information on our loss
+# reserves, see Item 7") close a risk; they are not the next risk's title.
+_XREF = re.compile(
+    r"^\s*(for ((additional|more|further) )?information\b|see also\b|refer to\b)", re.I)
+# A forward-looking-statements notice inside the section is not a risk.
+_NOTICE = re.compile(r"^\s*(cautionary\b.*|.*forward[- ]looking (and cautionary )?statements?)\s*$",
+                     re.I)
+_BULLET = re.compile(r"^[•·●▪◦‣\-]\s*")
+
+
+def _is_summary(r: RiskFactor, others: list[RiskFactor]) -> bool:
+    """A heading whose paragraphs are mostly other risks' titles is the risk
+    factors summary (Oracle, AMD), not a risk."""
+    heads = [o.title[:50] for o in others if o is not r and len(o.title) >= 50]
+    hits = sum(any(_BULLET.sub("", p).startswith(h) for h in heads) for p in r.body)
+    return len(r.body) >= 2 and hits >= 0.6 * len(r.body)
 _CATEGORY_HINT = re.compile(
     r"^\s*(risks?\s+(related|relating|associated)\b|general\s+risks?)", re.I)
 
@@ -66,6 +93,7 @@ class Block:
     emph_chars: int
     letters: int
     lead: str = ""  # the emphasized run-in prefix, when the block opens with one
+    italic: int = 0  # letters set in italic, bold or not
 
     @property
     def emphasized(self) -> bool:
@@ -84,13 +112,15 @@ class RiskFactor:
 
 
 class _Blocks(HTMLParser):
-    def __init__(self) -> None:
+    def __init__(self, italic_is_emphasis: bool = True) -> None:
         super().__init__(convert_charrefs=True)
+        self.italic_is_emphasis = italic_is_emphasis
         self.blocks: list[Block] = []
         self._style: list[tuple[str, bool, bool]] = []  # (tag, bold, italic)
         self._skip = 0
         self._buf: list[str] = []
         self._emph = 0
+        self._italic = 0
         self._letters = 0
         self._lead: list[str] = []
         self._lead_open = True
@@ -98,8 +128,9 @@ class _Blocks(HTMLParser):
     def _flush(self) -> None:
         text = _norm("".join(self._buf))
         if text:
-            self.blocks.append(Block(text, self._emph, self._letters, _norm("".join(self._lead))))
-        self._buf, self._emph, self._letters = [], 0, 0
+            self.blocks.append(Block(text, self._emph, self._letters,
+                                     _norm("".join(self._lead)), self._italic))
+        self._buf, self._emph, self._letters, self._italic = [], 0, 0, 0
         self._lead, self._lead_open = [], True
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -115,6 +146,8 @@ class _Blocks(HTMLParser):
         italic = parent_i or tag in ("i", "em") or bool(_ITALIC.search(style))
         if "font-weight" in style and not _BOLD.search(style):
             bold = tag in ("b", "strong")  # an explicit normal weight resets bold
+        # Texas Instruments underlines its titles; underline counts like bold.
+        bold = bold or tag == "u" or bool(_UNDERLINE.search(style))
         if tag != "br":
             self._style.append((tag, bold, italic))
 
@@ -135,7 +168,9 @@ class _Blocks(HTMLParser):
         self._buf.append(data)
         n = sum(ch.isalpha() for ch in data)
         self._letters += n
-        emph = bool(self._style and (self._style[-1][1] or self._style[-1][2]))
+        italic = bool(self._style and self._style[-1][2])
+        self._italic += n if italic else 0
+        emph = bool(self._style and (self._style[-1][1] or italic and self.italic_is_emphasis))
         if emph:
             self._emph += n
         if self._lead_open:
@@ -153,18 +188,42 @@ def _norm(s: str) -> str:
     return re.sub(r"[\s\xa0\u200b\u202f]+", " ", s).strip()
 
 
-def html_blocks(raw_html: str) -> list[Block]:
-    p = _Blocks()
+def html_blocks(raw_html: str, italic_is_emphasis: bool = True) -> list[Block]:
+    p = _Blocks(italic_is_emphasis)
     p.feed(raw_html)
     p.close()
     return p.blocks
+
+
+def _span_len(blocks: list[Block], span: tuple[int, int]) -> int:
+    return sum(len(x.text) for x in blocks[span[0] : span[1]])
 
 
 def _item1a_span(blocks: list[Block]) -> tuple[int, int]:
     """Indices [start, end) of the real Item 1A: the longest span from a
     heading-only "Item 1A. Risk Factors" block to the next Item 1B/1C/2 block.
     The table of contents yields a tiny span; cross-references never sit
-    alone in a block, so they are not candidates."""
+    alone in a block, so they are not candidates. When that finds no real
+    section, fall back to a heading-only "Risk Factors" block followed by the
+    next section heading."""
+    best = _labelled_span(blocks)
+    if _span_len(blocks, best) >= 5000:
+        return best
+    for i, b in enumerate(blocks):
+        # GE runs the heading into the paragraph: "RISK FACTORS. The following..."
+        if not (_START_B.match(b.text) or _START_B.match(b.lead)):
+            continue
+        for j in range(i + 1, len(blocks)):
+            nxt = blocks[j]
+            if (len(nxt.text) < 120 and (_END.match(nxt.text) or _NEXT_SECTION.match(nxt.text))
+                    or _NEXT_SECTION.match(nxt.lead) and _caps(nxt.lead)):
+                if j - i > 1 and _span_len(blocks, (i + 1, j)) > _span_len(blocks, best):
+                    best = (i + 1, j)
+                break
+    return best
+
+
+def _labelled_span(blocks: list[Block]) -> tuple[int, int]:
     best = (0, 0)
     for i, b in enumerate(blocks):
         if _START_A.match(b.text) and i + 1 < len(blocks) and _START_B.match(blocks[i + 1].text):
@@ -193,13 +252,28 @@ def is_category(text: str) -> bool:
     )
 
 
+_DASH = re.compile(r"^\s*[-–—]\s*")
+
+
 def _run_in(b: Block) -> tuple[str, str] | None:
     """A paragraph that opens with an emphasized sentence ("Our global business
-    exposes us to risks. Our customers...") carries its title inline."""
+    exposes us to risks. Our customers...") carries its title inline. Some
+    filers end the title with a dash (Union Pacific) or nothing at all
+    (Chevron); then it must be at least four words and the body must open
+    with the dash or a capital letter."""
     lead = b.lead.rstrip()
-    if len(lead) < 12 or len(lead) >= len(b.text) - 40 or not lead.endswith((".", ":")):
+    if len(lead) < 12 or len(lead) >= len(b.text) - 40:
         return None
-    return lead, b.text[len(b.lead):].strip() if b.text.startswith(b.lead) else b.text
+    rest = b.text[len(b.lead):].strip() if b.text.startswith(b.lead) else b.text
+    if lead.endswith((".", ":")):
+        return lead, rest
+    if lead[-1] in "-–—":
+        lead, rest = lead.rstrip(" -–—"), rest
+    elif _DASH.match(rest):
+        rest = _DASH.sub("", rest)
+    elif not rest[:1].isupper():
+        return None
+    return (lead, rest) if len(lead.split()) >= 4 else None
 
 
 def split_risk_factors(raw_html: str) -> list[RiskFactor]:
@@ -207,6 +281,10 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
     lo, hi = _item1a_span(blocks)
     if hi <= lo:
         raise ValueError("no Item 1A section found")
+    # Bristol-Myers sets the whole section in italic and its titles in bold
+    # italic. When most of the text is italic, only bold marks a title.
+    if sum(b.italic for b in blocks[lo:hi]) > 0.5 * sum(b.letters for b in blocks[lo:hi]):
+        blocks = html_blocks(raw_html, italic_is_emphasis=False)
     # Page headers and footers ("Pfizer Inc.", "Apple Inc. | 2026 Form 10-K | 19")
     # are short lines that repeat across pages. They are not content.
     seen: dict[str, int] = {}
@@ -238,6 +316,9 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
     for b in blocks[lo:hi]:
         if furniture(b):
             continue
+        if len(b.text) < 90 and _NOTICE.match(b.text):
+            in_summary, current, prev_was_title = True, None, False
+            continue
         if (not b.emphasized and _caps(b.text) and len(b.text) < 90
                 and not _PREAMBLE.match(b.text) and not _SUMMARY.match(b.text)):
             category, current, prev_was_title, standalone = b.text, None, False, False
@@ -250,6 +331,11 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
                 and (not current.body or has_sub)):
             current.body.append(b.text)  # a subheading inside this risk
             has_sub, prev_was_title = True, False
+            continue
+        if b.emphasized and _XREF.match(b.text):
+            if current is not None:
+                current.body.append(b.text)
+            prev_was_title = False
             continue
         if b.emphasized and len(b.text) >= 3:
             if _SUMMARY.match(b.text) or (_PREAMBLE.match(b.text) and is_category(b.text)):
@@ -272,7 +358,12 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
         if in_summary:
             continue
         run_in = _run_in(b)
-        if run_in and run_in[0].endswith(":") and current is not None:
+        if run_in and _caps(run_in[0]):
+            # "STRATEGIC RISKS. Strategic risk relates to..." opens a category.
+            category, current, standalone = run_in[0].rstrip(".:"), None, False
+            continue
+        if (run_in and run_in[0].endswith(":") and len(run_in[0].split()) <= 8
+                and current is not None):
             current.body.append(b.text)  # "Content moderation: ..." inside a risk
             continue
         if run_in and not _PREAMBLE.match(run_in[0]):
@@ -291,4 +382,7 @@ def split_risk_factors(raw_html: str) -> list[RiskFactor]:
             standalone = False
         current.body.append(b.text)
     # A "title" with almost no body is a stray emphasis, not a risk.
-    return [r for r in out if id(r) not in intros and sum(len(x) for x in r.body) >= 150]
+    for r in out:
+        r.title = _BULLET.sub("", r.title)
+    return [r for r in out if id(r) not in intros and sum(len(x) for x in r.body) >= 150
+            and not _is_summary(r, out)]

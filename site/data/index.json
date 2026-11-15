@@ -58,6 +58,397 @@
    "removed_titles": []
   },
   {
+   "ticker": "ABBV",
+   "company": "AbbVie Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000008/abbv-20251231.htm",
+    "risks": 31,
+    "words": 8562
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000020/abbv-20241231.htm",
+    "risks": 29,
+    "words": 7874
+   },
+   "counts": {
+    "new": 2,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 5,
+    "unchanged": 24
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 4,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 3,
+     "China": 0,
+     "Climate": 1,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 5,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 3,
+     "China": 0,
+     "Climate": 1,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Pharmacy benefit managers and other supply chain intermediaries exert significant influence over pricing and patient access to our products, which could adversely affect our revenues and results of operations.",
+    "Trade restrictions, tariffs, and other changes in global trade policy could increase costs, disrupt supply chains, and adversely affect AbbVie’s business and results of operations."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "ABT",
+   "company": "ABBOTT LABORATORIES",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828026010185/abt-20251231.htm",
+    "risks": 19,
+    "words": 4283
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828025007110/abt-20241231.htm",
+    "risks": 20,
+    "words": 4505
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 1,
+    "rewritten": 2,
+    "edited": 5,
+    "unchanged": 12
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 11,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 0,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 11,
+     "China": 0,
+     "Climate": 1,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "ACN",
+   "company": "Accenture plc",
+   "current": {
+    "period_end": "2026-08-31",
+    "filed": "2026-10-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
+    "risks": 23,
+    "words": 12701
+   },
+   "previous": {
+    "period_end": "2025-08-31",
+    "filed": "2025-10-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000217/acn-20250831.htm",
+    "risks": 23,
+    "words": 13700
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 3,
+    "edited": 13,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 59,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 18,
+     "China": 0,
+     "Climate": 1,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 46,
+     "Tariffs and trade": 7,
+     "Cybersecurity": 15,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "ADBE",
+   "company": "ADOBE INC.",
+   "current": {
+    "period_end": "2025-11-28",
+    "filed": "2026-01-15",
+    "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+    "risks": 23,
+    "words": 10013
+   },
+   "previous": {
+    "period_end": "2024-11-29",
+    "filed": "2025-01-13",
+    "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000004/adbe-20241129.htm",
+    "risks": 23,
+    "words": 9592
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 3,
+    "edited": 17,
+    "unchanged": 3
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 71,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 13,
+     "China": 1,
+     "Climate": 4,
+     "Export controls": 4
+    },
+    "previous": {
+     "Artificial intelligence": 63,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 13,
+     "China": 2,
+     "Climate": 4,
+     "Export controls": 3
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "AIG",
+   "company": "AMERICAN INTERNATIONAL GROUP, INC.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000023/aig-20251231.htm",
+    "risks": 36,
+    "words": 14940
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-13",
+    "url": "https://www.sec.gov/Archives/edgar/data/5272/000000527225000012/aig-20241231.htm",
+    "risks": 36,
+    "words": 14969
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 22,
+    "unchanged": 11
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 31,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 15,
+     "China": 0,
+     "Climate": 18,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 12,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 13,
+     "China": 0,
+     "Climate": 22,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our development and use of new technology, such as generative artificial intelligence, may present risks."
+   ],
+   "removed_titles": [
+    "An epidemic, pandemic or other health crisis could materially and adversely affect our business, results of operations, financial condition or liquidity."
+   ]
+  },
+  {
+   "ticker": "AMD",
+   "company": "ADVANCED MICRO DEVICES INC",
+   "current": {
+    "period_end": "2025-12-27",
+    "filed": "2026-02-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+    "risks": 42,
+    "words": 18868
+   },
+   "previous": {
+    "period_end": "2024-12-28",
+    "filed": "2025-02-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm",
+    "risks": 44,
+    "words": 17992
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 2,
+    "merged": 1,
+    "rewritten": 5,
+    "edited": 16,
+    "unchanged": 20
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 64,
+     "Tariffs and trade": 17,
+     "Cybersecurity": 10,
+     "China": 36,
+     "Climate": 15,
+     "Export controls": 9
+    },
+    "previous": {
+     "Artificial intelligence": 65,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 9,
+     "China": 18,
+     "Climate": 19,
+     "Export controls": 7
+    }
+   },
+   "new_titles": [
+    "We may be required to satisfy financial obligations under guarantees and other commercial commitments."
+   ],
+   "removed_titles": [
+    "Intel Corporation’s dominance of the microprocessor market and its aggressive business practices may limit our ability to compete effectively on a level playing field.",
+    "Our ability to complete the acquisition of ZT Systems is subject to closing conditions, including the receipt of consents and approvals from government authorities, which may impose conditions that could adversely affect us or cause the acquisition to not be completed."
+   ]
+  },
+  {
+   "ticker": "AMGN",
+   "company": "AMGEN INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-13",
+    "url": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000010/amgn-20251231.htm",
+    "risks": 28,
+    "words": 22233
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/318154/000031815425000010/amgn-20241231.htm",
+    "risks": 28,
+    "words": 22867
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 8,
+    "edited": 13,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 19,
+     "Tariffs and trade": 26,
+     "Cybersecurity": 31,
+     "China": 16,
+     "Climate": 3,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 14,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 30,
+     "China": 12,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "AMT",
+   "company": "AMERICAN TOWER CORP /MA/",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000035/amt-20251231.htm",
+    "risks": 26,
+    "words": 10903
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/1053507/000105350725000025/amt-20241231.htm",
+    "risks": 21,
+    "words": 9334
+   },
+   "counts": {
+    "new": 2,
+    "split": 3,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 7,
+    "edited": 5,
+    "unchanged": 9
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 13,
+     "China": 0,
+     "Climate": 7,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 3,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 11,
+     "China": 0,
+     "Climate": 6,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our data center segment contains certain operational differences from our tower leasing operations, resulting in different operational risks. If we do not successfully operate our data center segment or identify or manage the related operational risks, such operations may produce results that are lower than anticipated.",
+    "Our business depends on effective data governance, and failures in our data governance frameworks could adversely affect our operations."
+   ],
+   "removed_titles": []
+  },
+  {
    "ticker": "AMZN",
    "company": "AMAZON COM INC",
    "current": {
@@ -98,6 +489,153 @@
      "Cybersecurity": 2,
      "China": 9,
      "Climate": 7,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "AVGO",
+   "company": "Broadcom Inc.",
+   "current": {
+    "period_end": "2025-11-02",
+    "filed": "2025-12-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+    "risks": 41,
+    "words": 12516
+   },
+   "previous": {
+    "period_end": "2024-11-03",
+    "filed": "2024-12-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016824000139/avgo-20241103.htm",
+    "risks": 41,
+    "words": 11784
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 7,
+    "edited": 24,
+    "unchanged": 9
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 35,
+     "Tariffs and trade": 13,
+     "Cybersecurity": 19,
+     "China": 3,
+     "Climate": 1,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 19,
+     "China": 8,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "The amount and frequency of our stock repurchases may fluctuate."
+   ],
+   "removed_titles": [
+    "Failure to realize the benefits expected from the VMware Merger could adversely affect our business and the value of our common stock."
+   ]
+  },
+  {
+   "ticker": "AXP",
+   "company": "AMERICAN EXPRESS CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000080/axp-20251231.htm",
+    "risks": 34,
+    "words": 16326
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-07",
+    "url": "https://www.sec.gov/Archives/edgar/data/4962/000000496225000016/axp-20241231.htm",
+    "risks": 33,
+    "words": 15039
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 28,
+    "unchanged": 3
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 36,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 25,
+     "China": 1,
+     "Climate": 6,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 32,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 24,
+     "China": 2,
+     "Climate": 7,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [
+    "Fraudulent activity associated with our products and services could have a material adverse effect on our business and results of operations."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "BAC",
+   "company": "BANK OF AMERICA CORP /DE/",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+    "risks": 29,
+    "words": 16380
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/bac-20241231.htm",
+    "risks": 29,
+    "words": 16503
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 5,
+    "edited": 17,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 28,
+     "Tariffs and trade": 12,
+     "Cybersecurity": 37,
+     "China": 4,
+     "Climate": 10,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 34,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 40,
+     "China": 6,
+     "Climate": 16,
      "Export controls": 0
     }
    },
@@ -154,6 +692,194 @@
    ]
   },
   {
+   "ticker": "BKNG",
+   "company": "Booking Holdings Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
+    "risks": 30,
+    "words": 12685
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1075531/000107553125000010/bkng-20241231.htm",
+    "risks": 30,
+    "words": 14013
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 7,
+    "edited": 20,
+    "unchanged": 3
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 45,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 8,
+     "China": 2,
+     "Climate": 2,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 28,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 8,
+     "China": 2,
+     "Climate": 3,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "BLK",
+   "company": "BlackRock, Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526071966/blk-20251231.htm",
+    "risks": 49,
+    "words": 15466
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/2012383/000095017025026584/blk-20241231.htm",
+    "risks": 51,
+    "words": 15135
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 2,
+    "rewritten": 7,
+    "edited": 19,
+    "unchanged": 23
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 32,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 25,
+     "China": 7,
+     "Climate": 9,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 27,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 23,
+     "China": 7,
+     "Climate": 9,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "BMY",
+   "company": "BRISTOL MYERS SQUIBB CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-11",
+    "url": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000004/bmy-20251231.htm",
+    "risks": 23,
+    "words": 10493
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/14272/000001427225000039/bmy-20241231.htm",
+    "risks": 23,
+    "words": 9917
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 11,
+    "unchanged": 10
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 10,
+     "Cybersecurity": 13,
+     "China": 2,
+     "Climate": 2,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 13,
+     "China": 2,
+     "Climate": 2,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "BRK-B",
+   "company": "BERKSHIRE HATHAWAY INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-03-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+    "risks": 13,
+    "words": 3054
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210/brka-20241231.htm",
+    "risks": 13,
+    "words": 2966
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 5,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 6,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 0,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 5,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
    "ticker": "CAT",
    "company": "CATERPILLAR INC",
    "current": {
@@ -199,6 +925,654 @@
    },
    "new_titles": [],
    "removed_titles": []
+  },
+  {
+   "ticker": "CHTR",
+   "company": "CHARTER COMMUNICATIONS, INC. /MO/",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/1091667/000109166726000017/chtr-20251231.htm",
+    "risks": 33,
+    "words": 12016
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1091667/000109166725000034/chtr-20241231.htm",
+    "risks": 24,
+    "words": 8423
+   },
+   "counts": {
+    "new": 3,
+    "split": 6,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 13,
+    "unchanged": 11
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 7,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 7,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our plans for funding the cash consideration and assuming indebtedness of Cox Communications may be adversely affected to the extent there are greater-than-expected increases in our indebtedness, lower-than-expected operating results, credit rating downgrades, or significant financial market disruptions.",
+    "If we are not able to successfully integrate Cox Communications’ business within the anticipated time frame, or at all, the anticipated cost savings and other benefits of the Cox Transactions may not be realized fully, or at all, or may take longer to realize than expected. In such circumstances, in the event the Cox Transactions are completed, we may not perform as expected and the value of the Charter Class A common stock may be adversely affected.",
+    "The market price of Charter Class A common stock may decline as a result of the Cox Transactions."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "CL",
+   "company": "COLGATE PALMOLIVE CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000006/cl-20251231.htm",
+    "risks": 19,
+    "words": 8575
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-13",
+    "url": "https://www.sec.gov/Archives/edgar/data/21665/000002166525000008/cl-20241231.htm",
+    "risks": 19,
+    "words": 8341
+   },
+   "counts": {
+    "new": 0,
+    "split": 1,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 3,
+    "edited": 13,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 17,
+     "Tariffs and trade": 14,
+     "Cybersecurity": 17,
+     "China": 1,
+     "Climate": 5,
+     "Export controls": 5
+    },
+    "previous": {
+     "Artificial intelligence": 15,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 19,
+     "China": 4,
+     "Climate": 5,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "We face various risks related to pandemics, epidemics or other widespread public health concerns, which may have a material adverse effect on our business, results of operations, cash flows and financial condition."
+   ]
+  },
+  {
+   "ticker": "CMCSA",
+   "company": "COMCAST CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026004994/cmcsa-20251231.htm",
+    "risks": 20,
+    "words": 6891
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1166691/000116669125000011/cmcsa-20241231.htm",
+    "risks": 19,
+    "words": 6613
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 6,
+    "unchanged": 12
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 7,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 5,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 7,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "If the Separation does not qualify as non-taxable, we and/or holders of our common stock could be subject to significant tax liability."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "COF",
+   "company": "CAPITAL ONE FINANCIAL CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000024/cof-20251231.htm",
+    "risks": 35,
+    "words": 22793
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000092/cof-20241231.htm",
+    "risks": 32,
+    "words": 18401
+   },
+   "counts": {
+    "new": 4,
+    "split": 1,
+    "removed": 2,
+    "merged": 0,
+    "rewritten": 10,
+    "edited": 18,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 66,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 35,
+     "China": 1,
+     "Climate": 13,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 44,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 26,
+     "China": 2,
+     "Climate": 18,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "A change in market preference towards other operators of payment networks and alternative payment providers could result in reduced transaction volume, limited merchant acceptance of our cards and limited issuance of cards on our networks by third parties, and in turn may impact our revenue margins.",
+    "If we are unsuccessful in creating and maintaining a strong base of network licensees and achieving meaningful global card acceptance, we may be unable to achieve long-term success in our recently acquired international network business.",
+    "A reduction in the number of large merchants that accept cards on our recently acquired Discover Network or PULSE Network or in the rates they pay could materially adversely affect our business, financial condition, results of operations and cash flows.",
+    "Defaults or risks from bankruptcies, liquidations, restructurings, consolidations and outages by our network participants may adversely affect our business, financial condition, cash flows and results of operations."
+   ],
+   "removed_titles": [
+    "Risks Relating to the Acquisition of Discover",
+    "The consummation of the Transaction is contingent upon the satisfaction of a number of conditions, including regulatory approvals, that may be outside either party’s control and that either party may be unable to satisfy or obtain or which may delay the consummation of the Transaction or result in the imposition of conditions that could reduce the anticipated benefits from the Transaction or cause the parties to abandon the Transaction."
+   ]
+  },
+  {
+   "ticker": "COP",
+   "company": "CONOCOPHILLIPS",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-17",
+    "url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000009/cop-20251231.htm",
+    "risks": 18,
+    "words": 6031
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000012/cop-20241231.htm",
+    "risks": 20,
+    "words": 6782
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 2,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 7,
+    "unchanged": 11
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 12,
+     "China": 0,
+     "Climate": 20,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 12,
+     "China": 0,
+     "Climate": 16,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "Integrating Marathon Oil's business may be more difficult, costly or time-consuming than expected, and we may fail to achieve the expected benefits and synergies of the Marathon Oil acquisition, which may adversely affect our business results and negatively affect the value of our common stock.",
+    "The market value of our common stock could decline if large amounts of our common stock are sold now that the Marathon Oil acquisition has been consummated."
+   ]
+  },
+  {
+   "ticker": "COST",
+   "company": "COSTCO WHOLESALE CORP /NEW",
+   "current": {
+    "period_end": "2026-08-30",
+    "filed": "2026-10-07",
+    "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
+    "risks": 26,
+    "words": 6300
+   },
+   "previous": {
+    "period_end": "2025-08-31",
+    "filed": "2025-10-08",
+    "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+    "risks": 26,
+    "words": 6024
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 10,
+    "unchanged": 16
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 8,
+     "China": 1,
+     "Climate": 4,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 7,
+     "China": 1,
+     "Climate": 4,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "CRM",
+   "company": "Salesforce, Inc.",
+   "current": {
+    "period_end": "2026-01-31",
+    "filed": "2026-03-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+    "risks": 36,
+    "words": 15625
+   },
+   "previous": {
+    "period_end": "2025-01-31",
+    "filed": "2025-03-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000006/crm-20250131.htm",
+    "risks": 36,
+    "words": 16684
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 8,
+    "edited": 21,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 71,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 16,
+     "China": 2,
+     "Climate": 9,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 55,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 13,
+     "China": 2,
+     "Climate": 11,
+     "Export controls": 2
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "CSCO",
+   "company": "CISCO SYSTEMS, INC.",
+   "current": {
+    "period_end": "2026-07-25",
+    "filed": "2026-09-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
+    "risks": 38,
+    "words": 13047
+   },
+   "previous": {
+    "period_end": "2025-07-26",
+    "filed": "2025-09-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+    "risks": 38,
+    "words": 13231
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 16,
+    "edited": 20,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 38,
+     "Tariffs and trade": 7,
+     "Cybersecurity": 17,
+     "China": 5,
+     "Climate": 6,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 22,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 13,
+     "China": 7,
+     "Climate": 7,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "CVS",
+   "company": "CVS HEALTH Corp",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+    "risks": 40,
+    "words": 18556
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480325000007/cvs-20241231.htm",
+    "risks": 47,
+    "words": 21230
+   },
+   "counts": {
+    "new": 0,
+    "split": 1,
+    "removed": 2,
+    "merged": 6,
+    "rewritten": 5,
+    "edited": 18,
+    "unchanged": 16
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 13,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 12,
+     "China": 0,
+     "Climate": 9,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "We can provide no assurance that we will be able to compete successfully on Public Exchanges or that our pricing or other actions will result in the profitability of our Public Exchange products.",
+    "We may experience increased medical and other benefit costs, litigation risk and customer and member dissatisfaction when providers that do not have contracts with us render services to our Health Care Benefits members."
+   ]
+  },
+  {
+   "ticker": "CVX",
+   "company": "CHEVRON CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000078/cvx-20251231.htm",
+    "risks": 16,
+    "words": 4842
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000009/cvx-20241231.htm",
+    "risks": 15,
+    "words": 5365
+   },
+   "counts": {
+    "new": 2,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 5,
+    "unchanged": 8
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 7,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 19,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 0,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 9,
+     "China": 1,
+     "Climate": 19,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Chevron is incorporating artificial intelligence technologies into its processes and these technologies may present business, compliance, and reputational risks",
+    "One of our subsidiaries acts as the general partner of a publicly traded limited partnership, Hess Midstream LP, which may involve a potential legal liability"
+   ],
+   "removed_titles": [
+    "Chevron may not complete the acquisition of Hess Corporation within the time frame the company anticipates or at all, which could have adverse effects on Chevron"
+   ]
+  },
+  {
+   "ticker": "C",
+   "company": "CITIGROUP INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/831001/000083100126000011/c-20251231.htm",
+    "risks": 24,
+    "words": 11910
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/831001/000083100125000067/c-20241231.htm",
+    "risks": 26,
+    "words": 14212
+   },
+   "counts": {
+    "new": 0,
+    "split": 2,
+    "removed": 3,
+    "merged": 1,
+    "rewritten": 10,
+    "edited": 10,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 28,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 42,
+     "China": 4,
+     "Climate": 9,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 37,
+     "China": 6,
+     "Climate": 20,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "Net Zero Emissions by 2050",
+    "Sustainable Operations",
+    "Sustainable Finance"
+   ]
+  },
+  {
+   "ticker": "DE",
+   "company": "DEERE & CO",
+   "current": {
+    "period_end": "2025-11-02",
+    "filed": "2025-12-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+    "risks": 28,
+    "words": 8533
+   },
+   "previous": {
+    "period_end": "2024-10-27",
+    "filed": "2024-12-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/315189/000155837024016169/de-20241027x10k.htm",
+    "risks": 31,
+    "words": 8302
+   },
+   "counts": {
+    "new": 0,
+    "split": 1,
+    "removed": 3,
+    "merged": 1,
+    "rewritten": 10,
+    "edited": 16,
+    "unchanged": 1
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 13,
+     "Tariffs and trade": 20,
+     "Cybersecurity": 5,
+     "China": 2,
+     "Climate": 8,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 5,
+     "China": 5,
+     "Climate": 9,
+     "Export controls": 2
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "Unfavorable weather conditions or natural catastrophes that reduce agricultural production and demand for agriculture and turf equipment could directly and indirectly affect our business.",
+    "Our consolidated financial results are reported in U.S. dollars while certain assets and other reported items are denominated in foreign currencies, creating currency exchange and translation risk.",
+    "We could be impacted by changes to or reallocation of radio frequency (RF) bands which could disrupt or degrade the reliability of our high precision augmented Global Positioning System (GPS) or other RF technology, which could impair our ability to develop and market GPS- and RF-based technology solutions, as well as significantly reduce agricultural and construction customers’ profitability."
+   ]
+  },
+  {
+   "ticker": "DHR",
+   "company": "DANAHER CORP /DE/",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000062/dhr-20251231.htm",
+    "risks": 42,
+    "words": 14640
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000043/dhr-20241231.htm",
+    "risks": 43,
+    "words": 14235
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 19,
+    "unchanged": 21
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 22,
+     "Tariffs and trade": 15,
+     "Cybersecurity": 7,
+     "China": 10,
+     "Climate": 7,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 17,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 10,
+     "China": 11,
+     "Climate": 6,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "Our restructuring actions and other cost reduction efforts can have long-term adverse effects on our business and financial statements."
+   ]
   },
   {
    "ticker": "DIS",
@@ -250,6 +1624,397 @@
    "removed_titles": [
     "We face risks related to costs and expenses in connection with the acquisition of NBC Universal’s (NBCU) equity interest in Hulu and the TFCF acquisition."
    ]
+  },
+  {
+   "ticker": "DUK",
+   "company": "Duke Energy CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-26",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000014/duk-20251231.htm",
+    "risks": 35,
+    "words": 10043
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-27",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326160/000132616025000072/duk-20241231.htm",
+    "risks": 32,
+    "words": 9612
+   },
+   "counts": {
+    "new": 2,
+    "split": 1,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 12,
+    "unchanged": 19
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 17,
+     "China": 0,
+     "Climate": 11,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 16,
+     "China": 0,
+     "Climate": 12,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Risks Related to Supply Chain Disruptions, Inflation, Tariffs and Foreign Export Restrictions",
+    "Failure to complete strategic transactions could adversely affect the Duke Energy Registrants’ financial condition, credit profile and ability to execute their business strategy."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "EMR",
+   "company": "EMERSON ELECTRIC CO",
+   "current": {
+    "period_end": "2026-09-30",
+    "filed": "2026-11-09",
+    "url": "https://www.sec.gov/Archives/edgar/data/32604/000003260426000054/emr-20260930.htm",
+    "risks": 17,
+    "words": 3989
+   },
+   "previous": {
+    "period_end": "2025-09-30",
+    "filed": "2025-11-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000087/emr-20250930.htm",
+    "risks": 17,
+    "words": 3914
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 4,
+    "unchanged": 13
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 10,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 13,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "FDX",
+   "company": "FEDEX CORP",
+   "current": {
+    "period_end": "2026-05-31",
+    "filed": "2026-07-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1048911/000104891126000105/fdx-20260531.htm",
+    "risks": 31,
+    "words": 13073
+   },
+   "previous": {
+    "period_end": "2025-05-31",
+    "filed": "2025-07-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/1048911/000104891125000011/fdx-20250531.htm",
+    "risks": 29,
+    "words": 12714
+   },
+   "counts": {
+    "new": 3,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 24,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 28,
+     "Tariffs and trade": 16,
+     "Cybersecurity": 27,
+     "China": 3,
+     "Climate": 13,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 16,
+     "Tariffs and trade": 14,
+     "Cybersecurity": 26,
+     "China": 3,
+     "Climate": 13,
+     "Export controls": 2
+    }
+   },
+   "new_titles": [
+    "We may not be able to achieve our calendar 2029 financial performance targets.",
+    "The Spin-Off could result in substantial tax liability to us and our stockholders.",
+    "We may not achieve the expected strategic or financial benefits relating to our InPost investment."
+   ],
+   "removed_titles": [
+    "Failure to complete the adjustment of our air network to remove costs related to services previously provided to the United States Postal Service (“USPS”) could adversely affect our profitability."
+   ]
+  },
+  {
+   "ticker": "F",
+   "company": "FORD MOTOR CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-11",
+    "url": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000015/f-20251231.htm",
+    "risks": 26,
+    "words": 13713
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/37996/000003799625000013/f-20241231.htm",
+    "risks": 26,
+    "words": 12809
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 4,
+    "edited": 18,
+    "unchanged": 4
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 4,
+     "Tariffs and trade": 26,
+     "Cybersecurity": 11,
+     "China": 15,
+     "Climate": 6,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 3,
+     "Tariffs and trade": 15,
+     "Cybersecurity": 11,
+     "China": 11,
+     "Climate": 6,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "GD",
+   "company": "GENERAL DYNAMICS CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000006/gd-20251231.htm",
+    "risks": 14,
+    "words": 2906
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-07",
+    "url": "https://www.sec.gov/Archives/edgar/data/40533/000004053325000008/gd-20241231.htm",
+    "risks": 14,
+    "words": 2899
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 1,
+    "unchanged": 13
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 0,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 7,
+     "Export controls": 3
+    },
+    "previous": {
+     "Artificial intelligence": 0,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 7,
+     "Export controls": 3
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "GE",
+   "company": "GENERAL ELECTRIC CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-29",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000008/ge-20251231.htm",
+    "risks": 15,
+    "words": 7952
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+    "risks": 15,
+    "words": 8197
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 13,
+    "unchanged": 0
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 4,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 27,
+     "China": 3,
+     "Climate": 5,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 4,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 22,
+     "China": 3,
+     "Climate": 15,
+     "Export controls": 2
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "GILD",
+   "company": "GILEAD SCIENCES, INC.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000006/gild-20251231.htm",
+    "risks": 22,
+    "words": 12024
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-28",
+    "url": "https://www.sec.gov/Archives/edgar/data/882095/000088209525000006/gild-20241231.htm",
+    "risks": 22,
+    "words": 11735
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 12,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 11,
+     "China": 2,
+     "Climate": 6,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 3,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 8,
+     "China": 1,
+     "Climate": 9,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our U.S. manufacturing and R&D investments may not achieve their intended benefits and could adversely affect our business, results of operations and cash flows."
+   ],
+   "removed_titles": [
+    "The failure to successfully implement or upgrade enterprise resource planning and other information systems could adversely impact our business and results of operations."
+   ]
+  },
+  {
+   "ticker": "GM",
+   "company": "General Motors Co",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-27",
+    "url": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000013/gm-20251231.htm",
+    "risks": 28,
+    "words": 9738
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-28",
+    "url": "https://www.sec.gov/Archives/edgar/data/1467858/000146785825000032/gm-20241231.htm",
+    "risks": 27,
+    "words": 9664
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 17,
+    "unchanged": 8
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 20,
+     "Cybersecurity": 8,
+     "China": 31,
+     "Climate": 5,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 5,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 7,
+     "China": 32,
+     "Climate": 5,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [
+    "Tariffs applicable to the automotive industry continue to evolve, including in the U.S., where the government has signaled tariff policy may shift in the future. Such tariffs could have a material adverse effect on our financial condition and results of operations."
+   ],
+   "removed_titles": []
   },
   {
    "ticker": "GOOGL",
@@ -348,6 +2113,243 @@
    },
    "new_titles": [],
    "removed_titles": []
+  },
+  {
+   "ticker": "HD",
+   "company": "HOME DEPOT, INC.",
+   "current": {
+    "period_end": "2026-02-01",
+    "filed": "2026-03-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+    "risks": 25,
+    "words": 10480
+   },
+   "previous": {
+    "period_end": "2025-02-02",
+    "filed": "2025-03-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000085/hd-20250202.htm",
+    "risks": 25,
+    "words": 10183
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 20,
+    "unchanged": 5
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 12,
+     "Tariffs and trade": 21,
+     "Cybersecurity": 22,
+     "China": 1,
+     "Climate": 4,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 16,
+     "Cybersecurity": 19,
+     "China": 3,
+     "Climate": 5,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "HON",
+   "company": "HONEYWELL INTERNATIONAL INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-17",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/hon-20251231.htm",
+    "risks": 22,
+    "words": 8362
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000010/hon-20241231.htm",
+    "risks": 22,
+    "words": 7333
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 4,
+    "edited": 12,
+    "unchanged": 6
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 23,
+     "Tariffs and trade": 24,
+     "Cybersecurity": 24,
+     "China": 2,
+     "Climate": 11,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 15,
+     "Tariffs and trade": 14,
+     "Cybersecurity": 22,
+     "China": 3,
+     "Climate": 11,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "IBM",
+   "company": "INTERNATIONAL BUSINESS MACHINES CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm",
+    "risks": 26,
+    "words": 5220
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114325000015/ibm-20241231.htm",
+    "risks": 26,
+    "words": 5253
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 3,
+    "unchanged": 23
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 14,
+     "China": 0,
+     "Climate": 4,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 30,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 14,
+     "China": 0,
+     "Climate": 4,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "INTU",
+   "company": "INTUIT INC.",
+   "current": {
+    "period_end": "2026-07-31",
+    "filed": "2026-09-09",
+    "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm",
+    "risks": 34,
+    "words": 12529
+   },
+   "previous": {
+    "period_end": "2025-07-31",
+    "filed": "2025-09-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687825000035/intu-20250731.htm",
+    "risks": 34,
+    "words": 12506
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 16,
+    "unchanged": 18
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 42,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 18,
+     "China": 0,
+     "Climate": 8,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 32,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 18,
+     "China": 0,
+     "Climate": 8,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "ISRG",
+   "company": "INTUITIVE SURGICAL INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+    "risks": 46,
+    "words": 27421
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526725000017/isrg-20241231.htm",
+    "risks": 47,
+    "words": 27694
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 6,
+    "edited": 19,
+    "unchanged": 21
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 59,
+     "Tariffs and trade": 23,
+     "Cybersecurity": 14,
+     "China": 29,
+     "Climate": 5,
+     "Export controls": 3
+    },
+    "previous": {
+     "Artificial intelligence": 52,
+     "Tariffs and trade": 25,
+     "Cybersecurity": 15,
+     "China": 23,
+     "Climate": 8,
+     "Export controls": 2
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "WE MAY INCUR LOSSES ASSOCIATED WITH CURRENCY FLUCTUATIONS AND MAY NOT BE ABLE TO EFFECTIVELY HEDGE OUR EXPOSURE."
+   ]
   },
   {
    "ticker": "JNJ",
@@ -497,6 +2499,390 @@
    "removed_titles": []
   },
   {
+   "ticker": "LIN",
+   "company": "LINDE PLC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026011430/lin-20251231.htm",
+    "risks": 18,
+    "words": 3820
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-26",
+    "url": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025007990/lin-20241231.htm",
+    "risks": 18,
+    "words": 3772
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 4,
+    "unchanged": 14
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 2,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 0,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 1,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "LLY",
+   "company": "ELI LILLY & Co",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+    "risks": 16,
+    "words": 10795
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000067/lly-20241231.htm",
+    "risks": 16,
+    "words": 9532
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 3,
+    "edited": 12,
+    "unchanged": 1
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 25,
+     "Tariffs and trade": 17,
+     "Cybersecurity": 13,
+     "China": 12,
+     "Climate": 4,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 10,
+     "Cybersecurity": 13,
+     "China": 11,
+     "Climate": 4,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "LMT",
+   "company": "LOCKHEED MARTIN CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-29",
+    "url": "https://www.sec.gov/Archives/edgar/data/936468/000162828026004195/lmt-20251231.htm",
+    "risks": 27,
+    "words": 11405
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-28",
+    "url": "https://www.sec.gov/Archives/edgar/data/936468/000093646825000009/lmt-20241231.htm",
+    "risks": 26,
+    "words": 10918
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 11,
+    "unchanged": 13
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 15,
+     "Cybersecurity": 14,
+     "China": 2,
+     "Climate": 10,
+     "Export controls": 4
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 14,
+     "China": 4,
+     "Climate": 10,
+     "Export controls": 3
+    }
+   },
+   "new_titles": [
+    "Executive Orders."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "LOW",
+   "company": "LOWES COMPANIES INC",
+   "current": {
+    "period_end": "2026-01-30",
+    "filed": "2026-03-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000029/low-20260130.htm",
+    "risks": 26,
+    "words": 7787
+   },
+   "previous": {
+    "period_end": "2025-01-31",
+    "filed": "2025-03-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000049/low-20250131.htm",
+    "risks": 26,
+    "words": 7596
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 7,
+    "unchanged": 19
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 22,
+     "Tariffs and trade": 19,
+     "Cybersecurity": 15,
+     "China": 3,
+     "Climate": 7,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 22,
+     "Tariffs and trade": 19,
+     "Cybersecurity": 15,
+     "China": 3,
+     "Climate": 7,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MA",
+   "company": "Mastercard Inc",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-11",
+    "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000013/ma-20251231.htm",
+    "risks": 36,
+    "words": 12037
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000011/ma-20241231.htm",
+    "risks": 36,
+    "words": 11819
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 14,
+    "unchanged": 22
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 26,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 14,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 22,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MCD",
+   "company": "MCDONALDS CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+    "risks": 25,
+    "words": 6473
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+    "risks": 25,
+    "words": 6235
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 9,
+    "unchanged": 16
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 2,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 1,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MDLZ",
+   "company": "Mondelez International, Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026005345/mdlz-20251231.htm",
+    "risks": 24,
+    "words": 11531
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1103982/000110398225000030/mdlz-20241231.htm",
+    "risks": 24,
+    "words": 12078
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 21,
+    "unchanged": 2
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 17,
+     "Tariffs and trade": 35,
+     "Cybersecurity": 21,
+     "China": 3,
+     "Climate": 14,
+     "Export controls": 3
+    },
+    "previous": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 34,
+     "Cybersecurity": 17,
+     "China": 4,
+     "Climate": 14,
+     "Export controls": 3
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MDT",
+   "company": "Medtronic plc",
+   "current": {
+    "period_end": "2026-04-24",
+    "filed": "2026-06-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026044354/mdt-20260424.htm",
+    "risks": 34,
+    "words": 12159
+   },
+   "previous": {
+    "period_end": "2025-04-25",
+    "filed": "2025-06-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1613103/000161310325000091/mdt-20250425.htm",
+    "risks": 34,
+    "words": 10603
+   },
+   "counts": {
+    "new": 2,
+    "split": 0,
+    "removed": 2,
+    "merged": 0,
+    "rewritten": 3,
+    "edited": 17,
+    "unchanged": 12
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 7,
+     "Cybersecurity": 12,
+     "China": 7,
+     "Climate": 7,
+     "Export controls": 3
+    },
+    "previous": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 9,
+     "China": 6,
+     "Climate": 7,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [
+    "We are subject to litigation, claims, investigations, and regulatory proceedings, which are inherently unpredictable and could materially adversely affect our business, results of operations, financial condition, and cash flows.",
+    "The ongoing separation of our Diabetes Business could be delayed, may not be completed as currently contemplated, and could materially adversely affect our business, results of operations, financial condition, and cash flows."
+   ],
+   "removed_titles": [
+    "Future potential changes to the U.S. tax laws could result in us being treated as a U.S. corporation for U.S. federal tax purposes, and the IRS may not agree with the conclusion that we should be treated as a foreign corporation for U.S. federal income tax purposes.",
+    "Legislative or other governmental action relating to the denial of U.S. federal or state governmental contracts to U.S. companies that redomicile abroad could adversely affect our business."
+   ]
+  },
+  {
    "ticker": "META",
    "company": "Meta Platforms, Inc.",
    "current": {
@@ -538,6 +2924,194 @@
      "China": 7,
      "Climate": 1,
      "Export controls": 6
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MET",
+   "company": "METLIFE INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000013/met-20251231.htm",
+    "risks": 46,
+    "words": 10833
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+    "risks": 46,
+    "words": 10434
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 15,
+    "unchanged": 29
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 7,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 15,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 15,
+     "China": 0,
+     "Climate": 4,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MMM",
+   "company": "3M CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm",
+    "risks": 16,
+    "words": 6873
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674025000006/mmm-20241231.htm",
+    "risks": 15,
+    "words": 6368
+   },
+   "counts": {
+    "new": 0,
+    "split": 1,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 7,
+    "unchanged": 7
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 15,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 12,
+     "China": 2,
+     "Climate": 1,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 12,
+     "China": 2,
+     "Climate": 1,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MO",
+   "company": "ALTRIA GROUP, INC.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/764180/000076418026000017/mo-20251231.htm",
+    "risks": 25,
+    "words": 9681
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-26",
+    "url": "https://www.sec.gov/Archives/edgar/data/764180/000076418025000019/mo-20241231.htm",
+    "risks": 25,
+    "words": 9193
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 4,
+    "edited": 13,
+    "unchanged": 8
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 6,
+     "China": 0,
+     "Climate": 6,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 6,
+     "China": 0,
+     "Climate": 6,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "MRK",
+   "company": "Merck & Co., Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/mrk-20251231.htm",
+    "risks": 30,
+    "words": 9676
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+    "risks": 30,
+    "words": 9270
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 15,
+    "unchanged": 14
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 13,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 3,
+     "China": 23,
+     "Climate": 10,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 9,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 3,
+     "China": 25,
+     "Climate": 10,
+     "Export controls": 0
     }
    },
    "new_titles": [],
@@ -593,6 +3167,156 @@
    "removed_titles": []
   },
   {
+   "ticker": "MS",
+   "company": "MORGAN STANLEY",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000086/ms-20251231.htm",
+    "risks": 26,
+    "words": 10434
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000304/ms-20241231.htm",
+    "risks": 27,
+    "words": 10520
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 6,
+    "unchanged": 20
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 17,
+     "China": 1,
+     "Climate": 19,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 17,
+     "China": 1,
+     "Climate": 23,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "We may be responsible for representations and warranties associated with commercial and residential real estate loans and may incur losses in excess of our reserves."
+   ]
+  },
+  {
+   "ticker": "NEE",
+   "company": "NEXTERA ENERGY INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-13",
+    "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000015/nee-20251231.htm",
+    "risks": 52,
+    "words": 11962
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000011/nee-20241231.htm",
+    "risks": 52,
+    "words": 11651
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 12,
+    "unchanged": 39
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 12,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 1,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 8,
+     "China": 1,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "The productivity increases and competitive advantages NEE and FPL plan to achieve through the use of artificial intelligence (AI) technologies may not be realized and the use of and reliance on AI may present certain risks, both of which could materially adversely affect their business, financial condition, results of operations and prospects."
+   ],
+   "removed_titles": [
+    "XPLR may not be able to access sources of capital on commercially reasonable terms, which would have a material adverse effect on its ability to consummate future acquisitions and on the value of NEE’s limited partner interest in XPLR OpCo."
+   ]
+  },
+  {
+   "ticker": "NFLX",
+   "company": "NETFLIX INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm",
+    "risks": 33,
+    "words": 11105
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-27",
+    "url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm",
+    "risks": 31,
+    "words": 10364
+   },
+   "counts": {
+    "new": 2,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 10,
+    "unchanged": 21
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 8,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 7,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 8,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [
+    "The WBD transaction may not be completed on the currently contemplated timeline or terms, or at all.",
+    "The WBD transaction may cause our financial results to differ from expectations, we may not achieve the anticipated benefits of the WBD transaction, and the WBD transaction may disrupt our current plans or operations."
+   ],
+   "removed_titles": []
+  },
+  {
    "ticker": "NKE",
    "company": "NIKE, Inc.",
    "current": {
@@ -634,6 +3358,53 @@
      "China": 1,
      "Climate": 8,
      "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "NOW",
+   "company": "ServiceNow, Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-01-29",
+    "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000007/now-20251231.htm",
+    "risks": 27,
+    "words": 11280
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000010/now-20241231.htm",
+    "risks": 27,
+    "words": 10822
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 15,
+    "unchanged": 11
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 35,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 9,
+     "China": 0,
+     "Climate": 6,
+     "Export controls": 4
+    },
+    "previous": {
+     "Artificial intelligence": 29,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 9,
+     "China": 0,
+     "Climate": 6,
+     "Export controls": 4
     }
    },
    "new_titles": [],
@@ -689,6 +3460,105 @@
    "removed_titles": []
   },
   {
+   "ticker": "ORCL",
+   "company": "ORACLE CORP",
+   "current": {
+    "period_end": "2026-05-31",
+    "filed": "2026-06-22",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm",
+    "risks": 34,
+    "words": 13937
+   },
+   "previous": {
+    "period_end": "2025-05-31",
+    "filed": "2025-06-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017025087926/orcl-20250531.htm",
+    "risks": 30,
+    "words": 11447
+   },
+   "counts": {
+    "new": 4,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 6,
+    "edited": 12,
+    "unchanged": 12
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 49,
+     "Tariffs and trade": 13,
+     "Cybersecurity": 9,
+     "China": 3,
+     "Climate": 4,
+     "Export controls": 5
+    },
+    "previous": {
+     "Artificial intelligence": 26,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 7,
+     "China": 2,
+     "Climate": 4,
+     "Export controls": 3
+    }
+   },
+   "new_titles": [
+    "If our accounting estimates and judgments turn out to be inaccurate, our future financial results could fall short of expectations, which could have a material adverse effect on our stock price.",
+    "Conversion of our Mandatory Convertible Preferred Stock (and our depositary shares), or the payment of dividends on Mandatory Convertible Preferred Stock in shares of common stock, or the issuance of shares of our common stock under the ATM Program will dilute the ownership interest of the holders of our common stock.",
+    "The ATM Program, the Mandatory Convertible Preferred Stock or our depositary shares may adversely affect the market price of our common stock, and we cannot guarantee that our ATM Program will be fully implemented.",
+    "Our common stock ranks junior to our Mandatory Convertible Preferred Stock with respect to the payment of dividends and amounts payable in the event of our liquidation, winding-up or dissolution."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "PEP",
+   "company": "PEPSICO INC",
+   "current": {
+    "period_end": "2025-12-27",
+    "filed": "2026-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000007/pep-20251227.htm",
+    "risks": 28,
+    "words": 9458
+   },
+   "previous": {
+    "period_end": "2024-12-28",
+    "filed": "2025-02-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000007/pep-20241228.htm",
+    "risks": 28,
+    "words": 9206
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 18,
+    "unchanged": 10
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 14,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 21,
+     "China": 3,
+     "Climate": 9,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 12,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 23,
+     "China": 3,
+     "Climate": 9,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
    "ticker": "PFE",
    "company": "PFIZER INC",
    "current": {
@@ -733,6 +3603,640 @@
     }
    },
    "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "PG",
+   "company": "PROCTER & GAMBLE Co",
+   "current": {
+    "period_end": "2026-06-30",
+    "filed": "2026-08-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000103/pg-20260630.htm",
+    "risks": 16,
+    "words": 5165
+   },
+   "previous": {
+    "period_end": "2025-06-30",
+    "filed": "2025-08-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+    "risks": 17,
+    "words": 5202
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 11,
+    "unchanged": 4
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 13,
+     "Cybersecurity": 11,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 4
+    },
+    "previous": {
+     "Artificial intelligence": 7,
+     "Tariffs and trade": 13,
+     "Cybersecurity": 9,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 4
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "We must successfully manage the demand, supply and operational challenges associated with the effects of any future disease outbreak, including epidemics, pandemics or similar widespread public health concerns."
+   ]
+  },
+  {
+   "ticker": "PLTR",
+   "company": "Palantir Technologies Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-17",
+    "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm",
+    "risks": 83,
+    "words": 44085
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165525000022/pltr-20241231.htm",
+    "risks": 84,
+    "words": 43761
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 19,
+    "unchanged": 64
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 53,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 41,
+     "China": 7,
+     "Climate": 8,
+     "Export controls": 7
+    },
+    "previous": {
+     "Artificial intelligence": 48,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 37,
+     "China": 7,
+     "Climate": 8,
+     "Export controls": 7
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "There are no guarantees that our Share Repurchase Program will result in increased shareholder value."
+   ]
+  },
+  {
+   "ticker": "PM",
+   "company": "Philip Morris International Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026005939/pm-20251231.htm",
+    "risks": 33,
+    "words": 8229
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/1413329/000141332925000013/pm-20241231.htm",
+    "risks": 33,
+    "words": 8993
+   },
+   "counts": {
+    "new": 1,
+    "split": 1,
+    "removed": 1,
+    "merged": 1,
+    "rewritten": 8,
+    "edited": 12,
+    "unchanged": 11
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 13,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 4,
+     "Tariffs and trade": 2,
+     "Cybersecurity": 12,
+     "China": 1,
+     "Climate": 7,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "We increasingly use artificial intelligence-based solutions in our business, which could result in reputational harm, legal liability, and adversely affect our operating results."
+   ],
+   "removed_titles": [
+    "We may be unable to expand our brand portfolio through acquisitions or the development of strategic business relationships, and the intended benefits from our investments may not materialize."
+   ]
+  },
+  {
+   "ticker": "PYPL",
+   "company": "PayPal Holdings, Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/pypl-20251231.htm",
+    "risks": 36,
+    "words": 12748
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+    "risks": 35,
+    "words": 12630
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 28,
+    "unchanged": 5
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 19,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 14,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 1
+    },
+    "previous": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 14,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 1
+    }
+   },
+   "new_titles": [
+    "There can be no assurance that we will continue to repurchase stock or declare cash dividends, and stock repurchases or dividends could increase the volatility of our stock price and could diminish our cash reserves."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "QCOM",
+   "company": "QUALCOMM INC/DE",
+   "current": {
+    "period_end": "2026-09-27",
+    "filed": "2026-11-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm",
+    "risks": 26,
+    "words": 18360
+   },
+   "previous": {
+    "period_end": "2025-09-28",
+    "filed": "2025-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432825000085/qcom-20250928.htm",
+    "risks": 24,
+    "words": 18517
+   },
+   "counts": {
+    "new": 1,
+    "split": 1,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 3,
+    "edited": 9,
+    "unchanged": 12
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 40,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 23,
+     "China": 53,
+     "Climate": 12,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 15,
+     "Tariffs and trade": 12,
+     "Cybersecurity": 20,
+     "China": 65,
+     "Climate": 12,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our increasing focus on artificial intelligence (AI), including on-device AI, agentic AI and AI infrastructure, may not result in the anticipated benefits and could expose us to additional competitive, regulatory, intellectual property and operational risks."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "RTX",
+   "company": "RTX Corp",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000006/rtx-20251231.htm",
+    "risks": 27,
+    "words": 14182
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/101829/000010182925000005/rtx-20241231.htm",
+    "risks": 29,
+    "words": 15813
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 2,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 11,
+    "unchanged": 15
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 7,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 19,
+     "China": 10,
+     "Climate": 9,
+     "Export controls": 9
+    },
+    "previous": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 11,
+     "Cybersecurity": 19,
+     "China": 10,
+     "Climate": 10,
+     "Export controls": 8
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "Our business may be adversely affected by changes in global economic, capital market, and political conditions.",
+    "If either distribution of the stock of Carrier or Otis, together with certain related transactions, were to fail to qualify as a transaction that is generally tax-free, including as a result of subsequent acquisitions of our stock (including pursuant to the Raytheon merger), we could be subject to significant tax liabilities."
+   ]
+  },
+  {
+   "ticker": "SBUX",
+   "company": "STARBUCKS CORP",
+   "current": {
+    "period_end": "2026-09-27",
+    "filed": "2026-11-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000162/sbux-20260927.htm",
+    "risks": 28,
+    "words": 8489
+   },
+   "previous": {
+    "period_end": "2025-09-28",
+    "filed": "2025-11-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+    "risks": 29,
+    "words": 7990
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 1,
+    "rewritten": 1,
+    "edited": 18,
+    "unchanged": 9
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 10,
+     "Cybersecurity": 5,
+     "China": 2,
+     "Climate": 2,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 7,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 4,
+     "China": 1,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "SCHW",
+   "company": "SCHWAB CHARLES CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000009/schw-20251231.htm",
+    "risks": 19,
+    "words": 7307
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-26",
+    "url": "https://www.sec.gov/Archives/edgar/data/316709/000031670925000010/schw-20241231.htm",
+    "risks": 18,
+    "words": 6677
+   },
+   "counts": {
+    "new": 1,
+    "split": 1,
+    "removed": 0,
+    "merged": 1,
+    "rewritten": 2,
+    "edited": 7,
+    "unchanged": 8
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 9,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 6,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "We intend to offer clients direct access to select digital assets, which exposes us to new and uncertain financial, operational, legal, and regulatory risks that could adversely affect our business and financial results."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "SO",
+   "company": "SOUTHERN CO",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/92122/000009212226000006/so-20251231.htm",
+    "risks": 29,
+    "words": 11668
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/92122/000009212225000018/so-20241231.htm",
+    "risks": 29,
+    "words": 10713
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 16,
+    "unchanged": 13
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 5,
+     "Tariffs and trade": 12,
+     "Cybersecurity": 14,
+     "China": 0,
+     "Climate": 4,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 13,
+     "China": 0,
+     "Climate": 5,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "SPG",
+   "company": "SIMON PROPERTY GROUP INC.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926019419/spg-20251231x10k.htm",
+    "risks": 35,
+    "words": 11762
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-21",
+    "url": "https://www.sec.gov/Archives/edgar/data/1063761/000155837025001271/spg-20241231x10k.htm",
+    "risks": 35,
+    "words": 11665
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 6,
+    "unchanged": 29
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 26,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 11,
+     "China": 1,
+     "Climate": 4,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 23,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 11,
+     "China": 0,
+     "Climate": 4,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "TGT",
+   "company": "TARGET CORP",
+   "current": {
+    "period_end": "2026-01-31",
+    "filed": "2026-03-11",
+    "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+    "risks": 23,
+    "words": 7804
+   },
+   "previous": {
+    "period_end": "2025-02-01",
+    "filed": "2025-03-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000018/tgt-20250201.htm",
+    "risks": 20,
+    "words": 6740
+   },
+   "counts": {
+    "new": 3,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 2,
+    "edited": 10,
+    "unchanged": 8
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 16,
+     "Tariffs and trade": 20,
+     "Cybersecurity": 12,
+     "China": 2,
+     "Climate": 7,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 7,
+     "Cybersecurity": 12,
+     "China": 2,
+     "Climate": 7,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our business transformation initiatives may not achieve their intended objectives, which could adversely affect our competitive position, results of operations, and financial condition.",
+    "Our Roundel retail media network may not maintain or grow advertising revenue, which could adversely affect our results of operations.",
+    "Shareholder activism could adversely affect our business, strategic execution, and stock price."
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "TMO",
+   "company": "THERMO FISHER SCIENTIFIC INC.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-26",
+    "url": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000018/tmo-20251231.htm",
+    "risks": 26,
+    "words": 7339
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000010/tmo-20241231.htm",
+    "risks": 26,
+    "words": 7113
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 9,
+    "unchanged": 17
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 14,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 5,
+     "China": 3,
+     "Climate": 1,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 3,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 4,
+     "China": 3,
+     "Climate": 1,
+     "Export controls": 2
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "TMUS",
+   "company": "T-Mobile US, Inc.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-11",
+    "url": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000010/tmus-20251231.htm",
+    "risks": 27,
+    "words": 10399
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-01-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1283699/000128369925000012/tmus-20241231.htm",
+    "risks": 26,
+    "words": 9541
+   },
+   "counts": {
+    "new": 1,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 1,
+    "edited": 16,
+    "unchanged": 9
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 18,
+     "Tariffs and trade": 8,
+     "Cybersecurity": 21,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 14,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 20,
+     "China": 0,
+     "Climate": 2,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Changes to trade policies, including higher tariffs, restrictions, and other economic disincentives to trade, may lead to operational delays, higher procurement and operational costs, and increased regulatory and compliance complexities, resulting in supply chain disruptions and higher prices, and lower demand for devices and services we sell."
+   ],
    "removed_titles": []
   },
   {
@@ -789,6 +4293,149 @@
    ]
   },
   {
+   "ticker": "TXN",
+   "company": "TEXAS INSTRUMENTS INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+    "risks": 18,
+    "words": 3859
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000007/txn-20241231.htm",
+    "risks": 18,
+    "words": 3768
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 6,
+    "unchanged": 12
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 6,
+     "Cybersecurity": 3,
+     "China": 4,
+     "Climate": 2,
+     "Export controls": 2
+    },
+    "previous": {
+     "Artificial intelligence": 2,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 3,
+     "China": 3,
+     "Climate": 2,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "T",
+   "company": "AT&T INC.",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-09",
+    "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
+    "risks": 21,
+    "words": 5449
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271725000013/t-20241231.htm",
+    "risks": 22,
+    "words": 5675
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 1,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 8,
+    "unchanged": 13
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 7,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 8,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 10,
+     "China": 0,
+     "Climate": 8,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": [
+    "If the distribution of WarnerMedia, together with certain related transactions, were to fail to qualify for non-recognition treatment for U.S. federal income tax purposes under audit, then we could be subject to significant tax liability."
+   ]
+  },
+  {
+   "ticker": "UBER",
+   "company": "Uber Technologies, Inc",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-13",
+    "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
+    "risks": 65,
+    "words": 33728
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-14",
+    "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315125000008/uber-20241231.htm",
+    "risks": 65,
+    "words": 33414
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 17,
+    "unchanged": 48
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 26,
+     "Tariffs and trade": 3,
+     "Cybersecurity": 4,
+     "China": 2,
+     "Climate": 8,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 25,
+     "Tariffs and trade": 1,
+     "Cybersecurity": 4,
+     "China": 1,
+     "Climate": 17,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
    "ticker": "UNH",
    "company": "UNITEDHEALTH GROUP INC",
    "current": {
@@ -834,6 +4481,165 @@
    },
    "new_titles": [],
    "removed_titles": []
+  },
+  {
+   "ticker": "UNP",
+   "company": "UNION PACIFIC CORP",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000037/unp-20251231.htm",
+    "risks": 31,
+    "words": 8513
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-07",
+    "url": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000042/unp-20241231.htm",
+    "risks": 19,
+    "words": 4510
+   },
+   "counts": {
+    "new": 12,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 2,
+    "unchanged": 17
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 10,
+     "Cybersecurity": 10,
+     "China": 1,
+     "Climate": 5,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 9,
+     "China": 1,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "The mergers are subject to conditions, some or all of which may not be satisfied or completed on a timely basis, if at all. Failure to complete the mergers could have material adverse effects on our business",
+    "The merger agreement contains provisions that limit our ability to pursue alternatives to the mergers, and, in specified circumstances, could require us to pay substantial termination fees to Norfolk Southern",
+    "The mergers are subject to the receipt of the requisite regulatory approvals, which requisite regulatory approvals may never be obtained, therefore preventing completion of the mergers. In addition, in granting such approvals, regulatory authorities may impose conditions that could have a significant adverse effect on the Company, Norfolk Southern, or the combined company and the expected benefits of the mergers therefore preventing completion of the mergers",
+    "The Company and Norfolk Southern are each subject to business uncertainties and contractual restrictions while the mergers are pending, which could adversely affect both our business and operations and the combined company’s business and operations",
+    "Uncertainties associated with the mergers may cause a loss of management personnel and other key employees, and the Company and Norfolk Southern may have difficulty attracting and motivating management personnel and other key employees, and combining cultures between the two companies could be challenging, which could adversely affect the future business and operations of the combined company",
+    "We may and have been a target of securities class action and derivative lawsuits that could result in substantial costs and may delay or prevent the mergers from being completed, whether or not such lawsuits have any merit",
+    "Completion of the mergers may trigger change in control or other provisions in certain agreements to which Norfolk Southern or its subsidiaries are a party, which may have an adverse impact on the combined company’s business and results of operations",
+    "The combined company may be unable to successfully integrate the businesses of the Company and Norfolk Southern and realize the anticipated benefits of the mergers",
+    "The future results of the combined company may be adversely impacted if the combined company does not effectively manage its expanded operations following the completion of the mergers",
+    "The combined company is expected to incur substantial expenses related to the completion of the mergers and the integration of the Company and Norfolk Southern",
+    "The combined company’s indebtedness may limit its flexibility and increase its borrowing costs",
+    "The financing arrangements that the combined company will enter into in connection with the mergers may, under certain circumstances, contain restrictions and limitations that could significantly impact the combined company’s ability to operate its business"
+   ],
+   "removed_titles": []
+  },
+  {
+   "ticker": "UPS",
+   "company": "UNITED PARCEL SERVICE INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-17",
+    "url": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026008432/ups-20251231.htm",
+    "risks": 22,
+    "words": 5934
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1090727/000109072725000019/ups-20241231.htm",
+    "risks": 22,
+    "words": 6031
+   },
+   "counts": {
+    "new": 0,
+    "split": 0,
+    "removed": 0,
+    "merged": 0,
+    "rewritten": 0,
+    "edited": 18,
+    "unchanged": 4
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 6,
+     "Tariffs and trade": 5,
+     "Cybersecurity": 13,
+     "China": 2,
+     "Climate": 11,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 1,
+     "Tariffs and trade": 4,
+     "Cybersecurity": 14,
+     "China": 2,
+     "Climate": 12,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [],
+   "removed_titles": []
+  },
+  {
+   "ticker": "VZ",
+   "company": "VERIZON COMMUNICATIONS INC",
+   "current": {
+    "period_end": "2025-12-31",
+    "filed": "2026-02-17",
+    "url": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000007/vz-20251231.htm",
+    "risks": 19,
+    "words": 5255
+   },
+   "previous": {
+    "period_end": "2024-12-31",
+    "filed": "2025-02-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/732712/000073271225000006/vz-20241231.htm",
+    "risks": 20,
+    "words": 5179
+   },
+   "counts": {
+    "new": 2,
+    "split": 0,
+    "removed": 1,
+    "merged": 2,
+    "rewritten": 4,
+    "edited": 7,
+    "unchanged": 6
+   },
+   "themes": {
+    "current": {
+     "Artificial intelligence": 11,
+     "Tariffs and trade": 9,
+     "Cybersecurity": 18,
+     "China": 0,
+     "Climate": 0,
+     "Export controls": 0
+    },
+    "previous": {
+     "Artificial intelligence": 10,
+     "Tariffs and trade": 0,
+     "Cybersecurity": 16,
+     "China": 0,
+     "Climate": 3,
+     "Export controls": 0
+    }
+   },
+   "new_titles": [
+    "Our long-term success depends on our ability to implement business transformation initiatives and achieve their anticipated benefits.",
+    "There can be no assurance that our current or future share repurchase programs will be fully consummated or that we will continue to increase our dividend."
+   ],
+   "removed_titles": [
+    "Public health crises could materially adversely affect our business, financial condition and results of operations."
+   ]
   },
   {
    "ticker": "V",
@@ -975,6 +4781,28 @@
    },
    "new_titles": [],
    "removed_titles": []
+  }
+ ],
+ "skipped": [
+  {
+   "ticker": "BK",
+   "company": "Bank of New York Mellon Corp",
+   "reason": "risk factors are incorporated by reference from the annual report exhibit"
+  },
+  {
+   "ticker": "INTC",
+   "company": "INTEL CORP",
+   "reason": "risk titles are marked only by colour and font size, which the splitter ignores"
+  },
+  {
+   "ticker": "USB",
+   "company": "US BANCORP \\DE\\",
+   "reason": "risk factors are incorporated by reference from the annual report exhibit"
+  },
+  {
+   "ticker": "WFC",
+   "company": "WELLS FARGO & COMPANY/MN",
+   "reason": "risk factors are incorporated by reference from the annual report exhibit"
   }
  ]
 }

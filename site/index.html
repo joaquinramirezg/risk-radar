@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Risk Radar</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="What 20 large US companies added, removed and rewrote in their 10-K risk factors, filing over filing.">
+<meta name="description" content="What the largest US companies added, removed and rewrote in their 10-K risk factors, filing over filing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -146,6 +146,35 @@ table.acc th, table.acc td { text-align: left; padding: 7px 10px 7px 0; border-b
 table.acc th { font: 600 12px var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
 table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mono); }
 .status { display: inline-block; font: 500 12px var(--f-mono); padding: 3px 7px; border-radius: 4px; background: var(--rew-bg); color: var(--rew); }
+.wrap > *, #view > div > *, section.themes > *, footer.method > * { min-width: 0; }
+@media (max-width: 560px) { table.acc { display: block; overflow-x: auto; } table.acc th, table.acc td { padding-right: 8px; } }
+/* findings */
+.findings { display: grid; gap: 16px; }
+.tally { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--ink-2); margin: 0; }
+.tally b { color: var(--ink); font: 600 20px/1 var(--f-display); margin-right: 4px; }
+.finding { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+.finding summary { list-style: none; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline; }
+.finding summary::-webkit-details-marker { display: none; }
+.finding h3 { font-size: 19px; font-weight: 600; }
+.finding .count { font: 600 22px/1 var(--f-display); color: var(--ins); white-space: nowrap; }
+.finding .sub { grid-column: 1 / -1; font-size: 13px; color: var(--ink-2); }
+.meter { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.meter span { display: block; height: 100%; background: var(--ins); }
+.ex { list-style: none; margin: 0; padding: 0 16px 14px; display: grid; gap: 14px; }
+.ex li { display: grid; gap: 4px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.ex .who { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 13px; }
+.ex .who a { font: 700 14px var(--f-display); text-decoration: none; }
+.ex .who span { color: var(--ink-2); min-width: 0; }
+.ex blockquote { margin: 0; font: 400 15px/1.55 var(--f-doc); color: var(--ins); max-width: 72ch; }
+.ex .more { font-size: 13px; color: var(--ink-2); border-top: 0; padding-top: 0; }
+.movers { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.movers a { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--sheet); text-decoration: none; color: var(--ink); font-size: 13px; }
+.movers a b { font: 700 15px var(--f-display); }
+.movers a span { color: var(--ins); font-family: var(--f-mono); }
+.search { font: 400 15px var(--f-ui); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; background: var(--sheet); color: var(--ink); width: min(100%, 320px); }
+.showall { justify-self: start; font: 500 14px var(--f-ui); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 14px; color: var(--ink); cursor: pointer; }
+details.risk.target { box-shadow: 0 0 0 2px var(--focus); }
+.doc mark { background: #ffe58a; color: #18202c; border-radius: 2px; box-shadow: 0 0 0 2px #ffe58a; }
 @media (prefers-reduced-motion: no-preference) { .co, .chip { transition: border-color .15s, background .15s; } }
 </style>
 </head><body>
@@ -153,7 +182,7 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
   <header class="mast">
     <span class="eyebrow">SEC 10-K · Item 1A · filing over filing</span>
     <h1>Risk Radar</h1>
-    <p id="lede">What 20 of the largest US companies <span style="color:var(--ins)">added</span>, <span style="color:var(--del)">removed</span> and rewrote in the risk factors of their annual report, compared with the year before.</p>
+    <p id="lede">What the largest US companies <span style="color:var(--ins)">added</span>, <span style="color:var(--del)">removed</span> and rewrote in the risk factors of their annual report, compared with the year before.</p>
     <div class="legend" aria-label="Legend">
       <span><b class="pill st-new">new</b> no counterpart last year</span>
       <span><b class="pill st-split">split off</b> carved out of last year's risk</span>
@@ -166,10 +195,11 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
   <main id="view" aria-live="polite"><p class="empty">Loading filings…</p></main>
   <footer class="method">
     <h2>How it works</h2>
-    <p>For each company the two most recent 10-K filings are downloaded from SEC EDGAR. Item 1A is split into individual risk factors using the filing's own formatting: a risk factor's title is set in bold or italic. Each risk this year is matched to last year's with a small open embedding model (bge-small-en-v1.5) on its title and opening paragraph, one-to-one, at a similarity of 0.80 or more. A risk left without a partner is checked for reused sentences: if at least 10% of its five-word phrases appear verbatim in a risk on the other side, it was split off from that risk or merged into it, not added or dropped. Matched risks are then compared word by word: 98% or more the same is unchanged, 75% or more is edited, anything lower is rewritten.</p>
+    <p>For each company in the S&amp;P 100 the two most recent 10-K filings are downloaded from SEC EDGAR. Item 1A is split into individual risk factors using the filing's own formatting: a risk factor's title is set in bold, italic or underline, on its own line or run into its first paragraph. A company is left out rather than shown wrong when either year yields fewer than eight risks. <span id="skipped"></span> Each risk this year is matched to last year's with a small open embedding model (bge-small-en-v1.5) on its title and opening paragraph, one-to-one, at a similarity of 0.80 or more. A risk left without a partner is checked for reused sentences: if at least 10% of its five-word phrases appear verbatim in a risk on the other side, it was split off from that risk or merged into it, not added or dropped. Matched risks are then compared word by word: 98% or more the same is unchanged, 75% or more is edited, anything lower is rewritten.</p>
     <p>Theme counts are plain phrase matches over the risk-factor text, so they can be checked with Find in the filing itself. A company that writes more pages will mention most things more often.</p>
+    <p>A theme counts as moving at a company when a phrase on it appears in words added this year, inside a risk that is new, split off, or whose edit the classifier called a new exposure or an escalation. Rewording that keeps a theme already there does not count. Each example on the front page is the sentence from this year's filing that contains the added phrase, and links to the risk with the full blackline.</p>
     <h2 id="accuracy">How accurate it is</h2>
-    <p>A seeded sample of 257 items from ten of the companies was checked: every risk called new or removed, plus 26 random matched pairs per company. Each item was judged by two AI labellers working independently (one on all 257, one on a 60-item core), not by a human. They agreed on 59 of the 60 core items (Cohen's κ 0.96).</p>
+    <p>A seeded sample of 257 items from ten of the first 20 companies was checked: every risk called new or removed, plus 26 random matched pairs per company. Each item was judged by two AI labellers working independently (one on all 257, one on a 60-item core), not by a human. They agreed on 59 of the 60 core items (Cohen's κ 0.96).</p>
     <table class="acc">
       <thead><tr><th scope="col">Check</th><th scope="col" class="num">Result</th><th scope="col" class="num">95% interval</th></tr></thead>
       <tbody>
@@ -181,6 +211,18 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
       </tbody>
     </table>
     <p>Before the split check existed, 4 of the 15 risks called new or removed were really pieces of a risk that had been split or merged. Its 10% threshold was then set on this same sample, so those four are not an independent test; three further splits it found outside the sample were checked by reading them. The first version cut 14 of the 257 risks short. Thirteen were subsections of a longer risk in Microsoft's and Exxon Mobil's filings, read as risks of their own; the splitter now folds a short heading under a full-sentence title into that risk, and all thirteen are whole again. The fourteenth, a two-sentence Tesla risk about Elon Musk, really is that short in the filing.</p>
+    <p>All of that was measured on the first 20 companies, which the splitter and matcher were built on. The other 78 were then checked separately: an independent model (Claude Opus 5.5) read a fresh seeded sample from them and judged each call against the text. A model judge is not a person; this is a second reading of data the pipeline was never tuned on. Fifteen calls it could not settle from what it was shown, and two bodies it saw cut short by its own prompt limit, are left out.</p>
+    <table class="acc">
+      <thead><tr><th scope="col">Check, 78 later companies</th><th scope="col" class="num">Result</th><th scope="col" class="num">95% interval</th></tr></thead>
+      <tbody>
+        <tr><td>Matched pairs that really are the same risk</td><td class="num">80 / 80</td><td class="num">95–100%</td></tr>
+        <tr><td>Risks called new that really are new</td><td class="num">50 / 55</td><td class="num">80–96%</td></tr>
+        <tr><td>Risks called removed that really were dropped</td><td class="num">23 / 27</td><td class="num">68–94%</td></tr>
+        <tr><td>Split or merged risks linked to the right risk</td><td class="num">19 / 30</td><td class="num">46–78%</td></tr>
+        <tr><td>Risks cut out of the filing as one whole risk</td><td class="num">41 / 45</td><td class="num">79–96%</td></tr>
+      </tbody>
+    </table>
+    <p>Matching holds up on companies it was not built on; the weak spot is the rare risk with no partner. The audit first found Oracle's and AMD's risk-factor summaries read as risks; the splitter now drops a heading whose paragraphs are other risks' titles, which removed 12 such entries, 9 of them flagged by the judge (the table counts after that fix). Split and merge links are right only about two times in three on new filers: when a company renames the subject of a risk (Charter's Liberty Broadband deal became the Cox deal), the matcher sees a new risk carved out of an old one rather than the same risk rewritten. Read a split or merged tag as "related to", not "came from".</p>
     <p>Edited and rewritten risks carry a second label from a language model that reads both versions and says what kind of change it was: new exposure, escalated, de-escalated or boilerplate. To see how good that can get, three model sizes were run on 80 changes labelled beforehand, scored on the 42 not used to write the instructions.</p>
     <table class="acc">
       <thead><tr><th scope="col">Model</th><th scope="col" class="num">Agreement, original labels</th><th scope="col" class="num">After review</th><th scope="col" class="num">Cost per 1,000</th></tr></thead>
@@ -190,7 +232,7 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
         <tr><td>Claude Opus 5.5</td><td class="num">62%</td><td class="num">90%</td><td class="num">$12.71</td></tr>
       </tbody>
     </table>
-    <p>Against the original labels every model stopped at 62%, and the models agreed with each other (κ 0.56 to 0.82) far more than with the labels (κ 0.42 to 0.52). That pointed at the labels, which were written before the rule that a dropped example or a renamed regulator is boilerplate. The 17 changes where four or five of the five model runs agreed against the label were re-read against that rule, and 16 labels changed. Because only items the models agreed on were reviewed, the second column is an upper bound and the first a lower bound. Even so, the review is where the model sizes separate. Haiku is used here because it costs a thirtieth of Opus; treat its change tag as a pointer to where to look, not a verdict. Classifying all 313 changes cost $0.14, at a median of 1.7 seconds per risk.</p>
+    <p>Against the original labels every model stopped at 62%, and the models agreed with each other (κ 0.56 to 0.82) far more than with the labels (κ 0.42 to 0.52). That pointed at the labels, which were written before the rule that a dropped example or a renamed regulator is boilerplate. The 17 changes where four or five of the five model runs agreed against the label were re-read against that rule, and 16 labels changed. Because only items the models agreed on were reviewed, the second column is an upper bound and the first a lower bound. Even so, the review is where the model sizes separate. Haiku is used here because it costs a thirtieth of Opus; treat its change tag as a pointer to where to look, not a verdict. Classifying all 1,527 changes across the 98 companies cost $0.70.</p>
     <p>The design was compared with 34 alternatives on the same sample. A larger embedding model (bge-base) was no more accurate and three times slower. Plain TF-IDF word overlap came within two items of it, which says the task is mostly lexical. Matching on titles alone was 98% accurate. The sample was drawn from this design's own output, so the comparison favours it.</p>
   </footer>
 </div>
@@ -200,7 +242,7 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
   const view = document.getElementById("view");
   const ORDER = ["new", "split", "removed", "merged", "rewritten", "edited", "unchanged"];
   const LABEL = { new: "new", split: "split off", removed: "removed", merged: "merged", rewritten: "rewritten", edited: "edited", unchanged: "unchanged" };
-  let INDEX = null, theme = null;
+  let INDEX = null, FINDINGS = null, theme = null, chartAll = false, coAll = false, coQuery = "";
   const cache = {};
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -218,7 +260,8 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
 
   function themeChart() {
     const cos = INDEX.companies.map(c => ({ t: c.ticker, a: c.themes.previous[theme], b: c.themes.current[theme] }))
-      .sort((x, y) => (y.b - y.a) - (x.b - x.a) || y.b - x.b);
+      .sort((x, y) => (y.b - y.a) - (x.b - x.a) || y.b - x.b)
+      .filter((c, i, all) => chartAll || i < 12 || i >= all.length - 3);
     const max = Math.max(1, ...cos.flatMap(c => [c.a, c.b]));
     const W = 760, row = 22, top = 26, left = 64, right = 70, H = top + cos.length * row + 8;
     const x = v => left + (W - left - right) * v / max;
@@ -240,12 +283,48 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
     return s + "</svg>";
   }
 
+  const pct = (a, b) => Math.round(100 * a / Math.max(1, b));
+
+  function findingsHTML() {
+    if (!FINDINGS) return "";
+    const F = FINDINGS, st = F.statuses, cl = F.change_labels;
+    const n = F.companies;
+    const rows = F.themes.map(t => {
+      const ex = t.examples.map(e => `<li>
+          <div class="who"><a href="#${esc(e.ticker)}/${esc(e.id)}">${esc(e.ticker)}</a>${pill(e.status)}${e.label ? `<span class="ct ct-${e.label}">${CT[e.label]}</span>` : ""}<span>${esc(e.title)}</span></div>
+          <blockquote>“${esc(e.sentence)}”</blockquote></li>`).join("");
+      const others = t.tickers_up.filter(tk => !t.examples.some(e => e.ticker === tk));
+      return `<details class="finding">
+        <summary><h3>${esc(t.theme)}</h3><span class="count num">${t.companies_up} of ${n}</span>
+          <span class="meter" aria-hidden="true"><span style="width:${pct(t.companies_up, n)}%"></span></span>
+          <span class="sub">companies added new or escalated language on it (${t.risks_up} risks)${t.companies_down ? `; ${t.companies_down} cut or softened some` : ""}. Open for the sentences.</span></summary>
+        <ul class="ex">${ex}${others.length ? `<li class="more">Also: ${others.map(tk => `<a href="#${esc(tk)}">${esc(tk)}</a>`).join(", ")}</li>` : ""}</ul>
+      </details>`;
+    }).join("");
+    const movers = F.movers.map(m => `<li><a href="#${esc(m.ticker)}"><b>${esc(m.ticker)}</b><span class="num">${m.up}</span></a></li>`).join("");
+    return `<section class="findings" aria-labelledby="fi">
+      <div class="section-head"><h2 id="fi">What moved across ${n} companies</h2></div>
+      <p class="tally num"><span><b>${F.risks_current.toLocaleString()}</b>risk factors this year</span>
+        <span><b>${(st.new || 0) + (st.split || 0)}</b>new or split off</span>
+        <span><b>${(st.removed || 0) + (st.merged || 0)}</b>removed or merged</span>
+        <span><b>${cl.new_exposure || 0}</b>edits adding a new exposure</span>
+        <span><b>${cl.escalated || 0}</b>escalated</span>
+        <span><b>${cl.de_escalated || 0}</b>softened</span></p>
+      ${rows}
+      <div class="section-head"><h2 style="font-size:18px">Most new, split off or escalated risks</h2></div>
+      <ul class="movers">${movers}</ul>
+    </section>`;
+  }
+
   function renderHome() {
     document.title = "Risk Radar";
     const up = INDEX.companies.filter(c => c.themes.current[theme] > c.themes.previous[theme]).length;
-    const cards = INDEX.companies.slice().sort((a, b) =>
+    const q = coQuery.trim().toLowerCase();
+    const sorted = INDEX.companies.slice().sort((a, b) =>
       (b.counts.new + b.counts.removed) - (a.counts.new + a.counts.removed) || b.counts.rewritten - a.counts.rewritten
-    ).map(c => {
+    ).filter(c => !q || c.ticker.toLowerCase().startsWith(q) || c.company.toLowerCase().includes(q));
+    const shown = q || coAll ? sorted : sorted.slice(0, 24);
+    const cards = shown.map(c => {
       const items = c.new_titles.map(t => `<li class="n">${esc(t)}</li>`).concat(c.removed_titles.map(t => `<li class="r">${esc(t)}</li>`));
       return `<a class="co" href="#${esc(c.ticker)}">
         <div class="co-top"><span class="co-tk">${esc(c.ticker)}</span><span class="co-name">${esc(c.company)}</span></div>
@@ -253,23 +332,37 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
         ${items.length ? `<ul>${items.slice(0, 4).join("")}</ul>` : `<p class="quiet">No risks added or removed. ${c.counts.unchanged} of ${c.current.risks} unchanged word for word.</p>`}
       </a>`;
     }).join("");
+    const nAll = INDEX.companies.length;
     view.innerHTML = `
-      <div style="display:grid;gap:40px">
+      <div style="display:grid;gap:44px">
+      ${findingsHTML()}
       <section class="themes" aria-labelledby="th">
         <div class="section-head"><h2 id="th">How often each company mentions a theme</h2>
           <div class="chips" role="group" aria-label="Theme">${INDEX.themes.map(t => `<button class="chip" type="button" aria-pressed="${t === theme}" data-theme-name="${esc(t)}">${esc(t)}</button>`).join("")}</div>
         </div>
         <div class="chart">${themeChart()}</div>
-        <p class="chart-note"><span class="num">${up}</span> of ${INDEX.companies.length} companies mention ${esc(theme.toLowerCase())} more often in their latest risk factors. Hollow dot: previous filing. Solid dot: latest.</p>
+        <p class="chart-note"><span class="num">${up}</span> of ${nAll} companies mention ${esc(theme.toLowerCase())} more often in their latest risk factors. Hollow dot: previous filing. Solid dot: latest. ${chartAll ? "" : "Showing the 12 biggest increases and 3 biggest decreases."}</p>
+        <button class="showall" type="button" id="chartall">${chartAll ? "Show fewer" : `Show all ${nAll}`}</button>
       </section>
-      <section aria-labelledby="co"><div class="section-head" style="margin-bottom:14px"><h2 id="co">Companies, most changed first</h2></div>
-        <div class="companies">${cards}</div>
+      <section aria-labelledby="co" style="display:grid;gap:14px"><div class="section-head"><h2 id="co">Companies, most changed first</h2>
+          <input class="search" id="coq" type="search" placeholder="Find a ticker or company" aria-label="Find a ticker or company" value="${esc(coQuery)}"></div>
+        <div class="companies">${cards || `<p class="empty">No company matches “${esc(coQuery)}”.</p>`}</div>
+        ${!q && !coAll && sorted.length > 24 ? `<button class="showall" type="button" id="coall">Show all ${sorted.length}</button>` : ""}
       </section></div>`;
     view.querySelectorAll("[data-theme-name]").forEach(b => b.addEventListener("click", () => {
       theme = b.dataset.themeName;
       try { localStorage.setItem("rr-theme", theme); } catch (e) {}
       renderHome();
     }));
+    view.querySelector("#chartall").addEventListener("click", () => { chartAll = !chartAll; renderHome(); });
+    const all = view.querySelector("#coall");
+    if (all) all.addEventListener("click", () => { coAll = true; renderHome(); });
+    const qi = view.querySelector("#coq");
+    qi.addEventListener("input", () => {
+      coQuery = qi.value;
+      renderHome();
+      const n = view.querySelector("#coq"); n.focus(); n.setSelectionRange(n.value.length, n.value.length);
+    });
   }
 
   function riskBody(r) {
@@ -285,13 +378,15 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
     return `<div class="doc">${link}${txt}</div>`;
   }
 
-  async function renderCompany(tk) {
+  async function renderCompany(tk, target) {
     const meta = INDEX.companies.find(c => c.ticker === tk);
     if (!meta) { location.hash = ""; return; }
     view.innerHTML = `<p class="empty">Loading ${esc(tk)}…</p>`;
     const d = await getJSON(`data/${tk}.json`);
     document.title = `${tk} · Risk Radar`;
     let show = new Set(["new", "split", "removed", "merged", "rewritten"]);
+    const tr = target && d.risks.find(r => r.id === target);
+    if (tr) show.add(tr.status);
     const total = d.risks.length;
     const draw = () => {
       const firstNew = d.risks.find(r => r.status === "new");
@@ -302,7 +397,7 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
         byCat.get(k).push(r);
       });
       const list = [...byCat].map(([cat, rs]) => `<section class="cat"><h3>${esc(cat)}</h3>${rs.map(r =>
-        `<details class="risk" data-st="${r.status}"${r === firstNew ? " open" : ""}>
+        `<details class="risk${r === tr ? " target" : ""}" id="r-${esc(r.id || "")}" data-st="${r.status}"${r === (tr || firstNew) ? " open" : ""}>
           <summary>${pill(r.status)}<span class="tt"><span class="t">${esc(r.title)}</span>${ctTag(r)}</span></summary>
           ${r.change ? `<div class="why"><b>What changed, per the classifier:</b> ${esc(r.change.reason)}</div>` : ""}
           ${riskBody(r)}
@@ -330,18 +425,59 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
       const k = b.dataset.stFilter; show.has(k) ? show.delete(k) : show.add(k); draw();
     }));
     draw();
-    window.scrollTo(0, 0);
+    const el = tr && view.querySelector(`#r-${tr.id}`);
+    const mk = el && markSentence(el, tr.id);
+    if (mk) mk.scrollIntoView({ block: "center" }); else if (el) el.scrollIntoView({ block: "start" }); else window.scrollTo(0, 0);
+  }
+
+  // Mark the sentence a front-page finding quoted, so the link lands on it.
+  function markSentence(el, id) {
+    const ex = FINDINGS && FINDINGS.themes.flatMap(t => t.examples).find(e => e.id === id);
+    if (!ex) return null;
+    // This year's text is every text node outside <del>. Find the sentence in
+    // it and mark each node's share, so it can straddle kept and added words.
+    const sent = ex.sentence.replace(/…$/, "");
+    const doc = el.querySelector(".doc");
+    const nodes = [];
+    const walk = document.createTreeWalker(doc, NodeFilter.SHOW_TEXT);
+    for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+      if (!n.parentElement.closest("del, .old-title")) nodes.push(n);
+    }
+    const full = nodes.map(n => n.data).join("");
+    const at = full.indexOf(sent);
+    if (at < 0) return null;
+    let pos = 0, first = null;
+    for (const n of nodes) {
+      const a = Math.max(at, pos), b = Math.min(at + sent.length, pos + n.data.length);
+      const len = n.data.length;
+      if (a < b) {
+        const r = document.createRange();
+        r.setStart(n, a - pos); r.setEnd(n, b - pos);
+        const m = document.createElement("mark");
+        r.surroundContents(m);
+        first = first || m;
+      }
+      pos += len;
+    }
+    return first;
+    return null;
   }
 
   function route() {
-    const tk = decodeURIComponent(location.hash.slice(1));
-    (tk ? renderCompany(tk) : Promise.resolve(renderHome())).catch(err => {
+    const [tk, target] = decodeURIComponent(location.hash.slice(1)).split("/");
+    (tk ? renderCompany(tk, target) : Promise.resolve(renderHome())).catch(err => {
       view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;
     });
   }
 
-  getJSON("data/index.json").then(ix => {
+  Promise.all([getJSON("data/index.json"), getJSON("data/findings.json").catch(() => null)]).then(([ix, fi]) => {
     INDEX = ix;
+    FINDINGS = fi;
+    const sk = (ix.skipped || []).length;
+    document.getElementById("lede").firstChild.textContent =
+      `What ${ix.companies.length} of the largest US companies${sk ? ` (the S&P 100, less ${sk} whose filings could not be read)` : ""} `;
+    const skl = document.getElementById("skipped");
+    if (skl && sk) skl.innerHTML = `Left out: ${ix.skipped.map(x => `${esc(x.company)} (${esc(x.reason)})`).join("; ")}.`;
     let saved = null;
     try { saved = localStorage.getItem("rr-theme"); } catch (e) {}
     theme = ix.themes.includes(saved) ? saved : ix.themes[0];

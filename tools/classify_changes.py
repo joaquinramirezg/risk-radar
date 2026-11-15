@@ -34,7 +34,7 @@ from pathlib import Path
 from typing import Literal
 
 import anthropic
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "site" / "data"
@@ -107,17 +107,23 @@ def classify(client: anthropic.Anthropic, u: dict, version: str, model: str,
             f"THIS YEAR\nTitle: {u['title']}\n\n{u['new']}")
     t0 = time.perf_counter()
     extra = {} if effort == "low" else {"thinking": {"type": "adaptive"}}
-    resp = client.messages.parse(
-        model=model,
-        max_tokens=1024 if effort == "low" else 16000,
-        system=PROMPTS[version],
-        output_config={"effort": effort},
-        messages=[{"role": "user", "content": user}],
-        output_format=Verdict,
-        **extra,
-    )
-    secs = time.perf_counter() - t0
     row = {k: u[k] for k in ("key", "ticker", "status", "title", "ratio")}
+    try:
+        resp = client.messages.parse(
+            model=model,
+            max_tokens=2048 if effort == "low" else 16000,
+            system=PROMPTS[version],
+            output_config={"effort": effort},
+            messages=[{"role": "user", "content": user}],
+            output_format=Verdict,
+            **extra,
+        )
+    except ValidationError:  # cut off mid-answer (an over-long quote): record, move on
+        row.update(model=model, prompt=version, effort=effort, label=None, evidence="",
+                   reason="no verdict: reply did not parse", seconds=0.0,
+                   input_tokens=0, output_tokens=0, stop_reason="max_tokens")
+        return row
+    secs = time.perf_counter() - t0
     row.update(model=model, served_by=resp.model, prompt=version, effort=effort,
                seconds=round(secs, 2),
                input_tokens=resp.usage.input_tokens, output_tokens=resp.usage.output_tokens,

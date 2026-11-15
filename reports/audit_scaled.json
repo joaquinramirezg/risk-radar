@@ -1,0 +1,385 @@
+{
+ "judge": "claude-opus-5-5",
+ "companies": 67,
+ "pairs_same": {
+  "k": 80,
+  "n": 80,
+  "rate": 1.0,
+  "ci95": [
+   0.9542,
+   1
+  ]
+ },
+ "new_correct": {
+  "k": 50,
+  "n": 60,
+  "rate": 0.8333,
+  "ci95": [
+   0.7197,
+   0.9069
+  ]
+ },
+ "removed_correct": {
+  "k": 25,
+  "n": 33,
+  "rate": 0.7576,
+  "ci95": [
+   0.5898,
+   0.8717
+  ]
+ },
+ "split_merge_correct": {
+  "k": 20,
+  "n": 31,
+  "rate": 0.6452,
+  "ci95": [
+   0.4695,
+   0.7888
+  ]
+ },
+ "boundary_complete": {
+  "k": 41,
+  "n": 45,
+  "rate": 0.9111,
+  "ci95": [
+   0.7927,
+   0.9649
+  ]
+ },
+ "excluded": {
+  "boundary_cut_by_prompt_limit": 2,
+  "unpaired_unsure": 15
+ },
+ "after_fix": {
+  "resolved_by_summary_fix": 12,
+  "resolved": [
+   "AMD removed",
+   "NOW removed",
+   "ORCL new",
+   "ORCL split"
+  ],
+  "new_correct": {
+   "k": 50,
+   "n": 55,
+   "rate": 0.9091,
+   "ci95": [
+    0.8042,
+    0.9605
+   ]
+  },
+  "removed_correct": {
+   "k": 23,
+   "n": 27,
+   "rate": 0.8519,
+   "ci95": [
+    0.6752,
+    0.9408
+   ]
+  },
+  "split_merge_correct": {
+   "k": 19,
+   "n": 30,
+   "rate": 0.6333,
+   "ci95": [
+    0.4551,
+    0.7813
+   ]
+  }
+ },
+ "misses": [
+  {
+   "q": "unpaired",
+   "ticker": "ABBV",
+   "status": "new",
+   "title": "Pharmacy benefit managers and other supply chain intermediaries exert significant influence over pricing and patient access to our products, which could adversely affect our revenues and results of operations.",
+   "verdict": "has_counterpart",
+   "counterpart": "AbbVie is subject to cost-containment efforts and pricing pressures that could cause a reduction in revenues and operating earnings, and changes in the terms of rebate and chargeback programs, which are common in the pharmaceuticals industry, could have a material adverse effect on AbbVie's operations.",
+   "reason": "Last year's cost-containment risk already covered pricing pressure from private organizations and changes to rebate terms, which is the core of this PBM risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "ABT",
+   "status": "merged",
+   "title": "Abbott is subject to risks related to public health crises, such as widespread outbreaks of infectious diseases, which could have a material effect on Abbott\u2019s business, financial condition and results of operations.",
+   "verdict": "wrong_link",
+   "counterpart": "",
+   "reason": "The public health crisis risk has nothing to do with tax law changes, and no current risk plainly covers pandemics/infectious disease outbreaks as the same risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AMD",
+   "status": "removed",
+   "title": "Operational and Technology Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "We rely on third parties to manufacture our products, and if they are unable to do so on a timely basis in sufficient quantities and using competitive technologies, our business could be materially adversely affected.",
+   "reason": "The prior-year item is a summary header whose bullets reappear nearly verbatim as individual risks this year, beginning with the identical third-party manufacturing risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AMD",
+   "status": "removed",
+   "title": "Legal and Regulatory Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "Government actions and regulations such as export regulations, import tariffs, and trade protection measures may limit our ability to export our products to certain customers.",
+   "reason": "The prior-year item is a summary header listing sub-risks that all appear individually in this year's list, starting with the export-regulation risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AMD",
+   "status": "removed",
+   "title": "Merger, Acquisition, Divestiture, and Integration Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "Acquisitions, joint ventures, and/or investments, and the failure to integrate acquired businesses, may fail to materialize their anticipated benefits and could disrupt our business, which could adversely affect our results of operation and financial condition.",
+   "reason": "This year's list has a nearly identical acquisitions and integration risk, along with the same goodwill impairment risk, so the main substance of the old risk was not dropped."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AMD",
+   "status": "removed",
+   "title": "General Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "Our worldwide operations are subject to political, legal and economic risks and natural disasters, which could have a material adverse effect on us.",
+   "reason": "The 'General Risks' summary lists four bullets that each appear as risks this year, including worldwide operations, license impairments, key employees and stock price volatility, so it was not dropped."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AMD",
+   "status": "removed",
+   "title": "Intel Corporation\u2019s dominance of the microprocessor market and its aggressive business practices may limit our ability to compete effectively on a level playing field.",
+   "verdict": "has_counterpart",
+   "counterpart": "The markets in which our products are sold are highly competitive and rapidly evolving.",
+   "reason": "The Intel-dominance risk is a specific competitive-pressure risk, and this year's general competition risk appears to be where that content was folded in, though its visible opening does not name Intel."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AMT",
+   "status": "new",
+   "title": "Our data center segment contains certain operational differences from our tower leasing operations, resulting in different operational risks. If we do not successfully operate our data center segment or identify or manage the related operational risks, such operations may produce results that are lower than anticipated.",
+   "verdict": "has_counterpart",
+   "counterpart": "Our expansion and operational initiatives involve a number of risks and uncertainties, including those related to integrating acquired or leased assets, that could adversely affect our operating results, disrupt our operations or expose us to additional risk.",
+   "reason": "Last year's expansion risk explicitly covers building data center facilities and the related return and operational risks, which is the same subject as this data center operations and construction risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AVGO",
+   "status": "removed",
+   "title": "Failure to realize the benefits expected from the VMware Merger could adversely affect our business and the value of our common stock.",
+   "verdict": "has_counterpart",
+   "counterpart": "We have pursued, and may in the future pursue, mergers, acquisitions, investments, joint ventures and dispositions, which could adversely affect our results of operations.",
+   "reason": "This year's acquisitions risk explicitly covers the VMware acquisition and its integration, the core of the supposedly dropped risk; the customer-acceptance part also appears in the software business-strategy risk, so the claim that nothing covers it does not hold."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "AXP",
+   "status": "new",
+   "title": "Fraudulent activity associated with our products and services could have a material adverse effect on our business and results of operations.",
+   "verdict": "has_counterpart",
+   "counterpart": "A major information or cybersecurity incident or an increase in fraudulent activity could lead to reputational damage to our brand and material legal, regulatory and financial exposure, and could reduce the use and acceptance of our products and services.",
+   "reason": "Last year's combined cybersecurity/fraud risk explicitly covered increased fraudulent activity, and this year's risk appears to split that fraud content out into its own item."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "BLK",
+   "status": "merged",
+   "title": "SEC Rulemakings for US Registered Funds and Investment Advisers:",
+   "verdict": "wrong_link",
+   "counterpart": "Regulatory reforms in the US expose BlackRock to increasing regulatory scrutiny, as well as regulatory uncertainty.",
+   "reason": "The SEC rulemaking text on fund shareholder reports, fund names and adviser outsourcing has nothing to do with FinCEN anti-money laundering rules; it more plausibly went into the general US regulatory reforms risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "BLK",
+   "status": "merged",
+   "title": "United Kingdom",
+   "verdict": "wrong_link",
+   "counterpart": "International regulatory reforms expose BlackRock to increasing regulatory scrutiny, as well as regulatory uncertainty.",
+   "reason": "The UK regulatory reforms (FSMA, OFR, Consumer Duty, Stewardship Code) and China content belong under the international regulatory reforms risk, not the DORA-focused technology service provider subsection."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "CHTR",
+   "status": "split",
+   "title": "The Cox Transactions are subject to conditions, some or all of which may not be satisfied, or completed on a timely basis, if at all. Failure to complete the Cox Transactions could have a material adverse effect on us.",
+   "verdict": "wrong_link",
+   "counterpart": "",
+   "reason": "The named source title does not appear in last year's list, and the closest match covers the Liberty Broadband Combination, a different transaction from the Cox Transactions, so this risk is a new one rather than a split."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "CHTR",
+   "status": "split",
+   "title": "Charter and Cox Communications are subject to contractual restrictions while the Cox Transactions are pending, which could adversely affect their respective businesses and operations.",
+   "verdict": "has_counterpart",
+   "counterpart": "We are subject to contractual restrictions while the combination is pending, which could adversely affect our business and operations.",
+   "reason": "The text is a near-verbatim update of last year's contractual-restrictions risk (same structure and wording, with the Cox Transactions replacing the Liberty Broadband combination), so it is a one-to-one continuation rather than a split."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "CHTR",
+   "status": "split",
+   "title": "A/N and Liberty Broadband currently have governance rights that give them influence over corporate transactions and other matters. In connection with the Cox Transactions, Liberty Broadband will lose its governance rights (assuming the closing of the Liberty Broadband Combination), A/N\u2019s governance rights will be modified and Cox Enterprises will receive governance rights pursuant to the amended stockholders agreement and amendments to Charter\u2019s governing documents, and Cox Enterprises and A/N will have influence over corporate transactions and other matters.",
+   "verdict": "has_counterpart",
+   "counterpart": "Liberty Broadband and A/N have governance rights that give them influence over corporate transactions and other matters.",
+   "reason": "This risk is a direct continuation of last year's governance-rights risk, updated for the Cox Transactions, so it is the same risk carried forward rather than a split."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "CHTR",
+   "status": "split",
+   "title": "The Cox Transactions raise other risks.",
+   "verdict": "wrong_link",
+   "counterpart": "",
+   "reason": "Last year's risk concerned the Liberty Broadband combination and a January 2025 proxy, while this risk concerns the separate Cox Transactions and a July 2025 proxy, so it reuses the template wording but was not split off from that risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "CHTR",
+   "status": "split",
+   "title": "We will incur direct and indirect costs as a result of the Liberty Broadband Combination.",
+   "verdict": "has_counterpart",
+   "counterpart": "We will incur direct and indirect costs as a result of the combination.",
+   "reason": "The risk is essentially identical to last year's risk, with only 'combination' renamed to 'Liberty Broadband Combination', so it is a one-to-one counterpart rather than a split."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "COF",
+   "status": "new",
+   "title": "A change in market preference towards other operators of payment networks and alternative payment providers could result in reduced transaction volume, limited merchant acceptance of our cards and limited issuance of cards on our networks by third parties, and in turn may impact our revenue margins.",
+   "verdict": "has_counterpart",
+   "counterpart": "We face intense competition in all of our markets, which could have a material adverse effect on our business and results of operations.",
+   "reason": "Last year's competition risk already covered intense competition, including in the global payments industry, which is the same risk this text describes for payment networks."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "CVS",
+   "status": "merged",
+   "title": "If our suppliers or service providers fail to meet their contractual obligations to us or to comply with applicable laws or regulations, we may be exposed to brand and reputational harm, litigation and/or regulatory action.",
+   "verdict": "wrong_link",
+   "counterpart": "",
+   "reason": "The data governance risk centers on the company's own handling of personal information, while the supplier/service-provider oversight risk (third-party contractual and compliance failures) has no plain counterpart in this year's list and is not evidently folded into the data governance risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "ORCL",
+   "status": "new",
+   "title": "Business and Operational Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "We may be unsuccessful in developing and selling new products and services, integrating acquired products and services and enhancing our existing products and services.",
+   "reason": "This 'risk' is a section heading whose content is a list of sub-risk titles that each appear nearly verbatim in last year's list, starting with this first one, so it is not new."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "ORCL",
+   "status": "new",
+   "title": "Data Privacy, Cybersecurity and Intellectual Property Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "Our business practices with respect to data could give rise to operational interruption, liabilities or reputational harm as a result of governmental regulation, legal requirements or industry standards relating to privacy and data protection.",
+   "reason": "The new item is a heading that combines last year's privacy, security breach, IP infringement and IP protection risks, and last year's privacy risk appears verbatim within it."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "ORCL",
+   "status": "new",
+   "title": "Legal and Regulatory Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "Adverse litigation results could affect our business.",
+   "reason": "The risk is a section heading grouping legal/regulatory risks whose first item, adverse litigation, appears verbatim in last year's list, along with near-identical tax, international, healthcare, government and environmental risks."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "ORCL",
+   "status": "new",
+   "title": "Financial Risks",
+   "verdict": "has_counterpart",
+   "counterpart": "Our operations can be difficult for us to predict because our quarterly results of operations may fluctuate significantly based on a number of factors.",
+   "reason": "This 'Financial Risks' block repeats last year's quarterly-fluctuation risk verbatim, along with the currency and indebtedness risks, so it is not new; only the accounting-estimates sentence lacks a prior match."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "ORCL",
+   "status": "new",
+   "title": "Risks Related to our Common and Preferred Stock",
+   "verdict": "has_counterpart",
+   "counterpart": "Our stock price could become more volatile and your investment could lose value.",
+   "reason": "The new item is a combined heading whose first sub-risk is identical in wording to last year's stock price volatility risk, and it also covers the prior-year stock repurchase risk, so it is not wholly new."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "PM",
+   "status": "removed",
+   "title": "We may be unable to expand our brand portfolio through acquisitions or the development of strategic business relationships, and the intended benefits from our investments may not materialize.",
+   "verdict": "has_counterpart",
+   "counterpart": "We may not successfully identify, complete, or realize the benefits from strategic acquisitions, divestitures, joint ventures, or investments.",
+   "reason": "This year's list still includes a risk about failing to complete acquisitions and strategic investments or to realize their benefits, which is the same risk as the one claimed dropped."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "PM",
+   "status": "merged",
+   "title": "Accounting adjustments related to acquisitions could adversely affect our financial results.",
+   "verdict": "wrong_link",
+   "counterpart": "",
+   "reason": "The prior risk concerns impairments of acquired assets, which has nothing to do with effective tax rates or repatriation restrictions, so the claimed merge partner is wrong; the closest match would be the impairment write-down risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "QCOM",
+   "status": "new",
+   "title": "Our increasing focus on artificial intelligence (AI), including on-device AI, agentic AI and AI infrastructure, may not result in the anticipated benefits and could expose us to additional competitive, regulatory, intellectual property and operational risks.",
+   "verdict": "has_counterpart",
+   "counterpart": "Our growth depends in part on our ability to extend our technologies and products into new and expanded product areas, and industries and applications beyond mobile handsets. Our research, development and other investments in these new and expanded product areas, industries and applications, and related technologies and products, as well as in our existing technologies and products, and new technologies, may not generate operating income or contribute to future results of operations that meet our expectations.",
+   "reason": "Last year's risk on investments in new technologies, which explicitly names on-device AI and warns they may not generate operating income meeting expectations, covers the core of this AI investment risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "RTX",
+   "status": "removed",
+   "title": "Our business may be adversely affected by changes in global economic, capital market, and political conditions.",
+   "verdict": "has_counterpart",
+   "counterpart": "Geopolitical factors and changes in policies and regulations could adversely affect our business.",
+   "reason": "This year's geopolitical risk covers the same global economic and political conditions, including energy prices, inflation, and interest rates, so it appears to be a reworked version of the prior risk."
+  },
+  {
+   "q": "unpaired",
+   "ticker": "VZ",
+   "status": "merged",
+   "title": "Climate-related regulation and policy",
+   "verdict": "wrong_link",
+   "counterpart": "Changes in the regulatory framework under which we operate could adversely affect our business prospects or results of operations.",
+   "reason": "The risk is about climate-related regulation (emissions, carbon taxes, energy and fuel costs), which the broadband internet access regulation risk does not address; it more plausibly went into the general regulatory framework risk, with only the shared closing sentence mentioning broadband."
+  },
+  {
+   "q": "boundary",
+   "ticker": "ORCL",
+   "status": "new",
+   "title": "Business and Operational Risks",
+   "verdict": "contains_other_risks",
+   "reason": "This is a section heading followed by a list of many distinct risk factor titles (e.g., AI products, data center capacity, competition, key employees, ESG), not a single risk factor with its own body."
+  },
+  {
+   "q": "boundary",
+   "ticker": "MCD",
+   "status": "unchanged",
+   "title": "Unfavorable general economic conditions could adversely affect our business and financial results.",
+   "verdict": "contains_other_risks",
+   "reason": "The final sentence about currency exchange rate fluctuations reads like the title of a separate risk factor, appended without its own body, rather than part of the general economic conditions risk."
+  },
+  {
+   "q": "boundary",
+   "ticker": "BLK",
+   "status": "rewritten",
+   "title": "Enhanced Regulatory Scrutiny of Technology Service Providers to Financial Services Firms:",
+   "verdict": "contains_other_risks",
+   "reason": "The block begins with the DORA item but then runs through many separate titled items (Retail Investment Strategy, EMIR 3.0, T+1, China, etc.), and the final China item is cut off mid-word."
+  },
+  {
+   "q": "boundary",
+   "ticker": "COF",
+   "status": "split",
+   "title": "Identification and Assessment of Merger and Acquisition Targets and Deployment of Acquired Assets:",
+   "verdict": "fragment",
+   "reason": "The title is just the first bullet's label within a larger M&A risk factor whose lead-in sentence is missing, and the passage also takes in sibling bullets (Accuracy of Assumptions, Target-Specific Risk, Regulatory Approval), so this is a sub-item rather than a whole risk factor with its own title."
+  }
+ ],
+ "cost_usd": 4.11
+}

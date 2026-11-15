@@ -3,6 +3,7 @@
 
   python3 tools/build_radar.py            # reads data/raw/ and data/raw_prev/
                                           # writes site/data/*.json
+  python3 tools/build_radar.py --relabel  # only re-attach classifier verdicts
 
 For each company it splits both years' Item 1A into risk factors, matches them
 (neural similarity on title + opening, see harness.yoy) and classifies every
@@ -36,6 +37,16 @@ THEMES = {
 
 
 CHANGE_TYPES = Path("reports/change_types.v2.jsonl")
+MIN_RISKS = 8  # fewer than this in either year means the splitter misread the layout
+
+# Companies whose 10-K does not carry the risk factors itself, or whose layout
+# the splitter cannot read. They are listed on the site rather than shown wrong.
+EXCLUDED = {
+    "BK": "risk factors are incorporated by reference from the annual report exhibit",
+    "USB": "risk factors are incorporated by reference from the annual report exhibit",
+    "WFC": "risk factors are incorporated by reference from the annual report exhibit",
+    "INTC": "risk titles are marked only by colour and font size, which the splitter ignores",
+}
 
 
 def change_types() -> dict[str, dict[str, str]]:
@@ -56,7 +67,26 @@ def theme_counts(text: str) -> dict[str, int]:
     return {name: len(re.findall(pat, text)) for name, pat in THEMES.items()}
 
 
+def relabel() -> int:
+    """Attach the latest change-type verdicts to already built company files,
+    without splitting or matching again."""
+    verdicts = change_types()
+    for f in sorted(OUT.glob("*.json")):
+        if f.name in ("index.json", "findings.json"):
+            continue
+        doc = json.loads(f.read_text())
+        for r in doc["risks"]:
+            key = f"{doc['ticker']}|{r['title']}".encode()
+            r.setdefault("id", hashlib.sha1(key).hexdigest()[:12])
+            if "diff" in r and r["id"] in verdicts:
+                r["change"] = verdicts[r["id"]]
+        f.write_text(json.dumps(doc, ensure_ascii=False))
+    return 0
+
+
 def main() -> int:
+    if "--relabel" in sys.argv:
+        return relabel()
     from sentence_transformers import SentenceTransformer
 
     from harness.neural import DENSE_MODEL
@@ -71,30 +101,47 @@ def main() -> int:
     verdicts = change_types()
     cur_m, prev_m = manifest(RAW / "MANIFEST.tsv"), manifest(PREV / "MANIFEST.tsv")
     OUT.mkdir(parents=True, exist_ok=True)
-    index = []
+    index, skipped = [], []
     for new_file in sorted(RAW.glob("*.htm")):
         ticker = new_file.name.split("_")[0]
         old_files = sorted(PREV.glob(f"{ticker}_*.htm"))
-        if not old_files:
-            print(f"SKIP {ticker}: no prior-year filing")
+        cm = cur_m[new_file.name]
+
+        def skip(reason: str, ticker: str = ticker, company: str = cm["company"]) -> None:
+            skipped.append({"ticker": ticker, "company": company, "reason": reason})
+            print(f"SKIP {ticker}: {reason}")
+            (OUT / f"{ticker}.json").unlink(missing_ok=True)
+
+        if ticker in EXCLUDED:
+            skip(EXCLUDED[ticker])
             continue
-        cm, pm = cur_m[new_file.name], prev_m[old_files[0].name]
-        new = split_risk_factors(new_file.read_text(errors="replace"))
-        old = split_risk_factors(old_files[0].read_text(errors="replace"))
+        if not old_files:
+            skip("no prior-year 10-K")
+            continue
+        pm = prev_m[old_files[0].name]
+        try:
+            new = split_risk_factors(new_file.read_text(errors="replace"))
+            old = split_risk_factors(old_files[0].read_text(errors="replace"))
+        except ValueError as e:
+            skip(str(e))
+            continue
+        if min(len(new), len(old)) < MIN_RISKS:
+            skip(f"only {min(len(new), len(old))} risk factors found; layout not understood")
+            continue
         changes = match(old, new, similarity)
 
         risks = []
         for c in changes:
             r = c.old if c.status == "merged" else (c.new or c.old)
             assert r is not None
+            key = hashlib.sha1(f"{ticker}|{r.title}".encode()).hexdigest()[:12]
             item: dict[str, object] = {
-                "status": c.status, "category": r.category, "title": r.title,
+                "id": key, "status": c.status, "category": r.category, "title": r.title,
                 "match": c.match_score, "ratio": c.text_ratio,
             }
             if c.status in ("edited", "rewritten") and c.old and c.new:
                 item["old_title"] = c.old.title
                 item["diff"] = word_diff(c.old.text, c.new.text)
-                key = hashlib.sha1(f"{ticker}|{r.title}".encode()).hexdigest()[:12]
                 if key in verdicts:
                     item["change"] = verdicts[key]
             else:
@@ -128,7 +175,8 @@ def main() -> int:
                                        if c.status == "removed" and c.old]
         print(f"ok   {ticker:5} {counts}")
     (OUT / "index.json").write_text(json.dumps(
-        {"themes": list(THEMES), "companies": index}, ensure_ascii=False, indent=1))
+        {"themes": list(THEMES), "companies": index, "skipped": skipped},
+        ensure_ascii=False, indent=1))
     return 0
 
 
