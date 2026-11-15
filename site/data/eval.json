@@ -1,0 +1,272 @@
+{
+ "golden": {
+  "n": 63,
+  "answerable": 54
+ },
+ "retrieval": {
+  "bm25": {
+   "r1": {
+    "mean": 0.2222,
+    "lo": 0.1111,
+    "hi": 0.3333,
+    "n": 54
+   },
+   "r5": {
+    "mean": 0.463,
+    "lo": 0.3333,
+    "hi": 0.5926,
+    "n": 54
+   },
+   "r10": {
+    "mean": 0.5926,
+    "lo": 0.463,
+    "hi": 0.7222,
+    "n": 54
+   },
+   "mrr": {
+    "mean": 0.3328,
+    "lo": 0.2325,
+    "hi": 0.4376,
+    "n": 54
+   },
+   "ndcg": {
+    "mean": 0.3868,
+    "lo": 0.2825,
+    "hi": 0.4896,
+    "n": 54
+   }
+  },
+  "dense": {
+   "r1": {
+    "mean": 0.3704,
+    "lo": 0.2407,
+    "hi": 0.5,
+    "n": 54
+   },
+   "r5": {
+    "mean": 0.5556,
+    "lo": 0.4259,
+    "hi": 0.6852,
+    "n": 54
+   },
+   "r10": {
+    "mean": 0.6296,
+    "lo": 0.5,
+    "hi": 0.7593,
+    "n": 54
+   },
+   "mrr": {
+    "mean": 0.4595,
+    "lo": 0.3402,
+    "hi": 0.5788,
+    "n": 54
+   },
+   "ndcg": {
+    "mean": 0.4949,
+    "lo": 0.3773,
+    "hi": 0.6124,
+    "n": 54
+   }
+  },
+  "hybrid": {
+   "r1": {
+    "mean": 0.4074,
+    "lo": 0.2778,
+    "hi": 0.537,
+    "n": 54
+   },
+   "r5": {
+    "mean": 0.5926,
+    "lo": 0.463,
+    "hi": 0.7222,
+    "n": 54
+   },
+   "r10": {
+    "mean": 0.7037,
+    "lo": 0.5741,
+    "hi": 0.8148,
+    "n": 54
+   },
+   "mrr": {
+    "mean": 0.4989,
+    "lo": 0.3861,
+    "hi": 0.6153,
+    "n": 54
+   },
+   "ndcg": {
+    "mean": 0.5433,
+    "lo": 0.4312,
+    "hi": 0.6559,
+    "n": 54
+   }
+  },
+  "hybrid_company": {
+   "r1": {
+    "mean": 0.6296,
+    "lo": 0.5,
+    "hi": 0.7593,
+    "n": 54
+   },
+   "r5": {
+    "mean": 0.8704,
+    "lo": 0.7778,
+    "hi": 0.9444,
+    "n": 54
+   },
+   "r10": {
+    "mean": 0.963,
+    "lo": 0.9074,
+    "hi": 1,
+    "n": 54
+   },
+   "mrr": {
+    "mean": 0.7288,
+    "lo": 0.6281,
+    "hi": 0.8198,
+    "n": 54
+   },
+   "ndcg": {
+    "mean": 0.7832,
+    "lo": 0.6998,
+    "hi": 0.8609,
+    "n": 54
+   }
+  },
+  "paired": {
+   "hybrid_minus_bm25_ndcg": {
+    "mean": 0.1565,
+    "lo": 0.0764,
+    "hi": 0.2466,
+    "n": 54
+   },
+   "hybrid_minus_dense_ndcg": {
+    "mean": 0.0484,
+    "lo": -0.0223,
+    "hi": 0.1114,
+    "n": 54
+   },
+   "company_filter_ndcg": {
+    "mean": 0.24,
+    "lo": 0.1615,
+    "hi": 0.3248,
+    "n": 54
+   }
+  }
+ },
+ "models": {
+  "claude-haiku-5-5-low": {
+   "n": 63,
+   "n_answerable": 54,
+   "n_unanswerable": 9,
+   "correct": {
+    "mean": 0.8333,
+    "lo": 0.7222,
+    "hi": 0.9259,
+    "n": 54
+   },
+   "correct_or_partial": {
+    "mean": 0.9444,
+    "lo": 0.8704,
+    "hi": 1,
+    "n": 54
+   },
+   "abstained_when_answerable": {
+    "mean": 0.0185,
+    "lo": 0,
+    "hi": 0.0556,
+    "n": 54
+   },
+   "declined_when_unanswerable": {
+    "mean": 1,
+    "lo": 1,
+    "hi": 1,
+    "n": 9
+   },
+   "citation_precision": {
+    "mean": 0.74,
+    "lo": 0.6495,
+    "hi": 0.8236,
+    "n": 53
+   },
+   "rejected_by_citation_check": 0,
+   "usd_per_answer": 0.00057,
+   "p50_ms": 2316,
+   "p95_ms": 3348
+  }
+ },
+ "failures": [
+  {
+   "qid": "q002",
+   "question": "Why are Oracle's quarterly results hard to predict?",
+   "answer": "Oracle's main risk factor on this point says its quarterly results \"may fluctuate significantly\" and are hard to forecast for several reasons. Much of its software license and hardware revenue is recognized late in each quarter, and it typically has a number of large transactions each quarter, so one delayed deal can have a big effect [1][2][3]. Its cost base is largely fixed in the short term, so revenue shortfalls hit profit disproportionately [4]. The filing also adds that cloud revenue is recognized over subscription terms, so shifts from license sales to cloud can make reported results harder to read [5][6]. Finally, changes in the value of its investments can swing net income, and capital expenditure timing can vary with supplier pricing, tariffs and construction timelines [7][8].",
+   "verdict": "partial",
+   "reason": "It captures late-quarter deal closings and large transactions, but omits the reference's point about cloud infrastructure buildout delays affecting cloud revenue forecasts, and adds other factors (fixed costs, investment value swings) not in the reference.",
+   "retrieved_gold": true
+  },
+  {
+   "qid": "q006",
+   "question": "Which kinds of natural disasters does Bank of America say could disrupt its operations?",
+   "answer": "The filings I searched do not say which natural disasters Bank of America cites, because none of the results came from Bank of America's filing. The search returned risk factors from other companies, such as Intel, Nvidia, and Amgen, which list earthquakes, wildfires, floods, and storms. Those passages cannot be attributed to Bank of America. I could not confirm from these results whether Bank of America is among the 102 companies covered, so Bank of America's own 10-K would need to be checked directly.",
+   "verdict": "declined",
+   "reason": "",
+   "retrieved_gold": false
+  },
+  {
+   "qid": "q012",
+   "question": "Has Charter ever had a cyberattack that caused a major data leak?",
+   "answer": "The filings do not say that Charter has had a cyberattack that caused a major data leak. Charter's cybersecurity risk factor is hypothetical. It warns that its operations \"could be subject to risks caused by misappropriation, misuse, leakage, falsification or accidental release or loss of information\" [1]. It also says past events have been costly, noting that \"large expenditures and substantial resources have been and may in the future be necessary\" to repair systems or protect them from similar events [2]. Those lines describe risk and cost, not a specific incident, and the returned text does not name one.",
+   "verdict": "partial",
+   "reason": "It correctly says no specific major leak is described, but it misses the reference's point that Charter states attempts have not resulted in material release or disruption, and it suggests past costly events, which the reference does not support.",
+   "retrieved_gold": true
+  },
+  {
+   "qid": "q014",
+   "question": "What credit ratings does Disney report from Moody's and S&P?",
+   "answer": "Disney's 10-K risk factors state that, as of September 27, 2025, Moody's Ratings gave its long- and short-term debt ratings as A2 and P-1 (Stable), and S&P Global Ratings gave A and A-1 (Stable) [1]. The same section warns that \"any future downgrades could increase our cost of borrowing\" [2]. The filing also notes that certain rating agencies downgraded Disney's debt after COVID-19 related leverage increases [3].",
+   "verdict": "partial",
+   "reason": "The ratings match the reference (Moody's A2/P-1, S&P A/A-1, both stable, as of September 27, 2025), but the answer adds unsupported claims about a downgrade quote and a COVID-19-related downgrade that the reference does not support.",
+   "retrieved_gold": true
+  },
+  {
+   "qid": "q023",
+   "question": "What does Philip Morris say some smoke-free product competitors are doing wrong?",
+   "answer": "Philip Morris says that some other market participants engage in \"the inappropriate marketing of e-vapor products to youth,\" and that this, along with alleged health consequences of certain smoke-free products, can hurt public opinion and misrepresent the health effects of its products [1][2]. It also warns that if competitors are more successful at growing smoke-free products, Philip Morris could be at a competitive disadvantage [3]. The filing does not name specific competitors or describe other alleged failings.",
+   "verdict": "partial",
+   "reason": "The answer captures inappropriate marketing but narrows it to youth e-vapor marketing, omits the inferior products lacking scientific substantiation, and wrongly claims the filing describes no other failings.",
+   "retrieved_gold": false
+  },
+  {
+   "qid": "q034",
+   "question": "What datacenter parts has Microsoft had trouble getting?",
+   "answer": "Microsoft's filing names several datacenter components it has had trouble getting. It says \"we have experienced and may continue to experience supply constraints, including shortages of semiconductors, networking equipment, power systems, cooling equipment, and other key components\" [1]. It also lists servers and graphics processing units among the resources whose \"cost or availability\" could be affected [2]. Power availability is a separate constraint, with the filing noting \"delays in obtaining power connections\" [3].",
+   "verdict": "partial",
+   "reason": "The answer correctly lists semiconductors, networking equipment, power systems, cooling equipment and other key components, but adds unsupported or unverified extras (servers, GPUs, power connection delays) that go beyond the reference.",
+   "retrieved_gold": true
+  },
+  {
+   "qid": "q041",
+   "question": "What compliance problem did American Express find in its rewards programs?",
+   "answer": "The filings I searched do not say that American Express found a compliance problem in its rewards programs. The closest material is a risk factor on promoting card usage, which warns that Card Member rewards costs could rise and that \"any significant change in, or failure by management to reasonably estimate, usage of Card Member services, redemptions of Membership Rewards points\" could hurt profitability [1]. It describes a competitive and cost risk, not a compliance finding.",
+   "verdict": "wrong",
+   "reason": "The reference says American Express identified issues in its rewards and benefits programs and took remedial action, but the answer says the filings contain no such compliance finding and describes only a cost risk, so it contradicts the reference and effectively declines to answer.",
+   "retrieved_gold": false
+  },
+  {
+   "qid": "q042",
+   "question": "What does Caterpillar need to keep selling its machines?",
+   "answer": "To keep selling its machines, Caterpillar says it must keep dealer relationships strong and produce products that meet customers' quality, performance and price expectations [1]. It also needs to keep innovating, protect its intellectual property, and meet regulatory requirements, including engine exhaust emission rules [2][3]. Its supply chain matters too: it relies on suppliers for materials, including semiconductors, and supply disruptions could hurt its ability to meet customer commitments [4][5]. Finally, it needs access to capital markets and its credit ratings, since a downgrade could raise borrowing costs and affect its competitive position [6]. All of these risk factors were unchanged from last year's filing.",
+   "verdict": "partial",
+   "reason": "The answer covers all four reference points (dealer relationships, quality/performance/price, innovation, IP protection), but it adds unsupported claims, such as that all risk factors were unchanged from last year's filing, and extra items like regulatory compliance and capital access that the reference does not mention.",
+   "retrieved_gold": true
+  },
+  {
+   "qid": "q047",
+   "question": "Can hackers take control of John Deere's connected equipment?",
+   "answer": "The filings don't say that hackers can take control of John Deere's connected equipment. Deere's risk factor says its IT networks and infrastructure \"have been and may continue to be vulnerable to\" intrusion, damage, disruptions or shutdowns from cyber criminals or foreign state actors [1]. It also notes that the John Deere Operations Center stores substantial customer data [2]. The risk language is about its systems and data, not machine control specifically, so the filing doesn't answer the question directly.",
+   "verdict": "wrong",
+   "reason": "The reference says Deere explicitly warns that malicious actors have attempted and may attempt unauthorized access to or control of its connected products, while the answer claims the filing does not address machine control and only discusses IT systems and data.",
+   "retrieved_gold": false
+  }
+ ],
+ "eval_cost_usd": 0.128
+}

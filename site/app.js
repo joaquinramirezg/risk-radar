@@ -131,6 +131,60 @@
     wireAsk();
   }
 
+  // "How we know it's right": every number comes from data/eval.json (api/_tools/eval.mjs).
+  const P = x => `${Math.round(100 * x)}%`;
+  const CI = m => `<span class="num">${P(m.mean)}</span> <span class="ci num">(${P(m.lo)} to ${P(m.hi)})</span>`;
+
+  async function renderEval() {
+    document.title = "How we know it's right · Risk Radar";
+    const E = await getJSON("data/eval.json");
+    const M = E.models["claude-haiku-5-5-low"], R = E.retrieval;
+    const rung = (k, label, note) => `<tr><th scope="row">${label}</th><td>${CI(R[k].r5)}</td><td class="num">${R[k].mrr.mean.toFixed(2)}</td><td>${note}</td></tr>`;
+    const unans = M.declined_when_unanswerable;
+    const fails = E.failures.map(f => `<li><div class="who"><b>${esc(f.verdict)}</b><span>${f.retrieved_gold ? "search found the right risk factor" : "search missed the right risk factor"}</span></div>
+      <p class="q">${esc(f.question)}</p><blockquote>${esc(f.answer)}</blockquote>${f.reason ? `<p class="chart-note">Grader: ${esc(f.reason)}</p>` : ""}</li>`).join("");
+    view.innerHTML = `<div style="display:grid;gap:36px">
+      <button class="back" id="back" type="button">← Back</button>
+      <header class="co-head"><h1>How we know it's right</h1>
+        <p class="chart-note">${E.golden.n} test questions with known answers, ${E.golden.n - E.golden.answerable} of them deliberately unanswerable, run through the same search and agent that answer questions on this site.</p></header>
+      <section class="tally num" aria-label="Headline numbers">
+        <span><b>${P(M.correct.mean)}</b>answers correct</span>
+        <span><b>${unans.mean * unans.n} of ${unans.n}</b>unanswerable questions declined</span>
+        <span><b>${M.rejected_by_citation_check}</b>answers citing text the search never returned</span>
+        <span><b>$${M.usd_per_answer.toFixed(4)}</b>per answer</span>
+        <span><b>${(M.p50_ms / 1000).toFixed(1)} s</b>typical answer time</span>
+      </section>
+      <section style="display:grid;gap:12px"><h2>Answers</h2>
+        <table class="acc"><thead><tr><th>Measure</th><th>Result (95% interval)</th></tr></thead><tbody>
+          <tr><th scope="row">Correct, graded against the reference answer</th><td>${CI(M.correct)}</td></tr>
+          <tr><th scope="row">Correct or partly correct</th><td>${CI(M.correct_or_partial)}</td></tr>
+          <tr><th scope="row">Declined a question it could have answered</th><td>${CI(M.abstained_when_answerable)}</td></tr>
+          <tr><th scope="row">Citations that point to the right risk factor</th><td>${CI(M.citation_precision)}</td></tr>
+          <tr><th scope="row">Slowest 5% of answers</th><td class="num">${(M.p95_ms / 1000).toFixed(1)} s or faster</td></tr>
+        </tbody></table>
+        <p class="chart-note">Model: Claude Haiku 5.5 at low effort, the cheapest option, chosen because it already clears the bar. Running all ${E.golden.n} questions, grading included, cost $${E.eval_cost_usd.toFixed(2)}. A citation counts as off target when it points to a different risk factor than the one the question was written from, even if that sentence also supports the answer, so this measure undercounts.</p>
+      </section>
+      <section style="display:grid;gap:12px"><h2>Search</h2>
+        <table class="acc"><thead><tr><th>Search method</th><th>Right risk factor in top 5</th><th>MRR</th><th></th></tr></thead><tbody>
+          ${rung("bm25", "Keywords only (BM25)", "")}
+          ${rung("dense", "Meaning only (bge-small embeddings)", "")}
+          ${rung("hybrid", "Both, fused (RRF)", "")}
+          ${rung("hybrid_company", "Both, limited to the company named", "what the agent does")}
+        </tbody></table>
+        <p class="chart-note">Scored over ${R.hybrid.r5.n} answerable questions. Fusing the two methods beats keywords alone (nDCG@10 up ${R.paired.hybrid_minus_bm25_ndcg.mean.toFixed(2)}, interval ${R.paired.hybrid_minus_bm25_ndcg.lo.toFixed(2)} to ${R.paired.hybrid_minus_bm25_ndcg.hi.toFixed(2)}); its edge over meaning-only search is within the noise. Limiting to the named company adds the most (${R.paired.company_filter_ndcg.mean.toFixed(2)}).</p>
+      </section>
+      <section style="display:grid;gap:12px"><h2>Every answer that was not fully correct</h2>
+        <ol class="ex fails">${fails}</ol>
+        <p class="chart-note">Pattern: both wrong answers and the one wrong refusal came from searches that missed the right risk factor, and the agent then said, correctly for what it had read, that the filings did not say. Several "partial" grades are for details the grader could not check against the cited sentences, because it sees only the reference answer.</p>
+      </section>
+      <section style="display:grid;gap:10px"><h2>What to keep in mind</h2>
+        <p>The test questions and reference answers were written by Claude (Opus 5.5) from risk factors sampled at random, one per company, not by a person. Answers were graded by a second model (Claude Sonnet 5.5) against those references, and that grader has not been checked against human grades. With ${E.golden.answerable} answerable questions, differences smaller than about ten points are not meaningful. Each row of the test set and every graded answer are in the repository.</p>
+      </section>
+    </div>`;
+    view.querySelector("#back").addEventListener("click", () => { location.hash = ""; });
+    window.scrollTo(0, 0);
+  }
+
   function findingsHTML() {
     if (!FINDINGS) return "";
     const F = FINDINGS, st = F.statuses, cl = F.change_labels;
@@ -463,7 +517,7 @@
       }
     }
     const [tk, target, term, side] = h.split("/").map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
-    (tk === "all" ? Promise.resolve(renderBrowse()) : tk && !h.startsWith("?") ? renderCompany(tk, target, term, side === "cut") : Promise.resolve(renderHome())).catch(fail);
+    (tk === "eval" ? renderEval() : tk === "all" ? Promise.resolve(renderBrowse()) : tk && !h.startsWith("?") ? renderCompany(tk, target, term, side === "cut") : Promise.resolve(renderHome())).catch(fail);
   }
   function fail(err) {
       view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;

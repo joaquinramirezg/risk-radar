@@ -156,6 +156,30 @@ async function answers(model, effort = "low") {
   }
 }
 
+// An unanswerable question is handled well if the answer clearly says the
+// filings do not give what was asked, even when it cites related context.
+// Counting "zero citations" as the only refusal under-counted good refusals,
+// so a judge reads each one; its verdicts are kept in the file for audit.
+const DECLINE_PROMPT = `A user asked a question that the source documents cannot answer. Did the answer clearly tell the user that the documents do not provide what was asked (it may add related context), rather than presenting an answer to the question?
+Return JSON only: {"declined": true | false, "reason": "<one sentence>"}`;
+
+async function declines(model, effort = "low") {
+  const client = new Anthropic();
+  const file = join(OUT, `answers-${model}-${effort}.jsonl`);
+  const rows = readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+  for (const r of rows) {
+    if (r.answerable || r.abstained || r.decline_judge) continue;
+    const res = await client.messages.create({
+      model: JUDGE, max_tokens: 300, output_config: { effort: "low" }, system: DECLINE_PROMPT,
+      messages: [{ role: "user", content: `Question: ${r.question}\nAnswer: ${r.answer}` }],
+    });
+    const t = res.content.filter((b) => b.type === "text").map((b) => b.text).join("");
+    r.decline_judge = JSON.parse(t.slice(t.indexOf("{"), t.lastIndexOf("}") + 1));
+    console.log(r.qid, r.decline_judge.declined, r.decline_judge.reason);
+  }
+  writeFileSync(file, rows.map((r) => JSON.stringify(r)).join("\n") + "\n");
+}
+
 function summarize(file) {
   const rows = readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
   const ans = rows.filter((r) => r.answerable);
@@ -167,7 +191,7 @@ function summarize(file) {
     correct: ci(ok),
     correct_or_partial: ci(ans.map((r) => +["correct", "partial"].includes(r.judge?.verdict))),
     abstained_when_answerable: ci(ans.map((r) => +r.abstained)),
-    abstained_when_unanswerable: un.length ? ci(un.map((r) => +r.abstained)) : null,
+    declined_when_unanswerable: un.length ? ci(un.map((r) => +(r.abstained || !!r.decline_judge?.declined))) : null,
     citation_precision: prec.length ? ci(prec) : null,
     rejected_by_citation_check: rows.filter((r) => r.rejected).length,
     usd_per_answer: +(rows.reduce((a, r) => a + r.usage.usd, 0) / rows.length).toFixed(5),
@@ -187,6 +211,16 @@ function report() {
   for (const f of readdir(OUT).filter((f) => f.startsWith("answers-") && f.endsWith(".jsonl"))) {
     out.models[f.slice(8, -6)] = summarize(join(OUT, f));
   }
+  // Every answer the judge did not mark correct, verbatim, for the failures section.
+  const chosen = join(OUT, "answers-claude-haiku-5-5-low.jsonl");
+  if (existsSync(chosen)) {
+    const rows = readFileSync(chosen, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+    out.failures = rows.filter((r) => r.answerable && r.judge?.verdict !== "correct")
+      .map((r) => ({ qid: r.qid, question: r.question, answer: r.answer, verdict: r.judge?.verdict || "declined", reason: r.judge?.reason || "", retrieved_gold: r.retrieved_gold }));
+    const judgeUsd = rows.reduce((a, r) => a + ["judge", "decline_judge"].reduce((b, k) => {
+      const u = r[k]?.usage; return b + (u ? (u.input_tokens * 2 + u.output_tokens * 10) / 1e6 : 0); }, 0), 0);
+    out.eval_cost_usd = +(rows.reduce((a, r) => a + r.usage.usd, 0) + judgeUsd).toFixed(3);
+  }
   writeFileSync(join(ROOT, "site", "data", "eval.json"), JSON.stringify(out, null, 1));
   console.log(JSON.stringify(out.models, null, 1));
 }
@@ -196,5 +230,6 @@ import { readdirSync as readdir } from "node:fs";
 const [cmd, a, b] = process.argv.slice(2);
 if (cmd === "retrieval") await retrieval();
 else if (cmd === "answers") await answers(a || "claude-haiku-5-5", b);
+else if (cmd === "declines") await declines(a || "claude-haiku-5-5", b);
 else if (cmd === "report") report();
 else console.log("usage: eval.mjs retrieval | answers MODEL [EFFORT] | report");
