@@ -77,23 +77,17 @@ bootstrap CIs, abstention block. `make test` and `make eval` both work.
   candidate section and refuses anything under 4,000 characters. DO NOT lower
   `MIN_CHARS` to make a stubborn filing pass; inspect it by hand.
 
-## The blocker
+## Corpus: DONE 2026-11-15
 
-sec.gov is denied at the network gateway for Claude's shells (403 on CONNECT to
-both www.sec.gov and data.sec.gov). It loads fine in a browser. So Claude cannot
-fetch the corpus. Two ways forward:
+The old blocker (sec.gov denied from Claude's shells) no longer applies: the
+cloud shell reaches EDGAR. The latest 10-K of 20 large caps is extracted into
+`data/corpus/` (1,853 chunks), with accession numbers and URLs in
+`data/corpus/MANIFEST.tsv`. Every extract was checked by hand at both ends.
+Extraction surfaced a real bug (later "see Item 1A" cross-references swallowing
+MD&A in 10 of 20 filings); fixed and regression-guarded in `test_extract.py`.
 
-- Joaquin adds sec.gov to the account egress allowlist, then Claude automates it.
-- Joaquin downloads about 20 10-K primary documents from EDGAR into `data/raw/`
-  by hand, roughly 20 minutes of clicking.
+## Exact next steps
 
-Scraping via the built-in browser was considered and REJECTED: the corpus would
-pass through the model's context in slices and risk silent truncation, and a
-truncated corpus makes every number meaningless while still looking fine.
-
-## Exact next steps once filings are in data/raw/
-
-    python3 tools/extract_item1a.py data/raw/*.htm   # writes data/corpus/*.txt
     python3 tools/label.py --status                  # see where you are
     python3 tools/label.py                           # read a chunk, write its question
     python3 tools/label.py --unanswerable            # ~15% of the set
