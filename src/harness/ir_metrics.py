@@ -12,7 +12,7 @@ hand-labelled set of this size cannot support reliable graded judgements.
 from __future__ import annotations
 
 import math
-from typing import Iterable, Sequence
+from collections.abc import Iterable, Sequence
 
 
 def _check(ranked: Sequence[str], k: int) -> None:

@@ -7,8 +7,8 @@ numbers in the README without a virtualenv.
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, asdict
-from typing import Iterator
+from collections.abc import Iterator
+from dataclasses import asdict, dataclass
 
 _WS = re.compile(r"[ \t]+")
 _PARA = re.compile(r"\n\s*\n")

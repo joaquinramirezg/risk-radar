@@ -121,7 +121,10 @@ def main() -> int:
     print(f"corpus: {report['corpus']['documents']} docs, {report['corpus']['chunks']} chunks")
     for k in KS:
         r = m[f"recall@{k}"]
-        print(f"  recall@{k:<2} {r['mean']:.3f}  95% CI [{r['ci95_low']:.3f}, {r['ci95_high']:.3f}]")
+        print(
+            f"  recall@{k:<2} {r['mean']:.3f}  "
+            f"95% CI [{r['ci95_low']:.3f}, {r['ci95_high']:.3f}]"
+        )
     print(f"  MRR      {m['reciprocal_rank']['mean']:.3f}")
     print(f"wrote {OUT}")
     return 0
