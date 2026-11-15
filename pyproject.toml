@@ -10,6 +10,8 @@ dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.11"]
 # The neural rungs of the baseline ladder (dense, hybrid, rerank). Not needed
 # to reproduce the BM25 numbers.
 ladder = ["sentence-transformers>=3.0", "numpy>=1.26"]
+# The change-type classifier (tools/classify_changes.py). Needs ANTHROPIC_API_KEY.
+classify = ["anthropic>=2.8", "pydantic>=2"]
 
 [tool.ruff]
 line-length = 100

@@ -1,0 +1,410 @@
+{
+ "meta": {
+  "labeller": "model (labelled before the classifier ran, from the word diff)",
+  "date": "2026-11-15",
+  "sample": "40 rewritten + 40 edited, seed 20261115",
+  "note": "Ambiguous cases were frequent, mainly new_exposure vs escalated; treat as a second opinion, not ground truth."
+ },
+ "labels": {
+  "6c0f82beaa9c": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "de_escalated"
+  },
+  "81b9a52e415f": {
+   "ticker": "AAPL",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "b0b25e0fba6c": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "51694c53dc0b": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "6ac11d45b6bd": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "de_escalated"
+  },
+  "7146fdb79f7c": {
+   "ticker": "BA",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "60d86d752712": {
+   "ticker": "MSFT",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "9f1a230c1080": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "a85f565138eb": {
+   "ticker": "NVDA",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "0549567a0aca": {
+   "ticker": "TSLA",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "27e48b8dcdbc": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "ac2636c4489d": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "fe6ad3e530e5": {
+   "ticker": "DIS",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "765a9cf6685c": {
+   "ticker": "MSFT",
+   "status": "rewritten",
+   "label": "de_escalated"
+  },
+  "de9dce7dd6ad": {
+   "ticker": "BA",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "33f62562fd82": {
+   "ticker": "AAPL",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "e31e9ea800ee": {
+   "ticker": "GOOGL",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "8163ba8af3b2": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "a887d78c9590": {
+   "ticker": "MSFT",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "87421f44b699": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "951bd7030743": {
+   "ticker": "BA",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "224a5c8e2261": {
+   "ticker": "BA",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "95dec194db55": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "3d0b7b40bc27": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "e40f0541f6e3": {
+   "ticker": "BA",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "4c470c835596": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "f15ab630a40a": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "bd55e6f19dec": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "3bf53604a3a6": {
+   "ticker": "BA",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "6b4cd57cb1d9": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "de_escalated"
+  },
+  "cacc0b402e31": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "de_escalated"
+  },
+  "7eb5d36ff72f": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "125e9ac95001": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "1dc25fb0cd13": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "ff211bb17334": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "ae697a7b594a": {
+   "ticker": "AAPL",
+   "status": "rewritten",
+   "label": "new_exposure"
+  },
+  "721a9708a025": {
+   "ticker": "V",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "ba8c7a089c90": {
+   "ticker": "JPM",
+   "status": "rewritten",
+   "label": "boilerplate"
+  },
+  "1a02a5af976c": {
+   "ticker": "GS",
+   "status": "rewritten",
+   "label": "de_escalated"
+  },
+  "8b5186abec9f": {
+   "ticker": "MSFT",
+   "status": "rewritten",
+   "label": "escalated"
+  },
+  "a7b295fefe2b": {
+   "ticker": "NVDA",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "dfa82920bd96": {
+   "ticker": "PFE",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "e2a9d79def46": {
+   "ticker": "JPM",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "761461b83ef8": {
+   "ticker": "XOM",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "fd98861e9ef1": {
+   "ticker": "WMT",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "12f24c8cd62d": {
+   "ticker": "TSLA",
+   "status": "edited",
+   "label": "escalated"
+  },
+  "5cac6fe0339a": {
+   "ticker": "JNJ",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "48a17414afe3": {
+   "ticker": "BA",
+   "status": "edited",
+   "label": "escalated"
+  },
+  "d0d58d38508a": {
+   "ticker": "PFE",
+   "status": "edited",
+   "label": "de_escalated"
+  },
+  "559cb9ceb171": {
+   "ticker": "GOOGL",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "dcf84b43b1b5": {
+   "ticker": "UNH",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "d14cc68f9f41": {
+   "ticker": "TSLA",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "ad8bb79d926b": {
+   "ticker": "BA",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "455c246e8595": {
+   "ticker": "AAPL",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "53ad007f9c23": {
+   "ticker": "KO",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "405edcb8fd77": {
+   "ticker": "NKE",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "bc3badfeee03": {
+   "ticker": "XOM",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "5d01a3948495": {
+   "ticker": "META",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "5337c31544e5": {
+   "ticker": "NKE",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "cd7695851c36": {
+   "ticker": "META",
+   "status": "edited",
+   "label": "escalated"
+  },
+  "34b451e57cf6": {
+   "ticker": "JPM",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "66421bca5197": {
+   "ticker": "XOM",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "f08f3b145899": {
+   "ticker": "MSFT",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "0618bfa72d32": {
+   "ticker": "V",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "a26406d5f290": {
+   "ticker": "DIS",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "1bc15dc12c8c": {
+   "ticker": "GOOGL",
+   "status": "edited",
+   "label": "escalated"
+  },
+  "bc551ceb6102": {
+   "ticker": "WMT",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "70ba8d472e88": {
+   "ticker": "BA",
+   "status": "edited",
+   "label": "de_escalated"
+  },
+  "444ef9382610": {
+   "ticker": "WMT",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "685f409c4211": {
+   "ticker": "GS",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "de85e5ce7033": {
+   "ticker": "NKE",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "04a48c1f3c5c": {
+   "ticker": "GOOGL",
+   "status": "edited",
+   "label": "de_escalated"
+  },
+  "3ffd4a9b8708": {
+   "ticker": "TSLA",
+   "status": "edited",
+   "label": "de_escalated"
+  },
+  "bbf10cf8ecf5": {
+   "ticker": "NKE",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "0373c8620268": {
+   "ticker": "JPM",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "33cd22c26451": {
+   "ticker": "XOM",
+   "status": "edited",
+   "label": "new_exposure"
+  },
+  "7d2ee24e10d1": {
+   "ticker": "AAPL",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "6786bfae6300": {
+   "ticker": "AAPL",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "e46639f0e6a4": {
+   "ticker": "GOOGL",
+   "status": "edited",
+   "label": "boilerplate"
+  },
+  "c9e89b6d0a01": {
+   "ticker": "DIS",
+   "status": "edited",
+   "label": "boilerplate"
+  }
+ }
+}

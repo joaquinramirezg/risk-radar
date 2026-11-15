@@ -1,0 +1,482 @@
+[
+ {
+  "key": "6c0f82beaa9c",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "The effects of climate change could adversely affect JPMorganChase\u2019s business and operations, both directly and as a result of impacts on its clients and customers."
+ },
+ {
+  "key": "81b9a52e415f",
+  "ticker": "AAPL",
+  "status": "rewritten",
+  "title": "The Company experiences cybersecurity incidents and inadvertent losses and unauthorized access to or releases of confidential information, including personal information."
+ },
+ {
+  "key": "b0b25e0fba6c",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "Our indemnification obligation to fund settlement losses of our clients, and in some cases other third parties, exposes us to significant risk of loss and may adversely impact our liquidity."
+ },
+ {
+  "key": "51694c53dc0b",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase faces significant legal risks from civil and governmental proceedings, including litigation, investigations and enforcement actions."
+ },
+ {
+  "key": "6ac11d45b6bd",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase\u2019s compliance risk and operating costs could be higher in jurisdictions with less predictable legal, regulatory and judicial frameworks."
+ },
+ {
+  "key": "7146fdb79f7c",
+  "ticker": "BA",
+  "status": "rewritten",
+  "title": "The issuance of our common stock upon conversion of our Mandatory convertible preferred stock, and the exchange of the Spirit Exchangeable Notes, as well as any other issuances of our common stock, could dilute the interests of our existing shareholders."
+ },
+ {
+  "key": "60d86d752712",
+  "ticker": "MSFT",
+  "status": "rewritten",
+  "title": "Other digital safety abuses"
+ },
+ {
+  "key": "9f1a230c1080",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "Delaware law, provisions in our governing documents and our capital structure could make a merger, takeover attempt or change in control difficult."
+ },
+ {
+  "key": "a85f565138eb",
+  "ticker": "NVDA",
+  "status": "rewritten",
+  "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business."
+ },
+ {
+  "key": "0549567a0aca",
+  "ticker": "TSLA",
+  "status": "rewritten",
+  "title": "Demand for our products and services may be impacted by the status of government and economic incentives supporting the development and adoption of such products."
+ },
+ {
+  "key": "27e48b8dcdbc",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorgan Chase & Co. is a holding company and depends on its subsidiaries for funding to make payments on its outstanding securities."
+ },
+ {
+  "key": "ac2636c4489d",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "Damage to JPMorganChase\u2019s reputation could negatively affect its business, results and prospects."
+ },
+ {
+  "key": "fe6ad3e530e5",
+  "ticker": "DIS",
+  "status": "rewritten",
+  "title": "Declines in U.S., global and regional economic conditions adversely affect our results of operations and financial condition."
+ },
+ {
+  "key": "765a9cf6685c",
+  "ticker": "MSFT",
+  "status": "rewritten",
+  "title": "We face risks related to the protection and utilization of our intellectual property that may result in our business and operating results being harmed."
+ },
+ {
+  "key": "de9dce7dd6ad",
+  "ticker": "BA",
+  "status": "rewritten",
+  "title": "We must minimize disruption caused by production changes, achieve and maintain operational stability and implement productivity improvements to meet customer demand and maintain our profitability."
+ },
+ {
+  "key": "33f62562fd82",
+  "ticker": "AAPL",
+  "status": "rewritten",
+  "title": "The Company\u2019s future performance depends in part on support from third-party software developers."
+ },
+ {
+  "key": "e31e9ea800ee",
+  "ticker": "GOOGL",
+  "status": "rewritten",
+  "title": "Competition and technology platforms' business practices:"
+ },
+ {
+  "key": "8163ba8af3b2",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase\u2019s business and operations rely on appropriate staffing and on the competence, trustworthiness, health and safety of employees."
+ },
+ {
+  "key": "a887d78c9590",
+  "ticker": "MSFT",
+  "status": "rewritten",
+  "title": "Our success depends on our ability to develop, deliver, and maintain competitive cloud-based and AI products and services that achieve broad customer adoption and sustainable revenue growth."
+ },
+ {
+  "key": "87421f44b699",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "Failure to anticipate, adapt to or keep pace with new technologies in the payments industry could harm our business and impact future growth."
+ },
+ {
+  "key": "951bd7030743",
+  "ticker": "BA",
+  "status": "rewritten",
+  "title": "We may not realize the anticipated benefits of mergers, acquisitions, joint ventures/strategic alliances or divestitures."
+ },
+ {
+  "key": "224a5c8e2261",
+  "ticker": "BA",
+  "status": "rewritten",
+  "title": "Our Commercial Airplanes business depends on our ability to maintain a healthy production system, ensure every airplane in our production system conforms to exacting specifications, achieve planned production rate targets, successfully develop and certify new aircraft or new derivative aircraft, and meet or exceed stringent performance and reliability standards."
+ },
+ {
+  "key": "95dec194db55",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase faces substantial legal and operational risks related to the processing and safeguarding of personal information."
+ },
+ {
+  "key": "3d0b7b40bc27",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers."
+ },
+ {
+  "key": "e40f0541f6e3",
+  "ticker": "BA",
+  "status": "rewritten",
+  "title": "Our fixed-price contracts subject us to losses when we have cost overruns."
+ },
+ {
+  "key": "4c470c835596",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase\u2019s businesses could be adversely affected if it fails to identify and address operational risks associated with the introduction of or changes to products, services, delivery platforms or technologies."
+ },
+ {
+  "key": "f15ab630a40a",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "Resolving an investigation by a governmental authority could subject JPMorganChase to significant penalties and other repercussions."
+ },
+ {
+  "key": "bd55e6f19dec",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "Government-imposed obligations and/or restrictions on international payments systems may prevent us from competing against providers in certain markets."
+ },
+ {
+  "key": "3bf53604a3a6",
+  "ticker": "BA",
+  "status": "rewritten",
+  "title": "Some of our and our suppliers\u2019 workforces are represented by labor unions. Work stoppages by our employees have adversely affected and could continue to adversely affect our business, financial condition, results of operations and/or cash flows. Future work stoppages by our or our suppliers\u2019 employees could also adversely impact our business."
+ },
+ {
+  "key": "6b4cd57cb1d9",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase's business and operations could be negatively affected by governmental policies that discourage or penalize doing business with certain industries or that require specific business practices."
+ },
+ {
+  "key": "cacc0b402e31",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase\u2019s ability to distribute capital to shareholders, and to support its business activities could be limited if it does not satisfy applicable regulatory capital requirements."
+ },
+ {
+  "key": "7eb5d36ff72f",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "Competition in the financial services industry could lead to negative effects on JPMorganChase\u2019s results of operations."
+ },
+ {
+  "key": "125e9ac95001",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "We are subject to complex and evolving global regulations that could harm our business and financial results."
+ },
+ {
+  "key": "1dc25fb0cd13",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "We may be subject to tax examinations or disputes, or changes in tax laws."
+ },
+ {
+  "key": "ff211bb17334",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "JPMorganChase could incur significant losses arising from concentrations of credit and market risk."
+ },
+ {
+  "key": "ae697a7b594a",
+  "ticker": "AAPL",
+  "status": "rewritten",
+  "title": "Future operating results depend upon the Company\u2019s ability to obtain components, compute capacity and storage resources in sufficient quantities and on commercially reasonable terms."
+ },
+ {
+  "key": "721a9708a025",
+  "ticker": "V",
+  "status": "rewritten",
+  "title": "Our ability to adjust to evolving corporate responsibility and sustainability matters and related regulations could adversely affect our business and financial results or negatively impact our reputation."
+ },
+ {
+  "key": "ba8c7a089c90",
+  "ticker": "JPM",
+  "status": "rewritten",
+  "title": "A significant inadequacy in disclosure or financial reporting controls could negatively affect JPMorganChase\u2019s business, operations and reputation."
+ },
+ {
+  "key": "1a02a5af976c",
+  "ticker": "GS",
+  "status": "rewritten",
+  "title": "Climate-related physical and transition risks could disrupt our businesses and adversely affect client activity levels and the creditworthiness of our clients and counterparties, and we are at increased risk of being subject to conflicting legal and regulatory requirements and stakeholder expectations regarding climate-related matters."
+ },
+ {
+  "key": "8b5186abec9f",
+  "ticker": "MSFT",
+  "status": "rewritten",
+  "title": "We may experience outages, disruptions, or capacity constraints if we fail to maintain and operate adequate infrastructure or secure the resources necessary to support it."
+ },
+ {
+  "key": "a7b295fefe2b",
+  "ticker": "NVDA",
+  "status": "edited",
+  "title": "Failure to meet the evolving needs of our industry and markets may adversely impact our financial results."
+ },
+ {
+  "key": "dfa82920bd96",
+  "ticker": "PFE",
+  "status": "edited",
+  "title": "U.S. HEALTHCARE REGULATION"
+ },
+ {
+  "key": "e2a9d79def46",
+  "ticker": "JPM",
+  "status": "edited",
+  "title": "Failure to effectively manage potential conflicts of interest or to satisfy fiduciary obligations could result in litigation and enforcement actions and cause reputational harm."
+ },
+ {
+  "key": "761461b83ef8",
+  "ticker": "XOM",
+  "status": "edited",
+  "title": "Other demand-related factors."
+ },
+ {
+  "key": "fd98861e9ef1",
+  "ticker": "WMT",
+  "status": "edited",
+  "title": "We rely extensively on information and financial systems to process transactions, summarize results and manage our business. Disruptions in our systems could harm our ability to conduct our operations."
+ },
+ {
+  "key": "12f24c8cd62d",
+  "ticker": "TSLA",
+  "status": "edited",
+  "title": "Any failure by us to comply with a variety of U.S. and international privacy and consumer protection laws may harm us."
+ },
+ {
+  "key": "5cac6fe0339a",
+  "ticker": "JNJ",
+  "status": "edited",
+  "title": "Due to the international nature of the Company's business, geopolitical or economic changes or events, including global tensions and war, could adversely affect our business, results of operations or financial condition."
+ },
+ {
+  "key": "48a17414afe3",
+  "ticker": "BA",
+  "status": "edited",
+  "title": "We derive a significant portion of our revenues from non-U.S. sales and are subject to the risks of doing business in other countries, including those related to tariffs, trade restrictions and government actions."
+ },
+ {
+  "key": "d0d58d38508a",
+  "ticker": "PFE",
+  "status": "edited",
+  "title": "RESPONSIBLE BUSINESS PRACTICES"
+ },
+ {
+  "key": "559cb9ceb171",
+  "ticker": "GOOGL",
+  "status": "edited",
+  "title": "We are exposed to fluctuations in the fair values of our investments and, in some instances, our financial statements incorporate inherently subjective valuation methodologies."
+ },
+ {
+  "key": "dcf84b43b1b5",
+  "ticker": "UNH",
+  "status": "edited",
+  "title": "If we or third parties we rely on sustain cyberattacks or other privacy or data security incidents resulting in disruption to our operations or the misappropriation or disclosure of protected personal information or proprietary or confidential information, we could suffer a loss of revenue and increased costs, negative operational effects, exposure to significant liability, reputational harm and other serious negative consequences."
+ },
+ {
+  "key": "d14cc68f9f41",
+  "ticker": "TSLA",
+  "status": "edited",
+  "title": "Our future growth and success are dependent upon demand for our electric vehicles and adoption of autonomous driving solutions."
+ },
+ {
+  "key": "ad8bb79d926b",
+  "ticker": "BA",
+  "status": "edited",
+  "title": "We enter into cost-type contracts, which also carry risks."
+ },
+ {
+  "key": "455c246e8595",
+  "ticker": "AAPL",
+  "status": "edited",
+  "title": "The Company\u2019s business and reputation are impacted by information technology system failures and network disruptions."
+ },
+ {
+  "key": "53ad007f9c23",
+  "ticker": "KO",
+  "status": "edited",
+  "title": "If we do not address evolving consumer product and shopping preferences, our business could suffer."
+ },
+ {
+  "key": "405edcb8fd77",
+  "ticker": "NKE",
+  "status": "edited",
+  "title": "Changes in our credit ratings or macroeconomic conditions may affect our liquidity, increasing borrowing costs and limiting our financing options."
+ },
+ {
+  "key": "bc3badfeee03",
+  "ticker": "XOM",
+  "status": "edited",
+  "title": "Access limitations."
+ },
+ {
+  "key": "5d01a3948495",
+  "ticker": "META",
+  "status": "edited",
+  "title": "We may not be able to continue to successfully maintain or grow engaging third-party content on our platform or usage of and engagement with applications that integrate with our products."
+ },
+ {
+  "key": "5337c31544e5",
+  "ticker": "NKE",
+  "status": "edited",
+  "title": "Our financial results may be adversely affected if substantial investments in businesses and operations fail to produce expected returns."
+ },
+ {
+  "key": "cd7695851c36",
+  "ticker": "META",
+  "status": "edited",
+  "title": "Unfavorable media coverage negatively affects our business."
+ },
+ {
+  "key": "34b451e57cf6",
+  "ticker": "JPM",
+  "status": "edited",
+  "title": "JPMorganChase\u2019s results could be materially affected by market fluctuations and significant changes in the valuation of financial instruments."
+ },
+ {
+  "key": "66421bca5197",
+  "ticker": "XOM",
+  "status": "edited",
+  "title": "Net-zero scenarios."
+ },
+ {
+  "key": "f08f3b145899",
+  "ticker": "MSFT",
+  "status": "edited",
+  "title": "Competition laws and new market regulation:"
+ },
+ {
+  "key": "0618bfa72d32",
+  "ticker": "V",
+  "status": "edited",
+  "title": "Sellers\u2019 and processors\u2019 continued push to lower acceptance costs and challenge industry practices could harm our business."
+ },
+ {
+  "key": "a26406d5f290",
+  "ticker": "DIS",
+  "status": "edited",
+  "title": "Changes in technology, in consumer consumption patterns and in how entertainment products and services are created affect demand for, the revenue we can generate from and the cost of producing or distributing our entertainment offerings and our results of operations."
+ },
+ {
+  "key": "1bc15dc12c8c",
+  "ticker": "GOOGL",
+  "status": "edited",
+  "title": "Contentmoderation:"
+ },
+ {
+  "key": "bc551ceb6102",
+  "ticker": "WMT",
+  "status": "edited",
+  "title": "Failure to successfully execute our omnichannel strategy and the cost of our investments in eCommerce and technology may materially adversely affect our market position, net sales and financial performance."
+ },
+ {
+  "key": "70ba8d472e88",
+  "ticker": "BA",
+  "status": "edited",
+  "title": "We may be unable to effectively manage our liquidity, which could adversely affect our business, financial position and results of operations."
+ },
+ {
+  "key": "444ef9382610",
+  "ticker": "WMT",
+  "status": "edited",
+  "title": "The performance of strategic alliances and other business relationships to support the expansion of our business could materially adversely affect our financial performance."
+ },
+ {
+  "key": "685f409c4211",
+  "ticker": "GS",
+  "status": "edited",
+  "title": "The growth of electronic trading and the introduction of new products and technologies, including trading and distributed ledger technologies, such as cryptocurrencies, and AI technologies, has increased competition."
+ },
+ {
+  "key": "de85e5ce7033",
+  "ticker": "NKE",
+  "status": "edited",
+  "title": "Our products are subject to risks associated with overseas sourcing, manufacturing and financing."
+ },
+ {
+  "key": "04a48c1f3c5c",
+  "ticker": "GOOGL",
+  "status": "edited",
+  "title": "We could be subject to changes in tax rates, the adoption of new US or international tax legislation, or exposure to additional tax liabilities."
+ },
+ {
+  "key": "3ffd4a9b8708",
+  "ticker": "TSLA",
+  "status": "edited",
+  "title": "Our operations could be adversely affected by events outside of our control, such as natural disasters, wars or health epidemics."
+ },
+ {
+  "key": "bbf10cf8ecf5",
+  "ticker": "NKE",
+  "status": "edited",
+  "title": "The market for prime real estate is competitive."
+ },
+ {
+  "key": "0373c8620268",
+  "ticker": "JPM",
+  "status": "edited",
+  "title": "JPMorganChase could suffer losses if the value of collateral declines."
+ },
+ {
+  "key": "33cd22c26451",
+  "ticker": "XOM",
+  "status": "edited",
+  "title": "Competition."
+ },
+ {
+  "key": "7d2ee24e10d1",
+  "ticker": "AAPL",
+  "status": "edited",
+  "title": "The Company\u2019s operations and performance depend significantly on global and regional economic conditions."
+ },
+ {
+  "key": "6786bfae6300",
+  "ticker": "AAPL",
+  "status": "edited",
+  "title": "The Company is exposed to the risk of write-downs on the value of its inventory and other assets, in addition to purchase commitment cancellation risk."
+ },
+ {
+  "key": "e46639f0e6a4",
+  "ticker": "GOOGL",
+  "status": "edited",
+  "title": "Acquisitions, joint ventures, investments, and divestitures could result in operating difficulties, dilution, and other consequences that could harm our business, financial condition, and operating results."
+ },
+ {
+  "key": "c9e89b6d0a01",
+  "ticker": "DIS",
+  "status": "edited",
+  "title": "We face risks related to changes in our business strategies and plans, which have affected and may continue to affect our cost structure, the value of our assets and/or our results of operations."
+ }
+]
