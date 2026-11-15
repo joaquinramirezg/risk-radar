@@ -1,0 +1,236 @@
+{
+ "bm25": {
+  "r1": {
+   "mean": 0.2222,
+   "lo": 0.1111,
+   "hi": 0.3333,
+   "n": 54
+  },
+  "r5": {
+   "mean": 0.463,
+   "lo": 0.3333,
+   "hi": 0.5926,
+   "n": 54
+  },
+  "r10": {
+   "mean": 0.5926,
+   "lo": 0.463,
+   "hi": 0.7222,
+   "n": 54
+  },
+  "mrr": {
+   "mean": 0.3328,
+   "lo": 0.2325,
+   "hi": 0.4376,
+   "n": 54
+  },
+  "ndcg": {
+   "mean": 0.3868,
+   "lo": 0.2825,
+   "hi": 0.4896,
+   "n": 54
+  }
+ },
+ "dense": {
+  "r1": {
+   "mean": 0.3704,
+   "lo": 0.2407,
+   "hi": 0.5,
+   "n": 54
+  },
+  "r5": {
+   "mean": 0.5556,
+   "lo": 0.4259,
+   "hi": 0.6852,
+   "n": 54
+  },
+  "r10": {
+   "mean": 0.6296,
+   "lo": 0.5,
+   "hi": 0.7593,
+   "n": 54
+  },
+  "mrr": {
+   "mean": 0.4595,
+   "lo": 0.3402,
+   "hi": 0.5788,
+   "n": 54
+  },
+  "ndcg": {
+   "mean": 0.4949,
+   "lo": 0.3773,
+   "hi": 0.6124,
+   "n": 54
+  }
+ },
+ "hybrid": {
+  "r1": {
+   "mean": 0.4074,
+   "lo": 0.2778,
+   "hi": 0.537,
+   "n": 54
+  },
+  "r5": {
+   "mean": 0.5926,
+   "lo": 0.463,
+   "hi": 0.7222,
+   "n": 54
+  },
+  "r10": {
+   "mean": 0.7037,
+   "lo": 0.5741,
+   "hi": 0.8148,
+   "n": 54
+  },
+  "mrr": {
+   "mean": 0.4989,
+   "lo": 0.3861,
+   "hi": 0.6153,
+   "n": 54
+  },
+  "ndcg": {
+   "mean": 0.5433,
+   "lo": 0.4312,
+   "hi": 0.6559,
+   "n": 54
+  }
+ },
+ "hybrid_company": {
+  "r1": {
+   "mean": 0.6296,
+   "lo": 0.5,
+   "hi": 0.7593,
+   "n": 54
+  },
+  "r5": {
+   "mean": 0.8704,
+   "lo": 0.7778,
+   "hi": 0.9444,
+   "n": 54
+  },
+  "r10": {
+   "mean": 0.963,
+   "lo": 0.9074,
+   "hi": 1,
+   "n": 54
+  },
+  "mrr": {
+   "mean": 0.7288,
+   "lo": 0.6281,
+   "hi": 0.8198,
+   "n": 54
+  },
+  "ndcg": {
+   "mean": 0.7832,
+   "lo": 0.6998,
+   "hi": 0.8609,
+   "n": 54
+  }
+ },
+ "paired": {
+  "hybrid_minus_bm25_ndcg": {
+   "mean": 0.1565,
+   "lo": 0.0764,
+   "hi": 0.2466,
+   "n": 54
+  },
+  "hybrid_minus_dense_ndcg": {
+   "mean": 0.0484,
+   "lo": -0.0223,
+   "hi": 0.1114,
+   "n": 54
+  },
+  "company_filter_ndcg": {
+   "mean": 0.24,
+   "lo": 0.1615,
+   "hi": 0.3248,
+   "n": 54
+  }
+ },
+ "misses": [
+  {
+   "qid": "q004",
+   "question": "What tricks do hackers use against Nike, according to its annual report?",
+   "gold": [
+    "NKE.e4c276b7e505"
+   ],
+   "got": [
+    "NKE.538496cdbc31",
+    "NKE.e7f78d71d76d",
+    "NKE.2b590120fa81"
+   ]
+  },
+  {
+   "qid": "q005",
+   "question": "What happens to Duke Energy if its planned deals and asset sales fall through?",
+   "gold": [
+    "DUK.231e73eb6d5a"
+   ],
+   "got": [
+    "DUK.73600bb21000",
+    "DUK.d7d113e6fa00",
+    "DUK.1d53108bf053"
+   ]
+  },
+  {
+   "qid": "q012",
+   "question": "Has Charter ever had a cyberattack that caused a major data leak?",
+   "gold": [
+    "CHTR.e61b7396bb51"
+   ],
+   "got": [
+    "CHTR.fbcc21a85136",
+    "CHTR.7548e1afcb56",
+    "CHTR.77ad379743a4"
+   ]
+  },
+  {
+   "qid": "q023",
+   "question": "What does Philip Morris say some smoke-free product competitors are doing wrong?",
+   "gold": [
+    "PM.2ab11db2582e"
+   ],
+   "got": [
+    "PM.4f70ba6ebe37",
+    "PM.740706240a8e",
+    "PM.ea698a6a56df"
+   ]
+  },
+  {
+   "qid": "q040",
+   "question": "Could Johnson & Johnson be barred from government health programs?",
+   "gold": [
+    "JNJ.7388547d3dc7"
+   ],
+   "got": [
+    "CVS.ea4bfc638491",
+    "UNH.89e6d1645d99",
+    "ABBV.9bce434b458d"
+   ]
+  },
+  {
+   "qid": "q041",
+   "question": "What compliance problem did American Express find in its rewards programs?",
+   "gold": [
+    "AXP.1fe2e9cd1859"
+   ],
+   "got": [
+    "AXP.0837067b9215",
+    "AXP.376b92ffa999",
+    "AXP.01b3acc82fe0"
+   ]
+  },
+  {
+   "qid": "q047",
+   "question": "Can hackers take control of John Deere's connected equipment?",
+   "gold": [
+    "DE.b2766cab6662"
+   ],
+   "got": [
+    "DE.a01ef9e8ef5e",
+    "DE.ab4a230c5b68",
+    "DE.08a4ef198256"
+   ]
+  }
+ ]
+}

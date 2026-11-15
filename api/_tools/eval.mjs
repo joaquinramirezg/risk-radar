@@ -57,19 +57,36 @@ function riskRanking(hits) {
   return seen;
 }
 
+// Company named in the question -> ticker filter, the way the agent passes
+// tickers to search_filings. Plain name matching, no model.
+const GENERIC = new Set(["american", "general", "bank", "united", "international", "the", "walt", "capital", "home", "eli", "union", "johnson", "intercontinental"]);
+const ALIAS = { "john deere": "DE", "disney": "DIS", "lilly": "LLY", "j&j": "JNJ", "jpmorgan": "JPM", "goldman": "GS", "google": "GOOGL", "philip morris": "PM", "bristol myers": "BMY", "american express": "AXP", "bank of america": "BAC", "general motors": "GM", "union pacific": "UNP", "home depot": "HD", "capital one": "COF", "unitedhealth": "UNH", "nextera": "NEE", "ge aerospace": "GE", "bny": "BK", "u.s. bancorp": "USB", "intuitive surgical": "ISRG" };
+function namedTickers(q) {
+  const { companies } = load();
+  const lq = q.toLowerCase();
+  const out = new Set(Object.entries(ALIAS).filter(([a]) => lq.includes(a)).map(([, t]) => t));
+  for (const [t, c] of Object.entries(companies)) {
+    const first = c.name.toLowerCase().split(/[\s,&]+/)[0].replace(/[^a-z0-9.-]/g, "");
+    if (new RegExp(`\\b${t.replace(".", "\\.")}\\b`).test(q) && t.length > 1) out.add(t);
+    if (first.length > 2 && !GENERIC.has(first) && new RegExp(`\\b${first}`).test(lq)) out.add(t);
+  }
+  return [...out];
+}
+
 async function retrieval() {
-  const rows = { bm25: [], dense: [], hybrid: [] };
+  const rows = { bm25: [], dense: [], hybrid: [], hybrid_company: [] };
   const misses = [];
   for (const g of answerable) {
     const qvec = await embedQuery(g.question);
     for (const mode of Object.keys(rows)) {
-      const ranked = riskRanking(search({ query: g.question, qvec, mode, k: 30 }));
+      const tk = mode === "hybrid_company" ? namedTickers(g.question) : [];
+      const ranked = riskRanking(search({ query: g.question, qvec, mode: mode === "hybrid_company" ? "hybrid" : mode, ticker: tk.length ? tk : null, k: 30 }));
       const gold = new Set(g.gold_risks);
       const rank = ranked.findIndex((r) => gold.has(r)) + 1; // 0 = not found
       const dcg = ranked.slice(0, 10).reduce((a, r, i) => a + (gold.has(r) ? 1 / Math.log2(i + 2) : 0), 0);
       const idcg = [...gold].slice(0, 10).reduce((a, _, i) => a + 1 / Math.log2(i + 2), 0);
       rows[mode].push({ qid: g.qid, rank, r1: +(rank === 1), r5: +(rank > 0 && rank <= 5), r10: +(rank > 0 && rank <= 10), mrr: rank ? 1 / rank : 0, ndcg: dcg / idcg });
-      if (mode === "hybrid" && !(rank > 0 && rank <= 5)) misses.push({ qid: g.qid, question: g.question, gold: g.gold_risks, got: ranked.slice(0, 3) });
+      if (mode === "hybrid_company" && !(rank > 0 && rank <= 5)) misses.push({ qid: g.qid, question: g.question, gold: g.gold_risks, got: ranked.slice(0, 3) });
     }
   }
   const out = {};
@@ -78,13 +95,14 @@ async function retrieval() {
   }
   // Paired: does hybrid beat each single ranker on the same questions?
   out.paired = {};
-  for (const base of ["bm25", "dense"]) {
+  for (const base of ["bm25", "dense", "hybrid"]) {
+    if (base === "hybrid") { const d = rows.hybrid_company.map((r, i) => r.ndcg - rows.hybrid[i].ndcg); out.paired.company_filter_ndcg = ci(d); continue; }
     const d = rows.hybrid.map((r, i) => r.ndcg - rows[base][i].ndcg);
     out.paired[`hybrid_minus_${base}_ndcg`] = ci(d);
   }
   out.misses = misses;
   writeFileSync(join(OUT, "ask-retrieval.json"), JSON.stringify(out, null, 1));
-  for (const m of ["bm25", "dense", "hybrid"]) {
+  for (const m of ["bm25", "dense", "hybrid", "hybrid_company"]) {
     const s = out[m];
     console.log(`${m.padEnd(7)} recall@5 ${s.r5.mean} [${s.r5.lo}, ${s.r5.hi}]  MRR ${s.mrr.mean}  nDCG@10 ${s.ndcg.mean}`);
   }
