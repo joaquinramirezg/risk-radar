@@ -128,6 +128,13 @@ details.risk[data-st="removed"] summary .t { text-decoration: line-through; text
 .doc del { color: var(--del); background: var(--del-bg); }
 .doc .old-title { font: 400 13px/1.4 var(--f-ui); color: var(--ink-2); margin-bottom: 8px; white-space: normal; }
 .meta { font: 400 12px var(--f-mono); color: var(--ink-2); padding: 0 16px 12px; }
+.ct { justify-self: start; font: 500 11px/1 var(--f-mono); padding: 3px 6px; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-2); white-space: nowrap; }
+.ct-new_exposure { color: var(--ins); border-color: var(--ins); }
+.ct-escalated { color: var(--rew); border-color: var(--rew); }
+.ct-de_escalated { color: var(--edit); border-color: var(--edit); }
+.why { font: 400 13px/1.5 var(--f-ui); color: var(--ink-2); padding: 0 16px 12px; max-width: 72ch; }
+.why b { color: var(--ink); font-weight: 600; }
+details.risk summary .tt { display: grid; gap: 6px; min-width: 0; }
 .empty { color: var(--ink-2); font-size: 14px; margin: 0; }
 
 /* method */
@@ -174,6 +181,7 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
       </tbody>
     </table>
     <p>Before the split check existed, 4 of the 15 risks called new or removed were really pieces of a risk that had been split or merged. Its 10% threshold was then set on this same sample, so those four are not an independent test; three further splits it found outside the sample were checked by reading them. The misses in cutting risks out of the filing are subsections in Microsoft's and Exxon Mobil's filings that are read as separate risks.</p>
+    <p>Edited and rewritten risks carry a second label from a small language model (Claude Haiku 5.5) that reads both versions and says what kind of change it was: new exposure, escalated, de-escalated or boilerplate. On 80 changes labelled beforehand, it agreed with the AI labeller 62% of the time (κ 0.43) on the half not used to write its instructions, up from 43% for the first version of the prompt. Those labels are themselves a judgment call: whether a newly named law is a new exposure or an escalation of an old one is often arguable. Read the change tag as a pointer to where to look, not a verdict. Classifying all 324 changes cost $0.14, at a median of 1.8 seconds per risk.</p>
     <p>The design was compared with 34 alternatives on the same sample. A larger embedding model (bge-base) was no more accurate and three times slower. Plain TF-IDF word overlap came within two items of it, which says the task is mostly lexical. Matching on titles alone was 98% accurate. The sample was drawn from this design's own output, so the comparison favours it.</p>
   </footer>
 </div>
@@ -188,6 +196,8 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const yr = d => d.slice(0, 4);
+  const CT = { new_exposure: "new exposure", escalated: "escalated", de_escalated: "de-escalated", boilerplate: "boilerplate" };
+  const ctTag = r => r.change ? `<span class="ct ct-${r.change.label}">${CT[r.change.label]}</span>` : "";
   const pill = (st, n) => `<span class="pill st-${st}">${n != null ? `<span class="num">${n}</span> ` : ""}${LABEL[st]}</span>`;
 
   async function getJSON(path) {
@@ -284,7 +294,8 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
       });
       const list = [...byCat].map(([cat, rs]) => `<section class="cat"><h3>${esc(cat)}</h3>${rs.map(r =>
         `<details class="risk" data-st="${r.status}"${r === firstNew ? " open" : ""}>
-          <summary>${pill(r.status)}<span class="t">${esc(r.title)}</span></summary>
+          <summary>${pill(r.status)}<span class="tt"><span class="t">${esc(r.title)}</span>${ctTag(r)}</span></summary>
+          ${r.change ? `<div class="why"><b>What changed, per the classifier:</b> ${esc(r.change.reason)}</div>` : ""}
           ${riskBody(r)}
           ${r.match ? `<div class="meta num">match ${r.match.toFixed(2)} · ${Math.round(r.ratio * 100)}% of the words unchanged</div>` : ""}
         </details>`).join("")}</section>`).join("");

@@ -11,6 +11,7 @@ risk as new, split, removed, merged, rewritten, edited or unchanged. Needs the `
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import sys
@@ -34,6 +35,18 @@ THEMES = {
 }
 
 
+CHANGE_TYPES = Path("reports/change_types.v2.jsonl")
+
+
+def change_types() -> dict[str, dict[str, str]]:
+    """Verdicts from tools/classify_changes.py, keyed like it keys them."""
+    if not CHANGE_TYPES.exists():
+        return {}
+    rows = [json.loads(x) for x in CHANGE_TYPES.read_text().splitlines() if x]
+    return {r["key"]: {k: r[k] for k in ("label", "reason", "evidence")}
+            for r in rows if r.get("label")}
+
+
 def manifest(path: Path) -> dict[str, dict[str, str]]:
     with path.open() as f:
         return {r["file"]: r for r in csv.DictReader(f, delimiter="\t")}
@@ -55,6 +68,7 @@ def main() -> int:
         eb = model.encode(b, normalize_embeddings=True, show_progress_bar=False)
         return (ea @ eb.T).tolist()
 
+    verdicts = change_types()
     cur_m, prev_m = manifest(RAW / "MANIFEST.tsv"), manifest(PREV / "MANIFEST.tsv")
     OUT.mkdir(parents=True, exist_ok=True)
     index = []
@@ -80,6 +94,9 @@ def main() -> int:
             if c.status in ("edited", "rewritten") and c.old and c.new:
                 item["old_title"] = c.old.title
                 item["diff"] = word_diff(c.old.text, c.new.text)
+                key = hashlib.sha1(f"{ticker}|{r.title}".encode()).hexdigest()[:12]
+                if key in verdicts:
+                    item["change"] = verdicts[key]
             else:
                 item["body"] = r.text
             if c.status == "split" and c.old:
