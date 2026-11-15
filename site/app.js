@@ -49,22 +49,93 @@
 
   const pct = (a, b) => Math.round(100 * a / Math.max(1, b));
 
+  function findingHTML(t, n, open = false, lead = "") {
+    const ex = t.examples.map(e => `<li>
+        <div class="who"><a href="#${esc(e.ticker)}/${esc(e.id)}">${esc(e.ticker)}</a>${pill(e.status)}${e.label ? `<span class="ct ct-${e.label}">${CT[e.label]}</span>` : ""}<span>${esc(e.title)}</span></div>
+        <blockquote>“${esc(e.sentence)}”</blockquote></li>`).join("");
+    const others = t.tickers_up.filter(tk => !t.examples.some(e => e.ticker === tk));
+    return `<details class="finding"${open ? " open" : ""}>
+      <summary><h3>${esc(lead || t.theme)}</h3><span class="count num">${t.companies_up} of ${n}</span>
+        <span class="meter" aria-hidden="true"><span style="width:${pct(t.companies_up, n)}%"></span></span>
+        <span class="sub">companies added new or escalated language on ${esc(t.theme.toLowerCase())} (${t.risks_up} risk factors)${t.companies_down ? `; ${t.companies_down} cut or softened some` : ""}.</span></summary>
+      <ul class="ex">${ex}${others.length ? `<li class="more">Also: ${others.map(tk => `<a href="#${esc(tk)}">${esc(tk)}</a>`).join(", ")}</li>` : ""}</ul>
+    </details>`;
+  }
+
+  // One plain sentence per headline theme. Counts come from findings.json, never typed here.
+  const LEAD = {
+    "Artificial intelligence": "AI went from a footnote to a risk almost everyone names",
+    "Tariffs and trade": "Tariffs are back in the risk factors",
+    "Cybersecurity": "Cyber risk keeps growing",
+  };
+
+  const ASK_TRY = [
+    "Which companies worry about tariffs on imports from China?",
+    "What changed in Nvidia's export control risk this year?",
+    "How does JPMorgan describe the risk of a cyberattack?",
+  ];
+
+  function askHTML() {
+    return `<section class="ask" aria-labelledby="askh">
+      <div class="section-head"><h2 id="askh">Ask the filings</h2><a href="#eval">How often it is right</a></div>
+      <form id="askf" class="askf" autocomplete="off">
+        <input id="askq" class="search" type="text" maxlength="300" placeholder="Ask about any S&amp;P 100 company's risks" aria-label="Your question">
+        <button type="submit" class="showall">Ask</button>
+      </form>
+      <div class="chips ask-try">${ASK_TRY.map(q => `<button type="button" class="chip" data-q="${esc(q)}">${esc(q)}</button>`).join("")}</div>
+      <div id="askout" aria-live="polite"></div>
+      <p class="chart-note">Answers come only from the risk factor sections of these filings, and every claim links to the sentence it rests on. An answer that cites anything the search did not return is blocked before you see it.</p>
+    </section>`;
+  }
+
+  async function runAsk(q) {
+    const out = view.querySelector("#askout");
+    out.innerHTML = `<p class="empty">Searching the filings…</p>`;
+    let body;
+    try {
+      const r = await fetch("/api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: q }) });
+      body = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(body.message || "Ask is unavailable right now.");
+    } catch (e) {
+      out.innerHTML = `<p class="empty">${esc(e.message)} <a href="#?q=${encodeURIComponent(q.split(" ").slice(0, 3).join(" "))}">Search the text instead</a>.</p>`;
+      return;
+    }
+    const ans = esc(body.answer).replace(/\[(\d+)\]/g, (m, n) => `<sup><a href="#src${n}" class="cite" data-src="${n}">${n}</a></sup>`);
+    const src = body.sources.map(s => `<li id="src${s.n}"><div class="who"><b class="num">${s.n}</b>${s.ticker ? `<a href="#${esc(s.ticker)}/${esc(s.risk.split(".")[1])}">${esc(s.ticker)}</a>` : ""}${s.status ? pill(s.status) : ""}<span>${s.kind === "previous" ? "Last year: " : ""}${esc(s.title)}</span></div><blockquote>“${esc(s.text)}”</blockquote></li>`).join("");
+    out.innerHTML = `<div class="answer"><p>${ans}</p>${src ? `<ol class="ex srcs">${src}</ol>` : ""}
+      <p class="chart-note num">${esc(body.model)} · ${(body.usage.ms / 1000).toFixed(1)} s · $${body.usage.usd.toFixed(4)}${body.cached ? " · answered before" : ""}</p></div>`;
+    out.querySelectorAll("a.cite").forEach(a => a.addEventListener("click", e => {
+      e.preventDefault();
+      out.querySelector(`#src${a.dataset.src}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }));
+  }
+
+  function wireAsk() {
+    const f = view.querySelector("#askf"), i = view.querySelector("#askq");
+    if (!f) return;
+    f.addEventListener("submit", e => { e.preventDefault(); if (i.value.trim().length >= 8) runAsk(i.value.trim()); });
+    view.querySelectorAll(".ask-try [data-q]").forEach(b => b.addEventListener("click", () => { i.value = b.dataset.q; runAsk(b.dataset.q); }));
+  }
+
+  function renderHome() {
+    document.title = "Risk Radar: what America's biggest companies are worried about";
+    const F = FINDINGS, n = F.companies;
+    const top = F.themes.filter(t => LEAD[t.theme]).map((t, k) => findingHTML(t, n, k === 0, LEAD[t.theme])).join("");
+    const rest = F.themes.filter(t => !LEAD[t.theme]).map(t => findingHTML(t, n)).join("");
+    view.innerHTML = `<div style="display:grid;gap:44px">
+      <section class="findings" aria-labelledby="fi"><div class="section-head"><h2 id="fi">This year's three biggest shifts</h2></div>${top}</section>
+      ${askHTML()}
+      <section class="findings" aria-labelledby="mo"><div class="section-head"><h2 id="mo">Also moving</h2></div>${rest}</section>
+      <p><a class="showall" href="#all">Browse all ${INDEX.companies.length} companies and search every risk factor</a></p>
+    </div>`;
+    wireAsk();
+  }
+
   function findingsHTML() {
     if (!FINDINGS) return "";
     const F = FINDINGS, st = F.statuses, cl = F.change_labels;
     const n = F.companies;
-    const rows = F.themes.map(t => {
-      const ex = t.examples.map(e => `<li>
-          <div class="who"><a href="#${esc(e.ticker)}/${esc(e.id)}">${esc(e.ticker)}</a>${pill(e.status)}${e.label ? `<span class="ct ct-${e.label}">${CT[e.label]}</span>` : ""}<span>${esc(e.title)}</span></div>
-          <blockquote>“${esc(e.sentence)}”</blockquote></li>`).join("");
-      const others = t.tickers_up.filter(tk => !t.examples.some(e => e.ticker === tk));
-      return `<details class="finding">
-        <summary><h3>${esc(t.theme)}</h3><span class="count num">${t.companies_up} of ${n}</span>
-          <span class="meter" aria-hidden="true"><span style="width:${pct(t.companies_up, n)}%"></span></span>
-          <span class="sub">companies added new or escalated language on it (${t.risks_up} risks)${t.companies_down ? `; ${t.companies_down} cut or softened some` : ""}. Open for the sentences.</span></summary>
-        <ul class="ex">${ex}${others.length ? `<li class="more">Also: ${others.map(tk => `<a href="#${esc(tk)}">${esc(tk)}</a>`).join(", ")}</li>` : ""}</ul>
-      </details>`;
-    }).join("");
+    const rows = F.themes.map(t => findingHTML(t, n)).join("");
     const movers = F.movers.map(m => `<li><a href="#${esc(m.ticker)}"><b>${esc(m.ticker)}</b><span class="num">${m.up}</span></a></li>`).join("");
     return `<section class="findings" aria-labelledby="fi">
       <div class="section-head"><h2 id="fi">What moved across ${n} companies</h2></div>
@@ -80,8 +151,8 @@
     </section>`;
   }
 
-  function renderHome() {
-    document.title = "Risk Radar";
+  function renderBrowse() {
+    document.title = "All companies · Risk Radar";
     const up = INDEX.companies.filter(c => c.themes.current[theme] > c.themes.previous[theme]).length;
     const q = coQuery.trim().toLowerCase();
     const sorted = INDEX.companies.slice().sort((a, b) =>
@@ -117,16 +188,16 @@
     view.querySelectorAll("[data-theme-name]").forEach(b => b.addEventListener("click", () => {
       theme = b.dataset.themeName;
       try { localStorage.setItem("rr-theme", theme); } catch (e) {}
-      renderHome();
+      renderBrowse();
     }));
     wireSearch();
-    view.querySelector("#chartall").addEventListener("click", () => { chartAll = !chartAll; renderHome(); });
+    view.querySelector("#chartall").addEventListener("click", () => { chartAll = !chartAll; renderBrowse(); });
     const all = view.querySelector("#coall");
-    if (all) all.addEventListener("click", () => { coAll = true; renderHome(); });
+    if (all) all.addEventListener("click", () => { coAll = true; renderBrowse(); });
     const qi = view.querySelector("#coq");
     qi.addEventListener("input", () => {
       coQuery = qi.value;
-      renderHome();
+      renderBrowse();
       const n = view.querySelector("#coq"); n.focus(); n.setSelectionRange(n.value.length, n.value.length);
     });
   }
@@ -280,10 +351,10 @@
       clearTimeout(searchTimer);
       searchTimer = setTimeout(() => {
         const q = input.value.trim();
-        const h = q ? searchHash(q, mode()) : "#";
-        if (location.hash !== h) history.replaceState(null, "", h === "#" ? location.pathname : h);
+        const h = q ? searchHash(q, mode()) : "#all";
+        if (location.hash !== h) history.replaceState(null, "", h);
         if (q) return renderSearch(q, mode());
-        renderHome();
+        renderBrowse();
         const i = view.querySelector("#ftq");
         i.focus();
       }, now ? 0 : 220);
@@ -392,7 +463,7 @@
       }
     }
     const [tk, target, term, side] = h.split("/").map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
-    (tk && !h.startsWith("?") ? renderCompany(tk, target, term, side === "cut") : Promise.resolve(renderHome())).catch(fail);
+    (tk === "all" ? Promise.resolve(renderBrowse()) : tk && !h.startsWith("?") ? renderCompany(tk, target, term, side === "cut") : Promise.resolve(renderHome())).catch(fail);
   }
   function fail(err) {
       view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;
@@ -402,8 +473,6 @@
     INDEX = ix;
     FINDINGS = fi;
     const sk = (ix.skipped || []).length;
-    document.getElementById("lede").firstChild.textContent =
-      `What ${ix.companies.length} of the largest US companies${sk ? ` (the S&P 100, less ${sk} whose filings could not be read)` : ""} `;
     const skl = document.getElementById("skipped");
     if (skl && sk) skl.innerHTML = `Left out: ${ix.skipped.map(x => `${esc(x.company)} (${esc(x.reason)})`).join("; ")}.`;
     let saved = null;

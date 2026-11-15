@@ -1,0 +1,10 @@
+{
+  "name": "risk-radar",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.8.0",
+    "@huggingface/transformers": "4.3.1"
+  }
+}
