@@ -1,5 +1,17 @@
 # RESUME HERE
 
+## Nov 15 state (read this first; the parked notes below are history)
+
+The project is now Risk Radar: a static site (site/) showing what 20 companies
+added, removed, split, merged and rewrote in their 10-K risk factors, with a
+measured-accuracy panel and an LLM change-type tag on each edited risk.
+Rebuild: `PYTHONPATH=src python3 tools/build_radar.py` (needs data/raw and
+data/raw_prev, fetched by tools/fetch_filings.py). Scores:
+tools/score_labels.py, tools/ablate_matcher.py, tools/score_changes.py.
+Labels were made by AI labellers, by the owner's decision; say so wherever
+numbers are quoted. Remaining: README and ADRs written by hand, Cloudflare
+Pages deploy, rename to risk-radar, push.
+
 Parked 2026-09-10. Written so this project can restart cold, with no memory of
 the conversation that produced it.
 
