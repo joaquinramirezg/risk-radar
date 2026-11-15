@@ -2,9 +2,14 @@
 
 ## Nov 15 state (read this first; the parked notes below are history)
 
-The project is now Risk Radar: a static site (site/) showing what 20 companies
-added, removed, split, merged and rewrote in their 10-K risk factors, with a
-measured-accuracy panel and an LLM change-type tag on each edited risk.
+The project is now Risk Radar: a static site (site/) showing what 98 of the
+S&P 100 added, removed, split, merged and rewrote in their 10-K risk factors,
+with a findings front page (tools/findings.py, each example linked to its
+sentence), a measured-accuracy panel (first 20 companies, plus an
+out-of-sample audit of the other 78 in tools/audit_scaled.py) and an LLM
+change-type tag on each edited risk. Four companies are excluded and listed
+on the site (EXCLUDED in tools/build_radar.py). After a new classifier run,
+`python3 tools/build_radar.py --relabel` re-attaches tags without a rebuild.
 Rebuild: `PYTHONPATH=src python3 tools/build_radar.py` (needs data/raw and
 data/raw_prev, fetched by tools/fetch_filings.py). Scores:
 tools/score_labels.py, tools/ablate_matcher.py, tools/score_changes.py.
