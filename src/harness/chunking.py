@@ -23,7 +23,7 @@ class Chunk:
     char_start: int
     char_end: int
 
-    def as_dict(self) -> dict:
+    def as_dict(self) -> dict[str, object]:
         return asdict(self)
 
 
