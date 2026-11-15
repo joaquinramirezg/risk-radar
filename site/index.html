@@ -134,6 +134,10 @@ details.risk[data-st="removed"] summary .t { text-decoration: line-through; text
 footer.method { border-top: 1px solid var(--rule); padding-top: 20px; display: grid; gap: 12px; font-size: 14px; color: var(--ink-2); }
 footer.method h2 { font-size: 18px; color: var(--ink); }
 footer.method p { margin: 0; max-width: 72ch; }
+table.acc { border-collapse: collapse; width: 100%; max-width: 72ch; font-size: 14px; }
+table.acc th, table.acc td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.acc th { font: 600 12px var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
+table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mono); }
 .status { display: inline-block; font: 500 12px var(--f-mono); padding: 3px 7px; border-radius: 4px; background: var(--rew-bg); color: var(--rew); }
 @media (prefers-reduced-motion: no-preference) { .co, .chip { transition: border-color .15s, background .15s; } }
 </style>
@@ -157,7 +161,20 @@ footer.method p { margin: 0; max-width: 72ch; }
     <h2>How it works</h2>
     <p>For each company the two most recent 10-K filings are downloaded from SEC EDGAR. Item 1A is split into individual risk factors using the filing's own formatting: a risk factor's title is set in bold or italic. Each risk this year is matched to last year's with a small open embedding model (bge-small-en-v1.5) on its title and opening paragraph, one-to-one, at a similarity of 0.80 or more. A risk left without a partner is checked for reused sentences: if at least 10% of its five-word phrases appear verbatim in a risk on the other side, it was split off from that risk or merged into it, not added or dropped. Matched risks are then compared word by word: 98% or more the same is unchanged, 75% or more is edited, anything lower is rewritten.</p>
     <p>Theme counts are plain phrase matches over the risk-factor text, so they can be checked with Find in the filing itself. A company that writes more pages will mention most things more often.</p>
-    <p><span class="status">Accuracy not yet measured</span> The splitter and the matcher are being checked against a hand-labelled sample. Until that is published, treat every label here as the system's call, and open the filing before relying on it.</p>
+    <h2 id="accuracy">How accurate it is</h2>
+    <p>A seeded sample of 257 items from ten of the companies was checked: every risk called new or removed, plus 26 random matched pairs per company. Each item was judged by two AI labellers working independently (one on all 257, one on a 60-item core), not by a human. They agreed on 59 of the 60 core items (Cohen's κ 0.96).</p>
+    <table class="acc">
+      <thead><tr><th scope="col">Check</th><th scope="col" class="num">Result</th><th scope="col" class="num">95% interval</th></tr></thead>
+      <tbody>
+        <tr><td>Matched pairs that really are the same risk</td><td class="num">242 / 242</td><td class="num">98.4–100%</td></tr>
+        <tr><td>Risks called new that really are new</td><td class="num">9 / 9</td><td class="num">70–100%</td></tr>
+        <tr><td>Risks called removed that really were dropped</td><td class="num">2 / 2</td><td class="num">34–100%</td></tr>
+        <tr><td>Split or merged risks linked to the right risk</td><td class="num">4 / 4</td><td class="num">51–100%</td></tr>
+        <tr><td>Risks cut out of the filing as one whole risk</td><td class="num">243 / 257</td><td class="num">91–97%</td></tr>
+      </tbody>
+    </table>
+    <p>Before the split check existed, 4 of the 15 risks called new or removed were really pieces of a risk that had been split or merged. Its 10% threshold was then set on this same sample, so those four are not an independent test; three further splits it found outside the sample were checked by reading them. The misses in cutting risks out of the filing are subsections in Microsoft's and Exxon Mobil's filings that are read as separate risks.</p>
+    <p>The design was compared with 34 alternatives on the same sample. A larger embedding model (bge-base) was no more accurate and three times slower. Plain TF-IDF word overlap came within two items of it, which says the task is mostly lexical. Matching on titles alone was 98% accurate. The sample was drawn from this design's own output, so the comparison favours it.</p>
   </footer>
 </div>
 
