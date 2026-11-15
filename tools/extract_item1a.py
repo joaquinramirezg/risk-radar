@@ -46,7 +46,7 @@ class Text(HTMLParser):
 # The table of contents also contains "Item 1A." and "Item 1B.", so anchoring
 # on the first occurrence lands in the TOC and yields a 200-character extract.
 # Take the LAST plausible start and the first end that follows it.
-_START = re.compile(r"item\s*1a\.?\s*[-–—:]?\s*risk\s*factors", re.I)
+_START = re.compile(r"(?m)^[ \t]*item\s*1a\.?\s*[-–—:]?\s*risk\s*factors", re.I)
 _END = re.compile(
     r"item\s*1b\.?\s*[-–—:]?\s*unresolved\s+staff\s+comments"
     r"|item\s*2\.?\s*[-–—:]?\s*propert",
@@ -63,13 +63,24 @@ def extract(raw_html: str) -> tuple[str, str]:
     starts = list(_START.finditer(text))
     if not starts:
         return "", "no 'Item 1A Risk Factors' heading found"
-    # Prefer the last start that leaves a long enough body: the TOC entry is
-    # early and immediately followed by another Item, the real one is not.
+    # Prefer the longest body that is CLOSED by an Item 1B / Item 2 heading:
+    # the TOC entry is early and immediately followed by another Item, the
+    # real one is not. A start with no closing heading after it is a later
+    # cross-reference ("see Item 1A. Risk Factors" in MD&A or the notes), and
+    # its "body" runs to the end of the filing. Such an open-ended candidate
+    # is only used when no closed one exists, or it silently swallows
+    # MD&A and the financial statements into the corpus.
     best, reason = "", "all candidate sections were too short"
+    closed: list[str] = []
+    open_ended: list[str] = []
     for m in starts:
         tail = text[m.end():]
         e = _END.search(tail)
-        body = (tail[: e.start()] if e else tail).strip()
+        if e:
+            closed.append(tail[: e.start()].strip())
+        else:
+            open_ended.append(tail.strip())
+    for body in closed or open_ended:
         if len(body) > len(best):
             best = body
     if len(best) < MIN_CHARS:

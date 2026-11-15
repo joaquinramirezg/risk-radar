@@ -41,3 +41,18 @@ def test_reports_a_missing_section_rather_than_guessing():
 def test_script_and_style_content_is_dropped():
     got, _ = extract(_filing(BODY).replace("<body>", "<body><script>var x=1;</script>"))
     assert "var x=1" not in got
+
+
+def test_a_later_cross_reference_does_not_swallow_the_rest_of_the_filing():
+    # Real 10-Ks (JPM, KO, PFE, CAT...) mention "Item 1A. Risk Factors" again
+    # in MD&A. With no Item 1B/2 after it, that candidate runs to the end of
+    # the filing and is longer than the real section. It must not win.
+    filing = _filing(BODY).replace(
+        "<p>None.</p></body>",
+        "<p>None.</p><p>Item 7. MD&amp;A. See Item 1A. Risk Factors above.</p>"
+        f"<p>{'Revenue grew. ' * 2000}</p></body>",
+    )
+    got, err = extract(filing)
+    assert not err
+    assert "We face many risks." in got
+    assert "Revenue grew." not in got
