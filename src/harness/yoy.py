@@ -7,10 +7,18 @@ embedding plugs in at the call site.
 
 Each risk in the new filing ends up as exactly one of:
   new        no counterpart last year above MATCH_MIN
+  split      no one-to-one counterpart, but carved out of a risk from last year
   rewritten  matched, but the body text changed a lot
   edited     matched, with visible edits
   unchanged  matched, body essentially identical
-and each unmatched old risk is "removed".
+and each unmatched old risk is "removed", or "merged" when its text was folded
+into a risk that is still there.
+
+Splits and merges are found after the one-to-one match, by verbatim reuse: the
+share of an unmatched risk's word 5-grams that also appear in a risk on the
+other side. Embedding similarity cannot tell "carved out of" from "on a
+related topic" (a brand-new AI risk scores 0.94 against an old one that
+mentions AI); reused sentences can.
 """
 from __future__ import annotations
 
@@ -24,17 +32,20 @@ from .risks import RiskFactor
 MATCH_MIN = 0.80      # cosine on title+opening; below this a pair is not the same risk
 UNCHANGED_MIN = 0.98  # body text ratio at or above: unchanged
 EDITED_MIN = 0.75     # body text ratio at or above: edited; below: rewritten
+SPLIT_MIN = 0.10      # share of 5-grams reused from one risk: split / merged
+SHINGLE = 5
 
 Similarity = Callable[[Sequence[str], Sequence[str]], list[list[float]]]
 
 
 @dataclass
 class Change:
-    status: str                 # new | rewritten | edited | unchanged | removed
+    status: str                 # new | split | rewritten | edited | unchanged | removed | merged
     new: RiskFactor | None
     old: RiskFactor | None
     match_score: float = 0.0    # semantic similarity of the matched pair
     text_ratio: float = 0.0     # lexical similarity of the bodies, 0..1
+    reuse: float = 0.0          # split / merged: share of 5-grams reused from the linked risk
 
 
 def signature(r: RiskFactor, chars: int = 600) -> str:
@@ -48,6 +59,25 @@ def _words(s: str) -> list[str]:
 
 def _title_key(t: str) -> str:
     return " ".join(_words(t))
+
+
+def shingles(text: str, k: int = SHINGLE) -> set[tuple[str, ...]]:
+    w = re.findall(r"\w+", text.lower())
+    return {tuple(w[i:i + k]) for i in range(len(w) - k + 1)}
+
+
+def reuse(part: str, whole: str) -> float:
+    """Share of `part`'s word 5-grams that also occur in `whole`."""
+    sp = shingles(part)
+    return len(sp & shingles(whole)) / len(sp) if sp else 0.0
+
+
+def _best_source(r: RiskFactor, pool: Sequence[RiskFactor]) -> tuple[int, float]:
+    scores = [reuse(r.text, p.text) for p in pool]
+    if not scores:
+        return -1, 0.0
+    k = max(range(len(scores)), key=lambda i: scores[i])
+    return k, scores[k]
 
 
 def text_ratio(a: str, b: str) -> float:
@@ -85,7 +115,11 @@ def match(old: Sequence[RiskFactor], new: Sequence[RiskFactor],
     out: list[Change] = []
     for j, r in enumerate(new):
         if j not in used_new:
-            out.append(Change("new", r, None))
+            k, share = _best_source(r, old)
+            if share >= SPLIT_MIN:
+                out.append(Change("split", r, old[k], reuse=round(share, 4)))
+            else:
+                out.append(Change("new", r, None))
             continue
         i, s = used_new[j]
         ratio = text_ratio(old[i].text, r.text)
@@ -94,7 +128,11 @@ def match(old: Sequence[RiskFactor], new: Sequence[RiskFactor],
         out.append(Change(status, r, old[i], round(s, 4), round(ratio, 4)))
     for i, r in enumerate(old):
         if i not in used_old:
-            out.append(Change("removed", None, r))
+            k, share = _best_source(r, new)
+            if share >= SPLIT_MIN:
+                out.append(Change("merged", new[k], r, reuse=round(share, 4)))
+            else:
+                out.append(Change("removed", None, r))
     return out
 
 

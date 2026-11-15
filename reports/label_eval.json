@@ -1,93 +1,297 @@
 {
  "ai_labels": {
-  "items": 257,
-  "match_precision": {
-   "k": 242,
-   "n": 242,
-   "rate": 1.0,
-   "ci95": [
-    0.9844,
-    1.0
-   ]
+  "before": {
+   "items": 257,
+   "match_precision": {
+    "k": 242,
+    "n": 242,
+    "rate": 1.0,
+    "ci95": [
+     0.9844,
+     1.0
+    ]
+   },
+   "new_precision": {
+    "k": 9,
+    "n": 12,
+    "rate": 0.75,
+    "ci95": [
+     0.4677,
+     0.9111
+    ]
+   },
+   "removed_precision": {
+    "k": 2,
+    "n": 3,
+    "rate": 0.6667,
+    "ci95": [
+     0.2077,
+     0.9385
+    ]
+   },
+   "missed_links": [
+    "i025",
+    "i052",
+    "i133",
+    "i253"
+   ],
+   "clean_boundary": {
+    "k": 243,
+    "n": 257,
+    "rate": 0.9455,
+    "ci95": [
+     0.9107,
+     0.9673
+    ]
+   }
   },
-  "new_precision": {
-   "k": 9,
-   "n": 12,
-   "rate": 0.75,
-   "ci95": [
-    0.4677,
-    0.9111
-   ]
-  },
-  "removed_precision": {
-   "k": 2,
-   "n": 3,
-   "rate": 0.6667,
-   "ci95": [
-    0.2077,
-    0.9385
-   ]
-  },
-  "missed_links": [
-   "i025",
-   "i052",
-   "i133",
-   "i253"
-  ],
-  "clean_boundary": {
-   "k": 243,
-   "n": 257,
-   "rate": 0.9455,
-   "ci95": [
-    0.9107,
-    0.9673
-   ]
+  "after": {
+   "new_precision": {
+    "k": 9,
+    "n": 9,
+    "rate": 1.0,
+    "ci95": [
+     0.7008,
+     1.0
+    ]
+   },
+   "removed_precision": {
+    "k": 2,
+    "n": 2,
+    "rate": 1.0,
+    "ci95": [
+     0.3424,
+     1.0
+    ]
+   },
+   "split_merge_precision": {
+    "k": 4,
+    "n": 4,
+    "rate": 1.0,
+    "ci95": [
+     0.5101,
+     1.0
+    ]
+   },
+   "split_merge_recall": {
+    "k": 4,
+    "n": 4,
+    "rate": 1.0,
+    "ci95": [
+     0.5101,
+     1.0
+    ]
+   },
+   "calls": {
+    "i014": [
+     "new",
+     null
+    ],
+    "i022": [
+     "new",
+     null
+    ],
+    "i023": [
+     "removed",
+     null
+    ],
+    "i025": [
+     "split",
+     "cand1"
+    ],
+    "i031": [
+     "new",
+     null
+    ],
+    "i052": [
+     "split",
+     "cand0"
+    ],
+    "i093": [
+     "removed",
+     null
+    ],
+    "i121": [
+     "new",
+     null
+    ],
+    "i133": [
+     "split",
+     "cand1"
+    ],
+    "i158": [
+     "new",
+     null
+    ],
+    "i215": [
+     "new",
+     null
+    ],
+    "i223": [
+     "new",
+     null
+    ],
+    "i227": [
+     "new",
+     null
+    ],
+    "i252": [
+     "new",
+     null
+    ],
+    "i253": [
+     "merged",
+     "cand0"
+    ]
+   }
   }
  },
  "model2_labels": {
-  "items": 60,
-  "match_precision": {
-   "k": 45,
-   "n": 45,
-   "rate": 1.0,
-   "ci95": [
-    0.9213,
-    1.0
-   ]
+  "before": {
+   "items": 60,
+   "match_precision": {
+    "k": 45,
+    "n": 45,
+    "rate": 1.0,
+    "ci95": [
+     0.9213,
+     1.0
+    ]
+   },
+   "new_precision": {
+    "k": 8,
+    "n": 12,
+    "rate": 0.6667,
+    "ci95": [
+     0.3906,
+     0.8619
+    ]
+   },
+   "removed_precision": {
+    "k": 2,
+    "n": 3,
+    "rate": 0.6667,
+    "ci95": [
+     0.2077,
+     0.9385
+    ]
+   },
+   "missed_links": [
+    "i025",
+    "i052",
+    "i133",
+    "i215",
+    "i253"
+   ],
+   "clean_boundary": {
+    "k": 60,
+    "n": 60,
+    "rate": 1.0,
+    "ci95": [
+     0.9398,
+     1.0
+    ]
+   }
   },
-  "new_precision": {
-   "k": 8,
-   "n": 12,
-   "rate": 0.6667,
-   "ci95": [
-    0.3906,
-    0.8619
-   ]
-  },
-  "removed_precision": {
-   "k": 2,
-   "n": 3,
-   "rate": 0.6667,
-   "ci95": [
-    0.2077,
-    0.9385
-   ]
-  },
-  "missed_links": [
-   "i025",
-   "i052",
-   "i133",
-   "i215",
-   "i253"
-  ],
-  "clean_boundary": {
-   "k": 60,
-   "n": 60,
-   "rate": 1.0,
-   "ci95": [
-    0.9398,
-    1.0
-   ]
+  "after": {
+   "new_precision": {
+    "k": 8,
+    "n": 9,
+    "rate": 0.8889,
+    "ci95": [
+     0.565,
+     0.9801
+    ]
+   },
+   "removed_precision": {
+    "k": 2,
+    "n": 2,
+    "rate": 1.0,
+    "ci95": [
+     0.3424,
+     1.0
+    ]
+   },
+   "split_merge_precision": {
+    "k": 4,
+    "n": 4,
+    "rate": 1.0,
+    "ci95": [
+     0.5101,
+     1.0
+    ]
+   },
+   "split_merge_recall": {
+    "k": 4,
+    "n": 5,
+    "rate": 0.8,
+    "ci95": [
+     0.3755,
+     0.9638
+    ]
+   },
+   "calls": {
+    "i014": [
+     "new",
+     null
+    ],
+    "i022": [
+     "new",
+     null
+    ],
+    "i023": [
+     "removed",
+     null
+    ],
+    "i025": [
+     "split",
+     "cand1"
+    ],
+    "i031": [
+     "new",
+     null
+    ],
+    "i052": [
+     "split",
+     "cand0"
+    ],
+    "i093": [
+     "removed",
+     null
+    ],
+    "i121": [
+     "new",
+     null
+    ],
+    "i133": [
+     "split",
+     "cand1"
+    ],
+    "i158": [
+     "new",
+     null
+    ],
+    "i215": [
+     "new",
+     null
+    ],
+    "i223": [
+     "new",
+     null
+    ],
+    "i227": [
+     "new",
+     null
+    ],
+    "i252": [
+     "new",
+     null
+    ],
+    "i253": [
+     "merged",
+     "cand0"
+    ]
+   }
   }
  },
  "agreement": {

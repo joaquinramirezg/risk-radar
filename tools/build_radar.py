@@ -6,7 +6,7 @@
 
 For each company it splits both years' Item 1A into risk factors, matches them
 (neural similarity on title + opening, see harness.yoy) and classifies every
-risk as new, removed, rewritten, edited or unchanged. Needs the `ladder` extra.
+risk as new, split, removed, merged, rewritten, edited or unchanged. Needs the `ladder` extra.
 """
 from __future__ import annotations
 
@@ -71,7 +71,7 @@ def main() -> int:
 
         risks = []
         for c in changes:
-            r = c.new or c.old
+            r = c.old if c.status == "merged" else (c.new or c.old)
             assert r is not None
             item: dict[str, object] = {
                 "status": c.status, "category": r.category, "title": r.title,
@@ -82,10 +82,15 @@ def main() -> int:
                 item["diff"] = word_diff(c.old.text, c.new.text)
             else:
                 item["body"] = r.text
+            if c.status == "split" and c.old:
+                item["link_title"], item["reuse"] = c.old.title, c.reuse
+            if c.status == "merged" and c.new:
+                item["link_title"], item["reuse"] = c.new.title, c.reuse
             risks.append(item)
 
         counts = {s: sum(1 for c in changes if c.status == s)
-                  for s in ("new", "removed", "rewritten", "edited", "unchanged")}
+                  for s in ("new", "split", "removed", "merged", "rewritten", "edited",
+                            "unchanged")}
         new_text = "\n".join(f"{r.title}\n{r.text}" for r in new)
         old_text = "\n".join(f"{r.title}\n{r.text}" for r in old)
         doc = {

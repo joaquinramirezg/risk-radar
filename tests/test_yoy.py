@@ -27,7 +27,9 @@ def test_an_old_risk_is_never_matched_twice():
     old = [rf("Currency risk")]
     new = [rf("Currency risk"), rf("Currency risk")]
     statuses = sorted(c.status for c in match(old, new, _jaccard))
-    assert statuses == ["new", "unchanged"]
+    # The second copy has no one-to-one partner left; it reuses last year's
+    # text, so it is reported as split off, never as a second match.
+    assert statuses == ["split", "unchanged"]
 
 
 def test_small_edits_are_edited_and_big_ones_rewritten():
@@ -56,3 +58,29 @@ def test_identical_titles_match_even_when_the_body_was_rewritten():
     new = [rf("Pricing and reimbursement", "Entirely new text on tariffs. " * 10)]
     (c,) = match(old, new, never_similar)
     assert c.status == "rewritten"
+
+
+def test_a_risk_carved_out_of_last_years_risk_is_a_split_not_new():
+    supply = "There are limited suppliers for certain components and shortages hurt us. " * 4
+    quality = "Our software contains bugs and defects that interfere with its operation. " * 4
+    old = [rf("Supply or quality problems", supply + quality)]
+    new = [rf("Supply or quality problems", supply + quality[:40]), rf("Quality problems", quality)]
+    got = {(c.status, (c.new or c.old).title) for c in match(old, new, _jaccard)}
+    assert ("split", "Quality problems") in got
+    split = next(c for c in match(old, new, _jaccard) if c.status == "split")
+    assert split.old is not None and split.old.title == "Supply or quality problems"
+
+
+def test_an_old_risk_folded_into_another_is_merged_not_removed():
+    debt = "Elevated indebtedness could reduce our flexibility and access to capital. " * 3
+    ratings = "Credit rating actions and interest rates could raise our cost of borrowing. " * 4
+    old = [rf("Credit ratings", ratings), rf("Indebtedness", debt)]
+    new = [rf("Credit ratings and indebtedness", ratings + debt[:200])]
+    statuses = {(c.status, c.old.title if c.old else "") for c in match(old, new, _jaccard)}
+    assert ("merged", "Indebtedness") in statuses
+
+
+def test_unrelated_new_risk_shares_no_sentences_and_stays_new():
+    old = [rf("Currency risk")]
+    new = [rf("Currency risk"), rf("Robots", "Humanoid robots are a nascent market for us. " * 6)]
+    assert "new" in {c.status for c in match(old, new, _jaccard)}

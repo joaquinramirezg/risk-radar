@@ -3,6 +3,11 @@
 Reads labels/items.json plus one or more label files ({"labels": {id: {q1, q2}}})
 and reports matcher precision, new/removed precision, clean-boundary rate and
 inter-labeller agreement, with Wilson 95% intervals.
+
+The sample was drawn before the split/merge step existed, so "before" scores
+the statuses frozen in items.json. "after" looks each new/removed item up in the
+current site/data and scores it again: an item now called split or merged is
+right when the labeller picked the same predecessor among the candidates.
 """
 
 from __future__ import annotations
@@ -28,7 +33,12 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
 
 def rate(k: int, n: int) -> dict[str, object]:
     lo, hi = wilson(k, n)
-    return {"k": k, "n": n, "rate": round(k / n, 4) if n else None, "ci95": [round(lo, 4), round(hi, 4)]}
+    return {
+        "k": k,
+        "n": n,
+        "rate": round(k / n, 4) if n else None,
+        "ci95": [round(lo, 4), round(hi, 4)],
+    }
 
 
 def kappa(a: list[str], b: list[str]) -> float:
@@ -49,9 +59,38 @@ def score(items: list[dict], labels: dict[str, dict]) -> dict[str, object]:
         "items": len(ids),
         "match_precision": rate(sum(q1[i["id"]] == "same" for i in matched), len(matched)),
         "new_precision": rate(sum(q1[i["id"]] == "truly_new" for i in new), len(new)),
-        "removed_precision": rate(sum(q1[i["id"]] == "truly_removed" for i in removed), len(removed)),
+        "removed_precision": rate(
+            sum(q1[i["id"]] == "truly_removed" for i in removed), len(removed)
+        ),
         "missed_links": sorted(i["id"] for i in new + removed if q1[i["id"]].startswith("cand")),
         "clean_boundary": rate(sum(labels[i["id"]]["q2"] == "complete" for i in ids), len(ids)),
+    }
+
+
+def after_split(items: list[dict], labels: dict[str, dict]) -> dict[str, object]:
+    calls: dict[str, tuple[str, str | None]] = {}
+    for it in items:
+        if it["kind"] == "matched" or it["id"] not in labels:
+            continue
+        doc = json.loads((ROOT / "site" / "data" / f"{it['ticker']}.json").read_text())
+        title = (it.get("new") or it["old"])["title"]
+        risk = next(r for r in doc["risks"] if r["title"] == title)
+        cands = [c["title"] for c in it["candidates"]]
+        link = risk.get("link_title")
+        calls[it["id"]] = (risk["status"], f"cand{cands.index(link)}" if link in cands else link)
+    q1 = {i: labels[i]["q1"] for i in calls}
+    linked = [i for i, (st, _) in calls.items() if st in ("split", "merged")]
+    new = [i for i, (st, _) in calls.items() if st == "new"]
+    removed = [i for i, (st, _) in calls.items() if st == "removed"]
+    return {
+        "new_precision": rate(sum(q1[i] == "truly_new" for i in new), len(new)),
+        "removed_precision": rate(sum(q1[i] == "truly_removed" for i in removed), len(removed)),
+        "split_merge_precision": rate(sum(q1[i] == calls[i][1] for i in linked), len(linked)),
+        "split_merge_recall": rate(
+            sum(q1[i] == calls[i][1] for i in linked),
+            sum(v.startswith("cand") for v in q1.values()),
+        ),
+        "calls": {i: list(v) for i, v in sorted(calls.items())},
     }
 
 
@@ -62,7 +101,9 @@ def main() -> None:
     args = ap.parse_args()
     items = json.loads((ROOT / "labels" / "items.json").read_text())["items"]
     sets = {p.stem: json.loads(p.read_text())["labels"] for p in args.labels}
-    report: dict[str, object] = {name: score(items, lab) for name, lab in sets.items()}
+    report: dict[str, object] = {}
+    for name, lab in sets.items():
+        report[name] = {"before": score(items, lab), "after": after_split(items, lab)}
     names = list(sets)
     agree = {}
     for x in range(len(names)):
@@ -73,7 +114,9 @@ def main() -> None:
                 va, vb = [a[i][q] for i in common], [b[i][q] for i in common]
                 agree[f"{names[x]}~{names[y]}:{q}"] = {
                     "n": len(common),
-                    "agreement": round(sum(u == v for u, v in zip(va, vb, strict=True)) / len(common), 4),
+                    "agreement": round(
+                        sum(u == v for u, v in zip(va, vb, strict=True)) / len(common), 4
+                    ),
                     "kappa": round(kappa(va, vb), 3),
                     "disagree": [i for i, u, v in zip(common, va, vb, strict=True) if u != v],
                 }

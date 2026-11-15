@@ -27,7 +27,9 @@
    },
    "counts": {
     "new": 1,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 5,
     "edited": 15,
     "unchanged": 7
@@ -74,7 +76,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 4,
     "unchanged": 20
@@ -119,7 +123,9 @@
    },
    "counts": {
     "new": 0,
-    "removed": 2,
+    "split": 0,
+    "removed": 1,
+    "merged": 1,
     "rewritten": 7,
     "edited": 10,
     "unchanged": 15
@@ -144,7 +150,6 @@
    },
    "new_titles": [],
    "removed_titles": [
-    "Our pending acquisition of Spirit AeroSystems Holdings, Inc. (Spirit) subjects us to various risks and uncertainties, including risks that we may not complete the acquisition or realize the anticipated benefits in the expected timeframe or at all.",
     "A significant portion of our customer financing portfolio is concentrated among certain customers and in certain types of Boeing aircraft, which exposes us to concentration risks."
    ]
   },
@@ -167,7 +172,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 1,
     "unchanged": 26
@@ -212,7 +219,9 @@
    },
    "counts": {
     "new": 1,
-    "removed": 2,
+    "split": 0,
+    "removed": 1,
+    "merged": 1,
     "rewritten": 2,
     "edited": 15,
     "unchanged": 4
@@ -239,7 +248,6 @@
     "We face risks from claims, litigation, governmental investigations and other proceedings to our businesses, reputation, results of operation and financial condition."
    ],
    "removed_titles": [
-    "Elevated indebtedness or leverage ratios could adversely affect us, including by decreasing our business flexibility.",
     "We face risks related to costs and expenses in connection with the acquisition of NBC Universal’s (NBCU) equity interest in Hulu and the TFCF acquisition."
    ]
   },
@@ -262,7 +270,9 @@
    },
    "counts": {
     "new": 1,
+    "split": 0,
     "removed": 1,
+    "merged": 0,
     "rewritten": 3,
     "edited": 24,
     "unchanged": 5
@@ -311,7 +321,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 1,
     "edited": 13,
     "unchanged": 23
@@ -356,7 +368,9 @@
    },
    "counts": {
     "new": 3,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 2,
     "unchanged": 18
@@ -404,8 +418,10 @@
     "words": 17900
    },
    "counts": {
-    "new": 2,
-    "removed": 1,
+    "new": 1,
+    "split": 1,
+    "removed": 0,
+    "merged": 1,
     "rewritten": 24,
     "edited": 16,
     "unchanged": 1
@@ -429,12 +445,9 @@
     }
    },
    "new_titles": [
-    "JPMorganChase’s interconnectedness with clients, customers and other external parties could be a source of significant operational risk.",
     "JPMorganChase’s operations, results, and competitive standing could be adversely affected by the development of advanced technologies such as AI."
    ],
-   "removed_titles": [
-    "Unfavorable changes in immigration or travel policies could adversely affect JPMorganChase’s businesses and operations."
-   ]
+   "removed_titles": []
   },
   {
    "ticker": "KO",
@@ -455,7 +468,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 9,
     "unchanged": 33
@@ -500,7 +515,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 1,
     "edited": 19,
     "unchanged": 28
@@ -544,8 +561,10 @@
     "words": 9926
    },
    "counts": {
-    "new": 3,
+    "new": 1,
+    "split": 2,
     "removed": 0,
+    "merged": 0,
     "rewritten": 5,
     "edited": 15,
     "unchanged": 10
@@ -569,9 +588,7 @@
     }
    },
    "new_titles": [
-    "Our cloud and AI strategy requires substantial investments and depends on evolving customer demand, technological developments, competitive dynamics, and regulatory conditions, any of which could adversely affect our business, financial condition, and results of operations.",
-    "We may be unable to develop and expand adequate infrastructure.",
-    "We may experience other quality problems."
+    "Our cloud and AI strategy requires substantial investments and depends on evolving customer demand, technological developments, competitive dynamics, and regulatory conditions, any of which could adversely affect our business, financial condition, and results of operations."
    ],
    "removed_titles": []
   },
@@ -594,7 +611,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 1,
     "edited": 23,
     "unchanged": 15
@@ -639,7 +658,9 @@
    },
    "counts": {
     "new": 1,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 1,
     "edited": 6,
     "unchanged": 16
@@ -686,7 +707,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 20,
     "unchanged": 4
@@ -731,7 +754,9 @@
    },
    "counts": {
     "new": 2,
+    "split": 0,
     "removed": 2,
+    "merged": 0,
     "rewritten": 3,
     "edited": 17,
     "unchanged": 18
@@ -781,8 +806,10 @@
     "words": 9233
    },
    "counts": {
-    "new": 1,
+    "new": 0,
+    "split": 1,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 8,
     "unchanged": 12
@@ -805,9 +832,7 @@
      "Export controls": 0
     }
    },
-   "new_titles": [
-    "Our increasing use of AI presents legal, regulatory and business risks to our operations, reputation and financial results."
-   ],
+   "new_titles": [],
    "removed_titles": []
   },
   {
@@ -829,7 +854,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 12,
     "edited": 9,
     "unchanged": 0
@@ -874,7 +901,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 2,
     "edited": 13,
     "unchanged": 9
@@ -919,7 +948,9 @@
    },
    "counts": {
     "new": 0,
+    "split": 0,
     "removed": 0,
+    "merged": 0,
     "rewritten": 0,
     "edited": 18,
     "unchanged": 6
