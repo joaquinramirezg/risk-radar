@@ -1,0 +1,1044 @@
+{
+ "meta": {
+  "labeller": "model (blind to human labels)",
+  "date": "2026-11-15",
+  "protocol": "Same two questions as the labelling page; labeller did not see the human labels collection."
+ },
+ "labels": {
+  "i001": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i002": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i003": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i004": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i005": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i006": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i007": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i008": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i009": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i010": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i011": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i012": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i013": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i014": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "note": "No prior standalone AI risk."
+  },
+  "i015": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i016": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i017": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i018": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i019": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i020": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i021": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i022": {
+   "q1": "truly_new",
+   "q2": "complete"
+  },
+  "i023": {
+   "q1": "truly_removed",
+   "q2": "complete"
+  },
+  "i024": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i025": {
+   "q1": "cand1",
+   "q2": "complete",
+   "note": "Prior \"supply or quality problems\" risk split; software-quality paragraph moved here."
+  },
+  "i026": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i027": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i028": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i029": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i030": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i031": {
+   "q1": "truly_new",
+   "q2": "complete"
+  },
+  "i032": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i033": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i034": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i035": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i036": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i037": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i038": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i039": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i040": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i041": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i042": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i043": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i044": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i045": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i046": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i047": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i048": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i049": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i050": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i051": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i052": {
+   "q1": "cand0",
+   "q2": "complete",
+   "note": "Prior outages/infrastructure risk split; opening paragraph carried over."
+  },
+  "i053": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i054": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i055": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i056": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i057": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i058": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i059": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i060": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i061": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i062": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i063": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i064": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i065": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i066": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i067": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i068": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i069": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i070": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i071": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i072": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i073": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i074": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i075": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i076": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i077": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i078": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i079": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i080": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i081": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i082": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i083": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i084": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i085": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i086": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i087": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i088": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i089": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i090": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i091": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i092": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i093": {
+   "q1": "truly_removed",
+   "q2": "complete"
+  },
+  "i094": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i095": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i096": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i097": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i098": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i099": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i100": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i101": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i102": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i103": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i104": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i105": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i106": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i107": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i108": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i109": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i110": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i111": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i112": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i113": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i114": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i115": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i116": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i117": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i118": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i119": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i120": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i121": {
+   "q1": "truly_new",
+   "q2": "complete"
+  },
+  "i122": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i123": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i124": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i125": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i126": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i127": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i128": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i129": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i130": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i131": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i132": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i133": {
+   "q1": "cand1",
+   "q2": "complete",
+   "note": "Interconnectedness paragraph lifted out of prior operational-systems risk."
+  },
+  "i134": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i135": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i136": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i137": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i138": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i139": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i140": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i141": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i142": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i143": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i144": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i145": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i146": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i147": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i148": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i149": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i150": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i151": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i152": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i153": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i154": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i155": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i156": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i157": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i158": {
+   "q1": "truly_new",
+   "q2": "complete"
+  },
+  "i159": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i160": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i161": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i162": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i163": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i164": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i165": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i166": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i167": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i168": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i169": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i170": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i171": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i172": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i173": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i174": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i175": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i176": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i177": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i178": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i179": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i180": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i181": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i182": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i183": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i184": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i185": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i186": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i187": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i188": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i189": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i190": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i191": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i192": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i193": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i194": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i195": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i196": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i197": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i198": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i199": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i200": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i201": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i202": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i203": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i204": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i205": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i206": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i207": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i208": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i209": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i210": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i211": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i212": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i213": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i214": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i215": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "note": "Capex/financing framing is new; prior cloud+AI risk maps to the success-of-products risk."
+  },
+  "i216": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i217": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i218": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i219": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i220": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i221": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i222": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i223": {
+   "q1": "truly_new",
+   "q2": "complete"
+  },
+  "i224": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i225": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i226": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i227": {
+   "q1": "truly_new",
+   "q2": "complete"
+  },
+  "i228": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i229": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i230": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i231": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i232": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i233": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i234": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i235": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i236": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i237": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i238": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i239": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i240": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i241": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i242": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i243": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i244": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i245": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i246": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i247": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i248": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i249": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i250": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i251": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i252": {
+   "q1": "truly_new",
+   "q2": "complete",
+   "note": "Prior AI mentions were scattered, no standalone risk."
+  },
+  "i253": {
+   "q1": "cand0",
+   "q2": "complete",
+   "note": "Immigration point folded into the workforce risk."
+  },
+  "i254": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i255": {
+   "q1": "same",
+   "q2": "complete"
+  },
+  "i256": {
+   "q1": "same",
+   "q2": "fragment"
+  },
+  "i257": {
+   "q1": "same",
+   "q2": "complete"
+  }
+ }
+}
