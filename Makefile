@@ -22,6 +22,8 @@ fetch:
 radar:
 	PYTHONPATH=src python3 tools/build_radar.py
 	python3 tools/findings.py
+	python3 tools/build_ask_index.py
+	python3 tools/faded.py
 	python3 tools/search_index.py
 	python3 tools/check_site.py
 serve:

@@ -154,6 +154,55 @@
   }
  },
  "models": {
+  "claude-haiku-5-5-low-prompt2": {
+   "n": 63,
+   "n_answerable": 54,
+   "n_unanswerable": 9,
+   "correct": {
+    "mean": 0.7222,
+    "lo": 0.5926,
+    "hi": 0.8333,
+    "n": 54
+   },
+   "correct_or_partial": {
+    "mean": 0.963,
+    "lo": 0.9074,
+    "hi": 1,
+    "n": 54
+   },
+   "abstained_when_answerable": {
+    "mean": 0,
+    "lo": 0,
+    "hi": 0,
+    "n": 54
+   },
+   "declined_when_unanswerable": {
+    "mean": 1,
+    "lo": 1,
+    "hi": 1,
+    "n": 9
+   },
+   "citation_precision": {
+    "mean": 0.7317,
+    "lo": 0.6389,
+    "hi": 0.8254,
+    "n": 54
+   },
+   "claims_supported": {
+    "supported": 125,
+    "n": 168,
+    "rate": {
+     "mean": 0.744,
+     "lo": 0.6786,
+     "hi": 0.8095,
+     "n": 168
+    }
+   },
+   "rejected_by_citation_check": 0,
+   "usd_per_answer": 0.00057,
+   "p50_ms": 2760,
+   "p95_ms": 3675
+  },
   "claude-haiku-5-5-low": {
    "n": 63,
    "n_answerable": 54,
@@ -188,10 +237,69 @@
     "hi": 0.8236,
     "n": 53
    },
+   "claims_supported": {
+    "supported": 122,
+    "n": 152,
+    "rate": {
+     "mean": 0.8026,
+     "lo": 0.7368,
+     "hi": 0.8684,
+     "n": 152
+    }
+   },
    "rejected_by_citation_check": 0,
    "usd_per_answer": 0.00057,
    "p50_ms": 2316,
    "p95_ms": 3348
+  },
+  "claude-sonnet-5-5-low": {
+   "n": 63,
+   "n_answerable": 54,
+   "n_unanswerable": 9,
+   "correct": {
+    "mean": 0.9259,
+    "lo": 0.8519,
+    "hi": 0.9815,
+    "n": 54
+   },
+   "correct_or_partial": {
+    "mean": 0.9815,
+    "lo": 0.9444,
+    "hi": 1,
+    "n": 54
+   },
+   "abstained_when_answerable": {
+    "mean": 0,
+    "lo": 0,
+    "hi": 0,
+    "n": 54
+   },
+   "declined_when_unanswerable": {
+    "mean": 1,
+    "lo": 1,
+    "hi": 1,
+    "n": 9
+   },
+   "citation_precision": {
+    "mean": 0.742,
+    "lo": 0.6656,
+    "hi": 0.8216,
+    "n": 54
+   },
+   "claims_supported": {
+    "supported": 202,
+    "n": 227,
+    "rate": {
+     "mean": 0.8899,
+     "lo": 0.8458,
+     "hi": 0.9295,
+     "n": 227
+    }
+   },
+   "rejected_by_citation_check": 0,
+   "usd_per_answer": 0.01023,
+   "p50_ms": 3759,
+   "p95_ms": 5239
   }
  },
  "failures": [
@@ -268,5 +376,11 @@
    "retrieved_gold": false
   }
  ],
- "eval_cost_usd": 0.128
+ "eval_cost_usd": 1.43,
+ "sonnet_minus_haiku_correct": {
+  "mean": 0.0926,
+  "lo": -0.0185,
+  "hi": 0.2037,
+  "n": 54
+ }
 }

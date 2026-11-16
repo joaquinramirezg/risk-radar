@@ -109,7 +109,7 @@ async function retrieval() {
   console.log(out.paired);
 }
 
-const JUDGE_PROMPT = `You grade an answer to a question about companies' 10-K risk factors against a reference answer written by a person who read the filing.
+const JUDGE_PROMPT = `You grade an answer to a question about companies' 10-K risk factors against a reference answer written from the filing.
 Return JSON only: {"verdict": "correct" | "partial" | "wrong", "reason": "<one sentence>"}.
 correct: states what the reference states (wording may differ) and adds nothing that contradicts it.
 partial: right direction but misses the main point of the reference, or adds an unsupported claim.
@@ -180,6 +180,55 @@ async function declines(model, effort = "low") {
   writeFileSync(file, rows.map((r) => JSON.stringify(r)).join("\n") + "\n");
 }
 
+// Faithfulness: does each cited sentence actually support the claim it is
+// attached to? The judge sees only the claim and the cited text, never the
+// question or the reference, so this checks grounding, not correctness.
+const FAITH_PROMPT = `You check whether claims are supported by the quoted source sentences attached to them. Judge each claim only against its own quotes, not outside knowledge. A claim is supported if the quotes state it or directly imply it; minor paraphrase is fine; any added specific (a number, a name, a date, a cause) that the quotes do not contain makes it unsupported.
+Return JSON only: {"claims": [{"i": <number>, "supported": true | false, "why": "<short reason if false, else empty>"}]}`;
+
+function sourceText(id) {
+  const { risks } = load();
+  if (id.startsWith("theme.")) return null; // counts from findings.json, checked elsewhere
+  const parts = id.split(".");
+  const r = risks.get(`${parts[0]}.${parts[1]}`);
+  if (!r) return null;
+  const k = parts[2];
+  if (k === "title") return r.title;
+  if (k.startsWith("p")) {
+    const prev = (r.previous || "").split(/\n\s*\n/).flatMap((p) => p.replace(/\s+/g, " ").trim().split(/(?<=[.?!])\s+(?=[A-Z0-9“"(])/)).filter(Boolean);
+    return prev[Number(k.slice(1))] || null;
+  }
+  return r.sentences[Number(k)] || null;
+}
+
+function claimsOf(answer, cited) {
+  // A claim is a sentence of the answer that carries at least one [n].
+  return answer.split(/(?<=[.!?])\s+(?=[A-Z"“])/).map((s) => {
+    const ns = [...s.matchAll(/\[(\d+)\]/g)].map((m) => Number(m[1]));
+    return { text: s.replace(/\[\d+\]/g, "").trim(), quotes: ns.map((n) => sourceText(cited[n - 1] || "")).filter(Boolean) };
+  }).filter((c) => c.quotes.length);
+}
+
+async function faith(model, effort = "low") {
+  const client = new Anthropic();
+  const file = join(OUT, `answers-${model}-${effort}.jsonl`);
+  const rows = readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+  for (const r of rows) {
+    if (r.faith || r.rejected) continue;
+    const claims = claimsOf(r.answer, r.cited);
+    if (!claims.length) { r.faith = { n: 0, supported: 0, claims: [] }; continue; }
+    const body = claims.map((c, i) => `Claim ${i + 1}: ${c.text}\n${c.quotes.map((q) => `  Quote: "${q}"`).join("\n")}`).join("\n\n");
+    const res = await client.messages.create({ model: JUDGE, max_tokens: 1200, output_config: { effort: "low" }, system: FAITH_PROMPT, messages: [{ role: "user", content: body }] });
+    const t = res.content.filter((b) => b.type === "text").map((b) => b.text).join("");
+    let out;
+    try { out = JSON.parse(t.slice(t.indexOf("{"), t.lastIndexOf("}") + 1)).claims; } catch { out = []; }
+    const verdicts = claims.map((c, i) => ({ claim: c.text, supported: !!out.find((x) => x.i === i + 1)?.supported, why: out.find((x) => x.i === i + 1)?.why || "" }));
+    r.faith = { n: verdicts.length, supported: verdicts.filter((v) => v.supported).length, claims: verdicts, usage: res.usage };
+    console.log(r.qid, `${r.faith.supported}/${r.faith.n}`);
+  }
+  writeFileSync(file, rows.map((x) => JSON.stringify(x)).join("\n") + "\n");
+}
+
 function summarize(file) {
   const rows = readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
   const ans = rows.filter((r) => r.answerable);
@@ -193,6 +242,7 @@ function summarize(file) {
     abstained_when_answerable: ci(ans.map((r) => +r.abstained)),
     declined_when_unanswerable: un.length ? ci(un.map((r) => +(r.abstained || !!r.decline_judge?.declined))) : null,
     citation_precision: prec.length ? ci(prec) : null,
+    claims_supported: (() => { const f = rows.filter((r) => r.faith?.n); const n = f.reduce((a, r) => a + r.faith.n, 0); return n ? { supported: f.reduce((a, r) => a + r.faith.supported, 0), n, rate: ci(f.flatMap((r) => r.faith.claims.map((c) => +c.supported))) } : null; })(),
     rejected_by_citation_check: rows.filter((r) => r.rejected).length,
     usd_per_answer: +(rows.reduce((a, r) => a + r.usage.usd, 0) / rows.length).toFixed(5),
     p50_ms: pct(rows.map((r) => r.usage.ms), 0.5),
@@ -217,9 +267,20 @@ function report() {
     const rows = readFileSync(chosen, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
     out.failures = rows.filter((r) => r.answerable && r.judge?.verdict !== "correct")
       .map((r) => ({ qid: r.qid, question: r.question, answer: r.answer, verdict: r.judge?.verdict || "declined", reason: r.judge?.reason || "", retrieved_gold: r.retrieved_gold }));
-    const judgeUsd = rows.reduce((a, r) => a + ["judge", "decline_judge"].reduce((b, k) => {
+    // Everything spent on this eval: every model's answers plus every grading call.
+    const all = readdir(OUT).filter((f) => f.startsWith("answers-") && f.endsWith(".jsonl"))
+      .flatMap((f) => readFileSync(join(OUT, f), "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)));
+    const graded = all.reduce((a, r) => a + ["judge", "decline_judge", "faith"].reduce((b, k) => {
       const u = r[k]?.usage; return b + (u ? (u.input_tokens * 2 + u.output_tokens * 10) / 1e6 : 0); }, 0), 0);
-    out.eval_cost_usd = +(rows.reduce((a, r) => a + r.usage.usd, 0) + judgeUsd).toFixed(3);
+    out.eval_cost_usd = +(all.reduce((a, r) => a + r.usage.usd, 0) + graded).toFixed(2);
+  }
+  // Paired comparison on the same questions: Sonnet minus Haiku, correct answers.
+  const fh = join(OUT, "answers-claude-haiku-5-5-low.jsonl"), fs = join(OUT, "answers-claude-sonnet-5-5-low.jsonl");
+  if (existsSync(fh) && existsSync(fs)) {
+    const rd = (f) => Object.fromEntries(readFileSync(f, "utf8").split("\n").filter(Boolean).map((l) => { const r = JSON.parse(l); return [r.qid, r]; }));
+    const H = rd(fh), S = rd(fs);
+    const ok = (r) => +(r?.judge?.verdict === "correct");
+    out.sonnet_minus_haiku_correct = ci(Object.keys(H).filter((k) => H[k].answerable).map((k) => ok(S[k]) - ok(H[k])));
   }
   writeFileSync(join(ROOT, "site", "data", "eval.json"), JSON.stringify(out, null, 1));
   console.log(JSON.stringify(out.models, null, 1));
@@ -231,5 +292,6 @@ const [cmd, a, b] = process.argv.slice(2);
 if (cmd === "retrieval") await retrieval();
 else if (cmd === "answers") await answers(a || "claude-haiku-5-5", b);
 else if (cmd === "declines") await declines(a || "claude-haiku-5-5", b);
+else if (cmd === "faith") await faith(a || "claude-haiku-5-5", b);
 else if (cmd === "report") report();
 else console.log("usage: eval.mjs retrieval | answers MODEL [EFFORT] | report");

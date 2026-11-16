@@ -4,7 +4,7 @@
   const view = document.getElementById("view");
   const ORDER = ["new", "split", "removed", "merged", "rewritten", "edited", "unchanged"];
   const LABEL = { new: "new", split: "split off", removed: "removed", merged: "merged", rewritten: "rewritten", edited: "edited", unchanged: "unchanged" };
-  let INDEX = null, FINDINGS = null, theme = null, chartAll = false, coAll = false, coQuery = "";
+  let INDEX = null, FINDINGS = null, FADED = [], theme = null, chartAll = false, coAll = false, coQuery = "";
   const cache = {};
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -117,6 +117,24 @@
     view.querySelectorAll(".ask-try [data-q]").forEach(b => b.addEventListener("click", () => { i.value = b.dataset.q; runAsk(b.dataset.q); }));
   }
 
+
+  // At a glance: the whole story in one picture. Rising themes use findings.json
+  // (added or expanded language); faded themes use faded.json (plain mention counts).
+  function glanceHTML() {
+    const n = FINDINGS.companies;
+    const up = FINDINGS.themes.filter(t => LEAD[t.theme]).map(t => ({ label: t.theme, v: t.companies_up, note: `of ${n} added or expanded it` , cls: "up" }));
+    const esg = FADED.find(f => f.theme === "ESG"), cov = FADED.find(f => f.theme === "COVID-19");
+    const down = [];
+    if (esg) down.push({ label: "ESG", v: esg.gone, note: `of the ${esg.had} that used the term dropped it entirely`, cls: "down", max: esg.had });
+    if (cov) down.push({ label: "COVID-19", v: cov.down, note: `of ${n} mention it less (${cov.had - cov.gone} still mention it)`, cls: "down" });
+    const row = r => `<li class="g-${r.cls}"><span class="g-label">${r.cls === "up" ? "▲" : "▼"} ${esc(r.label)}</span>
+      <span class="g-bar" aria-hidden="true"><span style="width:${pct(r.v, r.max || n)}%"></span></span>
+      <span class="g-num"><b class="num">${r.v}</b> ${esc(r.note)}</span></li>`;
+    return `<section class="glance" aria-labelledby="gl"><h2 id="gl">This year, at a glance</h2>
+      <ul class="g">${up.map(row).join("")}${down.map(row).join("")}</ul>
+      ${esg && esg.examples.length ? `<p class="chart-note">Gone this year, for example ${esc(esg.examples[0].company)}: “${esc(esg.examples[0].sentence)}”</p>` : ""}
+    </section>`;
+  }
   function renderHome() {
     const lg = document.querySelector(".legend"); if (lg) lg.hidden = true;
     document.title = "Risk Radar: what America's biggest companies are worried about";
@@ -125,6 +143,7 @@
     const rest = F.themes.filter(t => !LEAD[t.theme]).map(t => findingHTML(t, n)).join("");
     view.innerHTML = `<div style="display:grid;gap:40px">
       ${askHTML()}
+      ${glanceHTML()}
       <section class="findings" aria-labelledby="fi"><div class="section-head"><h2 id="fi">This year's three biggest shifts</h2><a href="#eval">How accurate is this?</a></div>${top}</section>
       <section class="findings" aria-labelledby="mo"><div class="section-head"><h2 id="mo">Also moving</h2></div>${rest}</section>
       <p class="home-links"><a class="showall" href="#all">Browse all ${INDEX.companies.length} companies</a> <a class="showall" href="#all">Search the full text</a> <a class="showall" href="#eval">How we know it's right</a></p>
@@ -160,10 +179,17 @@
           <tr><th scope="row">Correct, graded against the reference answer</th><td>${CI(M.correct)}</td></tr>
           <tr><th scope="row">Correct or partly correct</th><td>${CI(M.correct_or_partial)}</td></tr>
           <tr><th scope="row">Declined a question it could have answered</th><td>${CI(M.abstained_when_answerable)}</td></tr>
+          <tr><th scope="row">Claims fully backed by the sentence they cite</th><td>${CI(M.claims_supported.rate)} <span class="ci num">${M.claims_supported.supported} of ${M.claims_supported.n}</span></td></tr>
           <tr><th scope="row">Citations that point to the right risk factor</th><td>${CI(M.citation_precision)}</td></tr>
           <tr><th scope="row">Slowest 5% of answers</th><td class="num">${(M.p95_ms / 1000).toFixed(1)} s or faster</td></tr>
         </tbody></table>
-        <p class="chart-note">Model: Claude Haiku 5.5 at low effort, the cheapest option, chosen because it already clears the bar. Running all ${E.golden.n} questions, grading included, cost $${E.eval_cost_usd.toFixed(2)}. A citation counts as off target when it points to a different risk factor than the one the question was written from, even if that sentence also supports the answer, so this measure undercounts.</p>
+        <p class="chart-note">Model: Claude Haiku 5.5 at low effort, chosen over Claude Sonnet 5.5 for the reasons below. Every run on this page, grading included, cost $${E.eval_cost_usd.toFixed(2)} in total. A citation counts as off target when it points to a different risk factor than the one the question was written from, even if that sentence also supports the answer, so this measure undercounts.</p>
+      </section>
+      <section style="display:grid;gap:12px"><h2>Which model, and what it costs</h2>
+        <table class="acc"><thead><tr><th>Model (low effort)</th><th>Correct</th><th>Claims backed by citations</th><th>Cost per answer</th><th>Typical time</th></tr></thead><tbody>
+          ${[["claude-haiku-5-5-low", "Claude Haiku 5.5 (used here)"], ["claude-sonnet-5-5-low", "Claude Sonnet 5.5"], ["claude-haiku-5-5-low-prompt2", "Haiku with a stricter grounding prompt (rejected)"]].filter(([k]) => E.models[k]).map(([k, label]) => { const m = E.models[k]; return `<tr><th scope="row">${label}</th><td>${CI(m.correct)}</td><td>${CI(m.claims_supported.rate)}</td><td class="num">$${m.usd_per_answer.toFixed(4)}</td><td class="num">${(m.p50_ms / 1000).toFixed(1)} s</td></tr>`; }).join("")}
+        </tbody></table>
+        <p class="chart-note">On the same questions Sonnet answered ${Math.round(100 * E.sonnet_minus_haiku_correct.mean)} more in 100 correctly, but the 95% interval runs from ${Math.round(100 * E.sonnet_minus_haiku_correct.lo)} to ${Math.round(100 * E.sonnet_minus_haiku_correct.hi)}, so with ${E.golden.answerable} questions the gap is not proven, while the cost is ${Math.round(E.models["claude-sonnet-5-5-low"].usd_per_answer / M.usd_per_answer)} times higher. Haiku stays. The most common unsupported claim adds a word the filing does not say ("mainly", "because"). A prompt that forbade that made answers worse and did not make claims better backed, so it was dropped. Claims were checked by Claude Sonnet 5.5 reading only the claim and its cited sentences.</p>
       </section>
       <section style="display:grid;gap:12px"><h2>Search</h2>
         <table class="acc"><thead><tr><th>Search method</th><th>Right risk factor in top 5</th><th>MRR</th><th></th></tr></thead><tbody>
@@ -182,6 +208,15 @@
         <p>The test questions and reference answers were written by Claude (Opus 5.5) from risk factors sampled at random, one per company, not by a person. Answers were graded by a second model (Claude Sonnet 5.5) against those references, and that grader has not been checked against human grades. With ${E.golden.answerable} answerable questions, differences smaller than about ten points are not meaningful. Each row of the test set and every graded answer are in the repository.</p>
       </section>
     </div>`;
+    // The year-over-year engine's own accuracy (matcher, splitter, change tags) lives in the footer; show it here too.
+    const acc = document.getElementById("accuracy");
+    if (acc) {
+      const sec = document.createElement("section");
+      sec.style.cssText = "display:grid;gap:12px";
+      sec.innerHTML = `<h2>The year-over-year engine</h2>`;
+      for (let n = acc.nextElementSibling; n; n = n.nextElementSibling) sec.appendChild(n.cloneNode(true));
+      view.firstElementChild.appendChild(sec);
+    }
     view.querySelector("#back").addEventListener("click", () => { location.hash = ""; });
     window.scrollTo(0, 0);
   }
@@ -526,7 +561,8 @@
       view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;
   }
 
-  Promise.all([getJSON("data/index.json"), getJSON("data/findings.json").catch(() => null)]).then(([ix, fi]) => {
+  Promise.all([getJSON("data/index.json"), getJSON("data/findings.json").catch(() => null), getJSON("data/faded.json").catch(() => [])]).then(([ix, fi, fa]) => {
+    FADED = fa;
     INDEX = ix;
     FINDINGS = fi;
     const sk = (ix.skipped || []).length;

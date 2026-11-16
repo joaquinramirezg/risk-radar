@@ -1,7 +1,7 @@
 [project]
-name = "sec-10k-retrieval-evals"
-version = "0.1.0"
-description = "A hand-labelled retrieval eval harness over SEC 10-K risk-factor sections."
+name = "risk-radar"
+version = "2.0.0"
+description = "What the S&P 100 added, removed and rewrote in their 10-K risk factors, with a cited, measured Q&A agent."
 requires-python = ">=3.11"
 dependencies = []
 

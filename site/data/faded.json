@@ -1,0 +1,79 @@
+[
+ {
+  "theme": "ESG",
+  "had": 53,
+  "gone": 26,
+  "down": 34,
+  "up": 1,
+  "tickers_gone": [
+   "ADBE",
+   "AMGN",
+   "AMT",
+   "AVGO",
+   "AXP",
+   "BKNG",
+   "CMCSA",
+   "CRM",
+   "GE",
+   "GILD",
+   "GS",
+   "INTC",
+   "INTU",
+   "JPM",
+   "MDLZ",
+   "MET",
+   "NOW",
+   "PG",
+   "QCOM",
+   "RTX",
+   "TMO",
+   "TSLA",
+   "TXN",
+   "USB",
+   "WFC",
+   "WMT"
+  ],
+  "examples": [
+   {
+    "ticker": "ADBE",
+    "company": "Adobe",
+    "sentence": "Laws, regulations and policies relating to environmental, social, and governance are expanding globally."
+   },
+   {
+    "ticker": "AMGN",
+    "company": "Amgen",
+    "sentence": "Stakeholders, including our investors and our employees, have increasingly focused on, and are expected to continue to focus on, our ESG practices."
+   },
+   {
+    "ticker": "AMT",
+    "company": "American Tower",
+    "sentence": "We cannot guarantee that we will achieve our announced environmental, social and governance goals and initiatives."
+   }
+  ]
+ },
+ {
+  "theme": "COVID-19",
+  "had": 98,
+  "gone": 4,
+  "down": 33,
+  "up": 1,
+  "tickers_gone": [
+   "FDX",
+   "JPM",
+   "T",
+   "VZ"
+  ],
+  "examples": [
+   {
+    "ticker": "T",
+    "company": "AT&T",
+    "sentence": "The COVID-19 pandemic accelerated these changes and also resulted in higher network utilization, as more customers consumed bandwidth from changes in work and learn from home trends."
+   },
+   {
+    "ticker": "VZ",
+    "company": "Verizon",
+    "sentence": "For example, in 2020, the COVID-19 pandemic and resulting policies, initiatives and impacts, along with the related global slowdown in economic activity, resulted in our decreased revenues, increased costs and lower earnings per share."
+   }
+  ]
+ }
+]
