@@ -35,3 +35,7 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 pythonpath = ["src", "tools"]
 testpaths = ["tests"]
+
+[tool.ruff.lint.per-file-ignores]
+# A data file: the questions and answers are kept one per line on purpose.
+"tools/golden_v1.py" = ["E501"]

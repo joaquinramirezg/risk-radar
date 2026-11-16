@@ -101,6 +101,17 @@ async function retrieval() {
     out.paired[`hybrid_minus_${base}_ndcg`] = ci(d);
   }
   out.misses = misses;
+  // --check (CI): the committed numbers must reproduce exactly, or the build fails.
+  if (process.argv.includes("--check")) {
+    const before = JSON.parse(readFileSync(join(OUT, "ask-retrieval.json"), "utf8"));
+    const moved = Object.keys(rows).flatMap((m) => ["r5", "mrr", "ndcg"].filter((k) => before[m]?.[k]?.mean !== out[m][k].mean).map((k) => `${m}.${k}: ${before[m]?.[k]?.mean} -> ${out[m][k].mean}`));
+    if (moved.length) {
+      console.error(`retrieval numbers moved:\n  ${moved.join("\n  ")}`);
+      process.exit(1);
+    }
+    console.log("retrieval numbers reproduce");
+    return;
+  }
   writeFileSync(join(OUT, "ask-retrieval.json"), JSON.stringify(out, null, 1));
   for (const m of ["bm25", "dense", "hybrid", "hybrid_company"]) {
     const s = out[m];

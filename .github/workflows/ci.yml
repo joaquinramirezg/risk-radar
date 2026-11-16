@@ -15,12 +15,17 @@ jobs:
       # The published site data must hang together: every front-page link
       # resolves, every quoted sentence is in the filing text, counts add up.
       - run: python3 tools/check_site.py
-      # The retrieval eval is deterministic and needs no API key, so it runs on
-      # every push once a golden set exists. If the committed numbers stop
-      # reproducing, CI fails.
-      - run: |
-          if [ -s data/golden/golden.jsonl ]; then
-            PYTHONPATH=src:tools python3 tools/run_retrieval_eval.py --check
-          else
-            echo "No golden set yet; retrieval check skipped."
-          fi
+  ask:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # The shipped agent: citation check, search, fusion. A stub model, no API key.
+      - run: node --test tests/js/
+      # The search numbers on the eval page must reproduce exactly from the
+      # committed index and golden set. No API key: retrieval only.
+      - run: node api/_tools/eval.mjs retrieval --check

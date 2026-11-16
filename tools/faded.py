@@ -8,6 +8,7 @@ Counts mentions of each theme in a company's whole Item 1A this year and last
 plain word count, not the added-or-expanded test tools/findings.py applies to
 rising themes. Each entry keeps one sentence from last year that is gone.
 """
+
 from __future__ import annotations
 
 import json
@@ -35,18 +36,37 @@ def main() -> int:
             old = r["previous"] or ""
             prev[t] = prev.get(t, 0) + len(rx.findall(old))
             if t not in quote and rx.search(old) and not any(rx.search(s) for s in r["sentences"]):
-                hit = next((s for s in re.split(r"(?<=[.?!])\s+", " ".join(old.split())) if rx.search(s)), "")
+                hit = next(
+                    (s for s in re.split(r"(?<=[.?!])\s+", " ".join(old.split())) if rx.search(s)),
+                    "",
+                )
                 if 40 < len(hit) < 320:
                     quote[t] = hit
         had = [t for t in prev if prev[t] > 0]
         gone = sorted(t for t in had if cur[t] == 0)
         down = sorted(t for t in had if cur[t] < prev[t])
-        ex = [{"ticker": t, "company": c["companies"][t]["name"], "sentence": quote[t]}
-              for t in gone if t in quote][:3]
-        out.append({"theme": name, "had": len(had), "gone": len(gone), "down": len(down),
-                    "up": sum(1 for t in cur if cur[t] > prev[t]), "tickers_gone": gone, "examples": ex})
-        print(f"{name}: {len(had)} used it last year, {len(down)} use it less, {len(gone)} dropped it")
-    (ROOT / "site" / "data" / "faded.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+        ex = [
+            {"ticker": t, "company": c["companies"][t]["name"], "sentence": quote[t]}
+            for t in gone
+            if t in quote
+        ][:3]
+        out.append(
+            {
+                "theme": name,
+                "had": len(had),
+                "gone": len(gone),
+                "down": len(down),
+                "up": sum(1 for t in cur if cur[t] > prev[t]),
+                "tickers_gone": gone,
+                "examples": ex,
+            }
+        )
+        print(
+            f"{name}: {len(had)} used it last year, {len(down)} use it less, {len(gone)} dropped it"
+        )
+    (ROOT / "site" / "data" / "faded.json").write_text(
+        json.dumps(out, ensure_ascii=False, indent=1)
+    )
     return 0
 
 

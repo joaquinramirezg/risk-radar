@@ -14,6 +14,7 @@ labels, the test would grade itself, so this tool has no generation mode.
 Resumable: appends to data/golden/golden.jsonl and never shows a risk twice.
 At the question prompt: s skip | q save and quit
 """
+
 from __future__ import annotations
 
 import argparse
@@ -56,12 +57,15 @@ def next_qid(items: list[dict]) -> str:
 
 def status(items: list[dict]) -> None:
     unans = sum(1 for i in items if not i["gold_risks"])
-    print(f"\ngolden set: {len(items)} of ~{TARGET} "
-          f"({len(items) - unans} answerable, {unans} unanswerable)")
+    print(
+        f"\ngolden set: {len(items)} of ~{TARGET} "
+        f"({len(items) - unans} answerable, {unans} unanswerable)"
+    )
     want_unans = max(0, round(0.15 * TARGET) - unans)
     if want_unans:
-        print(f"still to do: about {want_unans} unanswerable "
-              f"(python3 tools/label.py --unanswerable)")
+        print(
+            f"still to do: about {want_unans} unanswerable (python3 tools/label.py --unanswerable)"
+        )
 
 
 def ask(prompt: str) -> str:
@@ -83,18 +87,28 @@ def main() -> int:
         return 0
 
     if args.unanswerable:
-        print(textwrap.dedent("""
+        print(
+            textwrap.dedent("""
             Questions a reader might plausibly ask that the risk factors cannot answer:
             a number they never state, a company outside the S&P 100, an opinion,
             a future event. These make the refusal rate measurable. Blank line to stop.
-        """))
+        """)
+        )
         while True:
             q = ask("unanswerable question: ")
             if not q:
                 break
             why = ask("  why the filings cannot answer it: ")
-            append({"qid": next_qid(items), "question": q, "gold_risks": [],
-                    "gold_sentences": [], "answer": "", "note": why})
+            append(
+                {
+                    "qid": next_qid(items),
+                    "question": q,
+                    "gold_risks": [],
+                    "gold_sentences": [],
+                    "answer": "",
+                    "note": why,
+                }
+            )
             items = load()
             print(f"  saved ({len(items)} total)\n")
         status(items)
@@ -105,15 +119,19 @@ def main() -> int:
     rng = random.Random(args.seed)
     pool.sort(key=lambda r: rng.random() ** (1 / WEIGHT.get(r["status"], 1)), reverse=True)
 
-    print(textwrap.dedent(f"""
+    print(
+        textwrap.dedent(f"""
         For each risk factor: write a question someone might ask that it answers
         (it can name the company, or be about what changed this year), then the
         sentence numbers that answer it, then a one-line answer. s skips, q quits.
         {len(items)} done so far, aiming for about {TARGET}.
-    """))
+    """)
+    )
     for r in pool:
         print("=" * 78)
-        print(f"{names[r['ticker']]} ({r['ticker']})   [{STATUS_NOTE.get(r['status'], r['status'])}]")
+        print(
+            f"{names[r['ticker']]} ({r['ticker']})   [{STATUS_NOTE.get(r['status'], r['status'])}]"
+        )
         print(textwrap.fill(r["title"], 78))
         if r.get("change_reason"):
             print(textwrap.fill(f"(what changed: {r['change_reason']})", 78))
@@ -139,8 +157,15 @@ def main() -> int:
                 break
             print(f"  type numbers between 1 and {len(shown)}")
         answer = ask("  short answer in your words: ")
-        append({"qid": next_qid(items), "question": q, "gold_risks": [r["id"]],
-                "gold_sentences": [f"{r['id']}.{n - 1}" for n in nums], "answer": answer})
+        append(
+            {
+                "qid": next_qid(items),
+                "question": q,
+                "gold_risks": [r["id"]],
+                "gold_sentences": [f"{r['id']}.{n - 1}" for n in nums],
+                "answer": answer,
+            }
+        )
         items = load()
         print(f"  saved {len(items)}\n")
         if len(items) >= TARGET:
