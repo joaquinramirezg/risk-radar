@@ -16,10 +16,16 @@ Ask the filings, on Claude Haiku 5.5 (low effort), over 63 test questions
 |---|---|
 | Answers correct, graded against the reference answer | 83% (72% to 93%) |
 | Correct or partly correct | 94% (87% to 100%) |
+| Claims fully backed by the sentence they cite | 80% (74% to 87%), 122 of 152 |
 | Unanswerable questions declined | 9 of 9 |
 | Answers citing text the search never returned | 0 |
 | Cost per answer | $0.0006 |
 | Typical / slowest-5% answer time | 2.3 s / 3.3 s |
+
+Claude Sonnet 5.5 on the same questions: 93% correct, 89% of claims backed,
+$0.0102 an answer. Paired against Haiku it answers 9 more in 100 correctly,
+95% interval -2 to 20, at 18 times the cost, so Haiku stays. A stricter
+grounding prompt on Haiku dropped correct answers to 72% and was reverted.
 
 | Search method | Right risk factor in top 5 | MRR |
 |---|---|---|
