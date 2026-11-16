@@ -1,5 +1,5 @@
 // Tests for the shipped Ask code. No network, no API key: the model is a stub.
-//   node --test tests/js/
+//   node --test tests/js/*.test.mjs
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { ask, checkCitations, cost } from "../../api/_lib/agent.js";
