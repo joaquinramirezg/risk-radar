@@ -28,4 +28,13 @@ jobs:
       - run: node --test tests/js/*.test.mjs
       # The search numbers on the eval page must reproduce exactly from the
       # committed index and golden set. No API key: retrieval only.
-      - run: node api/_tools/eval.mjs retrieval --check
+      # The production server is Linux x64, and its ONNX arithmetic differs
+      # slightly from a Mac's, so the published numbers come from this job.
+      # ask-retrieval-linux.json is uploaded on every run; the committed copy
+      # must match it exactly.
+      - run: node api/_tools/eval.mjs retrieval --check || (node api/_tools/eval.mjs retrieval && false)
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ask-retrieval-linux
+          path: results/ask-retrieval.json
