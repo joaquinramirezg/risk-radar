@@ -171,6 +171,7 @@
         <span><b>${P(M.correct.mean)}</b>answers correct</span>
         <span><b>${unans.mean * unans.n} of ${unans.n}</b>unanswerable questions declined</span>
         <span><b>${M.rejected_by_citation_check}</b>answers citing text the search never returned</span>
+        ${E.judge_check ? `<span><b>${E.judge_check.exact_agreement} of ${E.judge_check.n}</b>model grades matched a person's</span>` : ""}
         <span><b>$${M.usd_per_answer.toFixed(4)}</b>per answer</span>
         <span><b>${(M.p50_ms / 1000).toFixed(1)} s</b>typical answer time</span>
       </section>
@@ -205,7 +206,7 @@
         <p class="chart-note">Pattern: both wrong answers and the one wrong refusal came from searches that missed the right risk factor, and the agent then said, correctly for what it had read, that the filings did not say. Several "partial" grades are for details the grader could not check against the cited sentences, because it sees only the reference answer.</p>
       </section>
       <section style="display:grid;gap:10px"><h2>What to keep in mind</h2>
-        <p>The test questions and reference answers were written by Claude (Opus 5.5) from risk factors sampled at random, one per company, not by a person. Answers were graded by a second model (Claude Sonnet 5.5) against those references. ${E.judge_check ? `On ${E.judge_check.n} answers graded by hand, the model grader gave the same verdict ${E.judge_check.exact_agreement} times; it called ${Math.round(100 * E.judge_check.correct_when_human_correct)}% of the hand-graded correct answers correct and ${Math.round(100 * E.judge_check.not_correct_when_human_not)}% of the rest not correct.` : `That grader has not yet been checked against grades by a person; tools/grade.py is the check, and its result will appear here.`} With ${E.golden.answerable} answerable questions, differences smaller than about ten points are not meaningful. Each row of the test set and every graded answer are in the repository.</p>
+        <p>The test questions and reference answers were written by Claude (Opus 5.5) from risk factors sampled at random, one per company, not by a person. Answers were graded by a second model (Claude Sonnet 5.5) against those references. ${E.judge_check ? `On ${E.judge_check.n} answers graded by hand, chosen at random, the model grader gave the same verdict ${E.judge_check.exact_agreement} times; where they differed, the model was stricter ${E.judge_check.model_stricter} times and more lenient ${E.judge_check.model_looser} time${E.judge_check.model_looser === 1 ? "" : "s"}, so the correct-answer rate above is, if anything, low. The hand grades are by the project's author, who also built the system.` : `That grader has not yet been checked against grades by a person; tools/grade.py is the check, and its result will appear here.`} With ${E.golden.answerable} answerable questions, differences smaller than about ten points are not meaningful. Each row of the test set and every graded answer are in the repository.</p>
       </section>
     </div>`;
     // The year-over-year engine's own accuracy (matcher, splitter, change tags) lives in the footer; show it here too.

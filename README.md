@@ -41,7 +41,9 @@ close rankings. The answer runs above were made on a Mac.
 
 The test questions and reference answers were written by Claude (Opus 5.5)
 from risk factors sampled one per company, and answers were graded by Claude
-Sonnet 5.5; neither was checked against human labels. Every question and every
+Sonnet 5.5. On 30 answers drawn at random and graded by hand (by me, the
+author), the model grader gave the same verdict 26 times; where they differed
+it was stricter 3 times and more lenient once, so the 83% is if anything low. Every question and every
 graded answer is in `data/golden/` and `results/`. Full write-up with each
 failure quoted: https://risk-radar-ten.vercel.app/#eval
 

@@ -305,6 +305,8 @@ function report() {
       correct_when_human_correct: pos.length ? +(pos.filter(([, m]) => m).length / pos.length).toFixed(3) : null,
       not_correct_when_human_not: neg.length ? +(neg.filter(([, m]) => !m).length / neg.length).toFixed(3) : null,
       human_correct_rate: pairs.length ? +(pos.length / pairs.length).toFixed(3) : null,
+      model_stricter: pos.filter(([, m]) => !m).length,
+      model_looser: neg.filter(([, m]) => m).length,
     };
   }
   writeFileSync(join(ROOT, "site", "data", "eval.json"), JSON.stringify(out, null, 1));

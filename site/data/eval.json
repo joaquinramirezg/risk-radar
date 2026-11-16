@@ -382,5 +382,14 @@
   "lo": -0.0185,
   "hi": 0.2037,
   "n": 54
+ },
+ "judge_check": {
+  "n": 30,
+  "exact_agreement": 26,
+  "correct_when_human_correct": 0.889,
+  "not_correct_when_human_not": 0.667,
+  "human_correct_rate": 0.9,
+  "model_stricter": 3,
+  "model_looser": 1
  }
 }
