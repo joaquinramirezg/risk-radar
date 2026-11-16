@@ -4,7 +4,7 @@
   const view = document.getElementById("view");
   const ORDER = ["new", "split", "removed", "merged", "rewritten", "edited", "unchanged"];
   const LABEL = { new: "new", split: "split off", removed: "removed", merged: "merged", rewritten: "rewritten", edited: "edited", unchanged: "unchanged" };
-  let INDEX = null, FINDINGS = null, FADED = [], theme = null, chartAll = false, coAll = false, coQuery = "";
+  let INDEX = null, FINDINGS = null, FADED = [], EVAL = null, EXAMPLE = null, theme = null, chartAll = false, coAll = false, coQuery = "";
   const cache = {};
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -135,21 +135,98 @@
       ${esg && esg.examples.length ? `<p class="chart-note">Gone this year, for example ${esc(esg.examples[0].company)}: “${esc(esg.examples[0].sentence)}”</p>` : ""}
     </section>`;
   }
+  // ---- Front page (v2 design): the product first, then the year, the proof, the machine.
+  function answerHTML(body) {
+    const ans = esc(body.answer).replace(/\[(\d+)\]/g, (m, n) => `<sup><a href="#src${n}" class="cite" data-src="${n}">${n}</a></sup>`);
+    const src = body.sources.map(s => `<li id="src${s.n}"><div class="who"><b class="num">${s.n}</b>${s.ticker ? `<a href="#${esc(s.ticker)}/${esc(s.risk.split(".")[1])}">${esc(s.ticker)}</a>` : ""}<span>${s.kind === "previous" ? "Last year: " : ""}${esc(s.title)}</span></div><blockquote>“${esc(s.text)}”</blockquote></li>`).join("");
+    return `<div class="answer"><p>${ans}</p>${src ? `<ol class="ex srcs">${src}</ol>` : ""}
+      <p class="af-meta num"><span>${esc(body.model)}</span><span>${(body.usage.ms / 1000).toFixed(1)} s</span><span>$${body.usage.usd.toFixed(4)}</span><span>${body.sources.length} cited sentence${body.sources.length === 1 ? "" : "s"}</span>${body.cached ? "<span>answered before</span>" : ""}</p></div>`;
+  }
+
+  function wireCites(out) {
+    out.querySelectorAll("a.cite").forEach(a => a.addEventListener("click", e => {
+      e.preventDefault();
+      out.querySelector(`#src${a.dataset.src}`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }));
+  }
+
+  async function heroAsk(q) {
+    const out = view.querySelector("#askout"), echo = view.querySelector("#af-q");
+    echo.textContent = q;
+    out.innerHTML = `<p class="af-wait"><span class="dot"></span>Searching 7,876 passages across 102 filings…</p>`;
+    let body;
+    try {
+      const r = await fetch("/api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: q }) });
+      body = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(body.message || "Ask is unavailable right now.");
+    } catch (e) {
+      out.innerHTML = `<p class="empty">${esc(e.message)} <a href="#?q=${encodeURIComponent(q.split(" ").slice(0, 3).join(" "))}">Search the text instead</a>.</p>`;
+      return;
+    }
+    out.innerHTML = answerHTML(body);
+    wireCites(out);
+  }
+
+  const STEPS = [
+    ["EDGAR", "204 annual reports", "the two latest 10-Ks of each S&P 100 company"],
+    ["Split", "2,985 risk factors", "this year's Item 1A cut into single risks from the filing's own formatting"],
+    ["Match", "year over year", "bge-small embeddings pair each risk with last year's; splits and merges detected"],
+    ["Tag", "1,525 edits", "an LLM labels each edit: new exposure, escalated, softened, boilerplate"],
+    ["Index", "7,876 passages", "BM25 plus dense vectors, fused with reciprocal rank fusion"],
+    ["Agent", "4 tools", "search, company, compare years, theme counts; every claim must cite"],
+    ["Guard", "0 uncited", "any citation the tools did not return blocks the answer"],
+  ];
+
   function renderHome() {
     const lg = document.querySelector(".legend"); if (lg) lg.hidden = true;
+    document.body.classList.add("is-home");
     document.title = "Risk Radar: what America's biggest companies are worried about";
-    const F = FINDINGS, n = F.companies;
-    const top = F.themes.filter(t => LEAD[t.theme]).map((t, k) => findingHTML(t, n, false, LEAD[t.theme])).join("");
+    const F = FINDINGS, n = F.companies, E = EVAL, X = EXAMPLE;
+    const ai = F.themes.find(t => t.theme === "Artificial intelligence");
+    const top = F.themes.filter(t => LEAD[t.theme]).map(t => findingHTML(t, n, false, LEAD[t.theme])).join("");
     const rest = F.themes.filter(t => !LEAD[t.theme]).map(t => findingHTML(t, n)).join("");
-    view.innerHTML = `<div style="display:grid;gap:40px">
-      ${askHTML()}
-      ${glanceHTML()}
-      <section class="findings" aria-labelledby="fi"><div class="section-head"><h2 id="fi">This year's three biggest shifts</h2><a href="#eval">How accurate is this?</a></div>${top}</section>
-      <section class="findings" aria-labelledby="mo"><div class="section-head"><h2 id="mo">Also moving</h2></div>${rest}</section>
-      <p class="home-links"><a class="showall" href="#all">Browse all ${INDEX.companies.length} companies</a> <a class="showall" href="#all">Search the full text</a> <a class="showall" href="#eval">How we know it's right</a></p>
-    </div>`;
-    wireAsk();
+    const M = E && E.models["claude-haiku-5-5-low"];
+    const proof = M ? [
+      [P(M.correct.mean), "of answers correct", `95% interval ${P(M.correct.lo)} to ${P(M.correct.hi)}, ${E.golden.answerable} questions`],
+      [`${M.declined_when_unanswerable.mean * M.declined_when_unanswerable.n} / ${M.declined_when_unanswerable.n}`, "unanswerable questions declined", "it says the filings do not say, instead of guessing"],
+      [E.judge_check ? `${E.judge_check.exact_agreement} / ${E.judge_check.n}` : "", "grades matched a person's", "the model grader, checked against hand grades"],
+      [`$${M.usd_per_answer.toFixed(4)}`, "per answer", `Haiku 5.5, chosen over Sonnet at ${Math.round(E.models["claude-sonnet-5-5-low"].usd_per_answer / M.usd_per_answer)}x the cost`],
+    ].filter(p => p[0]) : [];
+    view.innerHTML = `
+      <section class="hero" data-enter aria-labelledby="h1">
+        <div class="hero-in">
+          <div class="hero-copy">
+            <p class="kicker"><span class="live"></span>S&amp;P 100 · 10-K risk factors · this year vs last</p>
+            <h1 id="h1">What are America's 100 biggest companies <em>suddenly</em> worried about?</h1>
+            <p class="hero-fact"><b class="num">${ai.companies_up} of ${n}</b> added or expanded risk language on artificial intelligence this year. Ask about any of them and get the exact sentences as proof.</p>
+            <form id="askf" class="askf" autocomplete="off">
+              <label class="sr-only" for="askq">Your question</label>
+              <input id="askq" type="text" maxlength="300" placeholder="Ask about any S&amp;P 100 company's risks">
+              <button type="submit" class="btn">Ask the filings</button>
+            </form>
+            <div class="ask-try">${ASK_TRY.map(q => `<button type="button" class="chip" data-q="${esc(q)}">${esc(q)}</button>`).join("")}</div>
+          </div>
+          <div class="app-frame" aria-label="An answer from Ask the filings">
+            <div class="af-bar"><span></span><span></span><span></span><b>Ask the filings</b></div>
+            <p class="af-q" id="af-q">${esc(X ? X.question : "")}</p>
+            <div id="askout" aria-live="polite">${X ? answerHTML(X) : ""}</div>
+          </div>
+        </div>
+      </section>
+      <section class="band glance-band">${glanceHTML()}</section>
+      ${proof.length ? `<section class="band proof" aria-labelledby="pr"><div class="section-head"><h2 id="pr">Measured, not promised</h2><a class="arrow" href="#eval">How we know it's right</a></div>
+        <ul class="proof-grid">${proof.map(([v, k, d]) => `<li><b class="num">${esc(v)}</b><span class="k">${esc(k)}</span><span class="d">${esc(d)}</span></li>`).join("")}</ul></section>` : ""}
+      <section class="band machine" aria-labelledby="mc"><div class="section-head"><h2 id="mc">The machine behind an answer</h2><a class="arrow" href="https://github.com/joaquinramirezg/risk-radar">Read the code</a></div>
+        <ol class="pipe">${STEPS.map(([a, b, c], i) => `<li style="--i:${i}"><span class="pn num">${String(i + 1).padStart(2, "0")}</span><b>${esc(a)}</b><span class="pb num">${esc(b)}</span><span class="pc">${esc(c)}</span></li>`).join("")}</ol></section>
+      <section class="band findings" aria-labelledby="fi"><div class="section-head"><h2 id="fi">This year's three biggest shifts</h2></div>${top}
+        <div class="section-head" style="margin-top:12px"><h2 id="mo" style="font-size:20px">Also moving</h2></div>${rest}
+        <p class="home-links"><a class="btn ghost" href="#all">Browse all ${INDEX.companies.length} companies</a> <a class="btn ghost" href="#eval">See the full evaluation</a></p></section>`;
+    const f = view.querySelector("#askf"), i = view.querySelector("#askq");
+    f.addEventListener("submit", e => { e.preventDefault(); if (i.value.trim().length >= 8) heroAsk(i.value.trim()); });
+    view.querySelectorAll(".ask-try [data-q]").forEach(b => b.addEventListener("click", () => { i.value = b.dataset.q; heroAsk(b.dataset.q); }));
+    wireCites(view.querySelector("#askout"));
   }
+
 
   // "How we know it's right": every number comes from data/eval.json (api/_tools/eval.mjs).
   const P = x => `${Math.round(100 * x)}%`;
@@ -545,6 +622,7 @@
   }
 
   function route() {
+    document.body.classList.remove("is-home");
     const lg = document.querySelector(".legend"); if (lg) lg.hidden = false;
     const h = location.hash.slice(1);
     if (h.startsWith("?")) {
@@ -562,8 +640,8 @@
       view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;
   }
 
-  Promise.all([getJSON("data/index.json"), getJSON("data/findings.json").catch(() => null), getJSON("data/faded.json").catch(() => [])]).then(([ix, fi, fa]) => {
-    FADED = fa;
+  Promise.all([getJSON("data/index.json"), getJSON("data/findings.json").catch(() => null), getJSON("data/faded.json").catch(() => []), getJSON("data/eval.json").catch(() => null), getJSON("data/example.json").catch(() => null)]).then(([ix, fi, fa, ev, ex]) => {
+    FADED = fa; EVAL = ev; EXAMPLE = ex;
     INDEX = ix;
     FINDINGS = fi;
     const sk = (ix.skipped || []).length;

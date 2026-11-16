@@ -1,0 +1,74 @@
+{
+ "question": "What changed in Nvidia's export control risk this year?",
+ "answer": "Nvidia's export control risk was rewritten this year, and the new text is much more specific about the damage. The filing now says that \"as of the end of fiscal year 2026, we were effectively foreclosed from competing in China's data center computing/compute market\" [1]. It also describes a licensing program for H200 chips into China, with any H200 shipped under it \"subject to a 25% tariff upon importation into the United States\" [2]. Other additions warn that the government could extend controls to networking products [3], that customers may \"design-out\" U.S. chips [4], and that the H20 product left Nvidia with \"excess inventory and purchase obligations\" [5]. The tool shows the section was rewritten but does not mark each sentence as new, so I can't say for certain which lines are entirely new.",
+ "sources": [
+  {
+   "n": 1,
+   "id": "NVDA.a85f565138eb.62",
+   "kind": "current",
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "risk": "NVDA.a85f565138eb",
+   "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
+   "status": "rewritten",
+   "text": "As of the end of fiscal year 2026, we were effectively foreclosed from competing in China's data center computing/compute market, and our effective foreclosure from the China market helped our competitors build larger developer and customer ecosystems to challenge us worldwide."
+  },
+  {
+   "n": 2,
+   "id": "NVDA.a85f565138eb.58",
+   "kind": "current",
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "risk": "NVDA.a85f565138eb",
+   "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
+   "status": "rewritten",
+   "text": "As a result, any H200 shipped under the new licensing program will be subject to a 25% tariff upon importation into the United States."
+  },
+  {
+   "n": 3,
+   "id": "NVDA.a85f565138eb.91",
+   "kind": "current",
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "risk": "NVDA.a85f565138eb",
+   "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
+   "status": "rewritten",
+   "text": "The USG may also impose export controls on our networking products, such as high-speed network interconnects, to limit the ability of downstream parties to create large clusters for frontier model training."
+  },
+  {
+   "n": 4,
+   "id": "NVDA.a85f565138eb.93",
+   "kind": "current",
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "risk": "NVDA.a85f565138eb",
+   "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
+   "status": "rewritten",
+   "text": "Export controls have already and may in the future encourage customers outside China and other impacted regions to “design-out” certain U.S. semiconductors from their products to reduce the compliance burden and risk, and to ensure that they are able to serve markets worldwide."
+  },
+  {
+   "n": 5,
+   "id": "NVDA.a85f565138eb.96",
+   "kind": "current",
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "risk": "NVDA.a85f565138eb",
+   "title": "We are subject to complex laws, rules, regulations, and political and other actions, including restrictions on the export of our products, which may adversely impact our business.",
+   "status": "rewritten",
+   "text": "Export controls increase the risk of investing in U.S. advanced semiconductor products, because by the time a new product is ready for market, it may be subject to new unilateral export controls restricting its sale, resulting in excess inventory and purchase obligations as we recently experienced with the H20."
+  }
+ ],
+ "model": "claude-haiku-5-5",
+ "usage": {
+  "input_tokens": 4637,
+  "output_tokens": 621,
+  "cache_read_input_tokens": 1298,
+  "cache_creation_input_tokens": 1298,
+  "usd": 0.00094943,
+  "ms": 4510
+ },
+ "tools": [
+  "get_company",
+  "search_filings"
+ ]
+}
