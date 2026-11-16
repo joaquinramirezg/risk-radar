@@ -27,12 +27,17 @@ $0.0102 an answer. Paired against Haiku it answers 9 more in 100 correctly,
 95% interval -2 to 20, at 18 times the cost, so Haiku stays. A stricter
 grounding prompt on Haiku dropped correct answers to 72% and was reverted.
 
+Search numbers are from Linux x64, the platform the live function runs on,
+and CI fails if they stop reproducing. On a Mac the same code scores 87% on
+the last row: ONNX arithmetic differs slightly across CPUs and flips a few
+close rankings. The answer runs above were made on a Mac.
+
 | Search method | Right risk factor in top 5 | MRR |
 |---|---|---|
 | Keywords only (BM25) | 46% (33% to 59%) | 0.33 |
-| Meaning only (bge-small embeddings) | 56% (43% to 69%) | 0.46 |
+| Meaning only (bge-small embeddings) | 57% (44% to 70%) | 0.45 |
 | Both, fused (RRF) | 59% (46% to 72%) | 0.50 |
-| Both, limited to the company named | 87% (78% to 94%) | 0.73 |
+| Both, limited to the company named | 83% (72% to 93%) | 0.73 |
 
 The test questions and reference answers were written by Claude (Opus 5.5)
 from risk factors sampled one per company, and answers were graded by Claude

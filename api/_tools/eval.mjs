@@ -293,6 +293,20 @@ function report() {
     const ok = (r) => +(r?.judge?.verdict === "correct");
     out.sonnet_minus_haiku_correct = ci(Object.keys(H).filter((k) => H[k].answerable).map((k) => ok(S[k]) - ok(H[k])));
   }
+  // Who checked the grader: Joaquin's own grades (tools/grade.py) against the model's.
+  const hg = join(OUT, "human_grades.jsonl");
+  if (existsSync(hg) && existsSync(fh)) {
+    const model = Object.fromEntries(readFileSync(fh, "utf8").split("\n").filter(Boolean).map((l) => { const r = JSON.parse(l); return [r.qid, r.judge?.verdict]; }));
+    const pairs = readFileSync(hg, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)).filter((g) => model[g.qid]).map((g) => [g.verdict === "correct", model[g.qid] === "correct", g.verdict === model[g.qid]]);
+    const pos = pairs.filter(([h]) => h), neg = pairs.filter(([h]) => !h);
+    out.judge_check = {
+      n: pairs.length,
+      exact_agreement: pairs.filter(([, , same]) => same).length,
+      correct_when_human_correct: pos.length ? +(pos.filter(([, m]) => m).length / pos.length).toFixed(3) : null,
+      not_correct_when_human_not: neg.length ? +(neg.filter(([, m]) => !m).length / neg.length).toFixed(3) : null,
+      human_correct_rate: pairs.length ? +(pos.length / pairs.length).toFixed(3) : null,
+    };
+  }
   writeFileSync(join(ROOT, "site", "data", "eval.json"), JSON.stringify(out, null, 1));
   console.log(JSON.stringify(out.models, null, 1));
 }
