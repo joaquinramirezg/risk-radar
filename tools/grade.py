@@ -43,6 +43,8 @@ def status(rows: list[dict], graded: list[dict]) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--status", action="store_true")
+    ap.add_argument("--to-md", help="write the 30 answers to a markdown file to grade in an editor")
+    ap.add_argument("--from-md", help="read grades back from that markdown file")
     args = ap.parse_args()
     rows = [r for r in load(ANSWERS) if r["answerable"] and not r["abstained"]]
     ref = {g["qid"]: g for g in load(GOLDEN)}
@@ -53,6 +55,33 @@ def main() -> int:
     done = {g["qid"] for g in graded}
     order = sorted(rows, key=lambda r: r["qid"])
     random.Random(30).shuffle(order)
+    if args.to_md:
+        parts = [
+            "# Grade 30 answers\n\nFor each one, compare the answer with the reference and put one letter "
+            "after `Grade:`: **c** correct (says what the reference says, nothing contradicting it), "
+            "**p** partly (right direction but misses the main point, or adds something unsupported), "
+            "**w** wrong. Then tell Claude it's done.\n"
+        ]
+        for k, r in enumerate(order[:TARGET], 1):
+            parts.append(
+                f"## {k}. {r['qid']}\n\n**Question:** {r['question']}\n\n"
+                f"**Reference:** {ref[r['qid']]['answer']}\n\n**Answer:** {r['answer']}\n\nGrade: \n"
+            )
+        Path(args.to_md).write_text("\n".join(parts))
+        print(f"wrote {args.to_md}")
+        return 0
+    if args.from_md:
+        import re
+
+        text = Path(args.from_md).read_text()
+        found = re.findall(r"^## \d+\. (q\d+)\n.*?^Grade:[ \t]*([cpwCPW])?", text, re.S | re.M)
+        new = [(q, v.lower()) for q, v in found if v and q not in done]
+        with OUT.open("a") as fh:
+            for q, v in new:
+                fh.write(json.dumps({"qid": q, "verdict": VERDICT[v]}) + "\n")
+        print(f"read {len(new)} new grades; {sum(1 for _, v in found if not v)} still blank")
+        status(rows, load(OUT))
+        return 0
     todo = [r for r in order[:TARGET] if r["qid"] not in done]
     print(f"{len(done)} graded, {len(todo)} to go. c = correct, p = partly, w = wrong, q = quit.\n")
     for r in todo:
