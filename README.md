@@ -1,46 +1,64 @@
-# sec-10k-retrieval-evals
+# Risk Radar
 
-A hand-labelled retrieval eval harness over SEC 10-K Item 1A risk-factor
-sections.
+What are America's 100 biggest companies suddenly worried about? Every S&P 100
+annual report (10-K, Item 1A risk factors), compared with last year's sentence
+by sentence, plus an agent that answers questions about them with the exact
+sentences as proof, and a published measurement of how often it is right.
 
-STATUS: in progress. The harness runs end to end; the golden set is being
-labelled. No numbers here are citable until `make eval` stops printing the
-incomplete-golden-set warning.
+Live: https://risk-radar-ten.vercel.app
 
-<!-- Joaquin: the prose below is deliberately unwritten. A reviewer can spot
-generated README copy immediately, and for a candidate whose pitch is real
-production judgement that is fatal. Write these sections yourself once the
-numbers exist. The required order, from the research:
-  1. one sentence on what and why
-  2. the headline result WITH its n, and one table, above the fold
-  3. reproduce in three commands
-  4. architecture, one diagram
-  5. eval methodology and results
-  6. failure modes and known limitations
-  7. decisions and tradeoffs (link DECISIONS.md)
-  8. what I would do next and why I did not
--->
+## Results
+
+Ask the filings, on Claude Haiku 5.5 (low effort), over 63 test questions
+(54 answerable, 9 deliberately unanswerable). 95% bootstrap intervals.
+
+| Measure | Result |
+|---|---|
+| Answers correct, graded against the reference answer | 83% (72% to 93%) |
+| Correct or partly correct | 94% (87% to 100%) |
+| Unanswerable questions declined | 9 of 9 |
+| Answers citing text the search never returned | 0 |
+| Cost per answer | $0.0006 |
+| Typical / slowest-5% answer time | 2.3 s / 3.3 s |
+
+| Search method | Right risk factor in top 5 | MRR |
+|---|---|---|
+| Keywords only (BM25) | 46% (33% to 59%) | 0.33 |
+| Meaning only (bge-small embeddings) | 56% (43% to 69%) | 0.46 |
+| Both, fused (RRF) | 59% (46% to 72%) | 0.50 |
+| Both, limited to the company named | 87% (78% to 94%) | 0.73 |
+
+The test questions and reference answers were written by Claude (Opus 5.5)
+from risk factors sampled one per company, and answers were graded by Claude
+Sonnet 5.5; neither was checked against human labels. Every question and every
+graded answer is in `data/golden/` and `results/`. Full write-up with each
+failure quoted: https://risk-radar-ten.vercel.app/#eval
+
+## How it works
+
+1. `tools/fetch_filings.py` pulls the two latest 10-Ks per company from EDGAR;
+   `tools/build_radar.py` splits Item 1A into risk factors, matches them
+   year over year (bge-small, one-to-one, cosine >= 0.80), detects splits and
+   merges, and labels each edit (new exposure, escalated, softened,
+   boilerplate) with an LLM classifier.
+2. `tools/build_ask_index.py` turns this year's risk factors into sentences
+   with stable ids and ~1,000-character passages; `api/_tools/embed.mjs`
+   embeds them offline with the same quantized model the server loads.
+3. `api/ask.js` is the only server code: a Vercel function running a small
+   tool-using agent (`search_filings`, `get_company`, `compare_years`,
+   `theme_trend`). Every sentence a tool returns gets a per-request number;
+   the answer must cite those numbers, and any citation the tools did not
+   return blocks the answer. Per-IP and daily caps, 5 turns, 1,500 tokens a
+   turn, and a workspace spend limit as the hard stop.
+4. `api/_tools/eval.mjs` runs the golden set through the same search and agent
+   code that ships.
 
 ## Reproduce
 
-    make test      # 35 tests, no install, no network, no API key
-    make eval      # deterministic retrieval metrics with bootstrap CIs
+    make test                                  # Python tests, no install
+    node api/_tools/eval.mjs retrieval         # search ladder, no API key
+    node api/_tools/eval.mjs answers claude-haiku-5-5 low   # needs ANTHROPIC_API_KEY
+    node api/_tools/eval.mjs report            # writes site/data/eval.json
+    node api/_tools/dev.mjs                    # local site on :8787
 
-## What is deliberate here
-
-- The retrieval half has no dependencies and no LLM, so every number in it is
-  checkable by hand. Generation quality rests on a judge; retrieval must not.
-- Recall and nDCG raise `ValueError` on a question with no gold chunk rather
-  than scoring it 0.0. Unanswerable questions are counted in a separate
-  abstention block, because folding them into recall misreports both numbers.
-- Confidence intervals are percentile bootstrap, not normal-approximation,
-  because the set is well under n=100 where that approximation is unsafe.
-- The golden set validator refuses to produce citable numbers below 50 items
-  or below roughly 10% unanswerable.
-- `tools/label.py` has no question-generation mode, on purpose. If a model
-  writes the questions and the labels, the evaluation is circular.
-
-## Known limitations
-
-To be written honestly once the numbers exist: n, single annotator, single
-sector, judge validated on which failure modes, and the width of the intervals.
+Decisions and their reasons: `DECISIONS.md`.
