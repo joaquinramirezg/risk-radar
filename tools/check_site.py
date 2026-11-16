@@ -88,7 +88,8 @@ def main() -> int:
     bad: list[str] = []
     index = json.loads((DATA / "index.json").read_text())
     listed = [c["ticker"] for c in index["companies"]]
-    files = {p.stem for p in DATA.glob("*.json")} - {"index", "findings", "search", "eval", "faded"}
+    shared = {"index", "findings", "search", "eval", "faded", "example"}
+    files = {p.stem for p in DATA.glob("*.json")} - shared
     if len(set(listed)) != len(listed):
         bad.append("index lists a company twice")
     for t in sorted(set(listed) - files):
