@@ -118,15 +118,16 @@
   }
 
   function renderHome() {
+    const lg = document.querySelector(".legend"); if (lg) lg.hidden = true;
     document.title = "Risk Radar: what America's biggest companies are worried about";
     const F = FINDINGS, n = F.companies;
-    const top = F.themes.filter(t => LEAD[t.theme]).map((t, k) => findingHTML(t, n, k === 0, LEAD[t.theme])).join("");
+    const top = F.themes.filter(t => LEAD[t.theme]).map((t, k) => findingHTML(t, n, false, LEAD[t.theme])).join("");
     const rest = F.themes.filter(t => !LEAD[t.theme]).map(t => findingHTML(t, n)).join("");
-    view.innerHTML = `<div style="display:grid;gap:44px">
-      <section class="findings" aria-labelledby="fi"><div class="section-head"><h2 id="fi">This year's three biggest shifts</h2></div>${top}</section>
+    view.innerHTML = `<div style="display:grid;gap:40px">
       ${askHTML()}
+      <section class="findings" aria-labelledby="fi"><div class="section-head"><h2 id="fi">This year's three biggest shifts</h2><a href="#eval">How accurate is this?</a></div>${top}</section>
       <section class="findings" aria-labelledby="mo"><div class="section-head"><h2 id="mo">Also moving</h2></div>${rest}</section>
-      <p><a class="showall" href="#all">Browse all ${INDEX.companies.length} companies and search every risk factor</a></p>
+      <p class="home-links"><a class="showall" href="#all">Browse all ${INDEX.companies.length} companies</a> <a class="showall" href="#all">Search the full text</a> <a class="showall" href="#eval">How we know it's right</a></p>
     </div>`;
     wireAsk();
   }
@@ -206,6 +207,7 @@
   }
 
   function renderBrowse() {
+    const lg = document.querySelector(".legend"); if (lg) lg.hidden = false;
     document.title = "All companies · Risk Radar";
     const up = INDEX.companies.filter(c => c.themes.current[theme] > c.themes.previous[theme]).length;
     const q = coQuery.trim().toLowerCase();
@@ -507,6 +509,7 @@
   }
 
   function route() {
+    const lg = document.querySelector(".legend"); if (lg) lg.hidden = false;
     const h = location.hash.slice(1);
     if (h.startsWith("?")) {
       const p = new URLSearchParams(h.slice(1));

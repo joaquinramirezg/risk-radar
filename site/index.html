@@ -167,7 +167,12 @@ table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mo
 .answer .srcs { padding: 0; }
 .askf { display: flex; gap: 8px; flex-wrap: wrap; }
 .askf .search { flex: 1 1 260px; width: auto; }
-section.ask { display: grid; gap: 12px; }
+section.ask { display: grid; gap: 12px; background: var(--sheet); border: 2px solid var(--ink); border-radius: 10px; padding: 18px; }
+section.ask h2 { font-size: 26px; }
+.askf .search { font-size: 17px; padding: 14px 16px; border: 1px solid var(--ink-2); }
+.askf button.showall { background: var(--ink); color: var(--paper); border-color: var(--ink); font-size: 16px; padding: 12px 22px; }
+.home-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.legend[hidden] { display: none; }
 /* findings */
 .findings { display: grid; gap: 16px; }
 .tally { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--ink-2); margin: 0; }
