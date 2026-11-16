@@ -9,3 +9,6 @@ data/raw/
 data/raw_prev/
 *.egg-info/
 node_modules/
+.taste-skill/
+shots/
+site/.taste-skill/

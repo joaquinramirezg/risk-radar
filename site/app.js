@@ -634,7 +634,7 @@
       }
     }
     const [tk, target, term, side] = h.split("/").map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
-    (tk === "eval" ? renderEval() : tk === "all" ? Promise.resolve(renderBrowse()) : tk && !h.startsWith("?") ? renderCompany(tk, target, term, side === "cut") : Promise.resolve(renderHome())).catch(fail);
+    (tk === "eval" ? renderEval() : tk === "all" ? Promise.resolve(renderBrowse()) : tk && !h.startsWith("?") ? renderCompany(tk, target, term, side === "cut") : Promise.resolve(renderBrowse())).catch(fail);
   }
   function fail(err) {
       view.innerHTML = `<p class="empty">Could not load the data (${esc(err.message)}). Reload the page to try again.</p>`;

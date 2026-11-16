@@ -1,0 +1,398 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risk Radar</title>
+<meta name="description" content="What are America's 100 biggest companies suddenly worried about? Every S&amp;P 100 annual report compared with last year's, an AI analyst that cites the exact sentences, and a published measure of how often it is right.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f141b" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Risk Radar: what America's 100 biggest companies are suddenly worried about">
+<meta property="og:description" content="What are America's 100 biggest companies suddenly worried about? Every S&amp;P 100 annual report compared with last year's, an AI analyst that cites the exact sentences, and a published measure of how often it is right.">
+<meta property="og:image" content="https://risk-radar-ten.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://risk-radar-ten.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a filing desk. A single reading column; the year-over-year comparison is drawn
+   as a lawyer's blackline: insertions in blue with an underline, deletions in red struck through. */
+:root {
+  --paper: #f7f8fa;
+  --sheet: #ffffff;
+  --ink: #18202c;
+  --ink-2: #4a5566;
+  --rule: #d9dee6;
+  --ins: #1d4ed8;
+  --ins-bg: #e6edff;
+  --del: #b42318;
+  --del-bg: #fdecea;
+  --rew: #a15c07;
+  --rew-bg: #fdf1dc;
+  --edit: #5b6b82;
+  --edit-bg: #eef1f5;
+  --focus: #1d4ed8;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-doc: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f141b; --sheet: #161d27; --ink: #e6ebf2; --ink-2: #9aa7b8; --rule: #2a3442;
+    --ins: #8fb0ff; --ins-bg: #1b2a4d; --del: #ff8f85; --del-bg: #3d1d1c;
+    --rew: #f0b45e; --rew-bg: #3a2a12; --edit: #a3b1c4; --edit-bg: #222b37; --focus: #8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f141b; --sheet: #161d27; --ink: #e6ebf2; --ink-2: #9aa7b8; --rule: #2a3442;
+  --ins: #8fb0ff; --ins-bg: #1b2a4d; --del: #ff8f85; --del-bg: #3d1d1c;
+  --rew: #f0b45e; --rew-bg: #3a2a12; --edit: #a3b1c4; --edit-bg: #222b37; --focus: #8fb0ff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font: 400 15px/1.55 var(--f-ui);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+}
+.wrap { max-width: 980px; margin: 0 auto; display: grid; gap: 40px; }
+a { color: var(--ins); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+.eyebrow { font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* masthead */
+header.mast { display: grid; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+header.mast h1 { font-size: clamp(34px, 6vw, 52px); font-weight: 700; line-height: 1; }
+header.mast h1 .ins { color: var(--ins); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+header.mast h1 .del { color: var(--del); text-decoration: line-through; text-decoration-thickness: 3px; }
+header.mast p { margin: 0; max-width: 62ch; color: var(--ink-2); font-size: 16px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* status pills */
+.pill { display: inline-flex; align-items: center; gap: 4px; font: 500 12px/1 var(--f-mono); padding: 4px 7px; border-radius: 4px; white-space: nowrap; border: 0; }
+.st-new { color: var(--ins); background: var(--ins-bg); }
+.st-removed { color: var(--del); background: var(--del-bg); }
+.st-rewritten { color: var(--rew); background: var(--rew-bg); }
+.st-edited { color: var(--edit); background: var(--edit-bg); }
+.st-split { color: var(--ins); background: transparent; box-shadow: inset 0 0 0 1px var(--ins); }
+.st-merged { color: var(--del); background: transparent; box-shadow: inset 0 0 0 1px var(--del); }
+.st-unchanged { color: var(--ink-2); background: transparent; border: 1px solid var(--rule); }
+
+/* themes chart */
+section.themes { display: grid; gap: 16px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.section-head h2 { font-size: 24px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 13px/1 var(--f-ui); padding: 8px 11px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chart { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.chart-note { font-size: 13px; color: var(--ink-2); margin: 0; }
+
+/* company list */
+.companies { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.co { display: grid; gap: 10px; align-content: start; text-align: left; background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; color: var(--ink); text-decoration: none; min-width: 0; }
+.co:hover { border-color: var(--ink-2); }
+.co-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.co-tk { font: 700 20px/1 var(--f-display); }
+.co-name { font-size: 12px; color: var(--ink-2); text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.co ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.co li { font: 400 13.5px/1.4 var(--f-doc); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.co li.n { color: var(--ins); }
+.co li.r { color: var(--del); text-decoration: line-through; }
+.co .quiet { font-size: 13px; color: var(--ink-2); margin: 0; }
+
+/* company view */
+.back { font: 500 14px var(--f-ui); background: none; border: 0; padding: 0; color: var(--ins); cursor: pointer; justify-self: start; }
+.co-head { display: grid; gap: 10px; border-bottom: 2px solid var(--ink); padding-bottom: 18px; }
+.co-head h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; }
+.filings { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); }
+.bar { display: flex; height: 10px; border-radius: 3px; overflow: hidden; background: var(--rule); }
+.bar span { display: block; height: 100%; }
+.bar .b-new { background: var(--ins); } .bar .b-removed { background: var(--del); }
+.bar .b-rewritten { background: var(--rew); } .bar .b-edited { background: var(--edit); }
+.bar .b-unchanged { background: var(--rule); }
+.bar .b-split { background: var(--ins); opacity: .45; } .bar .b-merged { background: var(--del); opacity: .45; }
+.cat { display: grid; gap: 10px; }
+.cat h2 { font: 600 12px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); padding-top: 8px; }
+details.risk { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+details.risk[data-st="new"] { border-left: 3px solid var(--ins); }
+details.risk[data-st="removed"] { border-left: 3px solid var(--del); }
+details.risk[data-st="rewritten"] { border-left: 3px solid var(--rew); }
+details.risk[data-st="split"] { border-left: 3px dashed var(--ins); }
+details.risk[data-st="merged"] { border-left: 3px dashed var(--del); }
+details.risk summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+details.risk summary::-webkit-details-marker { display: none; }
+details.risk summary .t { font: 600 15.5px/1.4 var(--f-doc); min-width: 0; }
+details.risk[data-st="removed"] summary .t { text-decoration: line-through; text-decoration-color: var(--del); }
+.doc { font: 400 15.5px/1.7 var(--f-doc); padding: 0 16px 16px; max-width: 72ch; white-space: pre-wrap; overflow-wrap: anywhere; }
+.doc ins { color: var(--ins); background: var(--ins-bg); text-decoration: underline; text-underline-offset: 2px; }
+.doc del { color: var(--del); background: var(--del-bg); }
+.doc .old-title { font: 400 13px/1.4 var(--f-ui); color: var(--ink-2); margin-bottom: 8px; white-space: normal; }
+.meta { font: 400 12px var(--f-mono); color: var(--ink-2); padding: 0 16px 12px; }
+.ct { justify-self: start; font: 500 11px/1 var(--f-mono); padding: 3px 6px; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-2); white-space: nowrap; }
+.ct-new_exposure { color: var(--ins); border-color: var(--ins); }
+.ct-escalated { color: var(--rew); border-color: var(--rew); }
+.ct-de_escalated { color: var(--edit); border-color: var(--edit); }
+.why { font: 400 13px/1.5 var(--f-ui); color: var(--ink-2); padding: 0 16px 12px; max-width: 72ch; }
+.why b { color: var(--ink); font-weight: 600; }
+details.risk summary .tt { display: grid; gap: 6px; min-width: 0; }
+.empty { color: var(--ink-2); font-size: 14px; margin: 0; }
+
+/* method */
+footer.method { border-top: 1px solid var(--rule); padding-top: 20px; display: grid; gap: 12px; font-size: 14px; color: var(--ink-2); }
+footer.method h2 { font-size: 18px; color: var(--ink); }
+footer.method p { margin: 0; max-width: 72ch; }
+table.acc { border-collapse: collapse; width: 100%; max-width: 72ch; font-size: 14px; }
+table.acc th, table.acc td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.acc th { font: 600 12px var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
+table.acc .num { text-align: right; white-space: nowrap; font-family: var(--f-mono); }
+.status { display: inline-block; font: 500 12px var(--f-mono); padding: 3px 7px; border-radius: 4px; background: var(--rew-bg); color: var(--rew); }
+.wrap > *, #view > div > *, section.themes > *, footer.method > * { min-width: 0; }
+@media (max-width: 560px) { table.acc { display: block; overflow-x: auto; } table.acc th, table.acc td { padding-right: 8px; } }
+.ci { color: var(--ink-2); font-size: 12.5px; }
+.fails .q { margin: 0; font-weight: 600; }
+.fails blockquote { color: var(--ink); font-size: 14.5px; }
+.answer { display: grid; gap: 10px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; }
+.answer > p { margin: 0; font: 400 16px/1.6 var(--f-doc); max-width: 72ch; }
+.answer .srcs { padding: 0; }
+.askf { display: flex; gap: 8px; flex-wrap: wrap; }
+.askf .search { flex: 1 1 260px; width: auto; }
+section.ask { display: grid; gap: 12px; background: var(--sheet); border: 2px solid var(--ink); border-radius: 10px; padding: 18px; }
+section.ask h2 { font-size: 26px; }
+.askf .search { font-size: 17px; padding: 14px 16px; border: 1px solid var(--ink-2); }
+.askf button.showall { background: var(--ink); color: var(--paper); border-color: var(--ink); font-size: 16px; padding: 12px 22px; }
+.home-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.legend[hidden] { display: none; }
+.glance { display: grid; gap: 12px; }
+.g { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.g li { display: grid; grid-template-columns: 150px 1fr; gap: 4px 14px; align-items: center; }
+.g-label { font: 600 15px var(--f-display); }
+.g-bar { height: 14px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.g-bar span { display: block; height: 100%; }
+.g-up .g-bar span { background: var(--ins); } .g-up .g-label { color: var(--ins); }
+.g-down .g-bar span { background: var(--del); } .g-down .g-label { color: var(--del); }
+.g-num { grid-column: 2; font-size: 13px; color: var(--ink-2); }
+.g-num b { color: var(--ink); font: 600 17px var(--f-display); }
+@media (max-width: 560px) { .g li { grid-template-columns: 1fr; } .g-num { grid-column: 1; } }
+/* findings */
+.findings { display: grid; gap: 16px; }
+.tally { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--ink-2); margin: 0; }
+.tally b { color: var(--ink); font: 600 20px/1 var(--f-display); margin-right: 4px; }
+.finding { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+.finding summary { list-style: none; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline; }
+.finding summary::-webkit-details-marker { display: none; }
+.finding h3 { font-size: 19px; font-weight: 600; }
+.finding .count { font: 600 22px/1 var(--f-display); color: var(--ins); white-space: nowrap; }
+.finding .sub { grid-column: 1 / -1; font-size: 13px; color: var(--ink-2); }
+.meter { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.meter span { display: block; height: 100%; background: var(--ins); }
+.ex { list-style: none; margin: 0; padding: 0 16px 14px; display: grid; gap: 14px; }
+.ex li { display: grid; gap: 4px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.ex .who { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 13px; }
+.ex .who a { font: 700 14px var(--f-display); text-decoration: none; }
+.ex .who span { color: var(--ink-2); min-width: 0; }
+.ex blockquote { margin: 0; font: 400 15px/1.55 var(--f-doc); color: var(--ins); max-width: 72ch; }
+.ex .more { font-size: 13px; color: var(--ink-2); border-top: 0; padding-top: 0; }
+.movers { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.movers a { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--sheet); text-decoration: none; color: var(--ink); font-size: 13px; }
+.movers a b { font: 700 15px var(--f-display); }
+.movers a span { color: var(--ins); font-family: var(--f-mono); }
+.search { font: 400 15px var(--f-ui); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 6px; background: var(--sheet); color: var(--ink); width: min(100%, 320px); }
+.showall { justify-self: start; font: 500 14px var(--f-ui); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 14px; color: var(--ink); cursor: pointer; }
+details.risk.target { box-shadow: 0 0 0 2px var(--focus); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.co-head h1:focus { outline: none; }
+/* full-text search */
+.fts { display: grid; gap: 10px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 16px; }
+.fts label { font: 600 18px/1.2 var(--f-display); }
+.fts-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.fts input { flex: 1 1 260px; min-width: 0; font: 400 17px var(--f-ui); padding: 11px 14px; border: 1px solid var(--ink-2); border-radius: 6px; background: var(--paper); color: var(--ink); }
+.fts input:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.fts .hint { font-size: 13px; color: var(--ink-2); margin: 0; }
+.fts .hint button { font: inherit; color: var(--ins); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.hits { display: grid; gap: 12px; }
+.hits-sum { font-size: 15px; margin: 0; }
+.hits-sum b { font: 600 20px/1 var(--f-display); }
+.hit-co { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 16px; display: grid; gap: 10px; min-width: 0; }
+.hit-co > div:first-child { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.hit-co .co-tk a { text-decoration: none; }
+.hit-co .co-n { font-size: 13px; color: var(--ink-2); }
+.hit { display: grid; gap: 4px; border-top: 1px solid var(--rule); padding-top: 10px; text-decoration: none; color: var(--ink); min-width: 0; }
+.hit .ht { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 13px; color: var(--ink-2); }
+.hit .ht span:last-child { min-width: 0; }
+.hit q { font: 400 15px/1.55 var(--f-doc); quotes: "\201C" "\201D"; max-width: 72ch; overflow-wrap: anywhere; }
+.hit.cut q { color: var(--del); }
+.hit mark, .doc mark { background: #ffe58a; color: #18202c; border-radius: 2px; box-shadow: 0 0 0 2px #ffe58a; }
+.hit:hover q { text-decoration: underline; text-decoration-color: var(--rule); }
+.hit-co details summary { cursor: pointer; font-size: 13px; color: var(--ins); }
+.hit-co details[open] summary { margin-bottom: 10px; }
+.hit-co details { display: grid; gap: 10px; }
+@media (prefers-reduced-motion: no-preference) { .co, .chip { transition: border-color .15s, background .15s; } }
+/* ---- v2 front page: a dark product hero, then the year, the proof, the machine ---- */
+body.is-home header.mast { display: none; }
+body.is-home { padding-top: 0; }
+.hero { --hb: #0b0f14; --hs: #121821; --hl: #263142; --hi: #eef2f7; --hm: #93a1b5; --ha: #5b8cff; --hr: #ff6b5e;
+  width: 100vw; margin-left: calc(50% - 50vw); background: radial-gradient(1200px 500px at 85% -10%, rgba(91,140,255,.22), transparent 60%), radial-gradient(800px 400px at -10% 110%, rgba(255,107,94,.12), transparent 60%), var(--hb);
+  color: var(--hi); min-height: 100svh; display: grid; align-items: center; padding: 64px clamp(20px, 4vw, 48px) 56px; box-sizing: border-box; }
+body { overflow-x: clip; }
+.hero-in { max-width: 1180px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.kicker { display: inline-flex; align-items: center; gap: 10px; font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--hm); margin: 0 0 22px; }
+.live { width: 8px; height: 8px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 0 0 rgba(61,220,151,.6); animation: ping 2.8s ease-out infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(61,220,151,.55); } 70%, 100% { box-shadow: 0 0 0 10px rgba(61,220,151,0); } }
+.hero h1 { font: 700 clamp(38px, 5.4vw, 68px)/1.0 var(--f-display); letter-spacing: -0.025em; margin: 0; color: var(--hi); }
+.hero h1 em { font-style: normal; color: var(--hr); text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 8px; }
+.hero-fact { margin: 22px 0 26px; font-size: 18px; line-height: 1.5; color: var(--hm); max-width: 46ch; }
+.hero-fact b { color: var(--hi); font: 700 22px var(--f-display); }
+.hero .askf { display: flex; gap: 0; border: 1px solid var(--hl); border-radius: 8px; background: var(--hs); padding: 6px; transition: border-color .2s; }
+.hero .askf:focus-within { border-color: var(--ha); box-shadow: 0 0 0 4px rgba(91,140,255,.18); }
+.hero .askf input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--hi); font: 400 16px var(--f-ui); padding: 12px 12px; outline: none; }
+.hero .askf input::placeholder { color: #6b7a90; }
+.btn { font: 600 15px var(--f-ui); background: var(--ha, #1d4ed8); color: #fff; border: 0; border-radius: 6px; padding: 12px 18px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px;
+  transition: transform .16s cubic-bezier(.2,.8,.2,1), filter .16s; }
+.btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.btn:active { transform: translateY(0) scale(.97); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.hero .ask-try { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.hero .chip { background: transparent; color: var(--hm); border: 1px solid var(--hl); font-size: 13px; padding: 8px 12px; min-height: 36px; border-radius: 999px; cursor: pointer; text-align: left; transition: color .15s, border-color .15s, transform .15s; }
+.hero .chip:hover { color: var(--hi); border-color: var(--hm); transform: translateY(-1px); }
+.app-frame { background: var(--hs); border: 1px solid var(--hl); border-radius: 12px; box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.03) inset; overflow: hidden; display: grid; grid-template-rows: auto auto minmax(0, 1fr); max-height: min(640px, 78svh); }
+.af-bar { display: flex; align-items: center; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--hl); font: 500 12px var(--f-mono); color: var(--hm); }
+.af-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--hl); }
+.af-bar b { margin-left: 8px; font-weight: 500; }
+.af-q { margin: 0; padding: 16px 18px 0; font: 600 16px/1.4 var(--f-ui); color: var(--hi); }
+.app-frame #askout { overflow: auto; padding: 4px 18px 16px; scrollbar-width: thin; }
+.app-frame .answer { background: transparent; border: 0; padding: 0; gap: 12px; }
+.app-frame .answer > p { color: #d7dee8; font-size: 15.5px; }
+.app-frame .cite { color: var(--ha); text-decoration: none; font: 600 11px var(--f-mono); padding: 1px 4px; border-radius: 3px; background: rgba(91,140,255,.16); }
+.app-frame .srcs { gap: 10px; padding: 0; }
+.app-frame .srcs li { border-top: 1px solid var(--hl); padding-top: 10px; }
+.app-frame .srcs .who { font-size: 12px; color: var(--hm); }
+.app-frame .srcs .who b { color: var(--hi); font: 600 11px var(--f-mono); background: var(--hl); border-radius: 3px; padding: 1px 5px; }
+.app-frame .srcs .who a { color: var(--ha); }
+.app-frame .srcs blockquote { color: #b9c6d8; font-size: 13.5px; }
+.app-frame .empty, .af-wait { color: var(--hm); }
+.af-wait { display: flex; align-items: center; gap: 10px; padding-top: 12px; }
+.af-wait .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ha); animation: ping 1.2s ease-out infinite; }
+.af-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 4px 0 0; font: 400 11.5px var(--f-mono); color: var(--hm); }
+[data-enter] .hero-copy > *, [data-enter] .app-frame { animation: enter .7s cubic-bezier(.2,.8,.2,1) both; }
+[data-enter] .hero-copy > :nth-child(2) { animation-delay: .06s; } [data-enter] .hero-copy > :nth-child(3) { animation-delay: .12s; }
+[data-enter] .hero-copy > :nth-child(4), [data-enter] .hero-copy > :nth-child(5) { animation-delay: .18s; }
+[data-enter] .app-frame { animation-delay: .22s; animation-duration: .9s; }
+@keyframes enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { [data-enter] *, .live, .af-wait .dot { animation: none !important; } }
+.band { padding: 72px 0 8px; display: grid; gap: 18px; }
+.band h2 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 700; letter-spacing: -0.015em; }
+.arrow { font: 600 14px var(--f-ui); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s; }
+.arrow::after { content: " →"; }
+.arrow:hover { background-size: 100% 1px; }
+.glance-band .glance h2 { font-size: clamp(26px, 3.2vw, 36px); }
+.glance-band .g-bar { height: 22px; }
+.glance-band .g-bar span { transform-origin: left; }
+.glance-band .g li { grid-template-columns: 170px 1fr; }
+.proof-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.proof-grid li { display: grid; gap: 6px; align-content: start; padding: 22px 18px 6px 0; border-right: 1px solid var(--rule); padding-left: 18px; }
+.proof-grid li:first-child { padding-left: 0; } .proof-grid li:last-child { border-right: 0; }
+.proof-grid b { font: 700 clamp(34px, 4.4vw, 54px)/1 var(--f-display); letter-spacing: -0.02em; }
+.proof-grid .k { font-weight: 600; } .proof-grid .d { font-size: 13px; color: var(--ink-2); }
+.pipe { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0; position: relative; }
+.pipe::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; height: 2px; background: var(--rule); }
+.pipe::after { content: ""; position: absolute; top: 18px; height: 4px; width: 60px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--ins), transparent); animation: pulse 3.2s linear infinite; }
+@keyframes pulse { from { left: 0; } to { left: calc(100% - 60px); } }
+@media (prefers-reduced-motion: reduce) { .pipe::after { display: none; } }
+.pipe li { position: relative; display: grid; gap: 4px; align-content: start; padding-right: 12px; }
+.pipe .pn { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--sheet); border: 2px solid var(--ink); font: 600 12px var(--f-mono); position: relative; z-index: 1; margin-bottom: 8px; transition: background .2s, color .2s; }
+.pipe li:hover .pn { background: var(--ink); color: var(--paper); }
+.pipe b { font: 700 17px var(--f-display); } .pipe .pb { font: 500 12.5px var(--f-mono); color: var(--ins); } .pipe .pc { font-size: 13px; color: var(--ink-2); line-height: 1.4; }
+.findings .finding { transition: border-color .2s, transform .2s; } .findings .finding:hover { border-color: var(--ink-2); }
+@media (max-width: 960px) {
+  .hero-in { grid-template-columns: 1fr; gap: 32px; }
+  .hero { min-height: auto; padding-top: 48px; }
+  .app-frame { max-height: 520px; }
+  .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proof-grid li:nth-child(2) { border-right: 0; } .proof-grid li:nth-child(3) { padding-left: 0; }
+  .pipe { grid-template-columns: 1fr; gap: 14px; }
+  .pipe::before { left: 19px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+  .pipe::after { display: none; }
+  .pipe li { grid-template-columns: 40px 1fr; column-gap: 14px; }
+  .pipe .pn { grid-row: span 3; margin: 0; }
+}
+@media (max-width: 560px) {
+  .hero .askf { flex-direction: column; gap: 6px; }
+  .hero .askf .btn { justify-content: center; }
+  .proof-grid { grid-template-columns: 1fr; } .proof-grid li { border-right: 0; padding-left: 0; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+  .glance-band .g li { grid-template-columns: 1fr; }
+}
+</style>
+</head><body>
+<div class="wrap" id="app">
+  <header class="mast">
+    <a class="eyebrow" href="./" style="text-decoration:none">← Risk Radar · S&amp;P 100 · 10-K risk factors</a>
+    <h1>What are America's 100 biggest companies suddenly worried about?</h1>
+    <p id="lede">Every S&amp;P 100 annual report, compared with last year's sentence by sentence: what each company <span style="color:var(--ins)">added</span>, <span style="color:var(--del)">removed</span> and rewrote in its risk factors. Ask a question and get the exact sentences as proof.</p>
+    <div class="legend" aria-label="Legend">
+      <span><b class="pill st-new">new</b> no counterpart last year</span>
+      <span><b class="pill st-split">split off</b> carved out of last year's risk</span>
+      <span><b class="pill st-removed">removed</b> dropped this year</span>
+      <span><b class="pill st-merged">merged</b> folded into another risk</span>
+      <span><b class="pill st-rewritten">rewritten</b> same risk, mostly new text</span>
+      <span><b class="pill st-edited">edited</b> same risk, some edits</span>
+    </div>
+  </header>
+  <main id="view"><p class="empty">Loading filings…</p></main>
+  <footer class="method">
+    <h2>How it works</h2>
+    <p>For each company in the S&amp;P 100 the two most recent 10-K filings are downloaded from SEC EDGAR. Item 1A is split into individual risk factors using the filing's own formatting: a risk factor's title is set in bold, italic or underline, on its own line or run into its first paragraph. Intel marks its titles only with a larger font, and that is read too. BNY, U.S. Bancorp and Wells Fargo print their risk factors in the annual report filed as an exhibit to the 10-K, so that exhibit is read instead. A company is left out rather than shown wrong when either year yields fewer than eight risks. <span id="skipped"></span> Each risk this year is matched to last year's with a small open embedding model (bge-small-en-v1.5) on its title and opening paragraph, one-to-one, at a similarity of 0.80 or more. A risk left without a partner is checked for reused sentences: if at least 13% of its five-word phrases appear verbatim in a risk on the other side, it was split off from that risk or merged into it, not added or dropped. Matched risks are then compared word by word: 98% or more the same is unchanged, 75% or more is edited, anything lower is rewritten.</p>
+    <p>Theme counts are plain phrase matches over the risk-factor text, so they can be checked with Find in the filing itself. A company that writes more pages will mention most things more often.</p>
+    <p>A theme counts as moving at a company when a phrase on it appears in words added this year, inside a risk that is new, split off, or whose edit the classifier called a new exposure or an escalation. Rewording that keeps a theme already there does not count. Each example on the front page is the sentence from this year's filing that contains the added phrase, and links to the risk with the full blackline.</p>
+    <p>Search runs in your browser over the same text, with no server and no language model: every result is a passage that is in the filing. "In added text" and "In struck text" match only inside the words the blackline marks as added or struck, so a sentence that was merely reworded can appear in both.</p>
+    <h2 id="accuracy">How accurate it is</h2>
+    <p>A seeded sample of 257 items from ten of the first 20 companies was checked: every risk called new or removed, plus 26 random matched pairs per company. Each item was judged by two AI labellers working independently (one on all 257, one on a 60-item core), not by a human. They agreed on 59 of the 60 core items (Cohen's κ 0.96).</p>
+    <table class="acc">
+      <thead><tr><th scope="col">Check</th><th scope="col" class="num">Result</th><th scope="col" class="num">95% interval</th></tr></thead>
+      <tbody>
+        <tr><td>Matched pairs that really are the same risk</td><td class="num">242 / 242</td><td class="num">98.4–100%</td></tr>
+        <tr><td>Risks called new that really are new</td><td class="num">9 / 9</td><td class="num">70–100%</td></tr>
+        <tr><td>Risks called removed that really were dropped</td><td class="num">2 / 2</td><td class="num">34–100%</td></tr>
+        <tr><td>Split or merged risks linked to the right risk</td><td class="num">4 / 4</td><td class="num">51–100%</td></tr>
+        <tr><td>Risks cut out of the filing as one whole risk</td><td class="num">256 / 257</td><td class="num">97.8–99.9%</td></tr>
+      </tbody>
+    </table>
+    <p>Before the split check existed, 4 of the 15 risks called new or removed were really pieces of a risk that had been split or merged. Its threshold was then set on this same sample (10% at first, 13% after the audit below; all four hold at both), so those four are not an independent test; three further splits it found outside the sample were checked by reading them. The first version cut 14 of the 257 risks short. Thirteen were subsections of a longer risk in Microsoft's and Exxon Mobil's filings, read as risks of their own; the splitter now folds a short heading under a full-sentence title into that risk, and all thirteen are whole again. The fourteenth, a two-sentence Tesla risk about Elon Musk, really is that short in the filing.</p>
+    <p>All of that was measured on the first 20 companies, which the splitter and matcher were built on. The other 78 were then checked separately: an independent model (Claude Opus 5.5) read a fresh seeded sample from them and judged each call against the text. A model judge is not a person; this is a second reading of data the pipeline was never tuned on. Fifteen calls it could not settle from what it was shown, and two bodies it saw cut short by its own prompt limit, are left out.</p>
+    <table class="acc">
+      <thead><tr><th scope="col">Check, 78 later companies</th><th scope="col" class="num">Result</th><th scope="col" class="num">95% interval</th></tr></thead>
+      <tbody>
+        <tr><td>Matched pairs that really are the same risk</td><td class="num">80 / 80</td><td class="num">95–100%</td></tr>
+        <tr><td>Risks called new that really are new</td><td class="num">50 / 55</td><td class="num">80–96%</td></tr>
+        <tr><td>Risks called removed that really were dropped</td><td class="num">23 / 27</td><td class="num">68–94%</td></tr>
+        <tr><td>Split or merged risks linked to the right risk</td><td class="num">18 / 26</td><td class="num">50–84%</td></tr>
+        <tr><td>Risks cut out of the filing as one whole risk</td><td class="num">41 / 45</td><td class="num">79–96%</td></tr>
+      </tbody>
+    </table>
+    <p>Matching holds up on companies it was not built on; the weak spot is the rare risk with no partner. The audit first found Oracle's and AMD's risk-factor summaries read as risks; the splitter now drops a heading whose paragraphs are other risks' titles, which removed 12 such entries, 9 of them flagged by the judge (the table counts after that fix). Three wrong merge links rested on shared boilerplate at 10 to 12.5% phrase reuse, so the threshold was raised to 13%; that turned those three, and one correct split, into plain removed and new risks, which the table leaves out because their verdicts were about the old call. That change was made after seeing these results, so the split and merge row is no longer a clean out-of-sample number. Split and merge links are right only about two times in three on new filers: when a company renames the subject of a risk (Charter's Liberty Broadband deal became the Cox deal), the matcher sees a new risk carved out of an old one rather than the same risk rewritten. Read a split or merged tag as "related to", not "came from".</p>
+    <p>Edited and rewritten risks carry a second label from a language model that reads both versions and says what kind of change it was: new exposure, escalated, de-escalated or boilerplate. To see how good that can get, three model sizes were run on 80 changes labelled beforehand, scored on the 42 not used to write the instructions.</p>
+    <table class="acc">
+      <thead><tr><th scope="col">Model</th><th scope="col" class="num">Agreement, original labels</th><th scope="col" class="num">After review</th><th scope="col" class="num">Cost per 1,000</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Haiku 5.5 (used here)</td><td class="num">62%</td><td class="num">76%</td><td class="num">$0.42</td></tr>
+        <tr><td>Claude Sonnet 5.5</td><td class="num">62%</td><td class="num">76%</td><td class="num">$6.34</td></tr>
+        <tr><td>Claude Opus 5.5</td><td class="num">62%</td><td class="num">90%</td><td class="num">$12.71</td></tr>
+      </tbody>
+    </table>
+    <p>Against the original labels every model stopped at 62%, and the models agreed with each other (κ 0.56 to 0.82) far more than with the labels (κ 0.42 to 0.52). That pointed at the labels, which were written before the rule that a dropped example or a renamed regulator is boilerplate. The 17 changes where four or five of the five model runs agreed against the label were re-read against that rule, and 16 labels changed. Because only items the models agreed on were reviewed, the second column is an upper bound and the first a lower bound. Even so, the review is where the model sizes separate. Haiku is used here because it costs a thirtieth of Opus; treat its change tag as a pointer to where to look, not a verdict. Labelling 1,525 of the 1,706 edited and rewritten risks cost about $0.70. The other 181, mostly from the four filings that were read last (Intel and three banks) and risks whose only change was the title, are not labelled yet and show no tag.</p>
+    <p>The design was compared with 34 alternatives on the same sample. A larger embedding model (bge-base) was no more accurate and three times slower. Plain TF-IDF word overlap came within two items of it, which says the task is mostly lexical. Matching on titles alone was 98% accurate. The sample was drawn from this design's own output, so the comparison favours it.</p>
+  </footer>
+</div>
+
+<script src="app.js" defer></script>
+</body></html>
