@@ -82,6 +82,27 @@ Budget: at most $2 a month. One answer costs about $0.0006 to $0.001.
 4. `api/_tools/eval.mjs` runs the golden set through the same search and agent
    code that ships.
 
+## Forecast (v3, in progress)
+
+For each company and theme, the chance that its next 10-K adds or escalates
+risk language on that theme: the six themes above plus interest rates and
+credit, and government shutdown and spending. The forecasts are committed
+before the filings exist and scored when they land; a forecast committed after
+a company's filing is refused by the scorer. A forecast of what companies will
+write, not of what will happen to them.
+
+    SEC_USER_AGENT="name email" python3 tools/fetch_10q.py   # 10-Qs, 8-K items, one older 10-K
+    PYTHONPATH=src:tools python3 tools/extract_10q.py         # 10-Q Item 1A: updated / no_change / reference_only
+    PYTHONPATH=src:tools python3 tools/forecast_features.py   # signals per company and theme
+    PYTHONPATH=src:tools python3 tools/forecast.py            # backtest vs baselines, draft forecast
+    PYTHONPATH=src:tools python3 tools/forecast.py --freeze   # then commit forecast.json on its own
+    PYTHONPATH=src:tools python3 tools/score_forecast.py      # once 10-Ks land (data/outcomes.json)
+
+Baselines: B0, each theme's share of companies that added it last year; B1,
+that share split by whether the company's own mentions rose. Scored by Brier
+score and log loss, out of sample (10 folds by company), with intervals from
+resampling companies. API spend on v3 so far: $0.
+
 ## Reproduce
 
     make test                                  # Python tests, no install

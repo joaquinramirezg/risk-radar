@@ -249,7 +249,8 @@ def main(argv: list[str]) -> int:
                 | {
                     k: {"brier": report[k]["brier"], "brier_ci": report[k]["brier_ci"]}
                     for k in ("B0", "B1", "model")
-                },
+                }
+                | {"by_theme": report["by_theme"]},
                 "forecasts": forecasts,
             },
             indent=0,

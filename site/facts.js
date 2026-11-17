@@ -47,11 +47,24 @@ export function facts({ index, findings, faded, eval: ev }) {
   };
 }
 
+// The forecast page's numbers, from data/forecast.json (absent until the first forecast run).
+export function forecastFacts(fc) {
+  return {
+    fc_themes: int(fc.themes.length),
+    fc_n: int(fc.forecasts.length),
+    fc_companies: int(new Set(fc.forecasts.map(f => f.ticker)).size),
+    bt_model: fc.backtest.model.brier.toFixed(3),
+    bt_b0: fc.backtest.B0.brier.toFixed(3),
+    bt_b1: fc.backtest.B1.brier.toFixed(3),
+  };
+}
+
 // In the browser: rewrite every [data-f] from the data, so a rebuilt dataset never leaves a stale number.
 if (typeof document !== "undefined") {
   Promise.all(SOURCES.map(s => fetch(`data/${s}.json`).then(r => r.json())))
-    .then(([index, findings, faded, ev]) => {
-      const f = facts({ index, findings, faded, eval: ev });
+    .then(async ([index, findings, faded, ev]) => {
+      const fc = await fetch("data/forecast.json").then(r => (r.ok ? r.json() : null)).catch(() => null);
+      const f = { ...facts({ index, findings, faded, eval: ev }), ...(fc ? forecastFacts(fc) : {}) };
       document.querySelectorAll("[data-f]").forEach(el => { if (el.dataset.f in f) el.textContent = f[el.dataset.f]; });
     })
     .catch(() => {});
