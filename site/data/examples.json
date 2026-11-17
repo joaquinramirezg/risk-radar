@@ -1,0 +1,203 @@
+{
+ "made": "2026-11-17",
+ "answers": {
+  "Which companies worry about tariffs on imports from China?": {
+   "answer": "Many S&P 100 companies discuss tariffs, and 61 of 102 added or expanded tariff and trade language this year, though that count covers tariffs generally, not only China. The filings that tie tariffs to China specifically include Eli Lilly, which cites \"new tariffs on Chinese goods\" and China's retaliatory tariffs [1], and PepsiCo, which lists tariffs on China among those affecting its input costs [2]. Ford points to China's restrictions on rare earth exports alongside tariffs [3], and Deere says most of its rare earth minerals come from China [4]. Tesla [5] and Intuitive Surgical [6] also flag trade changes with China and tariffs as risks.",
+   "sources": [
+    {
+     "n": 1,
+     "id": "LLY.d3c82f15b941.8",
+     "kind": "current",
+     "ticker": "LLY",
+     "company": "Eli Lilly",
+     "risk": "LLY.d3c82f15b941",
+     "title": "Reliance on third-party relationships and outsourcing arrangements could adversely affect our business.",
+     "status": "edited",
+     "text": "In 2025, the U.S. government imposed new tariffs on Chinese goods and China responded with tariffs on select U.S. goods."
+    },
+    {
+     "n": 2,
+     "id": "PEP.cf102be31500.8",
+     "kind": "current",
+     "ticker": "PEP",
+     "company": "PepsiCo",
+     "risk": "PEP.cf102be31500",
+     "title": "Disruption of our manufacturing operations or supply chain, including increased commodity, packaging, transportation, labor and other input costs, can adversely affect our business.",
+     "status": "edited",
+     "text": "In addition, the imposition of tariffs (including U.S. tariffs imposed or threatened to be imposed on China, the European Union, Canada and Mexico and other countries and any tariffs imposed by such countries) have impacted and could continue to impact our supply chain resulting in increased input costs, including the cost of certain raw materials and packaging."
+    },
+    {
+     "n": 3,
+     "id": "F.33c4b2cdca32.12",
+     "kind": "current",
+     "ticker": "F",
+     "company": "Ford Motor",
+     "risk": "F.33c4b2cdca32",
+     "title": "With a global footprint and supply chain, Ford’s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
+     "status": "rewritten",
+     "text": "In addition, instability in the supply chain exacerbated by tariffs and other industry concerns, such as China’s restriction on the export of rare earth minerals and various components, has resulted in production disruptions and increased costs and heightens the risk of future production disruptions and further cost increases."
+    },
+    {
+     "n": 4,
+     "id": "DE.89362a5c7ede.5",
+     "kind": "current",
+     "ticker": "DE",
+     "company": "Deere & Company",
+     "risk": "DE.89362a5c7ede",
+     "title": "Changes in the availability and price of certain raw materials, components, and whole goods have resulted and could result in disruptions to the supply chain causing production disruptions, increased costs, and lower profits from sales of our products.",
+     "status": "rewritten",
+     "text": "For example, certain of our products, including motors, batteries, and other components, rely on rare earth minerals for their manufacturing, of which a significant majority are sourced from China."
+    },
+    {
+     "n": 5,
+     "id": "TSLA.3c74cd065bce.7",
+     "kind": "current",
+     "ticker": "TSLA",
+     "company": "Tesla",
+     "risk": "TSLA.3c74cd065bce",
+     "title": "We face risks associated with maintaining and expanding our international operations, including unfavorable and uncertain regulatory, political, economic, tax and labor conditions.",
+     "status": "rewritten",
+     "text": "We cannot predict whether, and to what extent, there may be changes to international trade agreements, such as those with China, or whether, or to what extent, quotas, duties, additional tariffs, export controls or other restrictions will be changed or imposed by the United States or by other countries."
+    },
+    {
+     "n": 6,
+     "id": "ISRG.c06c468b1c21.17",
+     "kind": "current",
+     "ticker": "ISRG",
+     "company": "Intuitive Surgical",
+     "risk": "ISRG.c06c468b1c21",
+     "title": "WE ARE SUBJECT TO A VARIETY OF RISKS DUE TO OUR OPERATIONS OUTSIDE OF THE U.S.",
+     "status": "rewritten",
+     "text": "There is inherent risk, based on the complex and changing dynamic between China and the U.S., that political, diplomatic, military, or other events could result in business disruptions, including, but not limited to, increased policy or regulatory enforcement against companies, tariffs, trade embargoes, or export restrictions."
+    }
+   ],
+   "abstained": false,
+   "model": "claude-haiku-5-5",
+   "usage": {
+    "usd": 0.0007021600000000001,
+    "ms": 3145
+   }
+  },
+  "How does JPMorgan describe the risk of a cyberattack?": {
+   "answer": "JPMorgan treats cyberattacks as a major, growing risk. Its main cyber risk factor, \"A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers,\" was rewritten this year. It warns that the bank \"could become increasingly vulnerable to cyber attacks\" if it does not promptly fix emerging threats or control weaknesses, and it names specific threats such as zero-day vulnerabilities, distributed denial-of-service attacks, malware and ransomware, and insider misuse [1][2][3][4]. A separate risk says that its growing links with clients, vendors and other outside parties \"increases the risk of failure or cyber attacks\" on those systems [5][6]. The bank also says it \"has experienced and expects that it will continue to experience failures and disruptions\" in its systems, and that some of these incidents have led to customer personal data being taken [7][8].",
+   "sources": [
+    {
+     "n": 1,
+     "id": "JPM.3d0b7b40bc27.29",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.3d0b7b40bc27",
+     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
+     "status": "rewritten",
+     "text": "JPMorganChase could become increasingly vulnerable to cyber attacks if it does not, in a timely manner, identify and address emerging threats, known vulnerabilities or shortcomings in its cybersecurity controls, or if it fails to prioritize or complete enhancements to address them particularly in jurisdictions that could pose a heightened risk to its operations, including enhancements relating to:"
+    },
+    {
+     "n": 2,
+     "id": "JPM.3d0b7b40bc27.31",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.3d0b7b40bc27",
+     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
+     "status": "rewritten",
+     "text": "•detecting, escalating and effectively addressing in a timely manner any vulnerabilities that may be present either in internally-developed software or externally-provided software or services, including vulnerabilities that could allow the attackers to exploit unknown security flaws in software and hardware (i.e., “zero-day vulnerabilities”)"
+    },
+    {
+     "n": 3,
+     "id": "JPM.3d0b7b40bc27.34",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.3d0b7b40bc27",
+     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
+     "status": "rewritten",
+     "text": "•upgrading systems and controls to protect JPMorganChase and its clients and customers from the impact of distributed denial-of-service attacks, or to recover from outages that could be caused by a malware or ransomware attack"
+    },
+    {
+     "n": 4,
+     "id": "JPM.3d0b7b40bc27.37",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.3d0b7b40bc27",
+     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
+     "status": "rewritten",
+     "text": "•identifying, assessing and mitigating insider threat activities that could lead to the misuse of JPMorganChase’s systems or client and customer information, and"
+    },
+    {
+     "n": 5,
+     "id": "JPM.de89b92e68c4.3",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.de89b92e68c4",
+     "title": "JPMorganChase’s interconnectedness with clients, customers and other external parties could be a source of significant operational risk.",
+     "status": "split",
+     "text": "JPMorganChase’s interconnectivity with clients, customers and other external parties continues to expand, which increases the risk of failure or cyber attacks with respect to the systems of those parties."
+    },
+    {
+     "n": 6,
+     "id": "JPM.de89b92e68c4.4",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.de89b92e68c4",
+     "title": "JPMorganChase’s interconnectedness with clients, customers and other external parties could be a source of significant operational risk.",
+     "status": "split",
+     "text": "Any systems failure, security breach, or human error or misconduct that affects clients, customers or external parties could require JPMorganChase to take steps to protect the integrity of its own operational systems or to safeguard confidential information, including restricting the access of its customers to their accounts."
+    },
+    {
+     "n": 7,
+     "id": "JPM.2bf6402de866.10",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.2bf6402de866",
+     "title": "JPMorganChase’s businesses could be adversely affected by the failure or disruption of operational systems on which they depend.",
+     "status": "rewritten",
+     "text": "JPMorganChase has experienced and expects that it will continue to experience failures and disruptions in the stability of its operational systems, including:"
+    },
+    {
+     "n": 8,
+     "id": "JPM.2bf6402de866.19",
+     "kind": "current",
+     "ticker": "JPM",
+     "company": "JPMorgan Chase",
+     "risk": "JPM.2bf6402de866",
+     "title": "JPMorganChase’s businesses could be adversely affected by the failure or disruption of operational systems on which they depend.",
+     "status": "rewritten",
+     "text": "•the exfiltration of customer personal data"
+    }
+   ],
+   "abstained": false,
+   "model": "claude-haiku-5-5",
+   "usage": {
+    "usd": 0.00051356,
+    "ms": 2430
+   }
+  },
+  "How many companies added risk language about AI this year?": {
+   "answer": "Eighty of the 102 companies added or expanded risk language about artificial intelligence this year, covering 269 risk factors in total. Eleven companies cut or softened that language. [1]",
+   "sources": [
+    {
+     "n": 1,
+     "id": "theme.Artificial intelligence",
+     "kind": "theme",
+     "ticker": null,
+     "company": null,
+     "risk": null,
+     "title": "Artificial intelligence",
+     "status": null,
+     "text": "80 of 102 companies added or expanded risk language on artificial intelligence this year; 11 cut or softened it."
+    }
+   ],
+   "abstained": false,
+   "model": "claude-haiku-5-5",
+   "usage": {
+    "usd": 0.00018616,
+    "ms": 1382
+   }
+  }
+ }
+}

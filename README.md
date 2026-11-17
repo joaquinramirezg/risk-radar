@@ -74,6 +74,9 @@ Budget: at most $2 a month. One answer costs about $0.0006 to $0.001.
   `DAILY_CAP`); 60 x $0.001 = $0.06 a day, under $2 even if every day hits it.
 - At most 4 model turns and 800 output tokens a turn (`LIMITS` in
   `api/_lib/agent.js`). Repeated questions are served from memory.
+  Rerun at these limits on the same 63 questions
+  (`results/answers-claude-haiku-5-5-low-cap800.jsonl`): 83% correct
+  (72% to 93%), the same as the published run.
 - The hard stop is a $2 monthly spend limit on the Anthropic workspace that
   holds the key. The two caps above live in server memory and reset on a new
   instance; the workspace limit cannot be bypassed.
@@ -101,7 +104,8 @@ write, not of what will happen to them.
 Baselines: B0, each theme's share of companies that added it last year; B1,
 that share split by whether the company's own mentions rose. Scored by Brier
 score and log loss, out of sample (10 folds by company), with intervals from
-resampling companies. API spend on v3 so far: $0.
+resampling companies. API spend on v3 so far: $0.13 (the Haiku rerun at the new caps with its Sonnet
+grading, $0.13, and the stored example answers, under $0.01).
 
 ## Reproduce
 
