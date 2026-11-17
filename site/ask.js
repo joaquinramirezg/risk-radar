@@ -17,7 +17,14 @@ function render(body, q, earlier) {
   list.innerHTML = src;
 }
 
+// The example buttons are answered from data/examples.json (made once by api/_tools/examples.mjs),
+// so clicking one never calls the model. Typed questions go to /api/ask.
+let examples = null;
+const loadExamples = () => (examples ??= fetch("data/examples.json").then(r => (r.ok ? r.json() : { answers: {} })).catch(() => ({ answers: {} })));
+
 async function ask(q) {
+  const pre = (await loadExamples()).answers?.[q];
+  if (pre) return render(pre, q, true);
   out.innerHTML = `<p class="ask-wait">Searching both years of filings…</p>`;
   list.innerHTML = "";
   try {

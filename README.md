@@ -61,8 +61,24 @@ failure quoted: https://risk-radar-ten.vercel.app/#eval
    tool-using agent (`search_filings`, `get_company`, `compare_years`,
    `theme_trend`). Every sentence a tool returns gets a per-request number;
    the answer must cite those numbers, and any citation the tools did not
-   return blocks the answer. Per-IP and daily caps, 5 turns, 1,500 tokens a
-   turn, and a workspace spend limit as the hard stop.
+   return blocks the answer.
+
+## What the live Ask costs
+
+Budget: at most $2 a month. One answer costs about $0.0006 to $0.001.
+
+- The three example questions on the Ask page are answered once, offline
+  (`api/_tools/examples.mjs` -> `site/data/examples.json`), and served from
+  that file: clicking one never calls the model.
+- 5 questions per visitor a day and 60 a day per server (`IP_DAILY`,
+  `DAILY_CAP`); 60 x $0.001 = $0.06 a day, under $2 even if every day hits it.
+- At most 4 model turns and 800 output tokens a turn (`LIMITS` in
+  `api/_lib/agent.js`). Repeated questions are served from memory.
+- The hard stop is a $2 monthly spend limit on the Anthropic workspace that
+  holds the key. The two caps above live in server memory and reset on a new
+  instance; the workspace limit cannot be bypassed.
+- Optional, not built: a durable monthly counter (Upstash Redis through the
+  Vercel Marketplace, free tier) refusing above `MONTHLY_CAP` = 1,500 answers.
 4. `api/_tools/eval.mjs` runs the golden set through the same search and agent
    code that ships.
 

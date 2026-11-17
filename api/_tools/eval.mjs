@@ -26,6 +26,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const GOLDEN = join(ROOT, "data", "golden", "golden.jsonl");
 const OUT = join(ROOT, "results");
 const JUDGE = "claude-sonnet-5-5";
+// EVAL_TAG=cap800 writes answers-MODEL-EFFORT-cap800.jsonl, a rerun beside the published one.
+const TAG = process.env.EVAL_TAG ? `-${process.env.EVAL_TAG}` : "";
 mkdirSync(OUT, { recursive: true });
 
 const golden = readFileSync(GOLDEN, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
@@ -147,7 +149,7 @@ async function judge(client, g, answer) {
 async function answers(model, effort = "low") {
   if (!PRICES[model]) throw new Error(`unknown model ${model}`);
   const client = new Anthropic();
-  const file = join(OUT, `answers-${model}-${effort}.jsonl`);
+  const file = join(OUT, `answers-${model}-${effort}${TAG}.jsonl`);
   const done = new Set(existsSync(file) ? readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l).qid) : []);
   for (const g of golden) {
     if (done.has(g.qid)) continue;
@@ -178,7 +180,7 @@ Return JSON only: {"declined": true | false, "reason": "<one sentence>"}`;
 
 async function declines(model, effort = "low") {
   const client = new Anthropic();
-  const file = join(OUT, `answers-${model}-${effort}.jsonl`);
+  const file = join(OUT, `answers-${model}-${effort}${TAG}.jsonl`);
   const rows = readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
   for (const r of rows) {
     if (r.answerable || r.abstained || r.decline_judge) continue;
@@ -224,7 +226,7 @@ function claimsOf(answer, cited) {
 
 async function faith(model, effort = "low") {
   const client = new Anthropic();
-  const file = join(OUT, `answers-${model}-${effort}.jsonl`);
+  const file = join(OUT, `answers-${model}-${effort}${TAG}.jsonl`);
   const rows = readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
   for (const r of rows) {
     if (r.faith || r.rejected) continue;

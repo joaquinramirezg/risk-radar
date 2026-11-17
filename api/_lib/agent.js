@@ -23,7 +23,7 @@ export const PRICES = {
   "claude-sonnet-5-5": [2, 10, 0.1, 2.5],
 };
 export const DEFAULT_MODEL = process.env.ASK_MODEL || "claude-haiku-5-5";
-export const LIMITS = { maxTurns: 5, maxTokens: 1500, perSearch: 8, maxQuestionChars: 300 };
+export const LIMITS = { maxTurns: 4, maxTokens: 800, perSearch: 8, maxQuestionChars: 300 };
 
 const SYSTEM = `You answer questions about the risk factors (Item 1A) in the latest annual reports (10-K) of the 102 companies in the S&P 100, compared with the year before. You have tools that search those filings. You know nothing else: no news, no prices, no financial figures beyond what a returned sentence states, no opinions, no advice.
 
