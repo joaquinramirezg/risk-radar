@@ -12,3 +12,6 @@ node_modules/
 .taste-skill/
 shots/
 site/.taste-skill/
+data/raw_10q/
+data/raw_prev2/
+data/edgar/

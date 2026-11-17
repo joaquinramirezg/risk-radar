@@ -40,3 +40,8 @@ testpaths = ["tests"]
 # A data file: the questions and answers are kept one per line on purpose.
 "tools/golden_v1.py" = ["E501"]
 "tools/grade.py" = ["E501"]
+# Formatted by ruff format; the long lines left are report strings and test data.
+"tools/*forecast*.py" = ["E501"]
+"tools/fetch_10q.py" = ["E501"]
+"tools/extract_10q.py" = ["E501"]
+"tests/test_forecast.py" = ["E501"]
