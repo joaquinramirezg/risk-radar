@@ -1,0 +1,40 @@
+name: forecast-watch
+# Once a week: ask EDGAR which companies have filed their next 10-K since the
+# forecast, and open a pull request with the updated filing list. It never
+# pushes to master; scoring a company (rerunning the v2 pipeline on its new
+# 10-K, then tools/score_forecast.py) is done by hand from that pull request.
+# Needs the repository secret SEC_USER_AGENT ("name email", EDGAR's rule).
+on:
+  schedule:
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    if: ${{ vars.FORECAST_WATCH == 'on' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: PYTHONPATH=src:tools python3 tools/fetch_10q.py
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      - name: Open a pull request if any filing changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git diff --quiet -- data/events.json && exit 0
+          branch="forecast-watch/$(date -u +%Y-%m-%d)"
+          git config user.name "forecast-watch"
+          git config user.email "forecast-watch@users.noreply.github.com"
+          git switch -c "$branch"
+          git add data/events.json
+          git commit -m "New filings since the forecast ($(date -u +%Y-%m-%d))"
+          git push -u origin "$branch"
+          filed=$(python3 -c "import json;e=json.load(open('data/events.json'))['companies'];print(', '.join(t for t,v in e.items() if v.get('next_10k')) or 'none')")
+          gh pr create --base master --head "$branch" --title "New filings since the forecast" \
+            --body "Companies whose next 10-K is out: $filed. Score them by hand: rerun the v2 pipeline on their new 10-K, add them to data/outcomes.json, run tools/score_forecast.py."

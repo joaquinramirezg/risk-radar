@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # the forecast check reads the history of forecast.json
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -15,6 +17,8 @@ jobs:
       # The published site data must hang together: every front-page link
       # resolves, every quoted sentence is in the filing text, counts add up.
       - run: python3 tools/check_site.py
+      # A frozen forecast is never edited: forecast.json must match its freeze commit.
+      - run: PYTHONPATH=src:tools python3 tools/check_forecast.py
   ask:
     runs-on: ubuntu-latest
     steps:
