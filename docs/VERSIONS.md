@@ -70,7 +70,32 @@ read for 12 companies. The real score exists only after the Feb to Mar 2027
 filings. Frozen 2026-11-17 in commit 950eaa9 (`Forecast frozen 2026-11-17`),
 before any of the forecast 10-Ks was filed; CI fails if the file changes.
 
-## v4: in progress
+## v4: in public (Nov 18 2026, in progress)
 
-Plan: `../../portfolio/RISK-RADAR-V4-PLAN.md` in the author's workspace;
-summary here when it ships.
+**Question.** Does it hold up when people use it, and does anyone find it?
+
+**Shipped.**
+- Live Ask answering again (it failed upstream on Nov 17), and a free
+  `GET /api/health` that checks the key without spending tokens;
+  `.github/workflows/uptime.yml` loads every page and calls it every six hours.
+- A failure found in use, fixed: asked which companies stopped mentioning ESG,
+  Ask said none (the board shows 26 of 53). `theme_trend` now also counts the
+  terms companies dropped (ESG, COVID-19, from `site/data/faded.json`), and the
+  ESG example is back on the Ask page.
+- `api/_tools/eval_counts.mjs`: ten counting questions scored exactly against
+  the board's own numbers, no judge.
+- Cookieless page analytics (Vercel Web Analytics) on every page.
+- A 43-second demo (`docs/demo.gif`), a 60-second summary and one headline
+  number per version at the top of the README, and a project page on
+  joaquinramirez.dev.
+
+**Result.** Counting questions, three runs each: 16 of 30 before, 28 of 30
+after; ESG and COVID-19 questions 0 of 9 before, 9 of 9 after. The 63-question
+set rerun after the fix: 78% correct (67% to 89%), 9 of 9 declined, paired
+against the published run -6 points (-17 to +6); none of the answers that
+moved used the changed tool. API spend on v4: about $0.20 (the rerun with its grading, the counting runs, the stored examples).
+
+**Limits.** The counting set is ten questions written from the board's own
+numbers. Analytics count page views only, not who the visitors are. Still to
+do in v4: 5 to 10 real users and what they asked; the forecast freeze and the
+first post (the author's calls, by Jan 31 2027).

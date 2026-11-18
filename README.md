@@ -1,11 +1,28 @@
 # Risk Radar
 
-What are America's 100 biggest companies suddenly worried about? Every S&P 100
-annual report (10-K, Item 1A risk factors), compared with last year's sentence
-by sentence, plus an agent that answers questions about them with the exact
-sentences as proof, and a published measurement of how often it is right.
+An AI analyst for S&P 100 risk filings: it measures how often it is right,
+and it made public predictions it will be graded on.
 
 Live: https://risk-radar-ten.vercel.app
+
+![Risk Radar demo: the S&P 100 board, a question answered with cited sentences, the forecast](docs/demo.gif)
+
+## In 60 seconds
+
+Every S&P 100 annual report (10-K, Item 1A risk factors) compared with last
+year's, risk by risk; an agent that answers questions about them and cites
+the exact sentence behind every claim; and forecasts of what each company will
+add to its next 10-K, committed before the filings exist. Each version
+answered one question and has one number that says whether it worked:
+
+| Version | Question | Headline number |
+|---|---|---|
+| v1, the radar | What did each company change in its risk factors this year? | 80 of 102 added or expanded AI risk |
+| v2, Ask the filings | Can anyone ask the filings and trust the answer? | 83% of answers correct (72% to 93%) |
+| v3, the forecast | What will each company add next, in a way that can be checked? | Backtest Brier 0.166 vs 0.182 for the base rate |
+| v4, in public | Does it hold up in use? | Counting questions right: 16 of 30 before a fix, 28 of 30 after |
+
+Every version, with what it shipped and its limits: `docs/VERSIONS.md`.
 
 ## Results
 
@@ -82,8 +99,37 @@ Budget: at most $2 a month. One answer costs about $0.0006 to $0.001.
   instance; the workspace limit cannot be bypassed.
 - Optional, not built: a durable monthly counter (Upstash Redis through the
   Vercel Marketplace, free tier) refusing above `MONTHLY_CAP` = 1,500 answers.
+- `GET /api/health` lists the models on the key, which spends no tokens;
+  `.github/workflows/uptime.yml` calls it and loads every page every six
+  hours, and a failed run emails the repo owner.
 4. `api/_tools/eval.mjs` runs the golden set through the same search and agent
    code that ships.
+
+## Counting questions (v4)
+
+The golden set asks about one company at a time, so it missed a failure found
+in use: asked which companies stopped mentioning ESG, Ask said none had, while
+the board shows 26 of 53. The counting tool covered six themes, and the data
+on terms companies dropped (ESG, COVID-19) was never connected to it.
+`api/_tools/eval_counts.mjs` asks the ten counts the board prints and passes an
+answer only if it states the board's number and cites a sentence. Three runs
+each, before and after connecting the data (`reports/counts_eval.json`):
+
+| Counting questions | Before | After |
+|---|---|---|
+| All ten, three runs | 16 of 30 | 28 of 30 |
+| ESG and COVID-19 (three questions, three runs) | 0 of 9 | 9 of 9 |
+
+The two misses after the fix gave the right number without citing it. The
+63-question golden set, rerun after the fix
+(`results/answers-claude-haiku-5-5-low-v4.jsonl`): 78% correct (67% to 89%),
+9 of 9 unanswerable declined; paired against the published run, -6 points
+(-17 to +6). None of the nine answers whose verdict moved called the changed
+tool, so this is run-to-run variation at low effort, not the fix. The
+published 83% stays the headline because the hand-grading check was done on it.
+
+Page views are counted with Vercel Web Analytics: no cookies, nothing stored
+on the visitor's device.
 
 ## Forecast (v3, in progress)
 
