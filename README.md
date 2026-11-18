@@ -104,7 +104,23 @@ write, not of what will happen to them.
 Baselines: B0, each theme's share of companies that added it last year; B1,
 that share split by whether the company's own mentions rose. Scored by Brier
 score and log loss, out of sample (10 folds by company), with intervals from
-resampling companies. API spend on v3 so far: $0.13 (the Haiku rerun at the new caps with its Sonnet
+resampling companies.
+
+| Backtest (808 forecasts, 101 companies, last year's 10-Ks) | Brier | Log loss |
+|---|---|---|
+| B0, each theme's share | 0.182 (0.170 to 0.196) | 0.547 |
+| B1, plus the company's own trend | 0.178 (0.165 to 0.193) | 0.536 |
+| Logistic model | 0.166 (0.151 to 0.181) | 0.502 |
+
+Model minus B0: -0.017 (-0.028 to -0.005). The strongest signal is how much
+the last 10-K already says about a theme, then new 10-Q risk text on it.
+30 of 102 companies wrote new risk text in a 10-Q since their latest 10-K;
+the 10-Q section could not be read for 12 (mostly banks and drug makers),
+and Disney's next 10-K was out before the forecast, so it is not forecast.
+The base rates assume next year's filings add each theme about as often as
+this year's did; a year with far less AI or tariff news would break that.
+
+API spend on v3 so far: $0.13 (the Haiku rerun at the new caps with its Sonnet
 grading, $0.13, and the stored example answers, under $0.01).
 
 ## Reproduce
