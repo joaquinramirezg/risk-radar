@@ -203,3 +203,6 @@ del.rl { color: var(--del); background: var(--del-bg); text-decoration: line-thr
 @media (max-width: 639px) { #method { min-height: 100svh; } }
 @media (max-width: 639px) { .fc-card__why { display: none; } }
 .fc-bt i { background: linear-gradient(90deg, var(--ins) var(--v), #ece9e1 var(--v)); }
+.fc-pick { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+.fc-pick > div { grid-column: 1 / span 5; } .fc-pick > .fc-why { grid-column: 6 / span 7; }
+@media (max-width: 639px) { .fc-pick { grid-template-columns: 1fr; } .fc-pick > div, .fc-pick > .fc-why { grid-column: 1; } .fc-card .ladder__k { display: none; } .fc-card { gap: 6px; } .fc-card .ladder__row { font-size: 13px; } .fc-status { margin-bottom: var(--s-2); } }

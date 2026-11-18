@@ -59,8 +59,8 @@
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="fc-status" id="fc-status">Draft · freezes before January 31, 2027</p>
-        <h1 id="hero-h">The S&amp;P 100's next <span class="nw">10-K</span> risks, forecast</h1>
-        <p class="hero__lead">The chance that each company's next annual report adds or escalates risk on <span data-f="fc_themes">8</span> themes: <span data-f="fc_n">816</span> forecasts, frozen before the filings exist, scored as they land.</p>
+        <h1 id="hero-h">Next year's S&amp;P 100 risks, forecast</h1>
+        <p class="hero__lead">The chance that each company's next annual report adds or escalates risk on <span data-f="fc_themes">8</span> themes: <span data-f="fc_n">808</span> forecasts, frozen before the filings exist, scored as they land.</p>
         <div class="btn-row"><a class="btn btn--primary" href="#board">See every company<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#method">How it is scored</a></div>
       </div>
       <div class="hero__media hero__card span-7 start-6" role="img" aria-label="One company's forecast: the chance its next 10-K adds or escalates risk on each theme">
@@ -80,9 +80,9 @@
         <p class="board__count" aria-live="polite"><b class="num">&nbsp;</b>&nbsp;</p>
         <div class="board__themes board__themes--8" role="group" aria-label="Theme" id="fc-themes"></div>
         <div class="tiles" id="tiles"></div>
-        <div class="co-pick grid" id="pick" aria-live="polite">
-          <div class="span-5"><p class="co-pick__name">Pick a company</p><p class="co-pick__meta">Its chance, and the signal that moved it most.</p></div>
-          <p class="span-7 start-6 fc-why"></p>
+        <div class="co-pick fc-pick" id="pick" aria-live="polite">
+          <div><p class="co-pick__name">Pick a company</p><p class="co-pick__meta">Its chance, and the signal that moved it most.</p></div>
+          <p class="fc-why"></p>
         </div>
       </div>
     </div>
@@ -98,9 +98,9 @@
           <div class="ui ui-scorecard"><table class="cmp">
             <thead><tr><th scope="col">Brier score, last year</th><th scope="col">Lower is better</th></tr></thead>
             <tbody>
-              <tr><th scope="row">This model</th><td data-f="bt_model">0.000</td></tr>
-              <tr><th scope="row">Each theme's share</th><td data-f="bt_b0">0.000</td></tr>
-              <tr><th scope="row">Plus company trend</th><td data-f="bt_b1">0.000</td></tr>
+              <tr><th scope="row">This model</th><td data-f="bt_model">0.166</td></tr>
+              <tr><th scope="row">Each theme's share</th><td data-f="bt_b0">0.182</td></tr>
+              <tr><th scope="row">Plus company trend</th><td data-f="bt_b1">0.178</td></tr>
             </tbody>
           </table></div>
           <p class="cmp__note">Inputs: new risk text in 10-Qs, 8-K events, and the company's and its sector's trend. Brier score is the average squared miss; always saying 50% scores 0.25. A forecast of what companies will write, not investment advice.</p>
@@ -131,7 +131,7 @@
           <a class="nav__logo" href="./"><span class="mark" data-mark="arc" aria-hidden="true"></span>Risk Radar</a>
           <p class="footer__lede">S&amp;P 100 risk factors, year over year, from SEC EDGAR.</p>
         </div>
-        <div class="span-2 start-7 footer__col"><h3>Pages</h3><ul><li><a href="ask.html">Ask</a></li><li><a href="how.html">Method</a></li><li><a href="browse.html#all">Companies</a></li></ul></div>
+        <div class="span-2 start-7 footer__col"><h3>Pages</h3><ul><li><a href="ask.html">Ask</a></li><li><a href="forecast.html">Forecast</a></li><li><a href="how.html">Method</a></li><li><a href="browse.html#all">Companies</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Data</h3><ul><li><a href="how.html#eval">Test results</a></li><li><a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Code</h3><ul><li><a href="https://github.com/joaquinramirezg/risk-radar">GitHub</a></li><li><a href="https://joaquinramirez.dev">Author</a></li></ul></div>
       </div>
