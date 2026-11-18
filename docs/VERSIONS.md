@@ -97,5 +97,5 @@ moved used the changed tool. API spend on v4: about $0.20 (the rerun with its gr
 
 **Limits.** The counting set is ten questions written from the board's own
 numbers. Analytics count page views only, not who the visitors are. Still to
-do in v4: 5 to 10 real users and what they asked; the forecast freeze and the
-first post (the author's calls, by Jan 31 2027).
+do in v4: 5 to 10 real users and what they asked, and the first post. The
+forecast was frozen on 2026-11-17 (commit 950eaa9).
