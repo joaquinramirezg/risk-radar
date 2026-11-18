@@ -1,8 +1,8 @@
 {
-"status": "draft",
+"status": "frozen",
 "question": "Will the company's next 10-K add or escalate risk language on this theme?",
 "made": "2026-11-17",
-"frozen": null,
+"frozen": "2026-11-17",
 "model_version": "v3.0",
 "themes": [
 "Artificial intelligence",
