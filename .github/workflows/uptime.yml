@@ -1,0 +1,24 @@
+# Checks the live site every six hours. A failed run means GitHub emails the
+# repo owner, so a broken key or a spent API limit is noticed the same day.
+# /api/health spends no tokens (see api/health.js).
+name: uptime
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions: {}
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Pages load
+        run: |
+          for p in "" ask how forecast browse; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://risk-radar-ten.vercel.app/$p")
+            echo "/$p $code"; test "$code" = 200
+          done
+      - name: Ask can reach the model
+        run: |
+          body=$(curl -s -w "\n%{http_code}" https://risk-radar-ten.vercel.app/api/health)
+          echo "$body"; test "$(echo "$body" | tail -1)" = 200
