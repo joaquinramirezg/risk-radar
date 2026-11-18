@@ -1,11 +1,44 @@
 {
- "made": "2026-11-17",
+ "made": "2026-11-18",
  "answers": {
   "Which companies worry about tariffs on imports from China?": {
-   "answer": "Many S&P 100 companies discuss tariffs, and 61 of 102 added or expanded tariff and trade language this year, though that count covers tariffs generally, not only China. The filings that tie tariffs to China specifically include Eli Lilly, which cites \"new tariffs on Chinese goods\" and China's retaliatory tariffs [1], and PepsiCo, which lists tariffs on China among those affecting its input costs [2]. Ford points to China's restrictions on rare earth exports alongside tariffs [3], and Deere says most of its rare earth minerals come from China [4]. Tesla [5] and Intuitive Surgical [6] also flag trade changes with China and tariffs as risks.",
+   "answer": "Several companies in the search results say they worry about tariffs involving China. Apple cites new tariffs on imports from mainland China [1]. Boeing says China is a major market and that tariff negotiations led Chinese customers to pause deliveries [2][3]. Eli Lilly points to 2025 U.S. tariffs on Chinese goods and Chinese retaliation [4]. Amgen flags possible Section 301 tariffs on Chinese imports [5]. Tesla, Intuitive Surgical, and Honeywell also cite tariffs tied to China or U.S.-China trade tensions [6][7][8]. Across all 102 companies, 61 added or expanded tariff and trade language this year, and 5 cut it [9].",
    "sources": [
     {
      "n": 1,
+     "id": "AAPL.1cb21c3a771c.8",
+     "kind": "current",
+     "ticker": "AAPL",
+     "company": "Apple",
+     "risk": "AAPL.1cb21c3a771c",
+     "title": "The Company’s business can be impacted by political events, trade and other international disputes, geopolitical tensions, conflict, terrorism, natural disasters, public health issues, industrial accidents and other business interruptions.",
+     "status": "edited",
+     "text": "Beginning in the second quarter of 2025, new tariffs were announced on imports to the U.S., including additional tariffs on imports from China mainland, India, Japan, South Korea, Taiwan, Vietnam and the European Union (“EU”), among others."
+    },
+    {
+     "n": 2,
+     "id": "BA.48a17414afe3.22",
+     "kind": "current",
+     "ticker": "BA",
+     "company": "Boeing",
+     "risk": "BA.48a17414afe3",
+     "title": "We derive a significant portion of our revenues from non-U.S. sales and are subject to the risks of doing business in other countries, including those related to tariffs, trade restrictions and government actions.",
+     "status": "edited",
+     "text": "China is a significant market for commercial aircraft and we have long-standing relationships with our Chinese customers."
+    },
+    {
+     "n": 3,
+     "id": "BA.48a17414afe3.24",
+     "kind": "current",
+     "ticker": "BA",
+     "company": "Boeing",
+     "risk": "BA.48a17414afe3",
+     "title": "We derive a significant portion of our revenues from non-U.S. sales and are subject to the risks of doing business in other countries, including those related to tariffs, trade restrictions and government actions.",
+     "status": "edited",
+     "text": "For example, in the second quarter of 2025, certain customers in China paused accepting our deliveries in response to ongoing tariff negotiations between the U.S. and China."
+    },
+    {
+     "n": 4,
      "id": "LLY.d3c82f15b941.8",
      "kind": "current",
      "ticker": "LLY",
@@ -16,51 +49,29 @@
      "text": "In 2025, the U.S. government imposed new tariffs on Chinese goods and China responded with tariffs on select U.S. goods."
     },
     {
-     "n": 2,
-     "id": "PEP.cf102be31500.8",
-     "kind": "current",
-     "ticker": "PEP",
-     "company": "PepsiCo",
-     "risk": "PEP.cf102be31500",
-     "title": "Disruption of our manufacturing operations or supply chain, including increased commodity, packaging, transportation, labor and other input costs, can adversely affect our business.",
-     "status": "edited",
-     "text": "In addition, the imposition of tariffs (including U.S. tariffs imposed or threatened to be imposed on China, the European Union, Canada and Mexico and other countries and any tariffs imposed by such countries) have impacted and could continue to impact our supply chain resulting in increased input costs, including the cost of certain raw materials and packaging."
-    },
-    {
-     "n": 3,
-     "id": "F.33c4b2cdca32.12",
-     "kind": "current",
-     "ticker": "F",
-     "company": "Ford Motor",
-     "risk": "F.33c4b2cdca32",
-     "title": "With a global footprint and supply chain, Ford’s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
-     "status": "rewritten",
-     "text": "In addition, instability in the supply chain exacerbated by tariffs and other industry concerns, such as China’s restriction on the export of rare earth minerals and various components, has resulted in production disruptions and increased costs and heightens the risk of future production disruptions and further cost increases."
-    },
-    {
-     "n": 4,
-     "id": "DE.89362a5c7ede.5",
-     "kind": "current",
-     "ticker": "DE",
-     "company": "Deere & Company",
-     "risk": "DE.89362a5c7ede",
-     "title": "Changes in the availability and price of certain raw materials, components, and whole goods have resulted and could result in disruptions to the supply chain causing production disruptions, increased costs, and lower profits from sales of our products.",
-     "status": "rewritten",
-     "text": "For example, certain of our products, including motors, batteries, and other components, rely on rare earth minerals for their manufacturing, of which a significant majority are sourced from China."
-    },
-    {
      "n": 5,
-     "id": "TSLA.3c74cd065bce.7",
+     "id": "AMGN.2cd46f59f189.15",
+     "kind": "current",
+     "ticker": "AMGN",
+     "company": "Amgen",
+     "risk": "AMGN.2cd46f59f189",
+     "title": "Global economic conditions may negatively affect us and may magnify certain risks that affect our business.",
+     "status": "rewritten",
+     "text": "This investigation, and any other 301 investigations initiated, may result in additional tariffs on imported goods from China and any other foreign markets subsequently investigated, respectively, potentially including pharmaceutical products and other goods that Amgen requires for the manufacture of our products."
+    },
+    {
+     "n": 6,
+     "id": "TSLA.3c74cd065bce.4",
      "kind": "current",
      "ticker": "TSLA",
      "company": "Tesla",
      "risk": "TSLA.3c74cd065bce",
      "title": "We face risks associated with maintaining and expanding our international operations, including unfavorable and uncertain regulatory, political, economic, tax and labor conditions.",
      "status": "rewritten",
-     "text": "We cannot predict whether, and to what extent, there may be changes to international trade agreements, such as those with China, or whether, or to what extent, quotas, duties, additional tariffs, export controls or other restrictions will be changed or imposed by the United States or by other countries."
+     "text": "Further, the United States has recently announced changes to U.S. trade policy, including increasing tariffs on imports, in many cases significantly, and potentially renegotiating or terminating existing trade agreements."
     },
     {
-     "n": 6,
+     "n": 7,
      "id": "ISRG.c06c468b1c21.17",
      "kind": "current",
      "ticker": "ISRG",
@@ -69,17 +80,39 @@
      "title": "WE ARE SUBJECT TO A VARIETY OF RISKS DUE TO OUR OPERATIONS OUTSIDE OF THE U.S.",
      "status": "rewritten",
      "text": "There is inherent risk, based on the complex and changing dynamic between China and the U.S., that political, diplomatic, military, or other events could result in business disruptions, including, but not limited to, increased policy or regulatory enforcement against companies, tariffs, trade embargoes, or export restrictions."
+    },
+    {
+     "n": 8,
+     "id": "HON.476dd5919618.6",
+     "kind": "current",
+     "ticker": "HON",
+     "company": "Honeywell",
+     "risk": "HON.476dd5919618",
+     "title": "A significant percentage of our sales and operations is in non-U.S. jurisdictions and is subject to the economic, political, regulatory, foreign exchange, and other risks of international operations.",
+     "status": "edited",
+     "text": "The U.S. continues to implement certain trade actions, including imposing tariffs on certain goods imported from China and other countries, which has resulted in retaliatory tariffs by China and other countries."
+    },
+    {
+     "n": 9,
+     "id": "theme.Tariffs and trade",
+     "kind": "theme",
+     "ticker": null,
+     "company": null,
+     "risk": null,
+     "title": "Tariffs and trade",
+     "status": null,
+     "text": "61 of 102 companies added or expanded risk language on tariffs and trade this year; 5 cut or softened it."
     }
    ],
    "abstained": false,
    "model": "claude-haiku-5-5",
    "usage": {
-    "usd": 0.0007021600000000001,
-    "ms": 3145
+    "usd": 0.00072236,
+    "ms": 3214
    }
   },
   "How does JPMorgan describe the risk of a cyberattack?": {
-   "answer": "JPMorgan treats cyberattacks as a major, growing risk. Its main cyber risk factor, \"A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers,\" was rewritten this year. It warns that the bank \"could become increasingly vulnerable to cyber attacks\" if it does not promptly fix emerging threats or control weaknesses, and it names specific threats such as zero-day vulnerabilities, distributed denial-of-service attacks, malware and ransomware, and insider misuse [1][2][3][4]. A separate risk says that its growing links with clients, vendors and other outside parties \"increases the risk of failure or cyber attacks\" on those systems [5][6]. The bank also says it \"has experienced and expects that it will continue to experience failures and disruptions\" in its systems, and that some of these incidents have led to customer personal data being taken [7][8].",
+   "answer": "JPMorgan treats cyberattacks as a major operational risk in several parts of its risk factors. Its main cyber risk factor, \"A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers,\" warns that it could become \"increasingly vulnerable to cyber attacks\" if it does not address emerging threats and software vulnerabilities, including \"zero-day vulnerabilities\" [1][2]. It also lists concerns such as distributed denial-of-service attacks, ransomware, and insider threats [3][4]. A separate risk says its exposure grows through its links to clients, vendors and other outside parties, since \"interconnectivity... continues to expand, which increases the risk of failure or cyber attacks\" [5][6]. The company says it has experienced operational failures and expects more, which have included customers being unable to access accounts and the exfiltration of customer personal data [7][8].",
    "sources": [
     {
      "n": 1,
@@ -173,30 +206,52 @@
    "abstained": false,
    "model": "claude-haiku-5-5",
    "usage": {
-    "usd": 0.00051356,
-    "ms": 2430
+    "usd": 0.00051536,
+    "ms": 2671
    }
   },
-  "How many companies added risk language about AI this year?": {
-   "answer": "Eighty of the 102 companies added or expanded risk language about artificial intelligence this year, covering 269 risk factors in total. Eleven companies cut or softened that language. [1]",
+  "Which companies stopped mentioning ESG?": {
+   "answer": "Twenty-six of the 102 companies dropped ESG language from their risk factors entirely this year. They are ADBE, AMGN, AMT, AVGO, AXP, BKNG, CMCSA, CRM, GE, GILD, GS, INTC, INTU, JPM, MDLZ, MET, NOW, PG, QCOM, RTX, TMO, TSLA, TXN, USB, WFC and WMT. Examples of wording that disappeared include Adobe's note that ESG laws \"are expanding globally\" [1] and American Tower's caution about meeting its ESG goals [2]. Another 34 companies still mention ESG but used it less this year [3].",
    "sources": [
     {
      "n": 1,
-     "id": "theme.Artificial intelligence",
+     "id": "faded.ESG.ADBE",
+     "kind": "previous",
+     "ticker": null,
+     "company": "Adobe",
+     "risk": null,
+     "title": "Adobe (ADBE), last year's wording, gone this year",
+     "status": "removed",
+     "text": "Laws, regulations and policies relating to environmental, social, and governance are expanding globally."
+    },
+    {
+     "n": 2,
+     "id": "faded.ESG.AMT",
+     "kind": "previous",
+     "ticker": null,
+     "company": "American Tower",
+     "risk": null,
+     "title": "American Tower (AMT), last year's wording, gone this year",
+     "status": "removed",
+     "text": "We cannot guarantee that we will achieve our announced environmental, social and governance goals and initiatives."
+    },
+    {
+     "n": 3,
+     "id": "faded.ESG",
      "kind": "theme",
      "ticker": null,
      "company": null,
      "risk": null,
-     "title": "Artificial intelligence",
+     "title": "ESG",
      "status": null,
-     "text": "80 of 102 companies added or expanded risk language on artificial intelligence this year; 11 cut or softened it."
+     "text": "53 of 102 companies used ESG language in last year's risk factors; 26 dropped it entirely this year, and 34 used it less. 1 used it more."
     }
    ],
    "abstained": false,
    "model": "claude-haiku-5-5",
    "usage": {
-    "usd": 0.00018616,
-    "ms": 1382
+    "usd": 0.00022526,
+    "ms": 1969
    }
   }
  }

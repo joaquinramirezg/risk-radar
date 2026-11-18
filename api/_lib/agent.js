@@ -16,6 +16,9 @@ import { load, search } from "./retrieval.js";
 const SITE_DATA = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "site", "data");
 let findings = null;
 const themes = () => (findings ??= JSON.parse(readFileSync(join(SITE_DATA, "findings.json"), "utf8")).themes);
+// Terms that faded: ESG and COVID-19, counted by tools/faded.py (who had the term last year, who dropped it).
+let fadedTerms = null;
+const faded = () => (fadedTerms ??= JSON.parse(readFileSync(join(SITE_DATA, "faded.json"), "utf8")));
 
 // USD per million tokens (input, output, cache read, cache write).
 export const PRICES = {
@@ -28,7 +31,7 @@ export const LIMITS = { maxTurns: 4, maxTokens: 800, perSearch: 8, maxQuestionCh
 const SYSTEM = `You answer questions about the risk factors (Item 1A) in the latest annual reports (10-K) of the 102 companies in the S&P 100, compared with the year before. You have tools that search those filings. You know nothing else: no news, no prices, no financial figures beyond what a returned sentence states, no opinions, no advice.
 
 How to work:
-- Search before answering. Use get_company when a question names one company, compare_years when it asks what changed in a specific risk, and theme_trend for "how many companies" questions about AI, tariffs and trade, cybersecurity, China, export controls or climate. Use at most 4 tool calls.
+- Search before answering. Use get_company when a question names one company, compare_years when it asks what changed in a specific risk, and theme_trend for "how many companies" questions about AI, tariffs and trade, cybersecurity, China, export controls, climate, ESG or COVID-19. A count from theme_trend must be cited like any other claim. Use at most 4 tool calls.
 - Tool results number each sentence like [S7]. Cite the sentences that support each claim, right after the claim, like [S7] or [S7][S9]. Cite only numbers that appear in tool results. Quote short phrases from the filing when the exact wording matters.
 - If the returned sentences do not answer the question, say plainly that the filings do not say, and stop. Never fill a gap from general knowledge. A partial answer is fine if you say what is missing.
 - If the question is not about these companies' risk factors (investment advice, predictions, other companies, anything else), say what you can answer instead, in one sentence, with no citations.
@@ -75,7 +78,7 @@ export const TOOLS = [
   {
     name: "theme_trend",
     description:
-      "Across all 102 companies: how many added or expanded risk language on a theme this year, how many cut it, and which. Themes: Artificial intelligence, Tariffs and trade, Cybersecurity, China, Export controls, Climate.",
+      "Across all 102 companies: how many added or expanded risk language on a theme this year, how many cut it, and which. Themes: Artificial intelligence, Tariffs and trade, Cybersecurity, China, Export controls, Climate. Also ESG and COVID-19: how many companies used the term last year, how many dropped it entirely this year, and which.",
     input_schema: {
       type: "object",
       properties: { theme: { type: "string" } },
@@ -166,6 +169,21 @@ async function runTool(name, input, book, trace) {
   }
   if (name === "theme_trend") {
     const want = String(input.theme || "").toLowerCase();
+    const fd = faded().find((x) => want.includes(x.theme.toLowerCase().split("-")[0]) || (x.theme === "ESG" && /environmental, social|sustainab/.test(want)));
+    if (fd) {
+      const tag = book.add({
+        id: `faded.${fd.theme}`, kind: "theme", ticker: null, company: null, risk: null, title: fd.theme, status: null,
+        text: `${fd.had} of 102 companies used ${fd.theme} language in last year's risk factors; ${fd.gone} dropped it entirely this year, and ${fd.down} used it less. ${fd.up} used it more.`,
+      });
+      const ex = fd.examples.slice(0, 3).map((e) => {
+        const t = book.add({
+          id: `faded.${fd.theme}.${e.ticker}`, kind: "previous", ticker: null, company: e.company, risk: null,
+          title: `${e.company} (${e.ticker}), last year's wording, gone this year`, status: "removed", text: e.sentence,
+        });
+        return `[${t}] ${e.ticker} (${e.company}), last year: ${e.sentence}`;
+      });
+      return `[${tag}] ${fd.had} of 102 companies used ${fd.theme} language in last year's risk factors; ${fd.gone} dropped it entirely this year; ${fd.down} used it less; ${fd.up} used it more.\nDropped it entirely: ${fd.tickers_gone.join(", ")}\nExamples of last year's wording that is gone:\n${ex.join("\n")}`;
+    }
     const th = themes().find((x) => x.theme.toLowerCase().includes(want) || want.includes(x.theme.toLowerCase().split(" ")[0]));
     if (!th) return `Unknown theme. Themes: ${themes().map((x) => x.theme).join(", ")}.`;
     const tag = book.add({

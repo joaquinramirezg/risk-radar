@@ -40,7 +40,7 @@
     "api/ask.js": {
       "maxDuration": 60,
       "memory": 1024,
-      "includeFiles": "{api/_data/**,api/_model/**,site/data/findings.json}",
+      "includeFiles": "{api/_data/**,api/_model/**,site/data/findings.json,site/data/faded.json}",
       "excludeFiles": "{node_modules/onnxruntime-node/bin/napi-v6/darwin/**,node_modules/onnxruntime-node/bin/napi-v6/win32/**,node_modules/onnxruntime-node/bin/napi-v6/linux/arm64/**,node_modules/onnxruntime-web/**}"
     }
   }

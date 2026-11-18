@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "qid": "c01",
+      "question": "How many companies dropped ESG language from their risk factors this year?",
+      "expect": 26
+    },
+    {
+      "qid": "c02",
+      "question": "Did any companies stop mentioning ESG in their risk factors?",
+      "expect": 26
+    },
+    {
+      "qid": "c03",
+      "question": "How many companies removed every mention of COVID-19 from their risk factors?",
+      "expect": 4
+    },
+    {
+      "qid": "c04",
+      "question": "How many companies added or expanded risk language about artificial intelligence this year?",
+      "expect": 80
+    },
+    {
+      "qid": "c05",
+      "question": "How many companies added or expanded risk language about tariffs?",
+      "expect": 61
+    },
+    {
+      "qid": "c06",
+      "question": "How many companies added or expanded cybersecurity risk language?",
+      "expect": 56
+    },
+    {
+      "qid": "c07",
+      "question": "How many companies added or expanded risk language about China?",
+      "expect": 32
+    },
+    {
+      "qid": "c08",
+      "question": "How many companies added or expanded risk language about export controls?",
+      "expect": 20
+    },
+    {
+      "qid": "c09",
+      "question": "How many companies cut or softened their climate risk language this year?",
+      "expect": 17
+    },
+    {
+      "qid": "c10",
+      "question": "How many companies cut or softened risk language about tariffs?",
+      "expect": 5
+    }
+  ],
+  "runs": {
+    "after-2": {
+      "pass": 10,
+      "n": 10,
+      "usd": 0.0018,
+      "failed": []
+    },
+    "after-3": {
+      "pass": 9,
+      "n": 10,
+      "usd": 0.0019,
+      "failed": [
+        "c07"
+      ]
+    },
+    "after": {
+      "pass": 10,
+      "n": 10,
+      "usd": 0.002,
+      "failed": []
+    },
+    "before-2": {
+      "pass": 5,
+      "n": 10,
+      "usd": 0.0036,
+      "failed": [
+        "c01",
+        "c02",
+        "c03",
+        "c07",
+        "c10"
+      ]
+    },
+    "before-3": {
+      "pass": 5,
+      "n": 10,
+      "usd": 0.0037,
+      "failed": [
+        "c01",
+        "c02",
+        "c03",
+        "c07",
+        "c10"
+      ]
+    },
+    "before": {
+      "pass": 6,
+      "n": 10,
+      "usd": 0.0046,
+      "failed": [
+        "c01",
+        "c02",
+        "c03",
+        "c07"
+      ]
+    }
+  }
+}
