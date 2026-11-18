@@ -13,6 +13,7 @@ import json
 import os
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -42,12 +43,21 @@ FIELDS = ("form", "accessionNumber", "filingDate", "primaryDocument", "reportDat
 COLUMNS = "ticker company cik accession filing_date period_end file url".split()
 
 
-def get(url: str, ua: str) -> bytes:
-    time.sleep(0.15)
-    req = urllib.request.Request(url, headers={"User-Agent": ua})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data: bytes = r.read()
-        return data
+def get(url: str, ua: str, tries: int = 4) -> bytes:
+    """GET with EDGAR's pacing; a timeout or dropped connection is retried with backoff."""
+    for attempt in range(tries):
+        time.sleep(0.15 if attempt == 0 else 2.0 * 2**attempt)
+        req = urllib.request.Request(url, headers={"User-Agent": ua})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data: bytes = r.read()
+                return data
+        except (TimeoutError, ConnectionError, urllib.error.URLError) as e:
+            if isinstance(e, urllib.error.HTTPError) and e.code not in (429, 500, 502, 503, 504):
+                raise
+            if attempt == tries - 1:
+                raise
+    raise AssertionError("unreachable")
 
 
 def last_two_10k(cik: int, ua: str) -> tuple[str, list[dict[str, str]]]:

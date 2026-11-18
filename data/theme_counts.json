@@ -1,0 +1,3257 @@
+{
+ "AAPL": {
+  "current": {
+   "Artificial intelligence": 49,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 9,
+   "China": 6,
+   "Climate": 2,
+   "Export controls": 2,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 2,
+   "China": 3,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 2,
+   "China": 3,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  }
+ },
+ "ABBV": {
+  "current": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 3,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 3,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 3,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  }
+ },
+ "ABT": {
+  "current": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  }
+ },
+ "ACN": {
+  "current": {
+   "Artificial intelligence": 59,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 1,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 46,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 15,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 2
+  },
+  "prev2": {
+   "Artificial intelligence": 46,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 15,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 1,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  }
+ },
+ "ADBE": {
+  "current": {
+   "Artificial intelligence": 71,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 13,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 4,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 63,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 13,
+   "China": 2,
+   "Climate": 4,
+   "Export controls": 3,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 52,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 16,
+   "China": 2,
+   "Climate": 5,
+   "Export controls": 3,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 1
+  }
+ },
+ "AIG": {
+  "current": {
+   "Artificial intelligence": 31,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 15,
+   "China": 0,
+   "Climate": 18,
+   "Export controls": 0,
+   "Interest rates and credit": 25,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 13,
+   "China": 0,
+   "Climate": 22,
+   "Export controls": 0,
+   "Interest rates and credit": 25,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 16,
+   "China": 0,
+   "Climate": 32,
+   "Export controls": 0,
+   "Interest rates and credit": 65,
+   "Government shutdown and spending": 1
+  }
+ },
+ "AMD": {
+  "current": {
+   "Artificial intelligence": 64,
+   "Tariffs and trade": 17,
+   "Cybersecurity": 10,
+   "China": 36,
+   "Climate": 15,
+   "Export controls": 9,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 65,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 9,
+   "China": 18,
+   "Climate": 19,
+   "Export controls": 7,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 42,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 11,
+   "China": 18,
+   "Climate": 18,
+   "Export controls": 4,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  }
+ },
+ "AMGN": {
+  "current": {
+   "Artificial intelligence": 19,
+   "Tariffs and trade": 26,
+   "Cybersecurity": 31,
+   "China": 16,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 3
+  },
+  "previous": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 30,
+   "China": 12,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 4
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 26,
+   "China": 11,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 2
+  }
+ },
+ "AMT": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 13,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 13,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 16,
+   "Government shutdown and spending": 0
+  }
+ },
+ "AMZN": {
+  "current": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 2,
+   "China": 9,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 2,
+   "China": 9,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 2,
+   "China": 9,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ },
+ "AVGO": {
+  "current": {
+   "Artificial intelligence": 35,
+   "Tariffs and trade": 13,
+   "Cybersecurity": 19,
+   "China": 3,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 19,
+   "China": 8,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 18,
+   "China": 9,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  }
+ },
+ "AXP": {
+  "current": {
+   "Artificial intelligence": 36,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 25,
+   "China": 1,
+   "Climate": 6,
+   "Export controls": 1,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 3
+  },
+  "previous": {
+   "Artificial intelligence": 32,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 24,
+   "China": 2,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 16,
+   "Government shutdown and spending": 3
+  },
+  "prev2": {
+   "Artificial intelligence": 28,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 27,
+   "China": 3,
+   "Climate": 13,
+   "Export controls": 1,
+   "Interest rates and credit": 13,
+   "Government shutdown and spending": 3
+  }
+ },
+ "BAC": {
+  "current": {
+   "Artificial intelligence": 28,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 37,
+   "China": 4,
+   "Climate": 10,
+   "Export controls": 0,
+   "Interest rates and credit": 51,
+   "Government shutdown and spending": 6
+  },
+  "previous": {
+   "Artificial intelligence": 34,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 40,
+   "China": 6,
+   "Climate": 16,
+   "Export controls": 0,
+   "Interest rates and credit": 57,
+   "Government shutdown and spending": 7
+  },
+  "prev2": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 40,
+   "China": 5,
+   "Climate": 17,
+   "Export controls": 0,
+   "Interest rates and credit": 58,
+   "Government shutdown and spending": 6
+  }
+ },
+ "BA": {
+  "current": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 12,
+   "China": 8,
+   "Climate": 6,
+   "Export controls": 1,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 13
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 13,
+   "China": 6,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 13
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 12,
+   "China": 6,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 13
+  }
+ },
+ "BKNG": {
+  "current": {
+   "Artificial intelligence": 45,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 8,
+   "China": 2,
+   "Climate": 2,
+   "Export controls": 2,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 28,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 8,
+   "China": 2,
+   "Climate": 3,
+   "Export controls": 1,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 15,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 10,
+   "China": 2,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  }
+ },
+ "BK": {
+  "current": {
+   "Artificial intelligence": 33,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 37,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 42,
+   "Government shutdown and spending": 3
+  },
+  "previous": {
+   "Artificial intelligence": 24,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 44,
+   "China": 4,
+   "Climate": 26,
+   "Export controls": 0,
+   "Interest rates and credit": 40,
+   "Government shutdown and spending": 3
+  },
+  "prev2": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 39,
+   "China": 5,
+   "Climate": 29,
+   "Export controls": 0,
+   "Interest rates and credit": 35,
+   "Government shutdown and spending": 4
+  }
+ },
+ "BLK": {
+  "current": {
+   "Artificial intelligence": 32,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 25,
+   "China": 7,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 27,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 23,
+   "China": 7,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  },
+  "prev2": null
+ },
+ "BMY": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 13,
+   "China": 2,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 13,
+   "China": 2,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  }
+ },
+ "BRK-B": {
+  "current": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 5,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 0
+  }
+ },
+ "CAT": {
+  "current": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 32,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 32,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 31,
+   "Government shutdown and spending": 1
+  }
+ },
+ "CHTR": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 5,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  }
+ },
+ "CL": {
+  "current": {
+   "Artificial intelligence": 17,
+   "Tariffs and trade": 14,
+   "Cybersecurity": 17,
+   "China": 1,
+   "Climate": 5,
+   "Export controls": 5,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 15,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 19,
+   "China": 4,
+   "Climate": 5,
+   "Export controls": 1,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 13,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 20,
+   "China": 3,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  }
+ },
+ "CMCSA": {
+  "current": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ },
+ "COF": {
+  "current": {
+   "Artificial intelligence": 66,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 35,
+   "China": 1,
+   "Climate": 13,
+   "Export controls": 0,
+   "Interest rates and credit": 32,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 44,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 26,
+   "China": 2,
+   "Climate": 18,
+   "Export controls": 0,
+   "Interest rates and credit": 31,
+   "Government shutdown and spending": 2
+  },
+  "prev2": {
+   "Artificial intelligence": 32,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 37,
+   "China": 2,
+   "Climate": 18,
+   "Export controls": 0,
+   "Interest rates and credit": 25,
+   "Government shutdown and spending": 2
+  }
+ },
+ "COP": {
+  "current": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 12,
+   "China": 0,
+   "Climate": 20,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 12,
+   "China": 0,
+   "Climate": 16,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 19,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  }
+ },
+ "COST": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 7,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 8,
+   "China": 2,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  }
+ },
+ "CRM": {
+  "current": {
+   "Artificial intelligence": 71,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 16,
+   "China": 2,
+   "Climate": 9,
+   "Export controls": 2,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 55,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 13,
+   "China": 2,
+   "Climate": 11,
+   "Export controls": 2,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 42,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 16,
+   "China": 2,
+   "Climate": 11,
+   "Export controls": 3,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  }
+ },
+ "CSCO": {
+  "current": {
+   "Artificial intelligence": 38,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 17,
+   "China": 5,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 13,
+   "China": 7,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 13,
+   "China": 9,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 1
+  }
+ },
+ "CVS": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 13,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 5
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 12,
+   "China": 0,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 5
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 10,
+   "Export controls": 0,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 6
+  }
+ },
+ "CVX": {
+  "current": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 19,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 9,
+   "China": 1,
+   "Climate": 19,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 12,
+   "China": 1,
+   "Climate": 20,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ },
+ "C": {
+  "current": {
+   "Artificial intelligence": 28,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 42,
+   "China": 4,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 33,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 37,
+   "China": 6,
+   "Climate": 20,
+   "Export controls": 0,
+   "Interest rates and credit": 26,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 43,
+   "China": 4,
+   "Climate": 38,
+   "Export controls": 0,
+   "Interest rates and credit": 32,
+   "Government shutdown and spending": 1
+  }
+ },
+ "DE": {
+  "current": {
+   "Artificial intelligence": 13,
+   "Tariffs and trade": 20,
+   "Cybersecurity": 5,
+   "China": 2,
+   "Climate": 8,
+   "Export controls": 1,
+   "Interest rates and credit": 12,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 5,
+   "China": 5,
+   "Climate": 9,
+   "Export controls": 2,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 4,
+   "China": 7,
+   "Climate": 13,
+   "Export controls": 3,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 1
+  }
+ },
+ "DHR": {
+  "current": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 15,
+   "Cybersecurity": 7,
+   "China": 10,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 17,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 10,
+   "China": 11,
+   "Climate": 6,
+   "Export controls": 1,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 10,
+   "China": 9,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 13,
+   "Government shutdown and spending": 0
+  }
+ },
+ "DIS": {
+  "current": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 7,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  }
+ },
+ "DUK": {
+  "current": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 17,
+   "China": 0,
+   "Climate": 11,
+   "Export controls": 1,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 16,
+   "China": 0,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  }
+ },
+ "EMR": {
+  "current": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 13,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 12,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 0
+  }
+ },
+ "FDX": {
+  "current": {
+   "Artificial intelligence": 28,
+   "Tariffs and trade": 16,
+   "Cybersecurity": 27,
+   "China": 3,
+   "Climate": 13,
+   "Export controls": 2,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 14,
+   "Cybersecurity": 26,
+   "China": 3,
+   "Climate": 13,
+   "Export controls": 2,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 24,
+   "China": 2,
+   "Climate": 14,
+   "Export controls": 2,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 1
+  }
+ },
+ "F": {
+  "current": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 26,
+   "Cybersecurity": 11,
+   "China": 15,
+   "Climate": 6,
+   "Export controls": 2,
+   "Interest rates and credit": 18,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 15,
+   "Cybersecurity": 11,
+   "China": 11,
+   "Climate": 6,
+   "Export controls": 1,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 11,
+   "China": 10,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 16,
+   "Government shutdown and spending": 0
+  }
+ },
+ "GD": {
+  "current": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 3,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 4
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 3,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 4
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 3,
+   "Interest rates and credit": 0,
+   "Government shutdown and spending": 4
+  }
+ },
+ "GE": {
+  "current": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 27,
+   "China": 3,
+   "Climate": 5,
+   "Export controls": 2,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 22,
+   "China": 3,
+   "Climate": 15,
+   "Export controls": 2,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 2
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 25,
+   "China": 4,
+   "Climate": 6,
+   "Export controls": 2,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  }
+ },
+ "GILD": {
+  "current": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 11,
+   "China": 2,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 9,
+   "China": 1,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  }
+ },
+ "GM": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 20,
+   "Cybersecurity": 8,
+   "China": 31,
+   "Climate": 5,
+   "Export controls": 1,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 7,
+   "China": 32,
+   "Climate": 5,
+   "Export controls": 1,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 6,
+   "China": 25,
+   "Climate": 5,
+   "Export controls": 1,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  }
+ },
+ "GOOGL": {
+  "current": {
+   "Artificial intelligence": 57,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 3,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 43,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 3,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 31,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 3,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ },
+ "GS": {
+  "current": {
+   "Artificial intelligence": 25,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 25,
+   "China": 8,
+   "Climate": 9,
+   "Export controls": 3,
+   "Interest rates and credit": 40,
+   "Government shutdown and spending": 4
+  },
+  "previous": {
+   "Artificial intelligence": 23,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 25,
+   "China": 7,
+   "Climate": 18,
+   "Export controls": 2,
+   "Interest rates and credit": 39,
+   "Government shutdown and spending": 4
+  },
+  "prev2": {
+   "Artificial intelligence": 21,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 25,
+   "China": 6,
+   "Climate": 21,
+   "Export controls": 2,
+   "Interest rates and credit": 39,
+   "Government shutdown and spending": 4
+  }
+ },
+ "HD": {
+  "current": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 21,
+   "Cybersecurity": 22,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 16,
+   "Cybersecurity": 19,
+   "China": 3,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 14,
+   "Cybersecurity": 18,
+   "China": 1,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  }
+ },
+ "HON": {
+  "current": {
+   "Artificial intelligence": 23,
+   "Tariffs and trade": 24,
+   "Cybersecurity": 24,
+   "China": 2,
+   "Climate": 11,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 6
+  },
+  "previous": {
+   "Artificial intelligence": 15,
+   "Tariffs and trade": 14,
+   "Cybersecurity": 22,
+   "China": 3,
+   "Climate": 11,
+   "Export controls": 1,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 3
+  },
+  "prev2": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 19,
+   "China": 3,
+   "Climate": 11,
+   "Export controls": 1,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 3
+  }
+ },
+ "IBM": {
+  "current": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 2,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 30,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  }
+ },
+ "INTC": {
+  "current": {
+   "Artificial intelligence": 32,
+   "Tariffs and trade": 15,
+   "Cybersecurity": 10,
+   "China": 13,
+   "Climate": 2,
+   "Export controls": 3,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 31,
+   "Tariffs and trade": 14,
+   "Cybersecurity": 13,
+   "China": 12,
+   "Climate": 8,
+   "Export controls": 3,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 28,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 13,
+   "China": 12,
+   "Climate": 8,
+   "Export controls": 3,
+   "Interest rates and credit": 12,
+   "Government shutdown and spending": 1
+  }
+ },
+ "INTU": {
+  "current": {
+   "Artificial intelligence": 42,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 32,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 38,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 11,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 1
+  }
+ },
+ "ISRG": {
+  "current": {
+   "Artificial intelligence": 59,
+   "Tariffs and trade": 23,
+   "Cybersecurity": 14,
+   "China": 29,
+   "Climate": 5,
+   "Export controls": 3,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 6
+  },
+  "previous": {
+   "Artificial intelligence": 52,
+   "Tariffs and trade": 25,
+   "Cybersecurity": 15,
+   "China": 23,
+   "Climate": 8,
+   "Export controls": 2,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 4
+  },
+  "prev2": {
+   "Artificial intelligence": 34,
+   "Tariffs and trade": 20,
+   "Cybersecurity": 18,
+   "China": 21,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 4
+  }
+ },
+ "JNJ": {
+  "current": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 7,
+   "China": 2,
+   "Climate": 6,
+   "Export controls": 1,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 7,
+   "China": 3,
+   "Climate": 6,
+   "Export controls": 1,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 7,
+   "China": 2,
+   "Climate": 8,
+   "Export controls": 1,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  }
+ },
+ "JPM": {
+  "current": {
+   "Artificial intelligence": 26,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 33,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 34,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 37,
+   "China": 1,
+   "Climate": 13,
+   "Export controls": 0,
+   "Interest rates and credit": 32,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 34,
+   "China": 0,
+   "Climate": 17,
+   "Export controls": 0,
+   "Interest rates and credit": 29,
+   "Government shutdown and spending": 1
+  }
+ },
+ "KO": {
+  "current": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 22,
+   "China": 1,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 22,
+   "China": 1,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 22,
+   "China": 1,
+   "Climate": 10,
+   "Export controls": 1,
+   "Interest rates and credit": 15,
+   "Government shutdown and spending": 1
+  }
+ },
+ "LIN": {
+  "current": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 2,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 1,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 1,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 1,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ },
+ "LLY": {
+  "current": {
+   "Artificial intelligence": 25,
+   "Tariffs and trade": 17,
+   "Cybersecurity": 13,
+   "China": 12,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 13,
+   "China": 11,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 20,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 15,
+   "China": 5,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  }
+ },
+ "LMT": {
+  "current": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 15,
+   "Cybersecurity": 14,
+   "China": 2,
+   "Climate": 10,
+   "Export controls": 4,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 8
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 14,
+   "China": 4,
+   "Climate": 10,
+   "Export controls": 3,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 8
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 16,
+   "China": 5,
+   "Climate": 10,
+   "Export controls": 4,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 8
+  }
+ },
+ "LOW": {
+  "current": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 19,
+   "Cybersecurity": 15,
+   "China": 3,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 19,
+   "Cybersecurity": 15,
+   "China": 3,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 15,
+   "Cybersecurity": 17,
+   "China": 3,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MA": {
+  "current": {
+   "Artificial intelligence": 26,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 20,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MCD": {
+  "current": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 2,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 1,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 0,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MDLZ": {
+  "current": {
+   "Artificial intelligence": 17,
+   "Tariffs and trade": 35,
+   "Cybersecurity": 21,
+   "China": 3,
+   "Climate": 14,
+   "Export controls": 3,
+   "Interest rates and credit": 13,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 34,
+   "Cybersecurity": 17,
+   "China": 4,
+   "Climate": 14,
+   "Export controls": 3,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 2
+  },
+  "prev2": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 18,
+   "China": 4,
+   "Climate": 17,
+   "Export controls": 3,
+   "Interest rates and credit": 18,
+   "Government shutdown and spending": 3
+  }
+ },
+ "MDT": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 12,
+   "China": 7,
+   "Climate": 7,
+   "Export controls": 3,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 9,
+   "China": 6,
+   "Climate": 7,
+   "Export controls": 1,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 9,
+   "China": 6,
+   "Climate": 9,
+   "Export controls": 1,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  }
+ },
+ "META": {
+  "current": {
+   "Artificial intelligence": 89,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 13,
+   "China": 7,
+   "Climate": 1,
+   "Export controls": 7,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 61,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 13,
+   "China": 7,
+   "Climate": 1,
+   "Export controls": 6,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 52,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 16,
+   "China": 5,
+   "Climate": 1,
+   "Export controls": 5,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  }
+ },
+ "MET": {
+  "current": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 15,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 42,
+   "Government shutdown and spending": 3
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 15,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 42,
+   "Government shutdown and spending": 3
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 17,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 42,
+   "Government shutdown and spending": 3
+  }
+ },
+ "MMM": {
+  "current": {
+   "Artificial intelligence": 15,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 12,
+   "China": 2,
+   "Climate": 1,
+   "Export controls": 1,
+   "Interest rates and credit": 12,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 12,
+   "China": 2,
+   "Climate": 1,
+   "Export controls": 1,
+   "Interest rates and credit": 12,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 11,
+   "China": 2,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 16,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MO": {
+  "current": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MRK": {
+  "current": {
+   "Artificial intelligence": 13,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 3,
+   "China": 23,
+   "Climate": 10,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 9,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 3,
+   "China": 25,
+   "Climate": 10,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 4,
+   "China": 14,
+   "Climate": 11,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MSFT": {
+  "current": {
+   "Artificial intelligence": 83,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 14,
+   "China": 1,
+   "Climate": 2,
+   "Export controls": 3,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 54,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 11,
+   "China": 1,
+   "Climate": 2,
+   "Export controls": 3,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 53,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 14,
+   "China": 3,
+   "Climate": 2,
+   "Export controls": 2,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 0
+  }
+ },
+ "MS": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 17,
+   "China": 1,
+   "Climate": 19,
+   "Export controls": 0,
+   "Interest rates and credit": 23,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 17,
+   "China": 1,
+   "Climate": 23,
+   "Export controls": 0,
+   "Interest rates and credit": 22,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 18,
+   "China": 1,
+   "Climate": 25,
+   "Export controls": 0,
+   "Interest rates and credit": 22,
+   "Government shutdown and spending": 1
+  }
+ },
+ "NEE": {
+  "current": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 1,
+   "Export controls": 0,
+   "Interest rates and credit": 18,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 17,
+   "Government shutdown and spending": 0
+  }
+ },
+ "NFLX": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 1,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 1,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 1,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  }
+ },
+ "NKE": {
+  "current": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 19,
+   "Cybersecurity": 10,
+   "China": 1,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 19,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 2
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 18,
+   "Cybersecurity": 8,
+   "China": 1,
+   "Climate": 11,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 2
+  }
+ },
+ "NOW": {
+  "current": {
+   "Artificial intelligence": 35,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 4,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 29,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 4,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 4,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  }
+ },
+ "NVDA": {
+  "current": {
+   "Artificial intelligence": 56,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 11,
+   "China": 56,
+   "Climate": 4,
+   "Export controls": 29,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 65,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 11,
+   "China": 46,
+   "Climate": 5,
+   "Export controls": 27,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 51,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 12,
+   "China": 42,
+   "Climate": 8,
+   "Export controls": 25,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  }
+ },
+ "ORCL": {
+  "current": {
+   "Artificial intelligence": 49,
+   "Tariffs and trade": 13,
+   "Cybersecurity": 9,
+   "China": 3,
+   "Climate": 4,
+   "Export controls": 5,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 5
+  },
+  "previous": {
+   "Artificial intelligence": 26,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 7,
+   "China": 2,
+   "Climate": 4,
+   "Export controls": 3,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 5
+  },
+  "prev2": {
+   "Artificial intelligence": 17,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 8,
+   "China": 5,
+   "Climate": 5,
+   "Export controls": 3,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 5
+  }
+ },
+ "PEP": {
+  "current": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 21,
+   "China": 3,
+   "Climate": 9,
+   "Export controls": 1,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 23,
+   "China": 3,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 22,
+   "China": 2,
+   "Climate": 11,
+   "Export controls": 1,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 1
+  }
+ },
+ "PFE": {
+  "current": {
+   "Artificial intelligence": 27,
+   "Tariffs and trade": 20,
+   "Cybersecurity": 6,
+   "China": 5,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 17,
+   "Cybersecurity": 6,
+   "China": 4,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 5,
+   "China": 4,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 1
+  }
+ },
+ "PG": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 13,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 4,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 13,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 4,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 4,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  }
+ },
+ "PLTR": {
+  "current": {
+   "Artificial intelligence": 53,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 41,
+   "China": 7,
+   "Climate": 8,
+   "Export controls": 7,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 10
+  },
+  "previous": {
+   "Artificial intelligence": 48,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 37,
+   "China": 7,
+   "Climate": 8,
+   "Export controls": 7,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 10
+  },
+  "prev2": {
+   "Artificial intelligence": 29,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 35,
+   "China": 7,
+   "Climate": 8,
+   "Export controls": 7,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 9
+  }
+ },
+ "PM": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 13,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 12,
+   "China": 1,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 11,
+   "China": 1,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  }
+ },
+ "PYPL": {
+  "current": {
+   "Artificial intelligence": 19,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 1,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 15,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 1,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 1
+  }
+ },
+ "QCOM": {
+  "current": {
+   "Artificial intelligence": 40,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 23,
+   "China": 53,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 15,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 20,
+   "China": 65,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 21,
+   "China": 65,
+   "Climate": 13,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  }
+ },
+ "RTX": {
+  "current": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 19,
+   "China": 10,
+   "Climate": 9,
+   "Export controls": 9,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 7
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 11,
+   "Cybersecurity": 19,
+   "China": 10,
+   "Climate": 10,
+   "Export controls": 8,
+   "Interest rates and credit": 12,
+   "Government shutdown and spending": 17
+  },
+  "prev2": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 23,
+   "China": 10,
+   "Climate": 10,
+   "Export controls": 8,
+   "Interest rates and credit": 13,
+   "Government shutdown and spending": 15
+  }
+ },
+ "SBUX": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 5,
+   "China": 2,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 7,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 4,
+   "China": 1,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 14,
+   "China": 15,
+   "Climate": 14,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 2
+  }
+ },
+ "SCHW": {
+  "current": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 24,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 25,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 24,
+   "Government shutdown and spending": 0
+  }
+ },
+ "SO": {
+  "current": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 16,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 13,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 14,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 13,
+   "Government shutdown and spending": 0
+  }
+ },
+ "SPG": {
+  "current": {
+   "Artificial intelligence": 26,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 11,
+   "China": 1,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 27,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 23,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 27,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 27,
+   "Government shutdown and spending": 0
+  }
+ },
+ "TGT": {
+  "current": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 20,
+   "Cybersecurity": 12,
+   "China": 2,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 12,
+   "China": 2,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 14,
+   "China": 2,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  }
+ },
+ "TMO": {
+  "current": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 5,
+   "China": 3,
+   "Climate": 1,
+   "Export controls": 2,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 4
+  },
+  "previous": {
+   "Artificial intelligence": 3,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 4,
+   "China": 3,
+   "Climate": 1,
+   "Export controls": 2,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 2
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 5,
+   "China": 3,
+   "Climate": 2,
+   "Export controls": 2,
+   "Interest rates and credit": 2,
+   "Government shutdown and spending": 2
+  }
+ },
+ "TMUS": {
+  "current": {
+   "Artificial intelligence": 18,
+   "Tariffs and trade": 8,
+   "Cybersecurity": 21,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 20,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 29,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 9,
+   "Government shutdown and spending": 0
+  }
+ },
+ "TSLA": {
+  "current": {
+   "Artificial intelligence": 9,
+   "Tariffs and trade": 15,
+   "Cybersecurity": 6,
+   "China": 4,
+   "Climate": 3,
+   "Export controls": 2,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 4,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 6,
+   "China": 5,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 6,
+   "China": 4,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ },
+ "TXN": {
+  "current": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 6,
+   "Cybersecurity": 3,
+   "China": 4,
+   "Climate": 2,
+   "Export controls": 2,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 3,
+   "China": 3,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 3,
+   "China": 3,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 3,
+   "Government shutdown and spending": 0
+  }
+ },
+ "T": {
+  "current": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 8,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 11,
+   "China": 0,
+   "Climate": 17,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  }
+ },
+ "UBER": {
+  "current": {
+   "Artificial intelligence": 26,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 4,
+   "China": 2,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 25,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 4,
+   "China": 1,
+   "Climate": 17,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 22,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 7,
+   "China": 2,
+   "Climate": 21,
+   "Export controls": 0,
+   "Interest rates and credit": 4,
+   "Government shutdown and spending": 0
+  }
+ },
+ "UNH": {
+  "current": {
+   "Artificial intelligence": 19,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 11,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 19,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 19,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 6,
+   "China": 0,
+   "Climate": 2,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  }
+ },
+ "UNP": {
+  "current": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 10,
+   "China": 1,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 10,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 9,
+   "China": 1,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 1,
+   "Cybersecurity": 7,
+   "China": 1,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  }
+ },
+ "UPS": {
+  "current": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 5,
+   "Cybersecurity": 13,
+   "China": 2,
+   "Climate": 11,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 14,
+   "China": 2,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 13,
+   "China": 2,
+   "Climate": 16,
+   "Export controls": 0,
+   "Interest rates and credit": 8,
+   "Government shutdown and spending": 0
+  }
+ },
+ "USB": {
+  "current": {
+   "Artificial intelligence": 19,
+   "Tariffs and trade": 17,
+   "Cybersecurity": 16,
+   "China": 0,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 23,
+   "Government shutdown and spending": 2
+  },
+  "previous": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 17,
+   "Cybersecurity": 13,
+   "China": 1,
+   "Climate": 12,
+   "Export controls": 0,
+   "Interest rates and credit": 31,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 12,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 12,
+   "China": 0,
+   "Climate": 17,
+   "Export controls": 0,
+   "Interest rates and credit": 32,
+   "Government shutdown and spending": 1
+  }
+ },
+ "VZ": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 9,
+   "Cybersecurity": 18,
+   "China": 0,
+   "Climate": 0,
+   "Export controls": 0,
+   "Interest rates and credit": 6,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 10,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 16,
+   "China": 0,
+   "Climate": 3,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 2,
+   "Tariffs and trade": 0,
+   "Cybersecurity": 14,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 7,
+   "Government shutdown and spending": 0
+  }
+ },
+ "V": {
+  "current": {
+   "Artificial intelligence": 48,
+   "Tariffs and trade": 3,
+   "Cybersecurity": 37,
+   "China": 2,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 33,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 25,
+   "China": 15,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 27,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 25,
+   "China": 15,
+   "Climate": 7,
+   "Export controls": 0,
+   "Interest rates and credit": 5,
+   "Government shutdown and spending": 0
+  }
+ },
+ "WFC": {
+  "current": {
+   "Artificial intelligence": 11,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 9,
+   "China": 0,
+   "Climate": 6,
+   "Export controls": 0,
+   "Interest rates and credit": 60,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 6,
+   "Tariffs and trade": 4,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 62,
+   "Government shutdown and spending": 0
+  },
+  "prev2": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 9,
+   "Export controls": 0,
+   "Interest rates and credit": 65,
+   "Government shutdown and spending": 0
+  }
+ },
+ "WMT": {
+  "current": {
+   "Artificial intelligence": 16,
+   "Tariffs and trade": 12,
+   "Cybersecurity": 27,
+   "China": 7,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  },
+  "previous": {
+   "Artificial intelligence": 14,
+   "Tariffs and trade": 10,
+   "Cybersecurity": 25,
+   "China": 9,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 1,
+   "Tariffs and trade": 7,
+   "Cybersecurity": 26,
+   "China": 8,
+   "Climate": 8,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  }
+ },
+ "XOM": {
+  "current": {
+   "Artificial intelligence": 5,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  },
+  "previous": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 8,
+   "China": 0,
+   "Climate": 4,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 1
+  },
+  "prev2": {
+   "Artificial intelligence": 0,
+   "Tariffs and trade": 2,
+   "Cybersecurity": 10,
+   "China": 0,
+   "Climate": 5,
+   "Export controls": 0,
+   "Interest rates and credit": 1,
+   "Government shutdown and spending": 0
+  }
+ }
+}

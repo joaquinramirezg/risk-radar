@@ -1,0 +1,159 @@
+{
+ "n": 808,
+ "companies": 101,
+ "positives": 295,
+ "B0": {
+  "brier": 0.1825,
+  "brier_ci": [
+   0.1696,
+   0.1962
+  ],
+  "log_loss": 0.5473,
+  "log_loss_ci": [
+   0.5164,
+   0.5802
+  ]
+ },
+ "B1": {
+  "brier": 0.1782,
+  "brier_ci": [
+   0.1654,
+   0.1925
+  ],
+  "log_loss": 0.5358,
+  "log_loss_ci": [
+   0.5056,
+   0.5704
+  ],
+  "brier_minus_B0": -0.0043,
+  "brier_minus_B0_ci": [
+   -0.0103,
+   0.0014
+  ]
+ },
+ "model": {
+  "brier": 0.166,
+  "brier_ci": [
+   0.1513,
+   0.1807
+  ],
+  "log_loss": 0.5015,
+  "log_loss_ci": [
+   0.4629,
+   0.54
+  ],
+  "brier_minus_B0": -0.0165,
+  "brier_minus_B0_ci": [
+   -0.0283,
+   -0.0047
+  ],
+  "brier_minus_B1": -0.0122
+ },
+ "calibration": [
+  {
+   "from": 0,
+   "to": 0.1,
+   "n": 161,
+   "mean_p": 0.067,
+   "observed": 0.081
+  },
+  {
+   "from": 0.1,
+   "to": 0.25,
+   "n": 233,
+   "mean_p": 0.159,
+   "observed": 0.159
+  },
+  {
+   "from": 0.25,
+   "to": 0.5,
+   "n": 151,
+   "mean_p": 0.375,
+   "observed": 0.444
+  },
+  {
+   "from": 0.5,
+   "to": 0.75,
+   "n": 153,
+   "mean_p": 0.622,
+   "observed": 0.575
+  },
+  {
+   "from": 0.75,
+   "to": 1.0,
+   "n": 110,
+   "mean_p": 0.869,
+   "observed": 0.818
+  }
+ ],
+ "by_theme": {
+  "Artificial intelligence": {
+   "n": 101,
+   "added": 79,
+   "B0": 0.1778,
+   "B1": 0.1751,
+   "model": 0.1735
+  },
+  "Tariffs and trade": {
+   "n": 101,
+   "added": 61,
+   "B0": 0.2446,
+   "B1": 0.2471,
+   "model": 0.2222
+  },
+  "Cybersecurity": {
+   "n": 101,
+   "added": 55,
+   "B0": 0.2574,
+   "B1": 0.261,
+   "model": 0.2515
+  },
+  "China": {
+   "n": 101,
+   "added": 31,
+   "B0": 0.2155,
+   "B1": 0.202,
+   "model": 0.1548
+  },
+  "Climate": {
+   "n": 101,
+   "added": 16,
+   "B0": 0.139,
+   "B1": 0.1414,
+   "model": 0.1369
+  },
+  "Export controls": {
+   "n": 101,
+   "added": 20,
+   "B0": 0.1614,
+   "B1": 0.1323,
+   "model": 0.1376
+  },
+  "Interest rates and credit": {
+   "n": 101,
+   "added": 25,
+   "B0": 0.1901,
+   "B1": 0.1935,
+   "model": 0.1849
+  },
+  "Government shutdown and spending": {
+   "n": 101,
+   "added": 8,
+   "B0": 0.0743,
+   "B1": 0.0731,
+   "model": 0.0666
+  }
+ },
+ "weights": {
+  "rose": 0.0422,
+  "level": 0.8416,
+  "sector_share": 0.12,
+  "q_theme": 0.4707,
+  "q_updated": 0.1007,
+  "k_cyber": 0.0,
+  "k_deal": 0.0973,
+  "k_exec": 0.0603,
+  "k_other": 0.0389
+ },
+ "model_version": "v3.0"
+}

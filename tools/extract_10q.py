@@ -6,11 +6,12 @@
 Each 10-Q is tagged:
   updated         has risk-factor sentences that are not in the 10-K it follows
   no_change       says there are no material changes to the 10-K's risk factors
-  reference_only  points back to the 10-K and adds nothing (or the section is empty)
+  reference_only  points back to the 10-K and adds nothing
+  unreadable      no Part II, Item 1A heading the reader could find (left out of the signal)
 
-"Not in the 10-K" is an exact match after normalising case, spacing and quotes,
-so a company that reprints all its risk factors every quarter is only
-"updated" by the sentences it actually changed. The new sentences are kept, and
+A sentence is "not in the 10-K" when fewer than 80% of its three-word phrases
+appear in that 10-K's Item 1A, so a company that reprints all its risk factors
+every quarter is only "updated" by the sentences it actually changed. The new sentences are kept, and
 matched against the eight forecast themes with the same patterns as the 10-Ks.
 
 Writes data/q_risk.json and prints the count of companies with updated text.
@@ -99,12 +100,27 @@ def filing_text(doc: dict, which: str) -> str:
     return "\n".join(parts)
 
 
-def tag(q_text: str, k_sentences: set[str]) -> tuple[str, list[str]]:
-    new = [
-        s
-        for s in sentences(q_text)
-        if len(s) >= 40 and norm(s) not in k_sentences and not _BOILER.search(s)
-    ]
+def grams(s: str) -> set[tuple[str, ...]]:
+    w = re.findall(r"[a-z0-9]+", norm(s))
+    return {tuple(w[i : i + 3]) for i in range(max(0, len(w) - 2))}
+
+
+def k_index(text: str) -> set[tuple[str, ...]]:
+    """Every three-word phrase of a 10-K's Item 1A."""
+    return grams(text)
+
+
+def is_new(s: str, k: set[tuple[str, ...]]) -> bool:
+    """A 10-Q sentence is new unless 80% of its three-word phrases are already in the 10-K,
+    so a company that reprints its risk factors with small edits is not counted as updating them."""
+    g = grams(s)
+    return bool(g) and len(g & k) / len(g) < 0.8
+
+
+def tag(q_text: str, k: set[tuple[str, ...]]) -> tuple[str, list[str]]:
+    if not q_text.strip():
+        return "unreadable", []
+    new = [s for s in sentences(q_text) if len(s) >= 40 and not _BOILER.search(s) and is_new(s, k)]
     if sum(len(s) for s in new) >= UPDATED_CHARS:
         return "updated", new
     if _NO_CHANGE.search(q_text):
@@ -115,7 +131,7 @@ def tag(q_text: str, k_sentences: set[str]) -> tuple[str, list[str]]:
 def main() -> int:
     rows = list(csv.DictReader((RAW_10Q / "MANIFEST.tsv").open(), delimiter="\t"))
     out: dict[str, dict] = {}
-    k_cache: dict[tuple[str, str], set[str]] = {}
+    k_cache: dict[tuple[str, str], set[tuple[str, ...]]] = {}
     for c in index()["companies"]:
         t = c["ticker"]
         doc = company_doc(t)
@@ -124,7 +140,7 @@ def main() -> int:
             # The 10-Qs in the back window follow the previous 10-K; those in the next window, the latest.
             which = "previous" if window == "back" else "current"
             if (t, which) not in k_cache:
-                k_cache[(t, which)] = {norm(s) for s in sentences(filing_text(doc, which))}
+                k_cache[(t, which)] = k_index(filing_text(doc, which))
             filings, new_all = [], []
             for r in sorted(
                 (r for r in rows if r["ticker"] == t and r["window"] == window),

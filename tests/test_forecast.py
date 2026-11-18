@@ -9,7 +9,7 @@ from datetime import UTC, datetime
 
 import pytest
 
-from extract_10q import norm, sentences, tag
+from extract_10q import k_index, tag
 from forecast import Logistic, solve
 from forecast_baselines import b0_fit, b1_fit, brier, calibration, cross_val, log_loss
 from forecast_common import FORECAST_THEMES, SITE, labels, sector
@@ -162,13 +162,15 @@ def test_already_filed_company_is_not_forecast():
     assert build(counts, events, {}, None) == []
 
 
+def test_10q_reprint_with_small_edits_is_not_new():
+    k = k_index("We depend on a small number of suppliers in Asia for the components in our products.")
+    assert tag("", k)[0] == "unreadable"
+    reprint = "We depend on a small number of suppliers in Asia for the components in our new products. " * 12
+    assert tag(reprint, k)[0] != "updated"
+
+
 def test_10q_tags():
-    k = {
-        norm(s)
-        for s in sentences(
-            "Our supply chain depends on suppliers in many countries around the world."
-        )
-    }
+    k = k_index("Our supply chain depends on suppliers in many countries around the world.")
     assert (
         tag(
             "There have been no material changes to the risk factors in our Annual Report on Form 10-K.",
