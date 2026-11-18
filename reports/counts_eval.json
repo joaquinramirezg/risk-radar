@@ -55,21 +55,22 @@
     "after-2": {
       "pass": 10,
       "n": 10,
-      "usd": 0.0018,
+      "usd": 0.0019,
       "failed": []
     },
     "after-3": {
-      "pass": 9,
+      "pass": 8,
       "n": 10,
-      "usd": 0.0019,
+      "usd": 0.002,
       "failed": [
-        "c07"
+        "c07",
+        "c10"
       ]
     },
     "after": {
       "pass": 10,
       "n": 10,
-      "usd": 0.002,
+      "usd": 0.0019,
       "failed": []
     },
     "before-2": {

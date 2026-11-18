@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import handler from "../ask.js";
 
 const SITE = fileURLToPath(new URL("../../site/", import.meta.url));
-const TYPES = { ".html": "text/html", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".txt": "text/plain" };
+const TYPES = { ".html": "text/html", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".txt": "text/plain", ".css": "text/css", ".woff2": "font/woff2", ".webp": "image/webp" };
 
 createServer((req, res) => {
   const url = new URL(req.url, "http://x");

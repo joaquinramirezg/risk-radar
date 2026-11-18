@@ -178,11 +178,11 @@ async function runTool(name, input, book, trace) {
       const ex = fd.examples.slice(0, 3).map((e) => {
         const t = book.add({
           id: `faded.${fd.theme}.${e.ticker}`, kind: "previous", ticker: null, company: e.company, risk: null,
-          title: `${e.company} (${e.ticker}), last year's wording, gone this year`, status: "removed", text: e.sentence,
+          title: `${e.company} (${e.ticker}), wording dropped this year`, status: "removed", text: e.sentence,
         });
         return `[${t}] ${e.ticker} (${e.company}), last year: ${e.sentence}`;
       });
-      return `[${tag}] ${fd.had} of 102 companies used ${fd.theme} language in last year's risk factors; ${fd.gone} dropped it entirely this year; ${fd.down} used it less; ${fd.up} used it more.\nDropped it entirely: ${fd.tickers_gone.join(", ")}\nExamples of last year's wording that is gone:\n${ex.join("\n")}`;
+      return `[${tag}] ${fd.had} of 102 companies used ${fd.theme} language in last year's risk factors; ${fd.gone} dropped it entirely this year; ${fd.down} used it less; ${fd.up} used it more.\nDropped it entirely: ${fd.tickers_gone.map((t) => `${companies[t]?.name || t} (${t})`).join(", ")}\nExamples of last year's wording that is gone:\n${ex.join("\n")}`;
     }
     const th = themes().find((x) => x.theme.toLowerCase().includes(want) || want.includes(x.theme.toLowerCase().split(" ")[0]));
     if (!th) return `Unknown theme. Themes: ${themes().map((x) => x.theme).join(", ")}.`;

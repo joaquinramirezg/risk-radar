@@ -7,8 +7,8 @@ function render(body, q, earlier) {
   const ans = esc(body.answer).replace(/\[(\d+)\]/g, (m, n) => `<sup><a href="#src${n}" class="cite">${n}</a></sup>`);
   const src = body.sources.map(s => {
     const link = s.ticker ? `<a href="browse.html#${encodeURIComponent(s.ticker)}/${encodeURIComponent(s.risk.split(".")[1])}">${esc(s.ticker)}</a>` : "";
-    const year = s.kind === "previous" ? "last year's filing" : "this year's filing";
-    return `<li id="src${s.n}"><span class="src__n">${s.n}</span><div><p class="src__who">${link} · ${year} · ${esc(s.title)}</p><blockquote>${esc(s.text)}</blockquote></div></li>`;
+    const year = s.kind === "theme" ? "count across the 102 companies" : s.kind === "previous" ? "last year's filing" : "this year's filing";
+    return `<li id="src${s.n}"><span class="src__n">${s.n}</span><div><p class="src__who">${[link, year, esc(s.title)].filter(Boolean).join(" · ")}</p><blockquote>${esc(s.text)}</blockquote></div></li>`;
   }).join("");
   const u = body.usage || {};
   out.innerHTML = `<p class="ask-q">${earlier ? "An earlier question: " : ""}${esc(q)}</p>

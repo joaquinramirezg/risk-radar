@@ -2,29 +2,29 @@
  "made": "2026-11-18",
  "answers": {
   "Which companies worry about tariffs on imports from China?": {
-   "answer": "Several companies in the search results say they worry about tariffs involving China. Apple cites new tariffs on imports from mainland China [1]. Boeing says China is a major market and that tariff negotiations led Chinese customers to pause deliveries [2][3]. Eli Lilly points to 2025 U.S. tariffs on Chinese goods and Chinese retaliation [4]. Amgen flags possible Section 301 tariffs on Chinese imports [5]. Tesla, Intuitive Surgical, and Honeywell also cite tariffs tied to China or U.S.-China trade tensions [6][7][8]. Across all 102 companies, 61 added or expanded tariff and trade language this year, and 5 cut it [9].",
+   "answer": "Several companies that the search surfaced name China specifically in their tariff risks. Intuitive Surgical says tariffs and U.S.-China tensions could raise its costs and reduce demand [1][2]. Boeing notes that Chinese customers paused deliveries in 2025 amid tariff talks [3]. Apple cites new tariffs on imports from mainland China [4], and Amgen warns that Section 301 tariffs on Chinese goods could hit pharmaceutical inputs [5]. Eli Lilly says it depends on China-based suppliers and that new U.S. tariffs on Chinese goods were imposed in 2025 [6][7]. Tesla and Deere raise tariff concerns more broadly, with Tesla noting uncertainty over China trade agreements [8]. Across the 102 companies, 61 added or expanded tariff and trade language this year, and 5 cut it [9]. The filings excerpts do not give a complete list of every company that mentions China tariffs, so this is a sample rather than an exhaustive count.",
    "sources": [
     {
      "n": 1,
-     "id": "AAPL.1cb21c3a771c.8",
+     "id": "ISRG.c06c468b1c21.17",
      "kind": "current",
-     "ticker": "AAPL",
-     "company": "Apple",
-     "risk": "AAPL.1cb21c3a771c",
-     "title": "The Company’s business can be impacted by political events, trade and other international disputes, geopolitical tensions, conflict, terrorism, natural disasters, public health issues, industrial accidents and other business interruptions.",
-     "status": "edited",
-     "text": "Beginning in the second quarter of 2025, new tariffs were announced on imports to the U.S., including additional tariffs on imports from China mainland, India, Japan, South Korea, Taiwan, Vietnam and the European Union (“EU”), among others."
+     "ticker": "ISRG",
+     "company": "Intuitive Surgical",
+     "risk": "ISRG.c06c468b1c21",
+     "title": "WE ARE SUBJECT TO A VARIETY OF RISKS DUE TO OUR OPERATIONS OUTSIDE OF THE U.S.",
+     "status": "rewritten",
+     "text": "There is inherent risk, based on the complex and changing dynamic between China and the U.S., that political, diplomatic, military, or other events could result in business disruptions, including, but not limited to, increased policy or regulatory enforcement against companies, tariffs, trade embargoes, or export restrictions."
     },
     {
      "n": 2,
-     "id": "BA.48a17414afe3.22",
+     "id": "ISRG.c06c468b1c21.18",
      "kind": "current",
-     "ticker": "BA",
-     "company": "Boeing",
-     "risk": "BA.48a17414afe3",
-     "title": "We derive a significant portion of our revenues from non-U.S. sales and are subject to the risks of doing business in other countries, including those related to tariffs, trade restrictions and government actions.",
-     "status": "edited",
-     "text": "China is a significant market for commercial aircraft and we have long-standing relationships with our Chinese customers."
+     "ticker": "ISRG",
+     "company": "Intuitive Surgical",
+     "risk": "ISRG.c06c468b1c21",
+     "title": "WE ARE SUBJECT TO A VARIETY OF RISKS DUE TO OUR OPERATIONS OUTSIDE OF THE U.S.",
+     "status": "rewritten",
+     "text": "Tariffs increase the cost of our products and the components and raw materials that go into making them."
     },
     {
      "n": 3,
@@ -39,14 +39,14 @@
     },
     {
      "n": 4,
-     "id": "LLY.d3c82f15b941.8",
+     "id": "AAPL.1cb21c3a771c.8",
      "kind": "current",
-     "ticker": "LLY",
-     "company": "Eli Lilly",
-     "risk": "LLY.d3c82f15b941",
-     "title": "Reliance on third-party relationships and outsourcing arrangements could adversely affect our business.",
+     "ticker": "AAPL",
+     "company": "Apple",
+     "risk": "AAPL.1cb21c3a771c",
+     "title": "The Company’s business can be impacted by political events, trade and other international disputes, geopolitical tensions, conflict, terrorism, natural disasters, public health issues, industrial accidents and other business interruptions.",
      "status": "edited",
-     "text": "In 2025, the U.S. government imposed new tariffs on Chinese goods and China responded with tariffs on select U.S. goods."
+     "text": "Beginning in the second quarter of 2025, new tariffs were announced on imports to the U.S., including additional tariffs on imports from China mainland, India, Japan, South Korea, Taiwan, Vietnam and the European Union (“EU”), among others."
     },
     {
      "n": 5,
@@ -61,36 +61,36 @@
     },
     {
      "n": 6,
-     "id": "TSLA.3c74cd065bce.4",
+     "id": "LLY.d3c82f15b941.5",
+     "kind": "current",
+     "ticker": "LLY",
+     "company": "Eli Lilly",
+     "risk": "LLY.d3c82f15b941",
+     "title": "Reliance on third-party relationships and outsourcing arrangements could adversely affect our business.",
+     "status": "edited",
+     "text": "Among other third-party providers, we, and the pharmaceutical industry generally, depend on China-based suppliers for portions of our supply chain."
+    },
+    {
+     "n": 7,
+     "id": "LLY.d3c82f15b941.8",
+     "kind": "current",
+     "ticker": "LLY",
+     "company": "Eli Lilly",
+     "risk": "LLY.d3c82f15b941",
+     "title": "Reliance on third-party relationships and outsourcing arrangements could adversely affect our business.",
+     "status": "edited",
+     "text": "In 2025, the U.S. government imposed new tariffs on Chinese goods and China responded with tariffs on select U.S. goods."
+    },
+    {
+     "n": 8,
+     "id": "TSLA.3c74cd065bce.7",
      "kind": "current",
      "ticker": "TSLA",
      "company": "Tesla",
      "risk": "TSLA.3c74cd065bce",
      "title": "We face risks associated with maintaining and expanding our international operations, including unfavorable and uncertain regulatory, political, economic, tax and labor conditions.",
      "status": "rewritten",
-     "text": "Further, the United States has recently announced changes to U.S. trade policy, including increasing tariffs on imports, in many cases significantly, and potentially renegotiating or terminating existing trade agreements."
-    },
-    {
-     "n": 7,
-     "id": "ISRG.c06c468b1c21.17",
-     "kind": "current",
-     "ticker": "ISRG",
-     "company": "Intuitive Surgical",
-     "risk": "ISRG.c06c468b1c21",
-     "title": "WE ARE SUBJECT TO A VARIETY OF RISKS DUE TO OUR OPERATIONS OUTSIDE OF THE U.S.",
-     "status": "rewritten",
-     "text": "There is inherent risk, based on the complex and changing dynamic between China and the U.S., that political, diplomatic, military, or other events could result in business disruptions, including, but not limited to, increased policy or regulatory enforcement against companies, tariffs, trade embargoes, or export restrictions."
-    },
-    {
-     "n": 8,
-     "id": "HON.476dd5919618.6",
-     "kind": "current",
-     "ticker": "HON",
-     "company": "Honeywell",
-     "risk": "HON.476dd5919618",
-     "title": "A significant percentage of our sales and operations is in non-U.S. jurisdictions and is subject to the economic, political, regulatory, foreign exchange, and other risks of international operations.",
-     "status": "edited",
-     "text": "The U.S. continues to implement certain trade actions, including imposing tariffs on certain goods imported from China and other countries, which has resulted in retaliatory tariffs by China and other countries."
+     "text": "We cannot predict whether, and to what extent, there may be changes to international trade agreements, such as those with China, or whether, or to what extent, quotas, duties, additional tariffs, export controls or other restrictions will be changed or imposed by the United States or by other countries."
     },
     {
      "n": 9,
@@ -107,12 +107,12 @@
    "abstained": false,
    "model": "claude-haiku-5-5",
    "usage": {
-    "usd": 0.00072236,
-    "ms": 3214
+    "usd": 0.00077216,
+    "ms": 3586
    }
   },
   "How does JPMorgan describe the risk of a cyberattack?": {
-   "answer": "JPMorgan treats cyberattacks as a major operational risk in several parts of its risk factors. Its main cyber risk factor, \"A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers,\" warns that it could become \"increasingly vulnerable to cyber attacks\" if it does not address emerging threats and software vulnerabilities, including \"zero-day vulnerabilities\" [1][2]. It also lists concerns such as distributed denial-of-service attacks, ransomware, and insider threats [3][4]. A separate risk says its exposure grows through its links to clients, vendors and other outside parties, since \"interconnectivity... continues to expand, which increases the risk of failure or cyber attacks\" [5][6]. The company says it has experienced operational failures and expects more, which have included customers being unable to access accounts and the exfiltration of customer personal data [7][8].",
+   "answer": "JPMorgan treats cyberattacks as a major operational risk, and its main cyber risk factor is titled \"A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.\" The filing says it could become \"increasingly vulnerable to cyber attacks\" if it does not promptly fix known weaknesses, such as zero-day vulnerabilities and weak access controls [1][2]. It also flags risks from outside parties: failures or attacks on third-party systems, retailers, payment processors and cloud services could disrupt its operations [3][4]. The filing describes this risk as rewritten this year, and it cites defenses such as protection against distributed denial-of-service attacks and ransomware [5].",
    "sources": [
     {
      "n": 1,
@@ -138,39 +138,17 @@
     },
     {
      "n": 3,
-     "id": "JPM.3d0b7b40bc27.34",
-     "kind": "current",
-     "ticker": "JPM",
-     "company": "JPMorgan Chase",
-     "risk": "JPM.3d0b7b40bc27",
-     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
-     "status": "rewritten",
-     "text": "•upgrading systems and controls to protect JPMorganChase and its clients and customers from the impact of distributed denial-of-service attacks, or to recover from outages that could be caused by a malware or ransomware attack"
-    },
-    {
-     "n": 4,
-     "id": "JPM.3d0b7b40bc27.37",
-     "kind": "current",
-     "ticker": "JPM",
-     "company": "JPMorgan Chase",
-     "risk": "JPM.3d0b7b40bc27",
-     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
-     "status": "rewritten",
-     "text": "•identifying, assessing and mitigating insider threat activities that could lead to the misuse of JPMorganChase’s systems or client and customer information, and"
-    },
-    {
-     "n": 5,
-     "id": "JPM.de89b92e68c4.3",
+     "id": "JPM.de89b92e68c4.0",
      "kind": "current",
      "ticker": "JPM",
      "company": "JPMorgan Chase",
      "risk": "JPM.de89b92e68c4",
      "title": "JPMorganChase’s interconnectedness with clients, customers and other external parties could be a source of significant operational risk.",
      "status": "split",
-     "text": "JPMorganChase’s interconnectivity with clients, customers and other external parties continues to expand, which increases the risk of failure or cyber attacks with respect to the systems of those parties."
+     "text": "JPMorganChase could be exposed to operational risk if it is unable to access and use external operational systems, including during failures or cyber attacks related to those systems or other third-party systems."
     },
     {
-     "n": 6,
+     "n": 4,
      "id": "JPM.de89b92e68c4.4",
      "kind": "current",
      "ticker": "JPM",
@@ -181,62 +159,29 @@
      "text": "Any systems failure, security breach, or human error or misconduct that affects clients, customers or external parties could require JPMorganChase to take steps to protect the integrity of its own operational systems or to safeguard confidential information, including restricting the access of its customers to their accounts."
     },
     {
-     "n": 7,
-     "id": "JPM.2bf6402de866.10",
+     "n": 5,
+     "id": "JPM.3d0b7b40bc27.34",
      "kind": "current",
      "ticker": "JPM",
      "company": "JPMorgan Chase",
-     "risk": "JPM.2bf6402de866",
-     "title": "JPMorganChase’s businesses could be adversely affected by the failure or disruption of operational systems on which they depend.",
+     "risk": "JPM.3d0b7b40bc27",
+     "title": "A successful cyber attack could cause significant harm to JPMorganChase and its clients and customers.",
      "status": "rewritten",
-     "text": "JPMorganChase has experienced and expects that it will continue to experience failures and disruptions in the stability of its operational systems, including:"
-    },
-    {
-     "n": 8,
-     "id": "JPM.2bf6402de866.19",
-     "kind": "current",
-     "ticker": "JPM",
-     "company": "JPMorgan Chase",
-     "risk": "JPM.2bf6402de866",
-     "title": "JPMorganChase’s businesses could be adversely affected by the failure or disruption of operational systems on which they depend.",
-     "status": "rewritten",
-     "text": "•the exfiltration of customer personal data"
+     "text": "•upgrading systems and controls to protect JPMorganChase and its clients and customers from the impact of distributed denial-of-service attacks, or to recover from outages that could be caused by a malware or ransomware attack"
     }
    ],
    "abstained": false,
    "model": "claude-haiku-5-5",
    "usage": {
-    "usd": 0.00051536,
-    "ms": 2671
+    "usd": 0.00048436000000000003,
+    "ms": 2255
    }
   },
   "Which companies stopped mentioning ESG?": {
-   "answer": "Twenty-six of the 102 companies dropped ESG language from their risk factors entirely this year. They are ADBE, AMGN, AMT, AVGO, AXP, BKNG, CMCSA, CRM, GE, GILD, GS, INTC, INTU, JPM, MDLZ, MET, NOW, PG, QCOM, RTX, TMO, TSLA, TXN, USB, WFC and WMT. Examples of wording that disappeared include Adobe's note that ESG laws \"are expanding globally\" [1] and American Tower's caution about meeting its ESG goals [2]. Another 34 companies still mention ESG but used it less this year [3].",
+   "answer": "26 of the 102 companies dropped ESG language from their risk factors entirely this year, out of 53 that used it last year [1]. They are Adobe, Amgen, American Tower, Broadcom, American Express, Booking Holdings, Comcast, Salesforce, GE Aerospace, Gilead Sciences, Goldman Sachs, Intel, Intuit, JPMorgan Chase, Mondelez International, MetLife, ServiceNow, Procter & Gamble, Qualcomm, RTX, Thermo Fisher Scientific, Tesla, Texas Instruments, U.S. Bancorp, Wells Fargo, and Walmart [1]. A further 34 companies still mention ESG but use it less often [1]. One example of removed wording is Adobe's line that \"Laws, regulations and policies relating to environmental, social, and governance are expanding globally\" [2].",
    "sources": [
     {
      "n": 1,
-     "id": "faded.ESG.ADBE",
-     "kind": "previous",
-     "ticker": null,
-     "company": "Adobe",
-     "risk": null,
-     "title": "Adobe (ADBE), last year's wording, gone this year",
-     "status": "removed",
-     "text": "Laws, regulations and policies relating to environmental, social, and governance are expanding globally."
-    },
-    {
-     "n": 2,
-     "id": "faded.ESG.AMT",
-     "kind": "previous",
-     "ticker": null,
-     "company": "American Tower",
-     "risk": null,
-     "title": "American Tower (AMT), last year's wording, gone this year",
-     "status": "removed",
-     "text": "We cannot guarantee that we will achieve our announced environmental, social and governance goals and initiatives."
-    },
-    {
-     "n": 3,
      "id": "faded.ESG",
      "kind": "theme",
      "ticker": null,
@@ -245,13 +190,24 @@
      "title": "ESG",
      "status": null,
      "text": "53 of 102 companies used ESG language in last year's risk factors; 26 dropped it entirely this year, and 34 used it less. 1 used it more."
+    },
+    {
+     "n": 2,
+     "id": "faded.ESG.ADBE",
+     "kind": "previous",
+     "ticker": null,
+     "company": "Adobe",
+     "risk": null,
+     "title": "Adobe (ADBE), wording dropped this year",
+     "status": "removed",
+     "text": "Laws, regulations and policies relating to environmental, social, and governance are expanding globally."
     }
    ],
    "abstained": false,
    "model": "claude-haiku-5-5",
    "usage": {
-    "usd": 0.00022526,
-    "ms": 1969
+    "usd": 0.00032606,
+    "ms": 2655
    }
   }
  }
