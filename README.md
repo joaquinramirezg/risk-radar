@@ -115,8 +115,10 @@ resampling companies.
 Model minus B0: -0.017 (-0.028 to -0.005). The strongest signal is how much
 the last 10-K already says about a theme, then new 10-Q risk text on it.
 30 of 102 companies wrote new risk text in a 10-Q since their latest 10-K;
-the 10-Q section could not be read for 12 (mostly banks and drug makers),
-and Disney's next 10-K was out before the forecast, so it is not forecast.
+the rest said there were no material changes or pointed back to the 10-K
+(12, mostly banks and drug makers, have no 10-Q risk section at all), and 8
+have filed no 10-Q yet. Disney's next 10-K was out before the forecast, so it
+is not forecast.
 The base rates assume next year's filings add each theme about as often as
 this year's did; a year with far less AI or tariff news would break that.
 
@@ -131,4 +133,5 @@ grading, $0.13, and the stored example answers, under $0.01).
     node api/_tools/eval.mjs report            # writes site/data/eval.json
     node api/_tools/dev.mjs                    # local site on :8787
 
-Decisions and their reasons: `DECISIONS.md`.
+Decisions and their reasons: `DECISIONS.md`. Every version, what it answered
+and what it measured: `docs/VERSIONS.md`.

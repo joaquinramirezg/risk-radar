@@ -7,7 +7,10 @@ Each 10-Q is tagged:
   updated         has risk-factor sentences that are not in the 10-K it follows
   no_change       says there are no material changes to the 10-K's risk factors
   reference_only  points back to the 10-K and adds nothing
-  unreadable      no Part II, Item 1A heading the reader could find (left out of the signal)
+  unreadable      no risk factor section and no pointer to the 10-K's (left out of the signal)
+
+A 10-Q with no Part II, Item 1A heading that still points to the 10-K's risk
+factors (common at banks and drug makers) is reference_only.
 
 A sentence is "not in the 10-K" when fewer than 80% of its three-word phrases
 appear in that 10-K's Item 1A, so a company that reprints all its risk factors
@@ -146,8 +149,13 @@ def main() -> int:
                 (r for r in rows if r["ticker"] == t and r["window"] == window),
                 key=lambda r: r["filing_date"],
             ):
-                body = section((RAW_10Q / r["file"]).read_text(errors="replace"))
+                raw = (RAW_10Q / r["file"]).read_text(errors="replace")
+                body = section(raw)
                 verdict, new = tag(body, k_cache[(t, which)])
+                # No Part II risk factor section, but the filing points to the 10-K's: many banks
+                # and drug makers do this instead of a one-line Item 1A. Nothing new either way.
+                if verdict == "unreadable" and re.search(r"risk\s+factors", raw, re.I):
+                    verdict = "reference_only"
                 seen = {norm(s) for s in new_all}
                 new_all += [s for s in new if norm(s) not in seen]
                 filings.append(
