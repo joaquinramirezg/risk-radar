@@ -200,9 +200,14 @@ del.rl { color: var(--del); background: var(--del-bg); text-decoration: line-thr
 @media (max-width: 1023px) { .board__themes--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); } .board__themes--8 button, .board__themes--8 button:last-child { grid-column: auto; } }
 @media (max-width: 639px) { .fc-card .ladder__row, .fc-bt { grid-template-columns: 96px minmax(0, 1fr) 40px; font-size: 14px; gap: 8px; } .fc-card { padding: 16px; gap: 10px; } .fc-hero .hero__card { padding: var(--s-3); } }
 @media (max-width: 1023px) { .fc-hero .hero__media { flex: none; } }
-@media (max-width: 639px) { #method { min-height: 100svh; } }
 @media (max-width: 639px) { .fc-card__why { display: none; } }
 .fc-bt i { background: linear-gradient(90deg, var(--ins) var(--v), #ece9e1 var(--v)); }
-.fc-pick { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
-.fc-pick > div { grid-column: 1 / span 5; } .fc-pick > .fc-why { grid-column: 6 / span 7; }
-@media (max-width: 639px) { .fc-pick { grid-template-columns: 1fr; } .fc-pick > div, .fc-pick > .fc-why { grid-column: 1; } .fc-card .ladder__k { display: none; } .fc-card { gap: 6px; } .fc-card .ladder__row { font-size: 13px; } .fc-status { margin-bottom: var(--s-2); } }
+.fc-pick { display: block; }
+.fc-pick .fc-why { max-width: 66ch; }
+@media (max-width: 639px) { .fc-pick { grid-template-columns: 1fr; } .fc-card { gap: 6px; } .fc-card .ladder__row { font-size: 13px; } .fc-status { margin-bottom: var(--s-2); } }
+/* the hero h1 has room for a longer headline: one size step down on this page, and tighter rows on a phone */
+.fc-hero h1 { font-size: clamp(36px, 4.2vw, 60px); text-wrap: balance; }
+@media (max-width: 639px) { .fc-hero h1 { font-size: 34px; } .fc-card { padding: 12px; gap: 4px; } }
+@media (max-width: 639px) { #method .fc-row { margin-top: auto; } }
+@media (max-width: 1023px) { .fc-hero .hero__media { align-self: stretch; width: 100%; } .fc-hero .fc-card { width: 100%; box-sizing: border-box; } }
+@media (max-width: 639px) { #board .board { flex: 1 1 auto; display: flex; flex-direction: column; } #board .fc-pick { margin-top: auto; } }
