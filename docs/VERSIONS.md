@@ -67,7 +67,8 @@ minus B0 -0.017 (-0.028 to -0.005). API spend $0.14.
 **Limits.** The edge over the base rate is modest. Base rates assume next year
 adds each theme about as often as this year. The 10-Q section could not be
 read for 12 companies. The real score exists only after the Feb to Mar 2027
-filings. Status: draft, to be frozen by Jan 31 2027.
+filings. Frozen 2026-11-17 in commit 950eaa9 (`Forecast frozen 2026-11-17`),
+before any of the forecast 10-Ks was filed; CI fails if the file changes.
 
 ## v4: in progress
 

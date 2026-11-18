@@ -98,7 +98,7 @@ write, not of what will happen to them.
     PYTHONPATH=src:tools python3 tools/extract_10q.py         # 10-Q Item 1A: updated / no_change / reference_only
     PYTHONPATH=src:tools python3 tools/forecast_features.py   # signals per company and theme
     PYTHONPATH=src:tools python3 tools/forecast.py            # backtest vs baselines, draft forecast
-    PYTHONPATH=src:tools python3 tools/forecast.py --freeze   # then commit forecast.json on its own
+    PYTHONPATH=src:tools python3 tools/forecast.py --freeze   # done: frozen 2026-11-17, commit 950eaa9
     PYTHONPATH=src:tools python3 tools/score_forecast.py      # once 10-Ks land (data/outcomes.json)
 
 Baselines: B0, each theme's share of companies that added it last year; B1,
